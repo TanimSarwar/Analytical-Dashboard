@@ -1,0 +1,1893 @@
+﻿@*<script src="~/assets/js/jquery-3.4.1.min.js"></script>*@
+
+<link href="~/assets/Dark.css" rel="stylesheet" id="darkCSS" />
+<script src="~/assets/Dark.js" id="darkJS"></script>
+
+
+@*
+
+	<script src="~/assets/js/datepicker.min.js"></script>
+	<link href="~/assets/css/datepicker.min.css" rel="stylesheet" />
+	<script src="~/assets/js/Apex/apexCharts.js"></script>
+
+	<script src="~/assets/js/Amchart/core.js"></script>
+	<script src="~/assets/js/Amchart/charts.js"></script>
+	<script src="~/assets/js/Amchart/dark.js"></script>
+	<script src="~/assets/js/Amchart/animated.js"></script>
+	<script src="~/assets/js/Amchart/material.js"></script>
+	<script src="~/assets/js/Amchart/kelly.js"></script>
+	<script src="~/assets/js/Amchart/dataviz.js"></script>
+	<script src="~/assets/js/Amchart/frozen.js"></script>
+	<script src="~/assets/js/Amchart/maps.js"></script>
+
+	<script src="~/assets/Map/bangladeshHigh.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />*@
+
+
+
+
+
+<link rel="stylesheet" href="../../Content/bangladesh_map/bd_map.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../../Content/bangladesh_map/bd_svg.js"></script>
+
+
+@*<script src="../../Content/bangladesh_map/bd_map.js"></script>*@
+@*<style>
+
+		.cards:hover {
+			box-shadow: 0px 0px 150px #000000;
+			z-index: 2;
+			-webkit-transition: all 200ms ease-in;
+			-webkit-transform: scale(1.1);
+			-ms-transition: all 200ms ease-in;
+			-ms-transform: scale(1.1);
+			-moz-transition: all 200ms ease-in;
+			-moz-transform: scale(1.1);
+			transition: all 200ms ease-in;
+			transform: scale(1.1);
+		}
+
+
+
+		#chartdiv, #chartdiv1, #chartdiv2, #chartdiv4, #chartdiv6, #chartdiv7, #chartdiv8, #chartdiv10, #chartdiv11, #chartdiv12 {
+			width: 100%;
+			height: 400px;
+		}
+
+		::-webkit-scrollbar {
+			display: none;
+		}
+
+		.btn.btn-success {
+			color: navy !important;
+			font-weight: bold;
+		}
+
+		.card-label {
+			font-weight: bolder !important;
+			color: navy !important;
+		}
+
+		.customHead {
+			color: navy !important;
+		}
+
+		.customFont {
+			font-size: 3.25rem !important;
+		}
+
+		.blackbg {
+			background-color: #1a1a1a !important;
+		}
+
+		/*.container {
+				max-width: 100% !important;
+				padding-right: 40px !important;
+				padding-left: 40px !important;
+			}*/
+
+		.mt-5, .my-5 {
+			margin-top: 0rem !important;
+		}
+
+		.mt-5, .my-5 {
+			margin-bottom: 0rem !important;
+		}
+
+		.amcharts-amexport-item {
+			border-radius: 6px !important;
+			background-color: white !important;
+			color: black !important;
+		}
+
+
+
+		.card.card-custom .card-body {
+			padding-top: 10px !important;
+			padding-bottom: 10px !important;
+		}
+
+		.card-label {
+			font-weight: bolder !important;
+			color: navy !important;
+		}
+
+		.container {
+			max-width: 100% !important;
+		}
+
+		.mt-5, .my-5 {
+			margin-top: 0rem !important;
+		}
+
+		.mt-5, .my-5 {
+			margin-bottom: 0rem !important;
+		}
+
+		.amcharts-amexport-item {
+			border-radius: 6px !important;
+			background-color: white !important;
+			color: black !important;
+		}
+
+
+		:root {
+			--switches-bg-color: #8950FC;
+			--switches-label-color: white;
+			--switch-bg-color: white;
+			--switch-text-color: white;
+			--animate-duration: 7s; /*wow js delay*/
+			--animate-delay: 2s; /*wow js delay*/
+		}
+
+		/* a container - decorative, not required */
+
+		/* p - decorative, not required */
+		p {
+			margin-top: 2rem;
+			font-size: 0.75rem;
+			text-align: center;
+		}
+
+
+
+		/* Toggle Switch CSS Starts */
+
+		/* container for all of the switch elements
+				- adjust "width" to fit the content accordingly
+			*/
+		.switches-container {
+			width: 10rem;
+			position: relative;
+			display: flex;
+			padding: 0;
+			position: relative;
+			background: var(--switches-bg-color);
+			line-height: 3rem;
+			border-radius: 3rem;
+			margin-left: auto;
+			margin-right: auto;
+			border: 2px solid silver !important;
+		}
+
+
+
+			/* input (radio) for toggling. hidden - use labels for clicking on */
+			.switches-container input {
+				visibility: hidden;
+				position: absolute;
+				top: 0;
+			}
+
+			/* labels for the input (radio) boxes - something to click on */
+			.switches-container label {
+				width: 50%;
+				padding: 0;
+				margin: 0;
+				text-align: center;
+				cursor: pointer;
+				color: var(--switches-label-color);
+			}
+
+		/* switch highlighters wrapper (sliding left / right)
+				- need wrapper to enable the even margins around the highlight box
+			*/
+		.switch-wrapper {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 50%;
+			padding: 0.15rem;
+			z-index: 3;
+			transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+			/* transition: transform 1s; */
+		}
+
+		/* switch box highlighter */
+		.switch {
+			border-radius: 3rem;
+			background: var(--switch-bg-color);
+			height: 100%;
+			border: 1px solid navy !important;
+		}
+
+			/* switch box labels
+				- default setup
+				- toggle afterwards based on radio:checked status
+			*/
+			.switch div {
+				width: 100%;
+				text-align: center;
+				opacity: 0;
+				display: block;
+				color: var(--switch-text-color);
+				transition: opacity .2s cubic-bezier(.77, 0, .175, 1) .125s;
+				will-change: opacity;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+		/* slide the switch box from right to left */
+		.switches-container input:nth-of-type(1):checked ~ .switch-wrapper {
+			transform: translateX(0%);
+		}
+
+		/* slide the switch box from left to right */
+		.switches-container input:nth-of-type(2):checked ~ .switch-wrapper {
+			transform: translateX(100%);
+		}
+
+		/* toggle the switch box labels - first checkbox:checked - show first switch div */
+		.switches-container input:nth-of-type(1):checked ~ .switch-wrapper .switch div:nth-of-type(1) {
+			opacity: 1;
+		}
+
+		/* toggle the switch box labels - second checkbox:checked - show second switch div */
+		.switches-container input:nth-of-type(2):checked ~ .switch-wrapper .switch div:nth-of-type(2) {
+			opacity: 1;
+		}
+
+
+		/* Toggle Switch CSS Ends */
+
+		.logo {
+			width: 50px;
+			height: auto;
+			border-radius: 30%;
+			margin-left: 15px;
+			margin-right: 15px;
+			cursor: pointer;
+		}
+
+		.center {
+			position: relative;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>*@
+<style>
+	#map_title
+	{
+		color: white !important;
+	}
+
+	body {
+		font-family: Arial;
+		padding: 25px;
+		background-color: #f5f5f5;
+		color: #808080;
+		text-align: center;
+	}
+
+	/*-=-=-=-=-=-=-=-=-=-=-=- */
+	/* Column Grids */
+	/*-=-=-=-=-=-=-=-=-=-=-=- */
+
+	.col_half {
+		width: 49%;
+	}
+
+	.col_third {
+		width: 32%;
+	}
+
+	.col_fourth {
+		width: 23.5%;
+	}
+
+	.col_fifth {
+		width: 18.4%;
+	}
+
+	.col_sixth {
+		width: 15%;
+	}
+
+	.col_three_fourth {
+		width: 74.5%;
+	}
+
+	.col_twothird {
+		width: 66%;
+	}
+
+	.col_half,
+	.col_third,
+	.col_twothird,
+	.col_fourth,
+	.col_three_fourth,
+	.col_fifth {
+		position: relative;
+		display: inline;
+		display: inline-block;
+		float: left;
+		margin-right: 2%;
+		margin-bottom: 20px;
+	}
+
+	.end {
+		margin-right: 0 !important;
+	}
+	/* Column Grids End */
+
+	.wrapper {
+		width: 980px;
+		margin: 30px auto;
+		position: relative;
+	}
+
+	.counter {
+		/*background-color: #ffffff;*/
+		padding: 20px 0;
+		border-radius: 5px;
+	}
+
+	.count-title {
+		font-size: 40px;
+		font-weight: normal;
+		margin-top: 10px;
+		margin-bottom: 0;
+		text-align: center;
+	}
+
+	.count-text {
+		font-size: 13px;
+		font-weight: normal;
+		margin-top: 10px;
+		margin-bottom: 0;
+		text-align: center;
+	}
+
+	.fa-2x {
+		margin: 0 auto;
+		float: none;
+		display: table;
+		color: #4ad1e5;
+	}
+
+</style>
+
+<body id="kt_body">
+
+
+
+
+	<div class="container">
+
+		
+
+		<div class="row">
+
+			<div class="col-md-8">
+				<div class="map" id="changeSvgMap" style="height: 100% !important;">
+				</div>
+			</div>
+			<div class="col-md-4" style="justify-content:center">
+				<div class="row">
+
+
+					<div class="counter col_third">
+
+						<img src="~/assets/IMG/shop.png" style="height:35px; width:35px;" />
+						<h2 class="timer count-title count-number" data-to="300" data-speed="1500"></h2>
+						<p class="count-text ">Retail Outlets</p>
+					</div>
+				</div>
+				<div class="row">
+
+					<div class="counter col_third">
+						<img src="~/assets/IMG/shops.png" style="height:35px; width:35px;" />
+
+						<h2 class="timer count-title count-number" data-to="1700" data-speed="1500"></h2>
+						<p class="count-text ">Franchaise Outlets</p>
+					</div>
+				</div>
+
+				<div class="row">
+
+
+					<div class="counter col_third end">
+						<img src="~/assets/IMG/store.png" style="height:35px; width:35px;" />
+
+						<h2 class="timer count-title count-number" data-to="157" data-speed="1500"></h2>
+						<p class="count-text ">Wholsesale Outlets</p>
+					</div>
+
+				</div>
+
+
+
+
+			</div>
+		</div>
+
+	</div>
+</body>
+
+
+
+
+<script>
+
+	(function ($) {
+		$.fn.countTo = function (options) {
+			options = options || {};
+
+			return $(this).each(function () {
+				// set options for current element
+				var settings = $.extend({}, $.fn.countTo.defaults, {
+					from: $(this).data('from'),
+					to: $(this).data('to'),
+					speed: $(this).data('speed'),
+					refreshInterval: $(this).data('refresh-interval'),
+					decimals: $(this).data('decimals')
+				}, options);
+
+				// how many times to update the value, and how much to increment the value on each update
+				var loops = Math.ceil(settings.speed / settings.refreshInterval),
+					increment = (settings.to - settings.from) / loops;
+
+				// references & variables that will change with each update
+				var self = this,
+					$self = $(this),
+					loopCount = 0,
+					value = settings.from,
+					data = $self.data('countTo') || {};
+
+				$self.data('countTo', data);
+
+				// if an existing interval can be found, clear it first
+				if (data.interval) {
+					clearInterval(data.interval);
+				}
+				data.interval = setInterval(updateTimer, settings.refreshInterval);
+
+				// initialize the element with the starting value
+				render(value);
+
+				function updateTimer() {
+					value += increment;
+					loopCount++;
+
+					render(value);
+
+					if (typeof (settings.onUpdate) == 'function') {
+						settings.onUpdate.call(self, value);
+					}
+
+					if (loopCount >= loops) {
+						// remove the interval
+						$self.removeData('countTo');
+						clearInterval(data.interval);
+						value = settings.to;
+
+						if (typeof (settings.onComplete) == 'function') {
+							settings.onComplete.call(self, value);
+						}
+					}
+				}
+
+				function render(value) {
+					var formattedValue = settings.formatter.call(self, value, settings);
+					$self.html(formattedValue);
+				}
+			});
+		};
+
+		$.fn.countTo.defaults = {
+			from: 0,               // the number the element should start at
+			to: 0,                 // the number the element should end at
+			speed: 1000,           // how long it should take to count between the target numbers
+			refreshInterval: 100,  // how often the element should be updated
+			decimals: 0,           // the number of decimal places to show
+			formatter: formatter,  // handler for formatting the value before rendering
+			onUpdate: null,        // callback method for every time the element is updated
+			onComplete: null       // callback method for when the element finishes updating
+		};
+
+		function formatter(value, settings) {
+			return value.toFixed(settings.decimals);
+		}
+	}(jQuery));
+
+	jQuery(function ($) {
+		// custom formatting example
+		$('.count-number').data('countToOptions', {
+			formatter: function (value, options) {
+				return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+			}
+		});
+
+		// start all the timers
+		$('.timer').each(count);
+
+		function count(options) {
+			var $this = $(this);
+			options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+			$this.countTo(options);
+		}
+	});
+
+	$(document).ready(function () {
+		(function ($) {
+			var globalDefault = {
+				'gZoomStatus': 0,
+				'gScaleVal': 0.7
+			};
+
+			$.fn.generateMap = function (options) {
+				var settings = $.extend({
+					// These are the defaults.
+					loadRegion: "bangladesh",
+					regionData: {
+						"bangladesh": [
+							{
+								"region_name": "Rangpur",
+								"region_id": "rangpurDivision",
+								"area": 800,
+								"population": 9794525,
+								"Lotto Outlet": 45,
+								"Bata Outlet": 30,
+								"Apex Outlet": 45
+							},
+							{
+								"region_name": "Dhaka",
+								"region_id": "dhakaDivision",
+								"area": 700,
+								"population": 5769750
+							},
+							{
+								"region_name": "Rajshahi",
+								"region_id": "rajshahiDivision",
+								"area": 600,
+								"population": 5557276
+							},
+							{
+								"region_name": "Sylhet",
+								"region_id": "sylhetDivision",
+								"area": 500,
+								"population": 4999932
+							}
+						],
+						"rangpurDivision": [
+							{
+								"parent_region_id": "bangladesh",
+								"region_name": "Panchagarh",
+								"region_id": "panchagarhDistrict",
+								"area": 8001,
+								"population": 9794525
+							},
+							{
+								"region_name": "Thakurgaon",
+								"region_id": "thakurgaonDistrict",
+								"area": 7001,
+								"population": 5769750
+							},
+							{
+								"region_name": "Dinajpur",
+								"region_id": "dinajpurDistrict",
+								"area": 6001,
+								"population": 5557276
+							},
+							{
+								"region_name": "Gaibandha",
+								"region_id": "gaibandhaDistrict",
+								"area": 5001,
+								"population": 4999932
+							},
+							{
+								"region_name": "Kurigram",
+								"region_id": "kurigramDistrict",
+								"area": 4001,
+								"population": 4881756
+							},
+							{
+								"region_name": "Rangpur",
+								"region_id": "rangpurDistrict",
+								"area": 3001,
+								"population": 4377487
+							},
+							{
+								"region_name": "Nilfamari",
+								"region_id": "nilphamariDistrict",
+								"area": 2001,
+								"population": 4374052
+							},
+							{
+								"region_name": "Lalmonirhat",
+								"region_id": "lalmonirhatDistrict",
+								"area": 1001,
+								"population": 4050803
+							}
+						],
+						"rajshahiDivision": [
+							{
+								"parent_region_id": "bangladesh",
+								"region_name": "Nawabganj",
+								"region_id": "nawabganjDistrict",
+								"area": 801,
+								"population": 9794525
+							},
+							{
+								"region_name": "Naogaon",
+								"region_id": "naogaonDistrict",
+								"area": 701,
+								"population": 5769750
+							},
+							{
+								"region_name": "Joypurhat",
+								"region_id": "joypurhatDistrict",
+								"area": 601,
+								"population": 5557276
+							},
+							{
+								"region_name": "Bogra",
+								"region_id": "bograDistrict",
+								"area": 501,
+								"population": 4999932
+							},
+							{
+								"region_name": "Sirajganj",
+								"region_id": "sirajganjDistrict",
+								"area": 401,
+								"population": 4881756
+							},
+							{
+								"region_name": "Pabna",
+								"region_id": "pabnaDistrict",
+								"area": 301,
+								"population": 4377487
+							},
+							{
+								"region_name": "Natore",
+								"region_id": "natoreDistrict",
+								"area": 201,
+								"population": 4374052
+							},
+							{
+								"region_name": "Rajshahi",
+								"region_id": "rajshahiDistrict",
+								"area": 101,
+								"population": 4050803
+							}
+						],
+						"rangpurDistrict": [
+							{
+								"parent_region_id": "rangpurDivision",
+								"region_name": "Gangachhara",
+								"region_id": "gangachharaUpazila",
+								"area": 5001,
+								"population": 9794525
+							},
+							{
+								"region_name": "Badarganj",
+								"region_id": "badarganjUpazila",
+								"area": 5001,
+								"population": 5769750
+							},
+							{
+								"region_name": "Taraganj",
+								"region_id": "taraganjUpazila",
+								"area": 5001,
+								"population": 5557276
+							},
+							{
+								"region_name": "Pirganj",
+								"region_id": "pirganjUpazila",
+								"area": 5001,
+								"population": 4999932
+							},
+							{
+								"region_name": "Mithapukur",
+								"region_id": "mithapukurUpazila",
+								"area": 5001,
+								"population": 4881756
+							},
+							{
+								"region_name": "Rangpur Sadar",
+								"region_id": "rangpursadarUpazila",
+								"area": 5001,
+								"population": 4377487
+							},
+							{
+								"region_name": "Kaunia",
+								"region_id": "kauniaUpazila",
+								"area": 5001,
+								"population": 4374052
+							},
+							{
+								"region_name": "Pirgachha",
+								"region_id": "pirgachhaUpazila",
+								"area": 5001,
+								"population": 4050803
+							}
+						]
+					},
+					'parentForDistrictMap': {
+						"bargunaDistrict": "barisalDivision", "barisalDistrict": "barisalDivision", "bholaDistrict": "barisalDivision", "jhalakathiDistrict": "barisalDivision", "patuakhaliDistrict": "barisalDivision", "pirojpurDistrict": "barisalDivision", "bandarbanDistrict": "chittagongDivision", "brahmanbariaDistrict": "chittagongDivision", "chandpurDistrict": "chittagongDivision", "chittagongDistrict": "chittagongDivision", "comillaDistrict": "chittagongDivision", "coxsbazarDistrict": "chittagongDivision", "feniDistrict": "chittagongDivision", "khagrachhariDistrict": "chittagongDivision", "lakshmipurDistrict": "chittagongDivision", "noakhaliDistrict": "chittagongDivision", "rangamatiDistrict": "chittagongDivision", "dhakaDistrict": "dhakaDivision", "faridpurDistrict": "dhakaDivision", "gazipurDistrict": "dhakaDivision", "gopalganjDistrict": "dhakaDivision", "jamalpurDistrict": "mymensinghDivision", "kishoreganjDistrict": "dhakaDivision", "madaripurDistrict": "dhakaDivision", "manikganjDistrict": "dhakaDivision", "munshiganjDistrict": "dhakaDivision", "mymensinghDistrict": "mymensinghDivision", "narayanganjDistrict": "dhakaDivision", "narsingdiDistrict": "dhakaDivision", "netrokonaDistrict": "mymensinghDivision", "rajbariDistrict": "dhakaDivision", "shariatpurDistrict": "dhakaDivision", "sherpurDistrict": "mymensinghDivision", "tangailDistrict": "dhakaDivision", "bagerhatDistrict": "khulnaDivision", "chuadangaDistrict": "khulnaDivision", "jessoreDistrict": "khulnaDivision", "jhenaidahDistrict": "khulnaDivision", "khulnaDistrict": "khulnaDivision", "kushtiaDistrict": "khulnaDivision", "maguraDistrict": "khulnaDivision", "meherpurDistrict": "khulnaDivision", "narailDistrict": "khulnaDivision", "satkhiraDistrict": "khulnaDivision", "bograDistrict": "rajshahiDivision", "joypurhatDistrict": "rajshahiDivision", "naogaonDistrict": "rajshahiDivision", "natoreDistrict": "rajshahiDivision", "chapainawabganjDistrict": "rajshahiDivision", "pabnaDistrict": "rajshahiDivision", "rajshahiDistrict": "rajshahiDivision", "sirajganjDistrict": "rajshahiDivision", "dinajpurDistrict": "rangpurDivision", "gaibandhaDistrict": "rangpurDivision", "kurigramDistrict": "rangpurDivision", "lalmonirhatDistrict": "rangpurDivision", "nilphamariDistrict": "rangpurDivision", "panchagarhDistrict": "rangpurDivision", "rangpurDistrict": "rangpurDivision", "thakurgaonDistrict": "rangpurDivision", "habiganjDistrict": "sylhetDivision", "maulvibazarDistrict": "sylhetDivision", "sunamganjDistrict": "sylhetDivision", "sylhetDistrict": "sylhetDivision"
+					},
+					'infosForconstituency': {},
+					_this: this,
+					backgroundColor: "white"
+				}, options);
+
+				setTimeout(function () { changeSVG(settings.loadRegion, settings.regionData, settings.infosForconstituency, settings.parentForDistrictMap, settings._this); }, 1000);
+
+				// EVENT : START ------------------------------
+
+				$(document).on('click', '.map g path:not(.notbtn), .map g g:not(.notbtn)', function (e) {
+					e.preventDefault();
+					var mapAttr = $(this).attr('id');
+					//console.log('mapAttr : ' + mapAttr);
+					//console.log('settings.regionData : ' + settings.regionData);
+					changeSVG(mapAttr, settings.regionData, settings.infosForconstituency, settings.parentForDistrictMap, settings._this);
+				});
+
+				//backbutton
+				$(document).on('click', '.backbtn', function (e) {
+					e.preventDefault();
+
+					var mapParentAttr = $(this).attr('parent-id') ? $(this).attr('parent-id') : 'bangladesh';
+
+					if (mapParentAttr != undefined && bangladeshSVG[mapParentAttr] != undefined) {
+						changeSVG(mapParentAttr, settings.regionData, settings.infosForconstituency, settings.parentForDistrictMap, settings._this);
+					}
+
+				});
+				//Zoom
+				$(document).on('click', '.zoom_map', function (e) {
+					e.preventDefault();
+					var zoomId = $(this).attr('id');
+
+					//console.log('zoomId : ' + zoomId);
+
+					zoomToggle(zoomId);
+				});
+
+				// EVENT : END ------------------------------
+
+			}
+
+			function changeSVG(x, regionData, infosForconstituency, parentForDistrictMap, _this) {
+				$('.info_panel').remove();
+				//console.log('_this : ' + _this);
+
+				if (bangladeshSVG[x] != undefined) {
+
+					var svgMapHtml = '';
+					var backbtn = '';
+					var styleTagContent = '';
+					var remainPreTag = '</style>';
+
+					var svgTagDef = '<svg version="1.1" id="Bangladesh" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="575.6px" height="600px" viewBox="0 0 445.6 510.6" enable-background="new 0 0 445.6 510.6" xml:space="preserve">';
+
+
+					//var firstTitle = 'Test Test  Test Test Test Test Test Test Test Test Test Test Test';
+					//var sourceName = $('#source_id option:selected').text() ? $('#source_id option:selected').text() : '';
+					//var cMapTitle = sourceName + capitalizeFirstLetter(x);
+					//var mapTitle = '<text id="map_title" y="15"> '+ firstTitle +'</text> <text id="c_map_title" x="80" y="30"> '+ cMapTitle +'</text>';
+
+					var cMapTitle = capitalizeFirstLetter(x);
+					var mapTitle = '<text id="map_title" x="80" y="30"> ' + cMapTitle + '</text>';
+
+					var zoombtn = '<g id="zoom_in" class="zoom_map notbtn"><path class="notbtn" fill="#F7F7F7" stroke="#CCCCCC" d="M8.368,67.282h23v0.25h0.049l0.05-19.449c0.101-2.5-2.699-2.4-2.699-2.4l-17-0.1c-4.101-0.4-3.7,2.898-3.7,2.898v19.051h0.3V67.282z" fill-opacity="0.5" stroke-opacity="0.8" /><rect x="8.368" y="67.282" fill="#F7F7F7" width="23" height="0.25" /><text id="zoom_in" transform="matrix(1 0 0 1 15.4065 60.5659)" fill="#4C4C4D" font-family="Tahoma" font-size="14">+</text></g> <g id="zoom_out" class="zoom_map notbtn"><path class="notbtn" fill="#F7F7F7" stroke="#CCCCCC" d="M31.342,67.919h-23l0,0l-0.271-0.032L8.042,86.121c0.2,3,2.5,3.1,2.5,3.1h17.1c3.7-0.199,3.7-2.801,3.7-2.801l0.042-18.49l0,0L31.342,67.919z" fill-opacity="0.5" stroke-opacity="0.8" /><text id="zoom_out" transform="matrix(1 0 0 1 17.7898 83.0659)" fill="#4C4C4D" font-family="Tahoma" font-size="14">-</text></g>';
+
+
+					var svgMapHtmlArr = bangladeshSVG[x].split("</style>");
+
+					if (svgMapHtmlArr[1] == undefined) {
+						remainPreTag = 'xml:space="preserve">';
+						svgMapHtmlArr = bangladeshSVG[x].split('xml:space="preserve">');
+					} else {
+						styleTagContent = (svgMapHtmlArr[0].split('<style type="text/css">')[1] != undefined) ? svgMapHtmlArr[0].split('<style type="text/css">')[1] : '';
+
+						if (styleTagContent == '') {
+							styleTagContent = (svgMapHtmlArr[0].split('<style>')[1] != undefined) ? svgMapHtmlArr[0].split('<style>')[1] : '';
+						}
+					}
+
+
+					if (x != 'bangladesh') {
+
+						var parent_region_id = 'bangladesh';
+
+						if (regionData[x] != undefined) {
+							var parent_region_id = regionData[x][0].parent_region_id ? regionData[x][0].parent_region_id : 'bangladesh';
+						}
+
+						if (parent_region_id == undefined) {
+							alert('No Data');
+							return;
+						}
+
+						var backbtn = '<g id="backbtn" class="backbtn notbtn" parent-id="' + parent_region_id + '"> <rect x="414.1" y="46.403" fill="#F7F7F7" stroke="#CCCCCC" stroke-width="0.5" stroke-miterlimit="10" width="48.666" height="17" fill-opacity="0.5" stroke-opacity="0.8" /><text transform="matrix(1 0 0 1 425.8352 58.7896)" fill="#444444" font-family="Tahoma" font-size="12">Back</text> </g>';
+
+					}
+
+
+					if (x != undefined && x != '' && x != 'bangladesh' && x != 'allDistrict') {
+						gScaleVal = (globalDefault.gZoomStatus == 1) ? gScaleVal : 0.7;
+						var groupG = '<g id="zoomInOut" class="zoomInOut drag" transform="translate(40,50) scale(' + gScaleVal + ')" animator="1">';
+					} else if (x != undefined && x != '' && x == 'allDistrict') {
+						gScaleVal = (globalDefault.gZoomStatus == 1) ? gScaleVal : 0.7;
+						var groupG = '<g id="zoomInOut" class="zoomInOut drag" transform="translate(0,40) scale(' + gScaleVal + ')" animator="1">';
+					} else {
+						gScaleVal = (globalDefault.gZoomStatus == 1) ? gScaleVal : 0.9;
+						var groupG = '<g id="zoomInOut" class="zoomInOut drag" transform="translate(40,0) scale(' + gScaleVal + ')" animator="1">';
+					}
+
+					var lastSvgArr = svgMapHtmlArr[1];
+					lastSvgArr = lastSvgArr.split("</svg>");
+					var lastSVG = lastSvgArr[0] + '</g>';
+					var lastSvgTag = '</svg>';
+
+					if (styleTagContent != '') {
+						styleTagContent = '<style>' + styleTagContent + '</style>';
+					}
+
+					var useSVGTag = '';
+					var titleAndZoomBtn = '<g id="show_up_in_map" class="notbtn">' + mapTitle + zoombtn + backbtn + '</g>';
+
+					svgMapHtml = svgTagDef + styleTagContent + remainPreTag + groupG + lastSVG + titleAndZoomBtn + useSVGTag + lastSvgTag;
+					//$("#changeSvgMap").html(svgMapHtml);
+					$(_this).html(svgMapHtml);
+
+					if (x != undefined && x != '' && x != 'bangladesh' && x != 'allDistrict') {
+						//document.getElementById('changeSvgMap').style.height = '610px';
+						$(_this).height('610px');
+					} else if (x != undefined && x != '' && x == 'allDistrict') {
+						$(_this).height('730px');
+					} else {
+						$(_this).height('610px');
+					}
+
+					var jsonConstituencyUpazilas = infosForconstituency.constituencyUpazilasData;
+
+					if (x.includes("District") && typeof jsonConstituencyUpazilas != 'undefined') {
+						var districtWiseUpazilas = infosForconstituency.districtWiseUpazilas;
+
+						//console.log('jsonConstituencyUpazilas : ' + JSON.stringify(jsonConstituencyUpazilas));
+						//console.log('districtWiseUpazilas : ' + JSON.stringify(districtWiseUpazilas));
+
+						for (e in districtWiseUpazilas) {
+							$('#' + districtWiseUpazilas[e])
+								.css({ 'fill-opacity': '0.1' });
+							//console.log('districtWiseUpazilas[e] : ' + districtWiseUpazilas[e]);
+						}
+
+						for (c in jsonConstituencyUpazilas) {
+							$('#' + jsonConstituencyUpazilas[c])
+								.css({ 'fill': 'rgba(64, 0, 128, 0.7)', 'fill-opacity': '0.7' });
+						}
+					}
+
+					if (x != undefined && regionData[x] != undefined) {
+						changeSVGMapVal(regionData[x]);
+					} else {
+
+						if (x.search("District") > -1) {
+							$("g#backbtn").attr('parent-id', parentForDistrictMap[x]);
+						}
+					}
+
+
+					gDragDropStatus = 0;
+					dragDrop();
+				}
+			}
+
+			function changeSVGMapVal(regionData) {
+
+				//console.log('regionData : ' + JSON.stringify(regionData));
+				for (i = 0; i < regionData.length; i++) {
+
+					var cssOptions = { 'fill-opacity': '1' };
+
+					if (typeof regionData[i].hasConstituency != 'undefined' && regionData[i].hasConstituency == 1) {
+						//cssOptions.fill = 'rgba(128, 94, 74, 1)';
+						cssOptions.fill = 'rgba(64, 0, 128, 1)';
+					}
+
+					$('#' + regionData[i].region_id)
+						//.css({'fill': 'rgba(11, 104, 170,' + regionData[i].population/highest_value +')'})
+						//.css({'fill-opacity': '1'})
+						.css(cssOptions)
+						.data('bangladesh_region', regionData[i]);
+				}
+				//holahola
+				$('.map g#zoomInOut path:not(.notbtn), .map g#zoomInOut g:not(.notbtn)').mouseover(function (e) {
+					var regionData = $(this).data('bangladesh_region') ? $(this).data('bangladesh_region') : '';
+					var region_name = regionData.region_name ? regionData.region_name : '';
+					var nationalArea = regionData.area ? 'Area: ' + regionData.area.toLocaleString("en-UK") + '<br>' : '';
+					var nationalPopulation = regionData.population ? 'Population: ' + regionData.population.toLocaleString("en-UK") + '<br>' : '';
+					var LottoOutlet = regionData.population ? 'Population: ' + regionData.population.toLocaleString("en-UK") + '<br>' : '';
+					var nationalPopulation = regionData.population ? 'Population: ' + regionData.population.toLocaleString("en-UK") + '<br>' : '';
+					// var disaggreegation = regionData.disaggreegation ? regionData.disaggreegation: '';
+
+					// var disaggreegationData = '';
+
+					// if(disaggreegation != undefined) {
+					// for (var d in disaggreegation){
+					// if (disaggreegation.hasOwnProperty(d)) {
+					// disaggreegationData += ' '+ d + ' : '+ disaggreegation[d] + '<br>';
+					// }
+					// }
+					// }
+
+					var hoverData = '';
+					if (regionData.region_name != undefined) {
+						//hoverData = regionData.region_name + '<br>' + nationalArea + '<br>' + disaggreegation;
+						hoverData = regionData.region_name + '<br>' + nationalArea + nationalPopulation;;
+					} else {
+						hoverData = 'No Data';
+					}
+
+					$('<div class="info_panel">' + hoverData + '</div>').appendTo('body');
+				})
+					.mouseleave(function () {
+						$('.info_panel').remove();
+					})
+					.mousemove(function (e) {
+						var mouseX = e.pageX, //X coordinates of mouse
+							mouseY = e.pageY; //Y coordinates of mouse
+
+						$('.info_panel').css({
+							top: mouseY - 100,
+							left: mouseX - ($('.info_panel').width() / 2)
+						});
+					});
+			}
+
+			function zoomToggle(zoomId) {
+
+				var zoomInOut = document.getElementById('zoomInOut');
+
+				if (zoomId == 'zoom_in') {
+					//gZoomStatus = 1;
+					gScaleVal = 1.3;
+					zoomInOut.setAttribute('transform', 'translate(-80, -10) scale(' + gScaleVal + ')');
+				} else if (zoomId == 'zoom_out') {
+
+					//gZoomStatus = 0;
+					gScaleVal = 0.7;
+					zoomInOut.setAttribute('transform', 'translate(40, 50) scale(' + gScaleVal + ')');
+				}
+			}
+
+			function capitalizeFirstLetter(string) {
+				string = string.replace(/([A-Z])/g, ' $1').trim();
+				//return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+				return toTitleCase(string);
+			}
+
+			function toTitleCase(str) {
+				return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+			}
+
+			function dragDrop() {
+				var svg = document.getElementsByTagName('svg')[0];
+				var svgNS = svg.getAttribute('xmlns');
+				var pt = svg.createSVGPoint();
+
+				function cursorPoint(evt) {
+					pt.x = evt.clientX; pt.y = evt.clientY;
+					return pt.matrixTransform(svg.getScreenCTM().inverse());
+				}
+
+				for (var a = svg.querySelectorAll('.drag'), i = 0, len = a.length; i < len; ++i) {
+					(function (el) {
+
+						var onmove; // make inner closure available for unregistration
+						el.addEventListener('mousedown', function (e) {
+							//el.parentNode.appendChild(el); // move to top
+							var x = el.tagName == 'circle' ? 'cx' : 'x';
+							var y = el.tagName == 'circle' ? 'cy' : 'y';
+							var mouseStart = cursorPoint(e);
+
+							onmove = function (e) {
+
+								var current = cursorPoint(e);
+
+								pt.x = current.x - mouseStart.x;
+								pt.y = current.y - mouseStart.y;
+
+
+								var rX = pt.x;
+								var rY = pt.y;
+
+								el.setAttribute('transform', 'translate(' + (rX) + ', ' + (rY) + ') scale(' + gScaleVal + ')');
+
+								gDragDropStatus = 1;
+
+							};
+							document.body.addEventListener('mousemove', onmove, false);
+
+						}, false);
+						document.body.addEventListener('mouseup', function () {
+							document.body.removeEventListener('mousemove', onmove, false);
+						}, false);
+					})(a[i]);
+				}
+
+			}
+
+
+		})(jQuery);
+
+
+
+		var regionsOfBangladeshDemo = {
+			"bangladesh": [
+				{
+					"region_name": "Rangpur",
+					"region_id": "rangpurDivision",
+					"area": 800,
+					"population": 9794525,
+					"Lotto Outlet": 45,
+					"Bata Outlet": 30,
+					"Apex Outlet": 45
+
+
+				},
+				{
+					"region_name": "Dhaka",
+					"region_id": "dhakaDivision",
+					"area": 700,
+					"population": 5769750
+				},
+				{
+					"region_name": "Rajshahi",
+					"region_id": "rajshahiDivision",
+					"area": 600,
+					"population": 5557276
+				},
+				{
+					"region_name": "Sylhet",
+					"region_id": "sylhetDivision",
+					"area": 500,
+					"population": 4999932
+				},
+				{
+					"region_name": "Mymensingh",
+					"region_id": "mymensinghDivision",
+					"area": 400,
+					"population": 4881756
+				},
+				{
+					"region_name": "Barishal",
+					"region_id": "barisalDivision",
+					"area": 300,
+					"population": 4377487
+				}
+				,
+				{
+					"region_name": "Khulna",
+					"region_id": "khulnaDivision",
+					"area": 200,
+					"population": 4374052
+				},
+				{
+					"region_name": "Chittagong",
+					"region_id": "chittagongDivision",
+					"area": 100,
+					"population": 4050803
+				}
+			],
+			"rangpurDivision": [
+				{
+					"parent_region_id": "bangladesh",
+					"region_name": "Panchagarh",
+					"region_id": "panchagarhDistrict",
+					"area": 8001,
+					"population": 9794525
+				},
+				{
+					"region_name": "Thakurgaon",
+					"region_id": "thakurgaonDistrict",
+					"area": 7001,
+					"population": 5769750
+				},
+				{
+					"region_name": "Dinajpur",
+					"region_id": "dinajpurDistrict",
+					"area": 6001,
+					"population": 5557276
+				},
+				{
+					"region_name": "Gaibandha",
+					"region_id": "gaibandhaDistrict",
+					"area": 5001,
+					"population": 4999932
+				},
+				{
+					"region_name": "Kurigram",
+					"region_id": "kurigramDistrict",
+					"area": 4001,
+					"population": 4881756
+				},
+				{
+					"region_name": "Rangpur",
+					"region_id": "rangpurDistrict",
+					"area": 3001,
+					"population": 4377487
+				},
+				{
+					"region_name": "Nilfamari",
+					"region_id": "nilphamariDistrict",
+					"area": 2001,
+					"population": 4374052
+				},
+				{
+					"region_name": "Lalmonirhat",
+					"region_id": "lalmonirhatDistrict",
+					"area": 1001,
+					"population": 4050803
+				}
+			],
+			"rajshahiDivision": [
+				{
+					"parent_region_id": "bangladesh",
+					"region_name": "Nawabganj",
+					"region_id": "nawabganjDistrict",
+					"area": 801,
+					"population": 9794525
+				},
+				{
+					"region_name": "Naogaon",
+					"region_id": "naogaonDistrict",
+					"area": 701,
+					"population": 5769750
+				},
+				{
+					"region_name": "Joypurhat",
+					"region_id": "joypurhatDistrict",
+					"area": 601,
+					"population": 5557276
+				},
+				{
+					"region_name": "Bogra",
+					"region_id": "bograDistrict",
+					"area": 501,
+					"population": 4999932
+				},
+				{
+					"region_name": "Sirajganj",
+					"region_id": "sirajganjDistrict",
+					"area": 401,
+					"population": 4881756
+				},
+				{
+					"region_name": "Pabna",
+					"region_id": "pabnaDistrict",
+					"area": 301,
+					"population": 4377487
+				},
+				{
+					"region_name": "Natore",
+					"region_id": "natoreDistrict",
+					"area": 201,
+					"population": 4374052
+				},
+				{
+					"region_name": "Rajshahi",
+					"region_id": "rajshahiDistrict",
+					"area": 101,
+					"population": 4050803
+				}
+			],
+			"barisalDivision": [
+				{
+					"region_name": "Barguna",
+					"color_code": "#a1998;",
+					"region_id": "bargunaDistrict",
+					"area": 7001,
+					"population": 13434534,
+					"parent_region_name": "Bangladesh",
+					"parent_region_id": "bangladesh"
+				},
+				{
+					"region_name": "Barisal",
+					"color_code": "#a1998;",
+					"region_id": "barisalDistrict",
+					"area": 7002,
+					"population": 3434534,
+				}
+			],
+			"rangpurDistrict": [
+				{
+					"parent_region_id": "rangpurDivision",
+					"region_name": "Gangachhara",
+					"region_id": "gangachharaUpazila",
+					"area": 5001,
+					"population": 9794525
+				},
+				{
+					"region_name": "Badarganj",
+					"region_id": "badarganjUpazila",
+					"area": 5001,
+					"population": 5769750
+				},
+				{
+					"region_name": "Taraganj",
+					"region_id": "taraganjUpazila",
+					"area": 5001,
+					"population": 5557276
+				},
+				{
+					"region_name": "Pirganj",
+					"region_id": "pirganjUpazila",
+					"area": 5001,
+					"population": 4999932
+				},
+				{
+					"region_name": "Mithapukur",
+					"region_id": "mithapukurUpazila",
+					"area": 5001,
+					"population": 4881756
+				},
+				{
+					"region_name": "Rangpur Sadar",
+					"region_id": "rangpursadarUpazila",
+					"area": 5001,
+					"population": 4377487
+				},
+				{
+					"region_name": "Kaunia",
+					"region_id": "kauniaUpazila",
+					"area": 5001,
+					"population": 4374052
+				},
+				{
+					"region_name": "Pirgachha",
+					"region_id": "pirgachhaUpazila",
+					"area": 5001,
+					"population": 4050803
+				}
+			],
+			"bargunaDistrict": [
+				{
+					"parent_region_id": "barisalDivision",
+					"region_name": "Amtali",
+					"region_id": "amtaliUpazila",
+					"area": 43,
+					"population": 102
+				},
+				{
+					"region_name": "Barguna sadar",
+					"region_id": "bargunasadarUpazila",
+					"area": 43,
+					"population": 102
+				},
+				{
+					"region_name": "Taltali",
+					"region_id": "taltaliUpazila",
+					"area": 37,
+					"population": 101
+				}
+			]
+		};
+
+		var selectedAllDistrict = selectedDivision = selectedDistrict = '';
+		var regionsOfBangladesh = regionsOfBangladeshDemo;
+		var regionKey = 'bangladesh';
+		var title = 'Bangladesh MAP';
+
+		selectedDistrict = 'rangpurDistrict';
+
+		if (selectedAllDistrict == 'allDistrict') {
+			regionKey = selectedAllDistrict;
+		}
+
+		if (selectedDivision != '') {
+			regionKey = selectedDivision;
+		}
+
+		if (selectedDistrict != '') {
+			regionKey = selectedDistrict;
+		}
+
+
+		$("#changeSvgMap").generateMap({
+			'title': title,
+			'regionKey': regionKey,
+			'regionData': regionsOfBangladesh
+		});
+	});
+</script>
+<!--<div class="card-body" style="">
+
+	<video id="video" style="width: 100%;height: 100%;" autoplay muted>
+		<source src="~/assets/Video/loading.mp4" type="video/mp4" autoplay="true" />
+
+
+	</video>
+
+	<div class="col-md-12" id="mapload">
+		<div class="row">
+			<div class="col-md-9" style="border-right:solid 10px;">-->
+@*<div id="chartdiv"></div>*@
+
+
+
+<!--<div class="map" id="changeSvgMap">
+				</div>
+				<div class="col-md-3" style="text-align:center;justify-content:center;">
+					<div class="row center">
+						<img onclick="mapChange()" class="logo" src="~/assets/IMG/store.png" />
+						<h2>106 Retails Outlets</h2>
+
+
+					</div>
+
+					<hr />
+					<div class="row center">
+						<img class="logo" src="~/assets/IMG/shop.png" />
+
+						<h2>201 Franchise </h2>
+
+
+					</div>
+
+					<hr />
+					<div class="row center">
+						<img class="logo" src="~/assets/IMG/shops.png" />
+
+						<h2>500 Dealers</h2>
+
+
+					</div>
+
+					<hr />
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>-->
+@*<script>
+
+		$(document).ready(function () {
+			var regionsOfBangladeshDemo = {
+				"bangladesh": [
+					{
+						"region_name": "Rangpur",
+						"region_id": "rangpurDivision",
+						"area": 800,
+						"population": 9794525
+					},
+					{
+						"region_name": "Dhaka",
+						"region_id": "dhakaDivision",
+						"area": 700,
+						"population": 5769750
+					},
+					{
+						"region_name": "Rajshahi",
+						"region_id": "rajshahiDivision",
+						"area": 600,
+						"population": 5557276
+					},
+					{
+						"region_name": "Sylhet",
+						"region_id": "sylhetDivision",
+						"area": 500,
+						"population": 4999932
+					},
+					{
+						"region_name": "Mymensingh",
+						"region_id": "mymensinghDivision",
+						"area": 400,
+						"population": 4881756
+					},
+					{
+						"region_name": "Barishal",
+						"region_id": "barisalDivision",
+						"area": 300,
+						"population": 4377487
+					}
+					,
+					{
+						"region_name": "Khulna",
+						"region_id": "khulnaDivision",
+						"area": 200,
+						"population": 4374052
+					},
+					{
+						"region_name": "Chittagong",
+						"region_id": "chittagongDivision",
+						"area": 100,
+						"population": 4050803
+					}
+				],
+				"rangpurDivision": [
+					{
+						"parent_region_id": "bangladesh",
+						"region_name": "Panchagarh",
+						"region_id": "panchagarhDistrict",
+						"area": 8001,
+						"population": 9794525
+					},
+					{
+						"region_name": "Thakurgaon",
+						"region_id": "thakurgaonDistrict",
+						"area": 7001,
+						"population": 5769750
+					},
+					{
+						"region_name": "Dinajpur",
+						"region_id": "dinajpurDistrict",
+						"area": 6001,
+						"population": 5557276
+					},
+					{
+						"region_name": "Gaibandha",
+						"region_id": "gaibandhaDistrict",
+						"area": 5001,
+						"population": 4999932
+					},
+					{
+						"region_name": "Kurigram",
+						"region_id": "kurigramDistrict",
+						"area": 4001,
+						"population": 4881756
+					},
+					{
+						"region_name": "Rangpur",
+						"region_id": "rangpurDistrict",
+						"area": 3001,
+						"population": 4377487
+					},
+					{
+						"region_name": "Nilfamari",
+						"region_id": "nilphamariDistrict",
+						"area": 2001,
+						"population": 4374052
+					},
+					{
+						"region_name": "Lalmonirhat",
+						"region_id": "lalmonirhatDistrict",
+						"area": 1001,
+						"population": 4050803
+					}
+				],
+				"rajshahiDivision": [
+					{
+						"parent_region_id": "bangladesh",
+						"region_name": "Nawabganj",
+						"region_id": "nawabganjDistrict",
+						"area": 801,
+						"population": 9794525
+					},
+					{
+						"region_name": "Naogaon",
+						"region_id": "naogaonDistrict",
+						"area": 701,
+						"population": 5769750
+					},
+					{
+						"region_name": "Joypurhat",
+						"region_id": "joypurhatDistrict",
+						"area": 601,
+						"population": 5557276
+					},
+					{
+						"region_name": "Bogra",
+						"region_id": "bograDistrict",
+						"area": 501,
+						"population": 4999932
+					},
+					{
+						"region_name": "Sirajganj",
+						"region_id": "sirajganjDistrict",
+						"area": 401,
+						"population": 4881756
+					},
+					{
+						"region_name": "Pabna",
+						"region_id": "pabnaDistrict",
+						"area": 301,
+						"population": 4377487
+					},
+					{
+						"region_name": "Natore",
+						"region_id": "natoreDistrict",
+						"area": 201,
+						"population": 4374052
+					},
+					{
+						"region_name": "Rajshahi",
+						"region_id": "rajshahiDistrict",
+						"area": 101,
+						"population": 4050803
+					}
+				],
+				"barisalDivision": [
+					{
+						"region_name": "Barguna",
+						"color_code": "#a1998;",
+						"region_id": "bargunaDistrict",
+						"area": 7001,
+						"population": 13434534,
+						"parent_region_name": "Bangladesh",
+						"parent_region_id": "bangladesh"
+					},
+					{
+						"region_name": "Barisal",
+						"color_code": "#a1998;",
+						"region_id": "barisalDistrict",
+						"area": 7002,
+						"population": 3434534,
+					}
+				],
+				"rangpurDistrict": [
+					{
+						"parent_region_id": "rangpurDivision",
+						"region_name": "Gangachhara",
+						"region_id": "gangachharaUpazila",
+						"area": 5001,
+						"population": 9794525
+					},
+					{
+						"region_name": "Badarganj",
+						"region_id": "badarganjUpazila",
+						"area": 5001,
+						"population": 5769750
+					},
+					{
+						"region_name": "Taraganj",
+						"region_id": "taraganjUpazila",
+						"area": 5001,
+						"population": 5557276
+					},
+					{
+						"region_name": "Pirganj",
+						"region_id": "pirganjUpazila",
+						"area": 5001,
+						"population": 4999932
+					},
+					{
+						"region_name": "Mithapukur",
+						"region_id": "mithapukurUpazila",
+						"area": 5001,
+						"population": 4881756
+					},
+					{
+						"region_name": "Rangpur Sadar",
+						"region_id": "rangpursadarUpazila",
+						"area": 5001,
+						"population": 4377487
+					},
+					{
+						"region_name": "Kaunia",
+						"region_id": "kauniaUpazila",
+						"area": 5001,
+						"population": 4374052
+					},
+					{
+						"region_name": "Pirgachha",
+						"region_id": "pirgachhaUpazila",
+						"area": 5001,
+						"population": 4050803
+					}
+				],
+				"bargunaDistrict": [
+					{
+						"parent_region_id": "barisalDivision",
+						"region_name": "Amtali",
+						"region_id": "amtaliUpazila",
+						"area": 43,
+						"population": 102
+					},
+					{
+						"region_name": "Barguna sadar",
+						"region_id": "bargunasadarUpazila",
+						"area": 43,
+						"population": 102
+					},
+					{
+						"region_name": "Taltali",
+						"region_id": "taltaliUpazila",
+						"area": 37,
+						"population": 101
+					}
+				]
+			};
+
+			var selectedAllDistrict = selectedDivision = selectedDistrict = '';
+			var regionsOfBangladesh = regionsOfBangladeshDemo;
+			var regionKey = 'bangladesh';
+			var title = 'Bangladesh MAP';
+
+			selectedDistrict = 'rangpurDistrict';
+
+			if (selectedAllDistrict == 'allDistrict') {
+				regionKey = selectedAllDistrict;
+			}
+
+			if (selectedDivision != '') {
+				regionKey = selectedDivision;
+			}
+
+			if (selectedDistrict != '') {
+				regionKey = selectedDistrict;
+			}
+
+
+			$("#changeSvgMap").generateMap({
+				'title': title,
+				'regionKey': regionKey,
+				'regionData': regionsOfBangladesh
+			});
+		});
+	</script>*@
+
+@*<style>
+		#chartdiv {
+			width: 100%;
+			height: 500px;
+			overflow: hidden;
+		}
+	</style>*@
+
+<!-- Resources -->
+@*<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+	<script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+	<script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+	<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>*@
+
+<!-- Chart code -->
+@*<script>
+		$(document).ready(function () {
+			$('#mapload').hide();
+			document.getElementById('video').play();
+			setTimeout(mapload, 1000)
+			/*	initmap();*/
+
+		});
+
+		function mapload() {
+			$('#video').hide();
+			$('#mapload').show();
+		}
+
+		function mapChange() {
+			custommap();
+		}
+		//function initmap() {
+
+		//	am4core.ready(function () {
+
+		//		am4core.useTheme(am4themes_animated);
+
+		//		var chart = am4core.create("chartdiv", am4maps.MapChart);
+		//		chart.geodata = am4geodata_bangladeshHigh;
+		//		chart.projection = new am4maps.projections.Miller();
+
+
+
+		//		chart.homeGeoPoint = {
+		//			latitude: 23,
+		//			longitude: 90
+		//		}
+		//		chart.homeZoomLevel = 0.75;
+		//		chart.minZoomLevel = 0.75;
+
+
+		//		var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+		//		polygonSeries.exclude = ["AQ"];
+		//		polygonSeries.useGeodata = true;
+
+
+
+		//		var polygonTemplate = polygonSeries.mapPolygons.template;
+		//		polygonTemplate.tooltipText = "{name}";
+		//		polygonTemplate.polygon.fillOpacity = 0.6;
+		//		polygonTemplate.adapter.add("fill", function (fill, target) {
+
+		//			if (target.dataItem.index > 0) {
+
+		//				return chart.colors.getIndex(target.dataItem.index);
+		//			}
+		//			return fill;
+		//		})
+
+
+		//		chart.colors.list = [
+		//			am4core.color("#9DE0AD"),
+		//			am4core.color("#A7226E"),
+		//			am4core.color("#EC2049"),
+		//			am4core.color("#F26B38"),
+		//			am4core.color("#F7DB4F"),
+		//			am4core.color("#2F9599"),
+
+		//			am4core.color("#FC9D9A"),
+		//			am4core.color("#C8C8A9"),
+		//			am4core.color("#83AF9B")
+
+		//		];
+
+		//		//var hs = polygonTemplate.states.create("hover");
+		//		//hs.properties.fill = chart.colors.getIndex(0);
+		//		//var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+		//		//imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+		//		//imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+		//		//imageSeries.mapImages.template.tooltipText = "{title}";
+		//		//imageSeries.mapImages.template.propertyFields.url = "url";
+
+		//		//var circle = imageSeries.mapImages.template.createChild(am4core.Circle);
+		//		//circle.radius = 3;
+		//		//circle.propertyFields.fill = "color";
+		//		//circle.nonScaling = true;
+
+		//		//var circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
+		//		//circle2.radius = 3;
+		//		//circle2.propertyFields.fill = "color";
+
+
+		//		//circle2.events.on("inited", function (event) {
+		//		//	animateBullet(event.target);
+		//		//})
+		//		//function animateBullet(circle) {
+		//		//	var animation = circle.animate([{ property: "scale", from: .1 / chart.zoomLevel, to: .5 / chart.zoomLevel }, { property: "opacity", from: 1, to: 0 }], 1000, am4core.ease.circleOut);
+		//		//	animation.events.on("animationended", function (event) {
+		//		//		animateBullet(event.target.object);
+		//		//	})
+		//		//}
+
+		//		//var colorSet = new am4core.ColorSet();
+
+
+		//	});
+		//}
+
+
+
+
+
+	*@
+
+		function custommap() {
+			am4core.ready(function () {
+				$.ajax({
+					url: '/Chart/OutletList',
+					type: 'POST',
+					contentType: "application/json;charset=utf-8",
+					dataType: "json",
+					success: function (response) {
+						if (response.length > 0) {
+
+							// Themes begin
+							am4core.useTheme(am4themes_animated);
+							// Themes end
+
+							// Create map instance
+							var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+							// Set map definition
+							chart.geodata = am4geodata_bangladeshHigh;
+
+							// Set projection
+							chart.projection = new am4maps.projections.Miller();
+
+							// Create map polygon series
+							var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+
+
+							// Exclude Antartica
+							polygonSeries.exclude = ["AQ"];
+
+							// Make map load polygon (like country names) data from GeoJSON
+							polygonSeries.useGeodata = true;
+
+							// Configure series
+							var polygonTemplate = polygonSeries.mapPolygons.template;
+							polygonTemplate.tooltipText = "{name}";
+							polygonTemplate.polygon.fillOpacity = 0.6;
+							polygonTemplate.adapter.add("fill", function (fill, target) {
+
+								if (target.dataItem.index > 0) {
+
+									return chart.colors.getIndex(target.dataItem.index);
+								}
+								return fill;
+							})
+
+
+							chart.colors.list = [
+								am4core.color("#FCC7C7"),
+								am4core.color("#FCEDC7"),
+								am4core.color("#E6FCC7"),
+								am4core.color("#D2FCC7"),
+								am4core.color("#C7FCDB"),
+								am4core.color("#C7FCFC"),
+								am4core.color("#D1C7FC"),
+								am4core.color("#FCC7EC"),
+
+
+							];
+
+							// Create hover state and set alternative fill color
+							var hs = polygonTemplate.states.create("hover");
+							hs.properties.fill = chart.colors.getIndex(0);
+
+							// Add image series
+							var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+							imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+							imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+							imageSeries.mapImages.template.tooltipText = "{title}";
+							imageSeries.mapImages.template.propertyFields.url = "url";
+
+							var circle = imageSeries.mapImages.template.createChild(am4core.Circle);
+							circle.radius = 3;
+							circle.propertyFields.fill = "color";
+							circle.nonScaling = true;
+
+							var circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
+							circle2.radius = 3;
+							circle2.propertyFields.fill = "color";
+
+
+							circle2.events.on("inited", function (event) {
+								animateBullet(event.target);
+							})
+
+
+							function animateBullet(circle) {
+								var animation = circle.animate([{ property: "scale", from: .1 / chart.zoomLevel, to: .5 / chart.zoomLevel }, { property: "opacity", from: 1, to: 0 }], 1000, am4core.ease.circleOut);
+								animation.events.on("animationended", function (event) {
+									animateBullet(event.target.object);
+								})
+							}
+
+							var colorSet = new am4core.ColorSet();
+
+							var data = [];
+
+							for (let i = 0; i < response.length; i++)
+								data.push(
+									{
+										"title": response[i].ID,
+										"latitude": response[i].Lattitude,
+										"longitude": response[i].Longitude,
+										"color": colorSet.next()
+									}
+								)
+							imageSeries.data = data;
+						}
+					}
+				})
+			});
+		}
+
+
+
+
+
+
+	</script>
+
+<!-- HTML -->

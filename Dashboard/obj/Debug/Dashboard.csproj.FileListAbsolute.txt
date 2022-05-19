@@ -1,0 +1,393 @@
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\Dashboard.dll.config
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\Dashboard.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\Dashboard.pdb
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\csc.exe
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\csc.exe.config
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\csc.rsp
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\csi.exe
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\csi.exe.config
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\csi.rsp
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.AppContext.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Console.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.IO.Compression.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Net.Http.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Net.Sockets.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.ValueTuple.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Xml.XPath.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\vbc.exe
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\vbc.exe.config
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\vbc.rsp
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\VBCSCompiler.exe
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\Antlr3.Runtime.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\Newtonsoft.Json.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.Helpers.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.Mvc.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.Optimization.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.Razor.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.WebPages.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.WebPages.Razor.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\WebGrease.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.Helpers.xml
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.Mvc.xml
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.Optimization.xml
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.Razor.xml
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.WebPages.xml
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\System.Web.WebPages.Razor.xml
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\Newtonsoft.Json.xml
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\Antlr3.Runtime.pdb
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\obj\Debug\Dashboard.csprojAssemblyReference.cache
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\obj\Debug\Dashboard.csproj.CoreCompileInputs.cache
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\obj\Debug\Dashboard.csproj.CopyComplete
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\obj\Debug\Dashboard.dll
+C:\Users\ASHIQUR RAHMAN\source\repos\Dashboard\Dashboard\obj\Debug\Dashboard.pdb
+D:\Tanim\Dashboard\Dashboard\bin\Dashboard.dll.config
+D:\Tanim\Dashboard\Dashboard\bin\Dashboard.dll
+D:\Tanim\Dashboard\Dashboard\bin\Dashboard.pdb
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\csc.exe
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\csc.exe.config
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\csc.rsp
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\csi.exe
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\csi.exe.config
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\csi.rsp
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.AppContext.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Collections.Immutable.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Console.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Globalization.Calendars.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.IO.Compression.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.IO.FileSystem.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Net.Http.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Net.Sockets.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Reflection.Metadata.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.ValueTuple.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Xml.XPath.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\vbc.exe
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\vbc.exe.config
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\vbc.rsp
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\VBCSCompiler.exe
+D:\Tanim\Dashboard\Dashboard\bin\roslyn\VBCSCompiler.exe.config
+D:\Tanim\Dashboard\Dashboard\bin\Antlr3.Runtime.dll
+D:\Tanim\Dashboard\Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Tanim\Dashboard\Dashboard\bin\Microsoft.Web.Infrastructure.dll
+D:\Tanim\Dashboard\Dashboard\bin\Newtonsoft.Json.dll
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.Helpers.dll
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.Mvc.dll
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.Optimization.dll
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.Razor.dll
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.WebPages.Deployment.dll
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.WebPages.dll
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.WebPages.Razor.dll
+D:\Tanim\Dashboard\Dashboard\bin\WebGrease.dll
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.Helpers.xml
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.Mvc.xml
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.Optimization.xml
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.Razor.xml
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.WebPages.xml
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.WebPages.Deployment.xml
+D:\Tanim\Dashboard\Dashboard\bin\System.Web.WebPages.Razor.xml
+D:\Tanim\Dashboard\Dashboard\bin\Newtonsoft.Json.xml
+D:\Tanim\Dashboard\Dashboard\bin\Antlr3.Runtime.pdb
+D:\Tanim\Dashboard\Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Tanim\Dashboard\Dashboard\obj\Debug\Dashboard.csproj.AssemblyReference.cache
+D:\Tanim\Dashboard\Dashboard\obj\Debug\Dashboard.csproj.CoreCompileInputs.cache
+D:\Tanim\Dashboard\Dashboard\obj\Debug\Dashboard.dll
+D:\Tanim\Dashboard\Dashboard\obj\Debug\Dashboard.pdb
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\Dashboard.dll.config
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\Dashboard.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\Dashboard.pdb
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\csc.exe
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\csc.exe.config
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\csc.rsp
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\csi.exe
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\csi.exe.config
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\csi.rsp
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.AppContext.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Console.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.IO.Compression.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Net.Http.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Net.Sockets.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.ValueTuple.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Xml.XPath.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\vbc.exe
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\vbc.exe.config
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\vbc.rsp
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\VBCSCompiler.exe
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\Antlr3.Runtime.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\Newtonsoft.Json.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.Helpers.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.Mvc.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.Optimization.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.Razor.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.WebPages.Deployment.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.WebPages.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.WebPages.Razor.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\WebGrease.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.Helpers.xml
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.Mvc.xml
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.Optimization.xml
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.Razor.xml
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.WebPages.xml
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.WebPages.Deployment.xml
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\System.Web.WebPages.Razor.xml
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\Newtonsoft.Json.xml
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\Antlr3.Runtime.pdb
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\obj\Debug\Dashboard.csproj.AssemblyReference.cache
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\obj\Debug\Dashboard.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\obj\Debug\Dashboard.dll
+C:\Users\USER\Documents\GitHub\Dashboard\Dashboard\obj\Debug\Dashboard.pdb
+D:\Projects Final Version\Dashboard\Dashboard\bin\Dashboard.dll.config
+D:\Projects Final Version\Dashboard\Dashboard\bin\Dashboard.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\Dashboard.pdb
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\csc.exe
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\csc.exe.config
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\csc.rsp
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\csi.exe
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\csi.exe.config
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\csi.rsp
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.AppContext.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Collections.Immutable.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Console.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Globalization.Calendars.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.IO.Compression.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.IO.FileSystem.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Net.Http.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Net.Sockets.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.ValueTuple.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Xml.XPath.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\vbc.exe
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\vbc.exe.config
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\vbc.rsp
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\VBCSCompiler.exe
+D:\Projects Final Version\Dashboard\Dashboard\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects Final Version\Dashboard\Dashboard\bin\Antlr3.Runtime.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\Newtonsoft.Json.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.Helpers.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.Mvc.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.Optimization.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.Razor.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.WebPages.Deployment.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.WebPages.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.WebPages.Razor.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\WebGrease.dll
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.Helpers.xml
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.Mvc.xml
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.Optimization.xml
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.Razor.xml
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.WebPages.xml
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.WebPages.Deployment.xml
+D:\Projects Final Version\Dashboard\Dashboard\bin\System.Web.WebPages.Razor.xml
+D:\Projects Final Version\Dashboard\Dashboard\bin\Newtonsoft.Json.xml
+D:\Projects Final Version\Dashboard\Dashboard\bin\Antlr3.Runtime.pdb
+D:\Projects Final Version\Dashboard\Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects Final Version\Dashboard\Dashboard\obj\Debug\Dashboard.csproj.AssemblyReference.cache
+D:\Projects Final Version\Dashboard\Dashboard\obj\Debug\Dashboard.csproj.CoreCompileInputs.cache
+D:\Projects Final Version\Dashboard\Dashboard\obj\Debug\Dashboard.csproj.CopyComplete
+D:\Projects Final Version\Dashboard\Dashboard\obj\Debug\Dashboard.dll
+D:\Projects Final Version\Dashboard\Dashboard\obj\Debug\Dashboard.pdb
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\Dashboard.dll.config
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\Dashboard.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\Dashboard.pdb
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\csc.exe
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\csc.exe.config
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\csc.rsp
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\csi.exe
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\csi.exe.config
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\csi.rsp
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.AppContext.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Console.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.IO.Compression.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Net.Http.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Net.Sockets.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.ValueTuple.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Xml.XPath.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\vbc.exe
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\vbc.exe.config
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\vbc.rsp
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\VBCSCompiler.exe
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\Antlr3.Runtime.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\Newtonsoft.Json.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.Helpers.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.Mvc.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.Optimization.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.Razor.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.WebPages.Deployment.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.WebPages.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.WebPages.Razor.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\WebGrease.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.Helpers.xml
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.Mvc.xml
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.Optimization.xml
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.Razor.xml
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.WebPages.xml
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.WebPages.Deployment.xml
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\System.Web.WebPages.Razor.xml
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\Newtonsoft.Json.xml
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\Antlr3.Runtime.pdb
+C:\Users\USER\Desktop\Dashboard\Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\USER\Desktop\Dashboard\Dashboard\obj\Debug\Dashboard.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\Dashboard\Dashboard\obj\Debug\Dashboard.csproj.CopyComplete
+C:\Users\USER\Desktop\Dashboard\Dashboard\obj\Debug\Dashboard.dll
+C:\Users\USER\Desktop\Dashboard\Dashboard\obj\Debug\Dashboard.pdb
+C:\Users\USER\Desktop\Dashboard\Dashboard\obj\Debug\Dashboard.csproj.AssemblyReference.cache

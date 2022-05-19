@@ -1,0 +1,995 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+	<meta http-equiv="refresh" content="600">
+
+	<script src="~/assets/js/jquery-3.4.1.min.js"></script>
+
+	<link href="~/assets/Dark.css" rel="stylesheet" id="darkCSS" />
+	<script src="~/assets/Dark.js" id="darkJS"></script>
+
+
+
+
+	<script src="~/assets/js/datepicker.min.js"></script>
+	<link href="~/assets/css/datepicker.min.css" rel="stylesheet" />
+	<script src="~/assets/js/Apex/apexCharts.js"></script>
+
+	<script src="~/assets/js/Amchart/core.js"></script>
+	<script src="~/assets/js/Amchart/charts.js"></script>
+	<script src="~/assets/js/Amchart/dark.js"></script>
+	<script src="~/assets/js/Amchart/animated.js"></script>
+	<script src="~/assets/js/Amchart/material.js"></script>
+	<script src="~/assets/js/Amchart/kelly.js"></script>
+	<script src="~/assets/js/Amchart/dataviz.js"></script>
+	<script src="~/assets/js/Amchart/frozen.js"></script>
+	<script src="~/assets/js/Amchart/maps.js"></script>
+
+	<script src="~/assets/Map/bangladeshHigh.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+	<style>
+
+		.cards:hover {
+			box-shadow: 0px 0px 150px #000000;
+			z-index: 2;
+			-webkit-transition: all 200ms ease-in;
+			-webkit-transform: scale(1.1);
+			-ms-transition: all 200ms ease-in;
+			-ms-transform: scale(1.1);
+			-moz-transition: all 200ms ease-in;
+			-moz-transform: scale(1.1);
+			transition: all 200ms ease-in;
+			transform: scale(1.1);
+		}
+
+		#chartdiv6, #chartdiv1, #chartdiv2, #chartdiv10 {
+			width: 100%;
+			height: 400px;
+		}
+
+		::-webkit-scrollbar {
+			display: none;
+		}
+
+		.btn.btn-success {
+			color: navy !important;
+			font-weight: bold;
+		}
+
+		.card-label {
+			font-weight: bolder !important;
+			color: navy !important;
+		}
+
+		.customHead {
+			color: navy !important;
+		}
+
+		.customFont {
+			font-size: 3.25rem !important;
+		}
+
+		.blackbg {
+			background-color: #1a1a1a !important;
+		}
+
+		/*.container {
+			max-width: 100% !important;
+			padding-right: 40px !important;
+			padding-left: 40px !important;
+		}*/
+
+		.mt-5, .my-5 {
+			margin-top: 0rem !important;
+		}
+
+		.mt-5, .my-5 {
+			margin-bottom: 0rem !important;
+		}
+
+		.amcharts-amexport-item {
+			border-radius: 6px !important;
+			background-color: white !important;
+			color: black !important;
+		}
+
+
+
+		.card.card-custom .card-body {
+			padding-top: 10px !important;
+			padding-bottom: 10px !important;
+		}
+
+		.card-label {
+			font-weight: bolder !important;
+			color: navy !important;
+		}
+
+		.container {
+			max-width: 100% !important;
+		}
+
+		.content {
+			padding: 0px 0 !important;
+		}
+
+		.mt-5, .my-5 {
+			margin-top: 0rem !important;
+		}
+
+		.mt-5, .my-5 {
+			margin-bottom: 0rem !important;
+		}
+
+		.amcharts-amexport-item {
+			border-radius: 6px !important;
+			background-color: white !important;
+			color: black !important;
+		}
+
+
+		:root {
+			--switches-bg-color: #8950FC;
+			--switches-label-color: white;
+			--switch-bg-color: white;
+			--switch-text-color: white;
+			--animate-duration: 7s; /*wow js delay*/
+			--animate-delay: 2s; /*wow js delay*/
+		}
+
+		/* a container - decorative, not required */
+
+		/* p - decorative, not required */
+		p {
+			margin-top: 2rem;
+			font-size: 0.75rem;
+			text-align: center;
+		}
+	</style>
+
+
+</head>
+
+<body id="kt_body" class="quick-panel-right demo-panel-right offcanvas-right header-fixed header-mobile-fixed aside-enabled aside-static page-loading">
+
+	<div class="row">
+		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header">
+					<div class="card-title">
+						<h3 class="card-label">Comparison of Ramadan Sales</h3>
+
+					</div>
+					<div class="card-toolbar">
+						<h3 class="card-label" id="today"></h3>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="">
+					<div class="row">
+
+
+						<div class="animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center">
+
+
+							<h3 id="ramadan" style="color: white; font-size: 15px !important"></h3><br />
+							
+							
+						</div>
+
+
+						<div class="animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center">
+
+							<h3 id="2019sales" style="color: #FF00FF;font-size:15px !important"></h3>
+
+						</div>
+						<div class="animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center">
+
+							<h3 id="2022sales" style="color: #00FF1B;font-size:15px !important"></h3>
+
+						</div>
+						<div class="animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center">
+
+							<h3 id="2022target" style="color: #FF0000; font-size:15px !important"></h3>
+
+						</div>
+
+					</div>
+					
+
+
+
+					<div id="chartdiv6" style="width:100%"></div>
+
+
+				</div>
+				</div>
+			</div>
+		</div>
+	
+	<br />
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header">
+					<div class="card-title">
+						<h3 class="card-label">Category Wise Sales Chart Comparison 2019 V/S 2022</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div style="display:flex">
+					<div class="card-body blackbg col-md-6" style="">
+
+						<h3 style="color: white">2019 Category Wise Contribution</h3> <br />
+						<div id="chartdiv1">
+
+						</div>
+
+					</div>
+
+					<div class="card-body blackbg col-md-6" style="">
+
+						<h3 style="color: white">2022 Category Wise Contribution</h3> <br />
+						<div id="chartdiv2">
+
+						</div>
+
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header">
+					<div class="card-title">
+						<h3 class="card-label">Top Selling Article</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="">
+
+					<div class="row">
+
+						<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2"></div>
+
+						<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Month</button>
+									</div>
+									<input autocomplete="off" type="text" placeholder="Select a Month" id="topArtDate" data-date-format="mm-yyyy" class="form-control" onchange="TOPARTICLE()">
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Top</button>
+									</div>
+									<select class="form-control" id="topArt" onchange="TOPARTICLE()">
+										<option selected="selected" value="10"> 10</option>
+										<option value="20">20</option>
+										<option value="30">30</option>
+										<option value="40">40</option>
+										<option value="50">50</option>
+										<option value="60">60</option>
+										<option value="70">70</option>
+										<option value="80">80</option>
+										<option value="90">90</option>
+										<option value="100">100</option>
+
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Category</button>
+									</div>
+									<select class="form-control" id="CatList" onchange="TOPARTICLE()">
+										
+
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div id="chartdiv10" style="width:100%"></div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br />
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function () {
+		SalesData();
+		PieGraph();
+		PieGraph1();
+		
+		CatList();
+		TotalSales();
+
+		var sDate = new Date();
+		$('#topArtDate').val(sDate.toLocaleDateString());
+
+		$('#topArtDate').datepicker({
+			format: "mm/dd/yyyy",
+			viewMode: "months",
+			minViewMode: "months",
+			autoclose: true
+		});
+		TOPARTICLE();
+	});
+
+
+
+
+	//Line Chart Starts
+
+	function CatList() {
+
+		$.ajax({
+			url: '/Chart/OLDCAT',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			success: function (response) {
+				if (response.length > 0) {
+
+
+					console.log(response);
+					$('#CatList').html('');
+
+					var result = '';
+
+					result += "<option value='0'>SELECT</option>";
+					for (var i = 0; response.length > i; i++) {
+
+						
+						
+
+						result += "<option id='" + response[i].Cid + "' value='" + response[i].Cid + "'>" + response[i].Description + "</option>";
+
+						
+					}
+
+				}
+				$('#CatList').append(result);
+
+			}
+		});
+	}
+
+	function TotalSales() {
+
+		$.ajax({
+			url: '/Map/TotalSales',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			success: function (response) {
+				for (var i = 0; response.length > i; i++) {
+
+					$('#ramadan').html('Ramadan Day: ' + response[i].RamadanDay+'<br>');
+		
+					
+					$('#2019sales').html('Sold value of 2019: <br>' + response[i].RetailACH2019Total.toLocaleString('en-IN'));
+					$('#2022sales').html('Sales value of 2022: <br>' + response[i].RetailACH2022Total.toLocaleString('en-IN'));
+					$('#2022target').html('Target value of 2022: <br>' + response[i].RetailTarget2022Total.toLocaleString('en-IN'));
+				}
+
+				console.log(response.RamadanDay);
+
+
+				}
+				
+			
+		});
+	}
+
+	function SalesData() {
+
+		//var sDate = $('#sdate').val();
+		//var tDate = $('#tdate').val();
+
+
+		$.ajax({
+			url: '/Eid/GetDayWiseEidSalesData',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify({
+
+			}),
+			success: function (response) {
+				if (response.length > 0) {
+					console.log(response);
+					am4core.ready(function () {
+
+
+						//Amchart Name: Date Based Data
+						// Themes begin
+						am4core.useTheme(am4themes_kelly);
+						am4core.useTheme(am4themes_dark);
+
+						// Themes end
+
+						// Create chart instance
+						var chart = am4core.create("chartdiv6", am4charts.XYChart);
+						//chart.exporting.menu = new am4core.ExportMenu();//Used download dataset from the chart
+						//chart.exporting.menu.align = "left";
+						//chart.exporting.menu.verticalAlign = "top";
+
+						chart.colors.list = [
+
+							am4core.color("#FF00FF"),//pink
+							am4core.color("#0026ff"),//blue
+							am4core.color("#00FF1B"),//green
+							am4core.color("#FF0000")//red
+
+						];
+
+
+						// Add data
+						chart.data = response;
+
+						// Set input format for the dates
+						//chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
+
+						// Create axes
+						var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+						categoryAxis.renderer.grid.template.location = 0;
+						categoryAxis.dataFields.category = "RamadanDay";
+						categoryAxis.renderer.minGridDistance = 40;
+
+						var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+
+
+						// Create series
+						var series = chart.series.push(new am4charts.LineSeries());
+						series.dataFields.valueY = "";
+						series.dataFields.categoryX = "";
+						series.tooltipText = "{}"
+
+						series.dataFields.valueY = "RetailACH2019";
+						valueAxis.title.text = "Sold Value";
+						series.dataFields.categoryX = "RamadanDay";
+						series.tooltipText = "2019-Day {categoryX}: {RetailACH2019} TK"
+						series.strokeWidth = 2;
+						series.minBulletDistance = 15;
+
+
+
+
+
+						var series2 = chart.series.push(new am4charts.LineSeries());
+						series2.dataFields.valueY = "RetailACH2021";
+						series2.dataFields.categoryX = "RamadanDay";
+						series2.tooltipText = "2021-Day {categoryX}: {RetailACH2021} TK"
+						series2.strokeWidth = 2;
+						series2.minBulletDistance = 15;
+
+
+
+
+
+
+
+
+						var series3 = chart.series.push(new am4charts.LineSeries());
+						series3.dataFields.valueY = "RetailACH2022";
+						series3.dataFields.categoryX = "RamadanDay";
+						series3.tooltipText = "2022-Day {categoryX}: {RetailACH2022} TK"
+						series3.strokeWidth = 2;
+						series3.minBulletDistance = 15;
+
+
+
+
+
+
+						var series4 = chart.series.push(new am4charts.LineSeries());
+						series4.dataFields.valueY = "RetailTarget2022";
+						series4.dataFields.categoryX = "RamadanDay";
+						series4.tooltipText = "2022-Day {categoryX} Target Value: : {RetailTarget2022} TK"
+						series4.strokeWidth = 2;
+						series4.minBulletDistance = 15;
+
+
+
+
+						chart.legend = new am4charts.Legend();
+						series.name = "2019 Sold Value";
+						series2.name = "2021 Sold Value";
+						series3.name = "2022 Sales Value";
+						series4.name = "2022 Target Value";
+
+
+
+						series4.fillOpacity = 0.2;
+						var fillModifier = new am4core.LinearGradientModifier();
+						fillModifier.opacities = [1, 0];
+						fillModifier.offsets = [0, 1];
+						fillModifier.gradient.rotation = 90;
+						series4.segments.template.fillModifier = fillModifier;
+
+
+
+						series3.fillOpacity = 0.2;
+						var fillModifier = new am4core.LinearGradientModifier();
+						fillModifier.opacities = [1, 0];
+						fillModifier.offsets = [0, 1];
+						fillModifier.gradient.rotation = 90;
+						series3.segments.template.fillModifier = fillModifier;
+
+						// Drop-shaped tooltips
+						series.tooltip.background.cornerRadius = 30;
+						series.tooltip.background.strokeOpacity = 0;
+						series.tooltip.pointerOrientation = "vertical";
+						series.tooltip.label.minWidth = 30;
+						series.tooltip.label.minHeight = 30;
+						series.tooltip.label.textAlign = "middle";
+						series.tooltip.label.textValign = "middle";
+
+
+
+						series2.tooltip.background.cornerRadius = 30;
+						series2.tooltip.background.strokeOpacity = 0;
+						series2.tooltip.pointerOrientation = "vertical";
+						series2.tooltip.label.minWidth = 30;
+						series2.tooltip.label.minHeight = 30;
+						series2.tooltip.label.textAlign = "middle";
+						series2.tooltip.label.textValign = "middle";
+
+
+						series3.tooltip.background.cornerRadius = 30;
+						series3.tooltip.background.strokeOpacity = 0;
+						series3.tooltip.pointerOrientation = "vertical";
+						series3.tooltip.label.minWidth = 30;
+						series3.tooltip.label.minHeight = 30;
+						series3.tooltip.label.textAlign = "middle";
+						series3.tooltip.label.textValign = "middle";
+
+
+						series4.tooltip.background.cornerRadius = 30;
+						series4.tooltip.background.strokeOpacity = 0;
+						series4.tooltip.pointerOrientation = "vertical";
+						series4.tooltip.label.minWidth = 30;
+						series4.tooltip.label.minHeight = 30;
+						series4.tooltip.label.textAlign = "middle";
+						series4.tooltip.label.textValign = "middle";
+
+
+
+
+
+						// Make bullets grow on hover
+						var bullet = series.bullets.push(new am4charts.CircleBullet());
+						bullet.circle.strokeWidth = .8;
+						bullet.circle.radius = 1;
+						bullet.circle.fill = am4core.color("#fff");
+
+						var bullethover = bullet.states.create("hover");
+						bullethover.properties.scale = 1.3;
+
+
+						var bullet2 = series2.bullets.push(new am4charts.CircleBullet());
+						bullet2.circle.strokeWidth = .8;
+						bullet2.circle.radius = 1;
+						bullet2.circle.fill = am4core.color("#fff");
+
+						var bullethover2 = bullet2.states.create("hover");
+						bullethover2.properties.scale = 1.3;
+
+
+
+						var bullet3 = series3.bullets.push(new am4charts.CircleBullet());
+						bullet3.circle.strokeWidth = .8;
+						bullet3.circle.radius = 1;
+						bullet3.circle.fill = am4core.color("#fff");
+
+						var bullethover3 = bullet3.states.create("hover");
+						bullethover3.properties.scale = 1.3;
+
+						var bullet4 = series4.bullets.push(new am4charts.CircleBullet());
+						bullet4.circle.strokeWidth = .8;
+						bullet4.circle.radius = 1;
+						bullet4.circle.fill = am4core.color("#fff");
+
+						var bullethover4 = bullet4.states.create("hover");
+						bullethover4.properties.scale = 1.3;
+
+
+
+
+
+
+
+
+
+						chart.cursor = new am4charts.XYCursor();
+
+
+						// Create vertical scrollbar and place it before the value axis
+						chart.scrollbarY = new am4core.Scrollbar();
+						chart.scrollbarY.parent = chart.rightAxesContainer;
+						/*chart.scrollbarY.toFront();*/
+
+						// Create a horizontal scrollbar with preview and place it underneath the date axis
+						//chart.scrollbarX = new am4charts.XYChartScrollbar();
+						//chart.scrollbarX.series.push(series);
+						//chart.scrollbarX.parent = chart.bottomAxesContainer;
+
+
+						chart.scrollbarX = new am4core.Scrollbar();
+						chart.scrollbarX.parent = chart.bottomAxesContainer;
+
+
+
+
+					});
+				}
+			}
+		});
+	}
+
+	//Line Chart Ends
+
+
+
+	//Category Wise Chart Starts
+	function PieGraph() {
+		
+		$.ajax({
+			type: "POST",
+			contentType: "application/json; charset=utf-8",
+			url: "/Eid/Get_Cat_Margin_PieGraph",
+			dataType: "json",
+			data: JSON.stringify({
+				_Type: 1
+			}),
+
+			success: function (response) {
+
+
+
+				// Themes begin
+				am4core.unuseTheme(am4themes_frozen);
+				am4core.unuseTheme(am4themes_kelly);
+
+				am4core.useTheme(am4themes_material);
+				am4core.useTheme(am4themes_animated);
+				am4core.useTheme(am4themes_dark);
+				// Themes end
+
+				var chart = am4core.create("chartdiv1", am4charts.PieChart3D);
+				//var chart = am4core.create("chartdiv2", am4charts.PieChart3D);
+				chart.fillOpacity = 0.9;
+				chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+				//chart.exporting.menu = new am4core.ExportMenu();
+				//chart.exporting.menu.align = "left";
+				//chart.exporting.menu.verticalAlign = "top";
+
+				//chart.legend = new am4charts.Legend();
+				//chart.legend.fontSize = 10;
+				chart.data = response;
+
+				var series = chart.series.push(new am4charts.PieSeries3D());
+				series.dataFields.value = "SoldValue";
+				series.dataFields.category = "OTBCat";
+
+				series.fontSize = 11;
+			}
+
+		});
+	}
+
+
+	
+	function PieGraph1() {
+		$.ajax({
+			type: "POST",
+			contentType: "application/json; charset=utf-8",
+			url: "/Eid/Get_Cat_Margin_PieGraph",
+			dataType: "json",
+			data: JSON.stringify({
+				_Type: 2
+			}),
+			success: function (response) {
+
+
+
+				// Themes begin
+				am4core.unuseTheme(am4themes_frozen);
+				am4core.unuseTheme(am4themes_kelly);
+
+				am4core.useTheme(am4themes_material);
+				am4core.useTheme(am4themes_animated);
+				am4core.useTheme(am4themes_dark);
+				// Themes end
+
+				//var chart = am4core.create("chartdiv1", am4charts.PieChart3D);
+				var chart = am4core.create("chartdiv2", am4charts.PieChart3D);
+				chart.fillOpacity = 0.9;
+				chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+				//chart.exporting.menu = new am4core.ExportMenu();
+				//chart.exporting.menu.align = "left";
+				//chart.exporting.menu.verticalAlign = "top";
+
+				//chart.legend = new am4charts.Legend();
+				//chart.legend.fontSize = 10;
+				chart.data = response;
+
+				var series = chart.series.push(new am4charts.PieSeries3D());
+				series.dataFields.value = "SoldValue";
+				series.dataFields.category = "OTBCat";
+
+				series.fontSize = 11;
+			}
+
+		});
+	}
+	//Category Wise Chart Ends
+
+
+	//Top 10 Article Starts
+
+	function TOPARTICLE() {
+		var href = [];
+		var vDate = $("#topArtDate").val();
+		var vType = "ARTICLE";
+		var vTop = $('#topArt').val();
+		var vCAt = $('#CatList').val();
+		$.ajax({
+			url: '/Eid/EID_TOP_ART',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify(
+				{
+					_date: vDate,
+					_topType: vType,
+					_top: vTop,
+					_cat: vCAt
+				}
+			),
+			success: function (response) {
+				console.log(response);
+				if (response.length > 0) {
+
+
+					for (let i = 0; i < response.length; i++) {
+						if (UrlExists(response[i].href) == 404) {
+
+							href.push(
+								{
+									"ARTICLE": response[i].ARTICLE,
+									"Value": response[i].Value,
+									"href": "http://192.168.5.13:1212/assets/IMG/blank.png",
+									"Qty": response[i].Qty
+
+								}
+							)
+
+						}
+
+						else {
+							href.push(
+								{
+									"ARTICLE": response[i].ARTICLE,
+									"Value": response[i].Value,
+									"href": response[i].href,
+									"Qty": response[i].Qty
+								}
+							)
+						}
+
+					}
+
+					console.log(href);
+
+					am4core.ready(function () {
+
+						// Themes begin
+						am4core.useTheme(am4themes_animated);
+						am4core.useTheme(am4themes_dark);
+
+						// Themes end
+
+						/**
+						* Chart design taken from Samsung health app
+						*/
+
+						var chart = am4core.create("chartdiv10", am4charts.XYChart);
+						chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+						chart.paddingBottom = 30;
+
+
+						//"name": "Monica",
+						//	"steps": 45688,
+						//		"href": "https://www.amcharts.com/wp-content/uploads/2019/04/monica.jpg"
+						chart.data = href;
+
+						var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+						categoryAxis.dataFields.category = "ARTICLE";
+						categoryAxis.renderer.grid.template.strokeOpacity = 0;
+						categoryAxis.renderer.minGridDistance = 10;
+						categoryAxis.renderer.labels.template.dy = 35;
+						categoryAxis.renderer.tooltip.dy = 35;
+
+						var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+						valueAxis.renderer.inside = true;
+						valueAxis.renderer.labels.template.fillOpacity = 1;
+						valueAxis.renderer.grid.template.strokeOpacity = 0;
+						valueAxis.min = 0;
+						valueAxis.cursorTooltipEnabled = false;
+						valueAxis.renderer.baseGrid.strokeOpacity = 0;
+
+						var series = chart.series.push(new am4charts.ColumnSeries);
+
+						series.dataFields.valueY = "Value";
+						series.tooltipText = "Qty: {Qty}, Value: {valueY.value} Tk";
+
+
+						//series.tooltipText = "2019-Day {categoryX}: {RetailACH2019} TK"
+
+						series.dataFields.categoryX = "ARTICLE";
+						series.tooltip.pointerOrientation = "vertical";
+						series.tooltip.dy = - 6;
+						series.columnsContainer.zIndex = 100;
+
+
+
+						chart.scrollbarX = new am4core.Scrollbar();
+
+
+
+						//chart.scrollbarX.series.push(series);
+						var columnTemplate = series.columns.template;
+						columnTemplate.width = am4core.percent(50);
+						columnTemplate.maxWidth = 66;
+						columnTemplate.column.cornerRadius(20, 5, 10, 10);
+						columnTemplate.strokeOpacity = 0;
+
+						series.heatRules.push({ target: columnTemplate, property: "fill", dataField: "valueY", min: am4core.color("#e5dc36"), max: am4core.color("#5faa46") });
+						series.mainContainer.mask = undefined;
+
+						var cursor = new am4charts.XYCursor();
+						chart.cursor = cursor;
+						cursor.lineX.disabled = true;
+						cursor.lineY.disabled = true;
+						cursor.behavior = "none";
+
+						var bullet = columnTemplate.createChild(am4charts.CircleBullet);
+						bullet.circle.radius = 30;
+						bullet.valign = "bottom";
+						bullet.align = "center";
+						bullet.isMeasured = true;
+						bullet.mouseEnabled = false;
+						bullet.verticalCenter = "bottom";
+						bullet.interactionsEnabled = false;
+
+						var hoverState = bullet.states.create("hover");
+						var outlineCircle = bullet.createChild(am4core.Circle);
+						outlineCircle.adapter.add("radius", function (radius, target) {
+							var circleBullet = target.parent;
+							return circleBullet.circle.pixelRadius + 10;
+						})
+
+						var image = bullet.createChild(am4core.Image);
+						image.width = 60;
+						image.height = 60;
+						image.horizontalCenter = "middle";
+						image.verticalCenter = "middle";
+						image.propertyFields.href = "href";//"href"
+
+						image.adapter.add("mask", function (mask, target) {
+							var circleBullet = target.parent;
+							return circleBullet.circle;
+						})
+
+						var previousBullet;
+						chart.cursor.events.on("cursorpositionchanged", function (event) {
+							var dataItem = series.tooltipDataItem;
+
+							if (dataItem.column) {
+								var bullet = dataItem.column.children.getIndex(1);
+
+								if (previousBullet && previousBullet != bullet) {
+									previousBullet.isHover = false;
+								}
+
+								if (previousBullet != bullet) {
+
+									var hs = bullet.states.getKey("hover");
+									hs.properties.dy = -bullet.parent.pixelHeight + 30;
+									bullet.isHover = true;
+
+									previousBullet = bullet;
+								}
+							}
+						})
+
+					}); // end am4core.ready()
+
+
+
+
+					//}
+
+				}
+
+			}
+		});
+	}
+	function UrlExists(url) {
+		var http = new XMLHttpRequest();
+		http.open('HEAD', url, false);
+		http.send();
+		return http.status;
+	}
+	//Top 10 Articel Ends
+
+</script>
+

@@ -1,0 +1,539 @@
+﻿
+<script src="~/assets/js/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<link href="~/assets/Dark.css" rel="stylesheet" id="darkCSS" />
+<script src="~/assets/Dark.js" id="darkJS"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js" integrity="sha512-RCgrAvvoLpP7KVgTkTctrUdv7C6t7Un3p1iaoPr1++3pybCyCsCZZN7QEHMZTcJTmcJ7jzexTO+eFpHk4OCFAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css" integrity="sha512-YdYyWQf8AS4WSB0WWdc3FbQ3Ypdm0QCWD2k4hgfqbQbRCJBEgX0iAegkl2S1Evma5ImaVXLBeUkIlP6hQ1eYKQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/dark.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/kelly.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/frozen.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+<script src="~/assets/Map/bangladeshHigh.js"></script>
+<link href="https://nightly.datatables.net/css/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<style>
+	#chartdiv, #chartdiv1, #chartdiv2, #chartdiv4, #chartdiv6, #chartdiv7, #chartdiv8, #chartdiv10, #chartdiv11, #chartdiv12 {
+		width: 100%;
+		height: 500px;
+	}
+
+	.btn.btn-success {
+		color: navy !important;
+		font-weight: bold;
+	}
+
+	.card-label {
+		font-weight: bolder !important;
+		color: navy !important;
+	}
+
+	.customHead {
+		color: navy !important;
+	}
+
+	.customFont {
+		font-size: 3.25rem !important;
+	}
+
+	.blackbg {
+		background-color: #1a1a1a !important;
+	}
+
+	.container {
+		max-width: 100% !important;
+	}
+
+	.mt-5, .my-5 {
+		margin-top: 0rem !important;
+	}
+
+	.mt-5, .my-5 {
+		margin-bottom: 0rem !important;
+	}
+
+	.amcharts-amexport-item {
+		border-radius: 6px !important;
+		background-color: white !important;
+		color: black !important;
+	}
+
+
+
+	.card.card-custom .card-body {
+		padding-top: 10px !important;
+		padding-bottom: 10px !important;
+	}
+
+	.card-label {
+		font-weight: bolder !important;
+		color: navy !important;
+	}
+
+
+
+
+
+
+	body {
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	}
+
+	#chartdiv {
+		width: 100%;
+		height: 500px;
+	}
+</style>
+
+
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">Top Salesman</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body blackbg" style="">
+				<div class="row">
+
+						<div class="col-md-4"></div>
+
+						<div class="col-md-3">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Month</button>
+									</div>
+									<input autocomplete="off" type="text" placeholder="Select a Month" id="topSPersonDate" data-date-format="mm-yyyy" class="form-control" onchange="TOPSALESMAN()">
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-md-2">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Top</button>
+									</div>
+									<select class="form-control" id="topSales" onchange="TOPSALESMAN()">
+										<option selected="selected" value="10"> 10</option>
+										<option value="20">20</option>
+										<option value="30">30</option>
+										<option value="40">40</option>
+										<option value="50">50</option>
+
+									</select>
+								</div>
+							</div>
+						</div>
+
+						
+
+					<div id="chartdiv11" style="width:100%"></div>
+
+					
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br />
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">Top Selling Article</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body blackbg" style="">
+				<div class="row">
+
+					<div class="col-md-4"></div>
+
+						<div class="col-md-3">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Month</button>
+									</div>
+									<input autocomplete="off" type="text" placeholder="Select a Month" id="topArtDate" data-date-format="mm-yyyy" class="form-control" onchange="TOPARTICLE()">
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-md-2">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Top</button>
+									</div>
+									<select class="form-control" id="topArt" onchange="TOPARTICLE()">
+										<option selected="selected" value="10"> 10</option>
+										<option value="20">20</option>
+										<option value="30">30</option>
+										<option value="40">40</option>
+										<option value="50">50</option>
+										<option value="60">60</option>
+										<option value="70">70</option>
+										<option value="80">80</option>
+										<option value="90">90</option>
+										<option value="100">100</option>
+
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div id="chartdiv10" style="width:100%"></div>
+
+
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+
+	$(document).ready(function () {
+	
+
+		var sDate = new Date();
+		$('#topArtDate').datepicker({
+			format: "mm/dd/yyyy",
+			viewMode: "months",
+			minViewMode: "months",
+			autoclose: true
+		});
+
+		$('#topSPersonDate').datepicker({
+			format: "mm/dd/yyyy",
+			viewMode: "months",
+			minViewMode: "months",
+			autoclose: true
+		});
+
+		$('#topArtDate').val(sDate.toLocaleDateString());
+		$('#topSPersonDate').val(sDate.toLocaleDateString());
+
+		TOPARTICLE();
+		TOPSALESMAN();
+
+
+	});
+
+	
+
+
+	//Top Salesman Starts
+
+	function TOPSALESMAN() {
+		var vType = "STAFF";
+		var vDate = $("#topSPersonDate").val();
+		var vTop = $('#topSales').val();
+		$.ajax({
+			url: '/Chart/TOP_ART_EMP',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify(
+				{
+					_topType: vType,
+					_date: vDate,
+					_top: vTop
+
+
+				}
+			),
+			success: function (response) {
+				console.log(response);
+				if (response.length > 0) {
+					am4core.ready(function () {
+						// Themes begin
+						// Themes begin
+
+
+						am4core.unuseTheme(am4themes_frozen);
+						am4core.unuseTheme(am4themes_kelly);
+						am4core.unuseTheme(am4themes_dataviz);
+						am4core.useTheme(am4themes_animated);
+						am4core.useTheme(am4themes_material);
+
+
+						// Themes end
+
+						var chart = am4core.create("chartdiv11", am4charts.XYChart);
+						chart.padding(40, 40, 40, 40);
+
+						var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+						categoryAxis.renderer.grid.template.location = 0;
+						categoryAxis.dataFields.category = "EmpName";
+						categoryAxis.renderer.minGridDistance = 1;
+						categoryAxis.renderer.inversed = true;
+						categoryAxis.renderer.grid.template.disabled = true;
+
+						var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+						valueAxis.min = 0;
+
+						var series = chart.series.push(new am4charts.ColumnSeries());
+						series.dataFields.categoryY = "EmpName";
+						series.dataFields.valueX = "Value";
+						series.tooltipText = "{valueX.value}"
+						series.columns.template.strokeOpacity = 0;
+						series.columns.template.column.cornerRadiusBottomRight = 5;
+						series.columns.template.column.cornerRadiusTopRight = 5;
+
+						var labelBullet = series.bullets.push(new am4charts.LabelBullet())
+						labelBullet.label.horizontalCenter = "left";
+						labelBullet.label.dx = 10;
+						labelBullet.label.text = "{valueX.value}";
+						labelBullet.locationX = 1;
+
+						// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+						series.columns.template.adapter.add("fill", function (fill, target) {
+							return chart.colors.getIndex(target.dataItem.index);
+						});
+
+						categoryAxis.sortBySeries = series;
+						chart.data = response;
+
+						chart.cursor = new am4charts.XYCursor();
+
+					});
+
+
+				}
+			}
+		})
+	}
+	//Top Salesman Ends
+
+
+
+	//Top 10 Article Starts
+
+	function TOPARTICLE() {
+		var href = [];
+		var vDate = $("#topArtDate").val();
+		var vType = "ARTICLE";
+		var vTop = $('#topArt').val();
+		$.ajax({
+			url: '/Chart/TOP_ART_EMP',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify(
+				{
+					_date: vDate,
+					_topType: vType,
+					_top: vTop
+				}
+			),
+			success: function (response) {
+
+				if (response.length > 0) {
+					
+
+					for (let i = 0; i < response.length; i++)
+					{
+						if (UrlExists(response[i].href) == 404) {
+
+							href.push(
+								{
+									"ARTICLE": response[i].ARTICLE,
+									"Value": response[i].Value,
+									"href": "http://192.168.5.13:1212/assets/IMG/blank.png"
+									
+								}
+							)
+
+						}
+
+						else {
+							href.push(
+								{
+									"ARTICLE": response[i].ARTICLE,
+									"Value": response[i].Value,
+									"href": response[i].href
+
+								}
+							)
+						}
+						
+					}
+						
+					console.log(href);
+
+					am4core.ready(function () {
+
+						// Themes begin
+						am4core.useTheme(am4themes_animated);
+						am4core.useTheme(am4themes_dark);
+
+						// Themes end
+
+						/**
+						* Chart design taken from Samsung health app
+						*/
+
+						var chart = am4core.create("chartdiv10", am4charts.XYChart);
+						chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+						chart.paddingBottom = 30;
+
+
+						//"name": "Monica",
+						//	"steps": 45688,
+						//		"href": "https://www.amcharts.com/wp-content/uploads/2019/04/monica.jpg"
+						chart.data = href;
+
+						var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+						categoryAxis.dataFields.category = "ARTICLE";
+						categoryAxis.renderer.grid.template.strokeOpacity = 0;
+						categoryAxis.renderer.minGridDistance = 10;
+						categoryAxis.renderer.labels.template.dy = 35;
+						categoryAxis.renderer.tooltip.dy = 35;
+
+						var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+						valueAxis.renderer.inside = true;
+						valueAxis.renderer.labels.template.fillOpacity = 0.3;
+						valueAxis.renderer.grid.template.strokeOpacity = 0;
+						valueAxis.min = 0;
+						valueAxis.cursorTooltipEnabled = false;
+						valueAxis.renderer.baseGrid.strokeOpacity = 0;
+
+						var series = chart.series.push(new am4charts.ColumnSeries);
+						
+						series.dataFields.valueY = "Value";
+						series.tooltipText = "{valueY.value} Tk";
+
+						
+						series.dataFields.categoryX = "ARTICLE";
+						series.tooltip.pointerOrientation = "vertical";
+						series.tooltip.dy = - 6;
+						series.columnsContainer.zIndex = 100;
+
+						var columnTemplate = series.columns.template;
+						columnTemplate.width = am4core.percent(50);
+						columnTemplate.maxWidth = 66;
+						columnTemplate.column.cornerRadius(20, 5, 10, 10);
+						columnTemplate.strokeOpacity = 0;
+
+						series.heatRules.push({ target: columnTemplate, property: "fill", dataField: "valueY", min: am4core.color("#e5dc36"), max: am4core.color("#5faa46") });
+						series.mainContainer.mask = undefined;
+
+						var cursor = new am4charts.XYCursor();
+						chart.cursor = cursor;
+						cursor.lineX.disabled = true;
+						cursor.lineY.disabled = true;
+						cursor.behavior = "none";
+
+						var bullet = columnTemplate.createChild(am4charts.CircleBullet);
+						bullet.circle.radius = 30;
+						bullet.valign = "bottom";
+						bullet.align = "center";
+						bullet.isMeasured = true;
+						bullet.mouseEnabled = false;
+						bullet.verticalCenter = "bottom";
+						bullet.interactionsEnabled = false;
+
+						var hoverState = bullet.states.create("hover");
+						var outlineCircle = bullet.createChild(am4core.Circle);
+						outlineCircle.adapter.add("radius", function (radius, target) {
+							var circleBullet = target.parent;
+							return circleBullet.circle.pixelRadius + 10;
+						})
+
+						var image = bullet.createChild(am4core.Image);
+						image.width = 60;
+						image.height = 60;
+						image.horizontalCenter = "middle";
+						image.verticalCenter = "middle";
+						image.propertyFields.href = "href";//"href"
+
+						image.adapter.add("mask", function (mask, target) {
+							var circleBullet = target.parent;
+							return circleBullet.circle;
+						})
+
+						var previousBullet;
+						chart.cursor.events.on("cursorpositionchanged", function (event) {
+							var dataItem = series.tooltipDataItem;
+
+							if (dataItem.column) {
+								var bullet = dataItem.column.children.getIndex(1);
+
+								if (previousBullet && previousBullet != bullet) {
+									previousBullet.isHover = false;
+								}
+
+								if (previousBullet != bullet) {
+
+									var hs = bullet.states.getKey("hover");
+									hs.properties.dy = -bullet.parent.pixelHeight + 30;
+									bullet.isHover = true;
+
+									previousBullet = bullet;
+								}
+							}
+						})
+
+					}); // end am4core.ready()
+
+
+
+
+					//}
+
+				}
+
+			}
+		});
+	}
+	function UrlExists(url) {
+		var http = new XMLHttpRequest();
+		http.open('HEAD', url, false);
+		http.send();
+		return http.status;
+	}
+	//Top 10 Articel Ends
+
+
+</script>

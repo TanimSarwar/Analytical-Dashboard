@@ -1,0 +1,2393 @@
+﻿<meta http-equiv="refresh" content="600">
+
+<script src="~/assets/js/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<link href="~/assets/Dark.css" rel="stylesheet" id="darkCSS" />
+<script src="~/assets/Dark.js" id="darkJS"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js" integrity="sha512-RCgrAvvoLpP7KVgTkTctrUdv7C6t7Un3p1iaoPr1++3pybCyCsCZZN7QEHMZTcJTmcJ7jzexTO+eFpHk4OCFAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css" integrity="sha512-YdYyWQf8AS4WSB0WWdc3FbQ3Ypdm0QCWD2k4hgfqbQbRCJBEgX0iAegkl2S1Evma5ImaVXLBeUkIlP6hQ1eYKQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/dark.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/kelly.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/frozen.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+<script src="~/assets/Map/bangladeshHigh.js"></script>
+
+
+
+<style>
+	#chartdiv, #chartdiv1, #chartdiv2, #chartdiv4, #chartdiv6, #chartdiv7, #chartdiv8, #chartdiv10, #chartdiv11, #chartdiv12 {
+		width: 100%;
+		height: 500px;
+	}
+
+	.blackbg {
+		background-color: #1a1a1a !important;
+	}
+
+	.container {
+		max-width: 100% !important;
+	}
+
+	.mt-5, .my-5 {
+		margin-top: 0rem !important;
+	}
+
+	.mt-5, .my-5 {
+		margin-bottom: 0rem !important;
+	}
+
+	.amcharts-amexport-item {
+		border-radius: 6px !important;
+		background-color: white !important;
+		color: black !important;
+	}
+</style>
+
+
+@*<button id="buttontoggle" onclick="dark()">
+
+	</button>*@
+<div class="row">
+
+
+	<div class="col-xl-3">
+		<!--begin::Stats Widget 13-->
+		<a href="#" class="card card-custom bg-success bg-hover-state-light-success card-stretch gutter-b" style="opacity:0.9 !important">
+			<!--begin::Body-->
+			<div class="card-body">
+				<span class="svg-icon svg-icon-white svg-icon-2x">
+					<!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo5/dist/../src/media/svg/icons/Shopping/Chart-bar2.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<rect fill="#000000" opacity="0.3" x="17" y="4" width="3" height="13" rx="1.5" />
+							<rect fill="#000000" opacity="0.3" x="12" y="9" width="3" height="8" rx="1.5" />
+							<path d="M5,19 L20,19 C20.5522847,19 21,19.4477153 21,20 C21,20.5522847 20.5522847,21 20,21 L4,21 C3.44771525,21 3,20.5522847 3,20 L3,4 C3,3.44771525 3.44771525,3 4,3 C4.55228475,3 5,3.44771525 5,4 L5,19 Z" fill="#000000" fill-rule="nonzero" />
+							<rect fill="#000000" opacity="0.3" x="7" y="11" width="3" height="6" rx="1.5" />
+						</g>
+					</svg><!--end::Svg Icon-->
+				</span>
+				<div class="text-inverse-danger font-weight-bolder font-size-h5 mb-2 mt-5">Margin</div>
+				<div class="text-inverse-danger font-weight-bolder font-size-h5 mb-2 mt-5" id="Total_Sale"></div>
+				<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5" id="Daterange1"></div>
+
+			</div>
+			<!--end::Body-->
+		</a>
+		<!--end::Stats Widget 13-->
+	</div>
+	<div class="col-xl-3">
+		<!--begin::Stats Widget 14-->
+		<a href="#" class="card card-custom bg-danger bg-hover-state-light-danger card-stretch gutter-b" style="opacity:0.9 !important">
+			<!--begin::Body-->
+			<div class="card-body">
+				<span class="svg-icon svg-icon-white svg-icon-2x">
+					<!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo5/dist/../src/media/svg/icons/Shopping/Cart2.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M12,4.56204994 L7.76822128,9.6401844 C7.4146572,10.0644613 6.7840925,10.1217854 6.3598156,9.76822128 C5.9355387,9.4146572 5.87821464,8.7840925 6.23177872,8.3598156 L11.2317787,2.3598156 C11.6315738,1.88006147 12.3684262,1.88006147 12.7682213,2.3598156 L17.7682213,8.3598156 C18.1217854,8.7840925 18.0644613,9.4146572 17.6401844,9.76822128 C17.2159075,10.1217854 16.5853428,10.0644613 16.2317787,9.6401844 L12,4.56204994 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+							<path d="M3.28077641,9 L20.7192236,9 C21.2715083,9 21.7192236,9.44771525 21.7192236,10 C21.7192236,10.0817618 21.7091962,10.163215 21.6893661,10.2425356 L19.5680983,18.7276069 C19.234223,20.0631079 18.0342737,21 16.6576708,21 L7.34232922,21 C5.96572629,21 4.76577697,20.0631079 4.43190172,18.7276069 L2.31063391,10.2425356 C2.17668518,9.70674072 2.50244587,9.16380623 3.03824078,9.0298575 C3.11756139,9.01002735 3.1990146,9 3.28077641,9 Z M12,12 C11.4477153,12 11,12.4477153 11,13 L11,17 C11,17.5522847 11.4477153,18 12,18 C12.5522847,18 13,17.5522847 13,17 L13,13 C13,12.4477153 12.5522847,12 12,12 Z M6.96472382,12.1362967 C6.43125772,12.2792385 6.11467523,12.8275755 6.25761704,13.3610416 L7.29289322,17.2247449 C7.43583503,17.758211 7.98417199,18.0747935 8.51763809,17.9318517 C9.05110419,17.7889098 9.36768668,17.2405729 9.22474487,16.7071068 L8.18946869,12.8434035 C8.04652688,12.3099374 7.49818992,11.9933549 6.96472382,12.1362967 Z M17.0352762,12.1362967 C16.5018101,11.9933549 15.9534731,12.3099374 15.8105313,12.8434035 L14.7752551,16.7071068 C14.6323133,17.2405729 14.9488958,17.7889098 15.4823619,17.9318517 C16.015828,18.0747935 16.564165,17.758211 16.7071068,17.2247449 L17.742383,13.3610416 C17.8853248,12.8275755 17.5687423,12.2792385 17.0352762,12.1362967 Z" fill="#000000" />
+						</g>
+					</svg><!--end::Svg Icon-->
+				</span>
+				<div class="text-inverse-primary font-weight-bolder font-size-h5 mb-2 mt-5">Current Stock</div>
+				<div class="text-inverse-primary font-weight-bolder font-size-h5 mb-2 mt-5" id="Total_Inventory"></div>
+				<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5">All Over Company</div>
+
+			</div>
+			<!--end::Body-->
+		</a>
+		<!--end::Stats Widget 14-->
+	</div>
+	<div class="col-xl-3">
+		<!--begin::Stats Widget 15-->
+		<a href="#" class="card card-custom bg-info bg-hover-state-light-info card-stretch gutter-b" style="opacity:0.9 !important">
+			<!--begin::Body-->
+			<div class="card-body">
+				<span class="svg-icon svg-icon-white svg-icon-2x">
+					<!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo5/dist/../src/media/svg/icons/Communication/Add-user.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<polygon points="0 0 24 0 24 24 0 24" />
+							<path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+							<path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero" />
+						</g>
+					</svg><!--end::Svg Icon-->
+				</span>
+				<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5">Total Invoice</div>
+				<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5" id="Total_Invoice"></div>
+				<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5" id="Daterange2"></div>
+
+			</div>
+			<!--end::Body-->
+		</a>
+		<!--end::Stats Widget 15-->
+	</div>
+	<div class="col-xl-3">
+		<!--begin::Stats Widget 15-->
+		<a href="#" class="card card-custom bg-warning bg-hover-state-light-warning card-stretch gutter-b" style="opacity:0.9 !important">
+			<!--begin::Body-->
+			<div class="card-body">
+				<span class="svg-icon svg-icon-white svg-icon-2x">
+					<!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo5/dist/../src/media/svg/icons/Shopping/Chart-pie.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M4.00246329,12.2004927 L13,14 L13,4.06189375 C16.9463116,4.55399184 20,7.92038235 20,12 C20,16.418278 16.418278,20 12,20 C7.64874861,20 4.10886412,16.5261253 4.00246329,12.2004927 Z" fill="#000000" opacity="0.3" />
+							<path d="M3.0603968,10.0120794 C3.54712466,6.05992157 6.91622084,3 11,3 L11,11.6 L3.0603968,10.0120794 Z" fill="#000000" />
+						</g>
+					</svg><!--end::Svg Icon-->
+				</span>
+				<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5">Total Sold Value</div>
+				<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5" id="Total_Sold_Quantity"></div>
+				<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5" id="Daterange3"></div>
+
+
+			</div>
+			<!--end::Body-->
+		</a>
+		<!--end::Stats Widget 15-->
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">Country Wide LOTTO/LEE COOPER Outlet</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body" style="">
+
+
+				<div id="chartdiv8">
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<br />
+<div class="row">
+	<div class="col-md-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">Sales Value Line Chart</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body blackbg" style="">
+				<div class="row">
+
+					<div class="col-md-4">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Start Date</button>
+								</div>
+								<input type="text" class="form-control" id="sdate" onchange="SalesData()" autocomplete="off">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">End Date</button>
+								</div>
+								<input type="text" class="form-control" id="tdate" onchange="SalesData()" autocomplete="off">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Chart Trend</button>
+								</div>
+								<select class="form-control" id="trend" onchange="SalesData()">
+									<option value="1">Margin</option>
+									<option selected="selected" value="2">Sales Value</option>
+									<option value="3">Discount</option>
+									<option value="4">Customer Count</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div id="chartdiv6" style="width:100%"></div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br />
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">WeekDay/Time Wise Chart</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body blackbg" style="">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Start Date</button>
+								</div>
+								<input type="text" class="form-control" id="DSH_WKDAY_Start_Date" autocomplete="off">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">End Date</button>
+								</div>
+								<input type="text" class="form-control" id="DSH_WKDAY_End_Date" autocomplete="off">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">WeekDay</button>
+								</div>
+								<select class="form-control" id="WeekDay">
+									<option id="Sunday" title="Sunday" value="Sunday">Sunday</option>
+									<option id="Monday" title="Monday" value="Monday">Monday</option>
+									<option id="Tuesday" title="Tuesday" value="Tuesday">Tuesday</option>
+									<option id="Wednesday" title="Wednesday" value="Wednesday">Wednesday</option>
+									<option id="Thursday" title="Thursday" value="Thursday">Thursday</option>
+									<option id="Friday" title="Friday" value="Friday">Friday</option>
+									<option id="Saturday" title="Saturday" value="Saturday">Saturday</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Time Slot</button>
+								</div>
+								<select class="form-control" id="TimeSlot">
+									<option id="1 AM" title="1 AM" value="1 AM">1 AM</option>
+									<option id="2 AM" title="2 AM" value="2 AM">2 AM</option>
+									<option id="3 AM" title="3 AM" value="3 AM">3 AM</option>
+									<option id="4 AM" title="4 AM" value="4 AM">4 AM</option>
+									<option id="5 AM" title="5 AM" value="5 AM">5 AM</option>
+									<option id="6 AM" title="6 AM" value="6 AM">6 AM</option>
+									<option id="7 AM" title="7 AM" value="7 AM">7 AM</option>
+									<option id="8 AM" title="8 AM" value="8 AM">8 AM</option>
+									<option id="9 AM" title="9 AM" value="9 AM">9 AM</option>
+									<option id="10 AM" title="10 AM" value="10 AM">10 AM</option>
+									<option id="11 AM" title="11 AM" value="11 AM">11 AM</option>
+									<option id="12 PM" title="12 PM" value="12 PM">12 PM</option>
+									<option id="1 PM" title="1 PM" value="1 PM">1 PM</option>
+									<option id="2 PM" title="2 PM" value="2 PM">2 PM</option>
+									<option id="3 PM" title="3 PM" value="3 PM">3 PM</option>
+									<option id="4 PM" title="4 PM" value="4 PM">4 PM</option>
+									<option id="5 PM" title="5 PM" value="5 PM">5 PM</option>
+									<option id="6 PM" title="6 PM" value="6 PM">6 PM</option>
+									<option id="7 PM" title="7 PM" value="7 PM">7 PM</option>
+									<option id="8 PM" title="8 PM" value="8 PM">8 PM</option>
+									<option id="9 PM" title="9 PM" value="9 PM">9 PM</option>
+									<option id="10 PM" title="10 PM" value="10 PM">10 PM</option>
+									<option id="11 PM" title="11 PM" value="11 PM">11 PM</option>
+									<option selected="" id="12 AM" title="12 AM" value="12 AM">12 AM</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Report Type</button>
+								</div>
+								<select class="form-control" id="ReportType">
+									<option value="GrossValue">GrossValue</option>
+									<option value="DiscValue">DiscValue</option>
+									<option selected="selected" value="SoldValue">SoldValue</option>
+									<option value="MarginValue">MarginValue</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2">
+
+						<a class="btn btn-success ad-click-event btn-block" id="btnShow_DSH_HOUR" onclick="RPT_DSH_WKDAY()">
+							SHOW
+						</a>
+
+
+					</div>
+
+					<div id="chartdiv7" style="width:100%"></div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<br />
+<div class="row">
+	<div class="col-md-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">Sold Value Retails Sale</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body blackbg" style="">
+				<div class="row">
+
+					<div class="col-md-3">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Start Date</button>
+								</div>
+								<input type="text" id="DSH_Hour_Start_Date" class="form-control" autocomplete="off">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">End Date</button>
+								</div>
+								<input type="text" class="form-control" id="DSH_Hour_End_Date" autocomplete="off">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Chart Trend</button>
+								</div>
+								<select class="form-control" id="ReportTypeH">
+									<option id="GrossValue" title="GrossValue" value="GrossValue">Gross Value</option>
+									<option id="DiscValue" title="DiscValue" value="DiscValue">Disc Value</option>
+									<option selected="" id="SoldValue" title="SoldValue" value="SoldValue">Sold Value</option>
+									<option id="MarginValue" title="MarginValue" value="MarginValue">Margin Value</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2">
+
+						<a class="btn btn-success ad-click-event btn-block" id="btnShow_DSH_HOUR" onclick="RPT_DSH_Hour()">
+							SHOW
+						</a>
+
+
+					</div>
+				</div>
+
+
+				<div id="chartdiv2"></div>
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
+<br />
+<div class="row">
+
+	<div class="col-md-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">Hourly Sales Comparison</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body blackbg" style="">
+				<div id="chart2" style="width:100%"></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<br />
+<div class="row">
+	<div class="col-md-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">Channel Wise Sales Chart</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body blackbg" style="">
+				<div id="chartdiv"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br />
+<div class="row">
+
+	<div class="col-md-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">Category Wise Sales Chart</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body blackbg" style="">
+
+
+				<div id="chartdiv1">
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+
+</div>
+<br />
+
+
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">Top 10 Selling Article</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body blackbg" style="">
+				<div class="row">
+
+					<div class="col-md-3">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Start Date</button>
+								</div>
+								<input type="text" class="form-control" id="stdate" onchange="TOPARTICLE()" autocomplete="off">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">End Date</button>
+								</div>
+								<input type="text" class="form-control" id="ttdate" onchange="TOPARTICLE()" autocomplete="off">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Category</button>
+								</div>
+								<select class="form-control" id="Category" onchange="TOPARTICLE()">
+									<option selected="selected" value="All">All</option>
+									<option value="ACCESSORIES">ACCESSORIES</option>
+									<option value="APPAREL">APPAREL</option>
+									<option value="FOOTWEAR">FOOTWEAR</option>
+									<option value="PROMOTION">PROMOTION</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Type</button>
+								</div>
+								<select class="form-control" id="ttype" onchange="TOPARTICLE()">
+									<option value="1"> Quantity</option>
+									<option selected="selected" value="2">Sales Value</option>
+									<option value="3">Margin</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div id="chartdiv10" style="width:100%"></div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br />
+
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">Top Salesman</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body blackbg" style="">
+				<div class="row">
+
+					<div class="col-md-3">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Start Date</button>
+								</div>
+								<input type="text" class="form-control" id="stsalesdate" onchange="TOPSALESMAN()" autocomplete="off">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">End Date</button>
+								</div>
+								<input type="text" class="form-control" id="ttsalesdate" onchange="TOPSALESMAN()" autocomplete="off">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Top</button>
+								</div>
+								<select class="form-control" id="top" onchange="TOPSALESMAN()">
+									<option selected="selected" value="10"> 10</option>
+									<option value="20">20</option>
+									<option value="30">30</option>
+									<option value="40">40</option>
+									<option value="50">50</option>
+
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Area</button>
+								</div>
+								<select class="form-control" id="Area" onchange="TOPSALESMAN()">
+
+
+									<option selected="selected" value="All">All</option>
+									<option value="DHK-1">DHAKA-1</option>
+									<option value="DHK-2">DHAKA-2</option>
+									<option value="BGR">BOGURA</option>
+									<option value="RANGP">RANGPUR</option>
+									<option value="M.SINGH">MYMENSING</option>
+									<option value="SYLHET">SYLHET</option>
+									<option value="KHULNA">KHULNA</option>
+									<option value="BARISAL">BARISAL</option>
+									<option value="CTG">CHITTAGONG</option>
+									<option value="COMLLA">CUMILLA</option>
+									<option value="RAJSH">RAJSHAHI</option>
+
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div id="chartdiv11" style="width:100%"></div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@*<br />
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header">
+					<div class="card-title">
+						<h3 class="card-label">Target V/S Achievement(Sales Value)</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="">
+					<div class="row">
+
+						<div class="col-md-6">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Start Date</button>
+									</div>
+									<input type="text" class="form-control" id="SAsdate" onchange="TARGETACIEVE()" autocomplete="off">
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">End Date</button>
+									</div>
+									<input type="text" class="form-control" id="SAedate" onchange="TARGETACIEVE()" autocomplete="off">
+								</div>
+							</div>
+						</div>
+
+
+
+						<div id="chartdiv12" style="width:100%"></div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>*@
+
+
+
+
+
+
+<script>
+	var matchedData = [];
+	var matchDate = [];
+
+
+	var matchedDataHourlyToday = [];
+	var matchedDataHourlyYesterday = [];
+	var matchHour = [];
+
+
+	var longitude = [];
+	var lattitude = [];
+	var OutletName = [];
+
+	var RPT_DSH_WKDAY_VAL = [];
+	var RPT_DSH_WKDAY_GROWTH = [];
+	var RPT_DSH_WKDAY_LABEL = [];
+
+
+	$(document).ready(function () {
+
+		$('#sdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#tdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#stdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#ttdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+
+		$('#stsalesdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#ttsalesdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+
+
+
+		$('#SAsdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#SAedate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+
+		$('#DSH_Hour_Start_Date').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#DSH_Hour_End_Date').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#DSH_WKDAY_Start_Date').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#DSH_WKDAY_End_Date').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+
+
+
+
+		var sDate = new Date();
+		var tdate = new Date();
+		var teDate = new Date();
+		var tewDate = new Date();
+		tdate.setDate(tdate.getDate() - 30);
+		teDate.setDate(teDate.getDate() - 30);
+		tewDate.setDate(sDate.getDate() - 7);
+		var tdates = tdate.toLocaleDateString();
+		var tedates = teDate.toLocaleDateString();
+		$('#sdate').val(tdates);
+		$('#tdate').val(sDate.toLocaleDateString());
+		$('#DSH_Hour_Start_Date').val(tedates);
+		$('#DSH_Hour_End_Date').val(sDate.toLocaleDateString());
+
+		$('#ttdate').val(sDate.toLocaleDateString());
+		$('#stdate').val(tewDate.toLocaleDateString());
+
+		$('#DSH_WKDAY_Start_Date').val(tedates);
+		$('#DSH_WKDAY_End_Date').val(sDate.toLocaleDateString());
+
+		$('#ttsalesdate').val(sDate.toLocaleDateString());
+		$('#stsalesdate').val(sDate.toLocaleDateString());
+
+		$('#SAsdate').val(tewDate.toLocaleDateString());
+		$('#SAedate').val(sDate.toLocaleDateString());
+
+		RPT_DSH_WKDAY();
+		HourlySalesData();
+		RPT_DSH_Hour();
+		SalesData();
+		donutGraph();
+		PieGraph();
+		CardData();
+		MapData();
+		TOPARTICLE();
+		TOPSALESMAN();
+		//TARGETACIEVE();
+	});
+
+	//function dark() {
+	//	$("#darkCSS").attr("disabled", "disabled");
+	//	//$("#darkJS").attr("disabled", "disabled");
+	//	//$("#amdarkjs").attr("disabled", "disabled");
+	//	$('darkJS').att('src').remove();
+
+	//	$('amdarkjs').att('src').remove();
+	//	RPT_DSH_WKDAY();
+	//	HourlySalesData();
+	//	RPT_DSH_Hour();
+	//	SalesData();
+	//	donutGraph();
+	//	PieGraph();
+	//	CardData();
+	//	MapData();
+	//	TOPARTICLE();
+	//}
+
+
+
+	function CardData() {
+		$.ajax({
+			url: '/Chart/RPT_RMARGIN',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			success: function (response) {
+				for (let i = 0; i < response.length; i++) {
+					$('#Total_Sale').text(response[i].Margin);
+					$('#Total_Inventory').text(response[i].CurrrentStock.toLocaleString());
+					$('#Total_Invoice').text(response[i].MemoCount.toLocaleString());
+					$('#Total_Sold_Quantity').text(response[i].SoldValue.toLocaleString());
+					$('#Daterange1').text(response[i].DateRange);
+					$('#Daterange2').text(response[i].DateRange);
+					$('#Daterange3').text(response[i].DateRange);
+
+
+
+				}
+
+			}
+		});
+	}
+
+
+	//Bangladesh Map Starts
+	function MapData() {
+		$.ajax({
+			url: '/Chart/OutletList',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			success: function (response) {
+				if (response.length > 0) {
+
+
+					// Themes begin
+					am4core.unuseTheme(am4themes_frozen);
+					am4core.unuseTheme(am4themes_kelly);
+					am4core.unuseTheme(am4themes_dataviz);
+					am4core.useTheme(am4themes_animated);
+					am4core.useTheme(am4themes_material);
+
+					am4core.unuseTheme(am4themes_dark);
+					// Themes end
+
+					var chart = am4core.create("chartdiv8", am4maps.MapChart);
+
+
+					try {
+						chart.geodata = am4geodata_bangladeshHigh;
+					}
+					catch (e) {
+						chart.raiseCriticalError(new Error("Map geodata could not be loaded. Please download the latest <a href=\"https://www.amcharts.com/download/download-v4/\">amcharts geodata</a> and extract its contents into the same directory as your amCharts files."));
+					}
+
+					chart.projection = new am4maps.projections.Mercator();
+
+					// zoomout on background click
+					chart.chartContainer.background.events.on("hit", function () { zoomOut() });
+
+					var colorSet = new am4core.ColorSet();
+					var morphedPolygon;
+
+					// map polygon series (countries)
+					var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+					polygonSeries.useGeodata = true;
+					// specify which countries to include
+					polygonSeries.include = ["BD-A", "BD-B", "BD-C", "BD-D", "BD-E", "BD-F", "BD-G", "BD-H"]
+
+					// country area look and behavior
+					var polygonTemplate = polygonSeries.mapPolygons.template;
+					polygonTemplate.strokeOpacity = 1;
+					polygonTemplate.stroke = am4core.color("#ffffff");
+					polygonTemplate.fillOpacity = 0.5;
+					polygonTemplate.tooltipText = "{name}";
+
+					// desaturate filter for countries
+					var desaturateFilter = new am4core.DesaturateFilter();
+					desaturateFilter.saturation = 0.25;
+					polygonTemplate.filters.push(desaturateFilter);
+
+					// take a color from color set
+					polygonTemplate.adapter.add("fill", function (fill, target) {
+						return colorSet.getIndex(target.dataItem.index + 1);
+					})
+
+					// set fillOpacity to 1 when hovered
+					var hoverState = polygonTemplate.states.create("hover");
+					hoverState.properties.fillOpacity = 1;
+
+					// what to do when country is clicked
+					polygonTemplate.events.on("hit", function (event) {
+						event.target.zIndex = 1000000;
+						selectPolygon(event.target);
+					})
+
+					// Pie chart
+					var pieChart = chart.seriesContainer.createChild(am4charts.PieChart);
+					// Set width/heigh of a pie chart for easier positioning only
+					pieChart.width = 100;
+					pieChart.height = 100;
+					pieChart.hidden = true; // can't use visible = false!
+
+					// because defauls are 50, and it's not good with small countries
+					pieChart.chartContainer.minHeight = 1;
+					pieChart.chartContainer.minWidth = 1;
+
+					var pieSeries = pieChart.series.push(new am4charts.PieSeries());
+					pieSeries.dataFields.value = "value";
+					pieSeries.dataFields.category = "category";
+					pieSeries.data = [{ value: 100, category: "First" }, { value: 20, category: "Second" }, { value: 10, category: "Third" }];
+
+					var dropShadowFilter = new am4core.DropShadowFilter();
+					dropShadowFilter.blur = 4;
+					pieSeries.filters.push(dropShadowFilter);
+
+					var sliceTemplate = pieSeries.slices.template;
+					sliceTemplate.fillOpacity = 1;
+					sliceTemplate.strokeOpacity = 0;
+
+					var activeState = sliceTemplate.states.getKey("active");
+					activeState.properties.shiftRadius = 0; // no need to pull on click, as country circle under the pie won't make it good
+
+					var sliceHoverState = sliceTemplate.states.getKey("hover");
+					sliceHoverState.properties.shiftRadius = 0; // no need to pull on click, as country circle under the pie won't make it good
+
+					// we don't need default pie chart animation, so change defaults
+					var hiddenState = pieSeries.hiddenState;
+					hiddenState.properties.startAngle = pieSeries.startAngle;
+					hiddenState.properties.endAngle = pieSeries.endAngle;
+					hiddenState.properties.opacity = 0;
+					hiddenState.properties.visible = false;
+
+					// series labels
+					var labelTemplate = pieSeries.labels.template;
+					labelTemplate.nonScaling = true;
+					labelTemplate.fill = am4core.color("#FFFFFF");
+					labelTemplate.fontSize = 10;
+					labelTemplate.background = new am4core.RoundedRectangle();
+					labelTemplate.background.fillOpacity = 0.9;
+					labelTemplate.padding(4, 9, 4, 9);
+					labelTemplate.background.fill = am4core.color("#7678a0");
+
+					// we need pie series to hide faster to avoid strange pause after country is clicked
+					pieSeries.hiddenState.transitionDuration = 200;
+
+					// country label
+
+
+					var countryLabel = chart.chartContainer.createChild(am4core.Label);
+					countryLabel.text = "Select a division";
+					countryLabel.fill = am4core.color("#7678a0");
+					countryLabel.fontSize = 40;
+
+					countryLabel.hiddenState.properties.dy = 1000;
+					countryLabel.defaultState.properties.dy = 0;
+					countryLabel.valign = "middle";
+					countryLabel.align = "right";
+					countryLabel.paddingRight = 50;
+					countryLabel.hide(0);
+					countryLabel.show();
+
+
+
+					// Add image series
+					var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+					imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+					imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+					imageSeries.mapImages.template.tooltipText = "{title}";
+					imageSeries.mapImages.template.propertyFields.url = "url";
+
+					var circle = imageSeries.mapImages.template.createChild(am4core.Circle);
+					circle.radius = 3;
+					circle.propertyFields.fill = "color";
+					circle.nonScaling = true;
+
+					var circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
+					circle2.radius = 3;
+					circle2.propertyFields.fill = "color";
+
+
+					circle2.events.on("inited", function (event) {
+						animateBullet(event.target);
+					})
+
+
+					function animateBullet(circle) {
+						var animation = circle.animate([{ property: "scale", from: 1 / chart.zoomLevel, to: 5 / chart.zoomLevel }, { property: "opacity", from: 1, to: 0 }], 1000, am4core.ease.circleOut);
+						animation.events.on("animationended", function (event) {
+							animateBullet(event.target.object);
+						})
+					}
+
+					var colorSet = new am4core.ColorSet();
+
+					var data = [];
+
+					for (let i = 0; i < response.length; i++)
+						data.push(
+							{
+								"title": response[i].ID,
+								"latitude": response[i].Lattitude,
+								"longitude": response[i].Longitude,
+								"color": colorSet.next()
+							}
+						)
+					imageSeries.data = data;
+
+
+
+
+					// select polygon
+					function selectPolygon(polygon) {
+						if (morphedPolygon != polygon) {
+							var animation = pieSeries.hide();
+							if (animation) {
+								animation.events.on("animationended", function () {
+									morphToCircle(polygon);
+								})
+							}
+							else {
+								morphToCircle(polygon);
+							}
+						}
+					}
+
+					// fade out all countries except selected
+					function fadeOut(exceptPolygon) {
+						for (var i = 0; i < polygonSeries.mapPolygons.length; i++) {
+							var polygon = polygonSeries.mapPolygons.getIndex(i);
+							if (polygon != exceptPolygon) {
+								polygon.defaultState.properties.fillOpacity = 0.5;
+								polygon.animate([{ property: "fillOpacity", to: 0.5 }, { property: "strokeOpacity", to: 1 }], polygon.polygon.morpher.morphDuration);
+							}
+						}
+					}
+
+					function zoomOut() {
+						if (morphedPolygon) {
+							pieSeries.hide();
+							morphBack();
+							fadeOut();
+							countryLabel.hide();
+							morphedPolygon = undefined;
+						}
+					}
+
+					function morphBack() {
+						if (morphedPolygon) {
+							morphedPolygon.polygon.morpher.morphBack();
+							var dsf = morphedPolygon.filters.getIndex(0);
+							dsf.animate({ property: "saturation", to: 0.25 }, morphedPolygon.polygon.morpher.morphDuration);
+						}
+					}
+
+					function morphToCircle(polygon) {
+
+
+						var animationDuration = polygon.polygon.morpher.morphDuration;
+						// if there is a country already morphed to circle, morph it back
+						morphBack();
+						// morph polygon to circle
+						polygon.toFront();
+						polygon.polygon.morpher.morphToSingle = true;
+						var morphAnimation = polygon.polygon.morpher.morphToCircle();
+
+						polygon.strokeOpacity = 0; // hide stroke for lines not to cross countries
+
+						polygon.defaultState.properties.fillOpacity = 1;
+						polygon.animate({ property: "fillOpacity", to: 1 }, animationDuration);
+
+						// animate desaturate filter
+						var filter = polygon.filters.getIndex(0);
+						filter.animate({ property: "saturation", to: 1 }, animationDuration);
+
+						// save currently morphed polygon
+						morphedPolygon = polygon;
+
+						// fade out all other
+						fadeOut(polygon);
+
+						// hide country label
+						countryLabel.hide();
+
+						if (morphAnimation) {
+							morphAnimation.events.on("animationended", function () {
+								zoomToCountry(polygon);
+							})
+						}
+						else {
+							zoomToCountry(polygon);
+						}
+					}
+
+					function zoomToCountry(polygon) {
+						var zoomAnimation = chart.zoomToMapObject(polygon, 2.2, true);
+						if (zoomAnimation) {
+							zoomAnimation.events.on("animationended", function () {
+								showPieChart(polygon);
+							})
+						}
+						else {
+							showPieChart(polygon);
+						}
+					}
+
+
+					function showPieChart(polygon) {
+						polygon.polygon.measure();
+						var radius = polygon.polygon.measuredWidth / 2 * polygon.globalScale / chart.seriesContainer.scale;
+						pieChart.width = radius * 2;
+						pieChart.height = radius * 2;
+						pieChart.radius = radius;
+
+						var centerPoint = am4core.utils.spritePointToSvg(polygon.polygon.centerPoint, polygon.polygon);
+						centerPoint = am4core.utils.svgPointToSprite(centerPoint, chart.seriesContainer);
+
+						pieChart.x = centerPoint.x - radius;
+						pieChart.y = centerPoint.y - radius;
+
+						var fill = polygon.fill;
+						var desaturated = fill.saturate(0.3);
+
+
+						/////values of pie generates here
+
+
+						for (var i = 0; i < pieSeries.dataItems.length; i++) {
+							var dataItem = pieSeries.dataItems.getIndex(i);
+							dataItem.value = Math.round(Math.random() * 500);
+							dataItem.slice.fill = am4core.color(am4core.colors.interpolate(
+								fill.rgb,
+								am4core.color("#ffffff").rgb,
+								0.2 * i
+							));
+
+							dataItem.label.background.fill = desaturated;
+							dataItem.tick.stroke = fill;
+						}
+
+						pieSeries.show();
+						pieChart.show();
+
+						countryLabel.text = "{name}";
+						countryLabel.dataItem = polygon.dataItem;
+						countryLabel.fill = desaturated;
+						countryLabel.show();
+					}
+
+
+
+				}
+
+			}
+		});
+	}
+
+	//Bangladesh MAp Ends
+
+
+
+
+	//WeekDay/Time Wise Chart Starts
+
+	function RPT_DSH_WKDAY() {
+
+		var vFrmDate = $("#DSH_WKDAY_Start_Date").val();
+		var vToDate = $("#DSH_WKDAY_End_Date").val();
+		var vTimeSlot = $("#TimeSlot").val();
+		var vWeekDay = $("#WeekDay").val();
+		var vReportType = $("#ReportType").val();
+
+		if (vTimeSlot == null) {
+			vTimeSlot = "12 AM";
+		}
+		if (vWeekDay == null) {
+			vWeekDay = "Sunday";
+		}
+		if (vReportType == null) {
+			vReportType = "SoldValue";
+		}
+
+
+		$.ajax({
+			url: '/Chart/RPT_DSH_WKDAY',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify(
+				{
+					_FrmDate: vFrmDate,
+					_ToDate: vToDate,
+					_TimeSlot: vTimeSlot,
+					_WeekDay: vWeekDay,
+					_ReportType: vReportType
+
+				}
+			),
+			success: function (response) {
+
+				if (response.length > 0) {
+					// Themes begin
+					am4core.useTheme(am4themes_animated);
+					am4core.useTheme(am4themes_dark);
+
+
+
+					// Create chart instance
+					var chart = am4core.create("chartdiv7", am4charts.XYChart);
+
+					chart.exporting.menu = new am4core.ExportMenu();
+					chart.exporting.menu.align = "left";
+					chart.exporting.menu.verticalAlign = "top";
+
+					chart.colors.list = [
+						am4core.color("#6771DC"),
+						am4core.color("#FEB018"),
+
+					];
+
+
+					//chart.colors.step = ;
+					chart.maskBullets = false;
+
+					// Add data
+					chart.data = response;
+
+					// Create axes
+
+					var dateAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+					dateAxis.dataFields.category = "MonthlyWeekSL";
+					dateAxis.renderer.grid.template.location = 0;
+					dateAxis.renderer.minGridDistance = 20;
+
+					dateAxis.renderer.grid.template.disabled = true;
+
+
+
+					var distanceAxis = chart.yAxes.push(new am4charts.ValueAxis());
+					distanceAxis.title.text = "Values";
+					distanceAxis.renderer.grid.template.disabled = true;
+
+					var durationAxis = chart.yAxes.push(new am4charts.ValueAxis());
+					durationAxis.title.text = "Growth";
+					durationAxis.renderer.grid.template.disabled = true;
+					durationAxis.renderer.opposite = true;
+					durationAxis.syncWithAxis = distanceAxis;
+
+					//durationAxis.durationFormatter.durationFormat = "hh'h' mm'min'";
+
+
+
+					// Create series
+					var distanceSeries = chart.series.push(new am4charts.ColumnSeries());
+					distanceSeries.dataFields.valueY = "Values";
+					distanceSeries.dataFields.categoryX = "MonthlyWeekSL";
+					distanceSeries.yAxis = distanceAxis;
+					distanceSeries.tooltipText = "{valueY} TK";
+					distanceSeries.name = "Values";
+					distanceSeries.columns.template.fillOpacity = 1;
+					distanceSeries.columns.template.propertyFields.strokeDasharray = "dashLength";
+					distanceSeries.columns.template.propertyFields.fillOpacity = "alpha";
+					distanceSeries.showOnInit = true;
+
+
+					distanceSeries.columns.template.column.cornerRadiusTopLeft = 10;
+					distanceSeries.columns.template.column.cornerRadiusTopRight = 10;
+					distanceSeries.columns.template.column.fillOpacity = 0.8;
+
+
+
+
+
+					var distanceState = distanceSeries.columns.template.states.create("hover");
+					distanceState.properties.fillOpacity = 1;
+
+					var durationSeries = chart.series.push(new am4charts.LineSeries());
+					durationSeries.dataFields.valueY = "Growth";
+					durationSeries.dataFields.categoryX = "MonthlyWeekSL";
+					durationSeries.yAxis = durationAxis;
+					durationSeries.name = "Growth";
+					durationSeries.strokeWidth = 2;
+					durationSeries.propertyFields.strokeDasharray = "dashLength";
+					durationSeries.tooltipText = "{valueY}%";
+					durationSeries.showOnInit = true;
+
+					var durationBullet = durationSeries.bullets.push(new am4charts.Bullet());
+					var durationRectangle = durationBullet.createChild(am4core.Rectangle);
+					durationBullet.horizontalCenter = "middle";
+					durationBullet.verticalCenter = "middle";
+					durationBullet.width = 7;
+					durationBullet.height = 7;
+					durationRectangle.width = 7;
+					durationRectangle.height = 7;
+
+					var durationState = durationBullet.states.create("hover");
+					durationState.properties.scale = 1.2;
+
+					// Add legend
+					chart.legend = new am4charts.Legend();
+
+					// Add cursor
+					chart.cursor = new am4charts.XYCursor();
+					chart.cursor.fullWidthLineX = true;
+					chart.cursor.xAxis = dateAxis;
+					chart.cursor.lineX.strokeOpacity = 0;
+					chart.cursor.lineX.fill = am4core.color("#000");
+					chart.cursor.lineX.fillOpacity = 0.1;
+
+				}
+			}
+		});
+	}
+	//WeekDay/Time Wise Chart Ends
+
+
+
+
+	//Line Chart Starts
+
+
+
+	function SalesData() {
+
+		var sDate = $('#sdate').val();
+		var tDate = $('#tdate').val();
+		var trend = $('#trend').val();
+
+		$.ajax({
+			url: '/Chart/GetDayWiseSalesData',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify({
+				_startDate: sDate,
+				_endDate: tDate
+
+
+			}),
+			success: function (response) {
+				if (response.length > 0) {
+
+					am4core.ready(function () {
+						//Amchart Name: Date Based Data
+						// Themes begin
+						am4core.useTheme(am4themes_kelly);
+						am4core.useTheme(am4themes_dark);
+
+						// Themes end
+
+						// Create chart instance
+						var chart = am4core.create("chartdiv6", am4charts.XYChart);
+						chart.exporting.menu = new am4core.ExportMenu();//Used download dataset from the chart
+						chart.exporting.menu.align = "left";
+						chart.exporting.menu.verticalAlign = "top";
+
+						chart.colors.list = [
+
+							am4core.color("#2cb528"),
+							am4core.color("#f50707"),
+							am4core.color("#FF6F91"),
+							am4core.color("#FF9671"),
+							am4core.color("#FFC75F"),
+							am4core.color("#F9F871"),
+
+						];
+
+
+						// Add data
+						chart.data = response;
+
+						// Set input format for the dates
+						chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
+
+						// Create axes
+						var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+						var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+						// Create series
+						var series = chart.series.push(new am4charts.LineSeries());
+						series.dataFields.valueY = "";
+						series.dataFields.dateX = "";
+						series.tooltipText = "{}"
+						if (trend == 1) {
+							series.dataFields.valueY = "Margin";
+							valueAxis.title.text = "Margin";
+
+							series.dataFields.dateX = "Date";
+							series.tooltipText = "{dateX}: {Margin}%"
+						}
+						if (trend == 2) {
+							series.dataFields.valueY = "SoldValue";
+							valueAxis.title.text = "Target V/S Sold Value";
+
+							series.dataFields.dateX = "Date";
+							series.tooltipText = "Sold Value: {dateX}: {SoldValue} TK"
+
+
+							var series2 = chart.series.push(new am4charts.LineSeries());
+							series2.dataFields.valueY = "targetValue";
+							series2.dataFields.dateX = "Date";
+							series2.tooltipText = "Target Value: {dateX}: {targetValue} TK"
+							series2.strokeWidth = 2;
+							series2.minBulletDistance = 15;
+
+
+							series2.strokeWidth = 2;
+							series2.minBulletDistance = 15;
+
+							//series2.fillOpacity = 0.4;
+
+							//var fillModifier2 = new am4core.LinearGradientModifier();
+							//fillModifier2.opacities = [1, 0];
+							//fillModifier2.offsets = [0, 1];
+							//fillModifier2.gradient.rotation = 90;
+							//series2.segments.template.fillModifier = fillModifier;
+
+							series2.tooltip.background.cornerRadius = 20;
+							series2.tooltip.background.strokeOpacity = 0;
+							series2.tooltip.pointerOrientation = "vertical";
+							series2.tooltip.label.minWidth = 40;
+							series2.tooltip.label.minHeight = 40;
+							series2.tooltip.label.textAlign = "middle";
+							series2.tooltip.label.textValign = "middle";
+
+
+							var bullet1 = series2.bullets.push(new am4charts.CircleBullet());
+							bullet1.circle.strokeWidth = 2;
+							bullet1.circle.radius = 4;
+							bullet1.circle.fill = am4core.color("#fff");
+
+							var bullethover1 = bullet1.states.create("hover");
+							bullethover1.properties.scale = 1.3;
+
+							chart.legend = new am4charts.Legend();
+							series.name = "Sold Value";
+							series2.name = "Target Value";
+
+
+
+
+
+
+						}
+						if (trend == 3) {
+							series.dataFields.valueY = "DiscValue";
+							valueAxis.title.text = "Discount Value";
+
+							series.dataFields.dateX = "Date";
+							series.tooltipText = "{dateX}: {DiscValue} TK"
+						}
+						if (trend == 4) {
+							series.dataFields.valueY = "MemoCount";
+							valueAxis.title.text = "Memo Count";
+
+							series.dataFields.dateX = "Date";
+							series.tooltipText = "{dateX}: {MemoCount}"
+						}
+
+
+						series.strokeWidth = 2;
+						series.minBulletDistance = 15;
+
+						series.fillOpacity = 0.4;
+						var fillModifier = new am4core.LinearGradientModifier();
+						fillModifier.opacities = [1, 0];
+						fillModifier.offsets = [0, 1];
+						fillModifier.gradient.rotation = 90;
+						series.segments.template.fillModifier = fillModifier;
+
+
+						// Drop-shaped tooltips
+						series.tooltip.background.cornerRadius = 30;
+						series.tooltip.background.strokeOpacity = 0;
+						series.tooltip.pointerOrientation = "vertical";
+						series.tooltip.label.minWidth = 40;
+						series.tooltip.label.minHeight = 40;
+						series.tooltip.label.textAlign = "middle";
+						series.tooltip.label.textValign = "middle";
+
+						// Make bullets grow on hover
+						var bullet = series.bullets.push(new am4charts.CircleBullet());
+						bullet.circle.strokeWidth = 2;
+						bullet.circle.radius = 3;
+						bullet.circle.fill = am4core.color("#fff");
+
+						var bullethover = bullet.states.create("hover");
+						bullethover.properties.scale = 1.3;
+
+						// Make a panning cursor
+
+						//chart.cursor = new am4charts.XYCursor();
+						//chart.cursor.behavior = "panXY";
+						//chart.cursor.xAxis = dateAxis;
+						//chart.cursor.snapToSeries = series;
+						//chart.cursor.snapToSeries = series2;
+
+						chart.cursor = new am4charts.XYCursor();
+
+
+						// Create vertical scrollbar and place it before the value axis
+						chart.scrollbarY = new am4core.Scrollbar();
+						chart.scrollbarY.parent = chart.rightAxesContainer;
+						chart.scrollbarY.toBack();
+
+						// Create a horizontal scrollbar with previe and place it underneath the date axis
+						chart.scrollbarX = new am4charts.XYChartScrollbar();
+						chart.scrollbarX.series.push(series);
+						chart.scrollbarX.parent = chart.bottomAxesContainer;
+
+						dateAxis.start = 0.79;
+						dateAxis.keepSelection = true;
+
+
+					});
+				}
+			}
+		});
+	}
+
+	//Line Chart Ends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//Hourly Sales Comparison Starts
+
+	var options = {
+		series: [],
+		chart: {
+			type: 'bar',
+			height: 350
+		},
+
+
+
+		plotOptions: {
+			bar: {
+				horizontal: false,
+				columnWidth: '70%',
+				endingShape: 'rounded',
+				borderRadius: 15,
+			},
+		},
+		dataLabels: {
+			enabled: false
+		},
+		stroke: {
+			show: true,
+			width: 2,
+			colors: ['transparent']
+		},
+		xaxis: {
+			categories: [],
+		},
+
+		title: {
+			text: 'Hourly Sales Comparison',
+			align: 'middle',
+			style: {
+				fontSize: "16px",
+				color: '#666'
+			}
+		},
+
+		fill: {
+			opacity: 1//,
+			//colors: ['#e32314', '#990c3c', '##ac59ba']
+		},
+		tooltip: {
+			y: {
+				formatter: function (val) {
+					return "" + val + " tk"
+				}
+			}
+		}
+	};
+
+	var chart2 = new ApexCharts(document.querySelector("#chart2"), options);
+	chart2.render();
+
+
+	var options = {
+		series: [],
+		chart: {
+			height: 350,
+			type: 'area'
+		},
+		dataLabels: {
+			enabled: false
+		},
+		stroke: {
+			curve: 'smooth'
+		},
+		title: {
+			text: 'Hourly Sales Comparison',
+			align: 'left',
+			style: {
+				fontSize: "16px",
+				color: '#666'
+			}
+		},
+		//plotOptions: {
+		//	bar: {
+		//		borderRadius: 50
+		//	}
+		//},
+		xaxis: {
+			//type: 'datetime',
+			categories: []
+		},
+		//tooltip: {
+		//	x: {
+		//		format: 'dd/MM/yy HH:mm'
+		//	},
+		//},
+	};
+
+	var chart3 = new ApexCharts(document.querySelector("#chart3"), options);
+	chart3.render();
+
+
+	function HourlySalesData() {
+
+		$.ajax({
+			url: '/Chart/GetHourlySalesData',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			success: function (response) {
+				for (let i = 0; i < response.length; i++) {
+					matchedDataHourlyToday.push(response[i].ThisDayCmSoldValue);
+					matchedDataHourlyYesterday.push(response[i].LastDayCmSoldValue);
+					matchHour.push(response[i].TimeSpan)
+					chart2.updateOptions({
+						series: [
+
+							{
+								name: 'Yesterday Sold Value',
+								data: matchedDataHourlyYesterday
+							},
+							{
+								name: 'Today Sold Value',
+								data: matchedDataHourlyToday,
+							},
+						],
+
+						xaxis: {
+							categories: matchHour
+
+						},
+						title: {
+							text: response[i].TimeSpan
+						}
+					})
+
+				}
+			}
+		});
+	}
+
+	//Hourly Sales Comparison Ends
+
+
+
+
+
+	//Channel Wise Chart Starts
+
+	function donutGraph() {
+		$.ajax({
+			type: "POST",
+			contentType: "application/json; charset=utf-8",
+			url: "/Chart/Get_Cat_Margin_DonutGraph",
+			dataType: "json",
+
+			success: function (response) {
+
+
+				// Themes begin
+				am4core.unuseTheme(am4themes_frozen);
+				am4core.unuseTheme(am4themes_kelly);
+				am4core.unuseTheme(am4themes_material);
+				am4core.useTheme(am4themes_dark);
+				am4core.useTheme(am4themes_animated);
+				am4core.useTheme(am4themes_dataviz);
+
+				// Themes end
+
+				var chart = am4core.create("chartdiv", am4charts.PieChart3D);
+
+
+
+
+				chart.fillOpacity = 0.9;
+				chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+				chart.exporting.menu = new am4core.ExportMenu();
+				chart.exporting.menu.align = "left";
+				chart.exporting.menu.verticalAlign = "top";
+
+				chart.legend = new am4charts.Legend();
+
+				chart.data = response;
+
+				chart.innerRadius = 100;
+
+				var series = chart.series.push(new am4charts.PieSeries3D());
+				series.dataFields.value = "SoldValue";
+				series.dataFields.category = "Channel";
+
+
+
+
+
+			}
+
+		});
+	}
+	//Channel Wise Chart Ends
+
+
+
+
+	//Category Wise Chart Starts
+	function PieGraph() {
+		$.ajax({
+			type: "POST",
+			contentType: "application/json; charset=utf-8",
+			url: "/Chart/Get_Cat_Margin_PieGraph",
+			dataType: "json",
+
+			success: function (response) {
+
+
+
+				// Themes begin
+				am4core.unuseTheme(am4themes_frozen);
+				am4core.unuseTheme(am4themes_kelly);
+
+				am4core.useTheme(am4themes_material);
+				am4core.useTheme(am4themes_animated);
+				am4core.useTheme(am4themes_dark);
+				// Themes end
+
+				var chart = am4core.create("chartdiv1", am4charts.PieChart3D);
+				chart.fillOpacity = 0.9;
+				chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+				chart.exporting.menu = new am4core.ExportMenu();
+				chart.exporting.menu.align = "left";
+				chart.exporting.menu.verticalAlign = "top";
+
+				chart.legend = new am4charts.Legend();
+
+				chart.data = response;
+
+				var series = chart.series.push(new am4charts.PieSeries3D());
+				series.dataFields.value = "SoldValue";
+				series.dataFields.category = "OTBCat";
+			}
+
+		});
+	}
+
+
+	//Category Wise Chart Ends
+
+
+
+	//Sold Value Retail Sale Starts
+
+	function RPT_DSH_Hour() {
+		var st_date = $('#DSH_Hour_Start_Date').val();
+		var et_date = $('#DSH_Hour_End_Date').val();
+
+		var ReportTypeH = $('#ReportTypeH').val();
+		$.ajax({
+			type: "POST",
+			url: "/Chart/RPT_DSH_Hour",
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify({
+				//  obj: asd
+				_st_date: st_date,
+				_et_date: et_date,
+				_rpt_type: ReportTypeH
+
+			}),
+			success: function (response) {
+				if (response.length > 0) {
+					// Themes begin
+					am4core.useTheme(am4themes_material);
+					am4core.useTheme(am4themes_animated);
+					am4core.useTheme(am4themes_dark);
+
+					// Themes end
+
+					// Create chart instance
+					var chart = am4core.create("chartdiv2", am4charts.XYChart);
+					chart.scrollbarX = new am4core.Scrollbar();
+					chart.exporting.menu = new am4core.ExportMenu();
+					chart.exporting.menu.align = "left";
+					chart.exporting.menu.verticalAlign = "top";
+					// Add data
+					chart.data = response;
+
+					// Create axes
+					var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+					categoryAxis.dataFields.category = "SaleHourTime";
+					categoryAxis.renderer.grid.template.location = 0;
+					categoryAxis.renderer.minGridDistance = 30;
+					categoryAxis.renderer.labels.template.horizontalCenter = "right";
+					categoryAxis.renderer.labels.template.verticalCenter = "middle";
+					categoryAxis.renderer.labels.template.rotation = 270;
+					categoryAxis.tooltip.disabled = true;
+					categoryAxis.renderer.minHeight = 110;
+
+					var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+					valueAxis.renderer.minWidth = 50;
+
+					// Create series
+					var series = chart.series.push(new am4charts.ColumnSeries());
+					series.sequencedInterpolation = true;
+					series.dataFields.valueY = "Values";
+					series.dataFields.categoryX = "SaleHourTime";
+					series.tooltipText = "{categoryX}: {valueY} TK";
+					series.columns.template.strokeWidth = 0;
+
+					series.tooltip.pointerOrientation = "vertical";
+
+					series.columns.template.column.cornerRadiusTopLeft = 10;
+					series.columns.template.column.cornerRadiusTopRight = 10;
+					series.columns.template.column.fillOpacity = 0.8;
+
+					// on hover, make corner radiuses bigger
+					var hoverState = series.columns.template.column.states.create("hover");
+					hoverState.properties.cornerRadiusTopLeft = 0;
+					hoverState.properties.cornerRadiusTopRight = 0;
+					hoverState.properties.fillOpacity = 1;
+
+					series.columns.template.adapter.add("fill", function (fill, target) {
+						return chart.colors.getIndex(target.dataItem.index);
+					});
+
+					// Cursor
+					chart.cursor = new am4charts.XYCursor();
+				}
+			}
+		})
+	}
+	//Sold Value retail Sale Ends
+
+
+
+
+	//Top 10 Article Starts
+
+	function TOPARTICLE() {
+		var vFrmDate = $("#stdate").val();
+		var vToDate = $("#ttdate").val();
+		var vType = $('#ttype').val();
+		var vCat = $('#Category').val();
+		$.ajax({
+			url: '/Chart/RPT_TOP_ARTICLES',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify(
+				{
+					_FrmDate: vFrmDate,
+					_ToDate: vToDate,
+					_Type: vType,
+					_Cat: vCat
+
+				}
+			),
+			success: function (response) {
+				$('#ItemList').empty();
+				var result = '';
+				if (response.length > 0) {
+
+
+					am4core.ready(function () {
+
+						// Themes begin
+						am4core.useTheme(am4themes_animated);
+						am4core.useTheme(am4themes_dark);
+
+						// Themes end
+
+						/**
+						* Chart design taken from Samsung health app
+						*/
+
+						var chart = am4core.create("chartdiv10", am4charts.XYChart);
+						chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+						chart.paddingBottom = 30;
+
+
+						//"name": "Monica",
+						//	"steps": 45688,
+						//		"href": "https://www.amcharts.com/wp-content/uploads/2019/04/monica.jpg"
+						chart.data = response;
+
+						var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+						categoryAxis.dataFields.category = "ARTNO";
+						categoryAxis.renderer.grid.template.strokeOpacity = 0;
+						categoryAxis.renderer.minGridDistance = 10;
+						categoryAxis.renderer.labels.template.dy = 35;
+						categoryAxis.renderer.tooltip.dy = 35;
+
+						var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+						valueAxis.renderer.inside = true;
+						valueAxis.renderer.labels.template.fillOpacity = 0.3;
+						valueAxis.renderer.grid.template.strokeOpacity = 0;
+						valueAxis.min = 0;
+						valueAxis.cursorTooltipEnabled = false;
+						valueAxis.renderer.baseGrid.strokeOpacity = 0;
+
+						var series = chart.series.push(new am4charts.ColumnSeries);
+						if (vType == 1) {
+							series.dataFields.valueY = "QTY";
+							series.tooltipText = "{valueY.value} PCS";
+
+						}
+						if (vType == 2) {
+							series.dataFields.valueY = "SvALUE";
+							series.tooltipText = "{valueY.value} TK";
+
+						}
+						if (vType == 3) {
+							series.dataFields.valueY = "MARGIN";
+							series.tooltipText = "{valueY.value} %";
+
+						}
+						series.dataFields.categoryX = "ARTNO";
+						series.tooltip.pointerOrientation = "vertical";
+						series.tooltip.dy = - 6;
+						series.columnsContainer.zIndex = 100;
+
+						var columnTemplate = series.columns.template;
+						columnTemplate.width = am4core.percent(50);
+						columnTemplate.maxWidth = 66;
+						columnTemplate.column.cornerRadius(20, 5, 10, 10);
+						columnTemplate.strokeOpacity = 0;
+
+						series.heatRules.push({ target: columnTemplate, property: "fill", dataField: "valueY", min: am4core.color("#e5dc36"), max: am4core.color("#5faa46") });
+						series.mainContainer.mask = undefined;
+
+						var cursor = new am4charts.XYCursor();
+						chart.cursor = cursor;
+						cursor.lineX.disabled = true;
+						cursor.lineY.disabled = true;
+						cursor.behavior = "none";
+
+						var bullet = columnTemplate.createChild(am4charts.CircleBullet);
+						bullet.circle.radius = 30;
+						bullet.valign = "bottom";
+						bullet.align = "center";
+						bullet.isMeasured = true;
+						bullet.mouseEnabled = false;
+						bullet.verticalCenter = "bottom";
+						bullet.interactionsEnabled = false;
+
+						var hoverState = bullet.states.create("hover");
+						var outlineCircle = bullet.createChild(am4core.Circle);
+						outlineCircle.adapter.add("radius", function (radius, target) {
+							var circleBullet = target.parent;
+							return circleBullet.circle.pixelRadius + 10;
+						})
+
+						var image = bullet.createChild(am4core.Image);
+						image.width = 60;
+						image.height = 60;
+						image.horizontalCenter = "middle";
+						image.verticalCenter = "middle";
+						image.propertyFields.href = "";//"href"
+
+						image.adapter.add("mask", function (mask, target) {
+							var circleBullet = target.parent;
+							return circleBullet.circle;
+						})
+
+						var previousBullet;
+						chart.cursor.events.on("cursorpositionchanged", function (event) {
+							var dataItem = series.tooltipDataItem;
+
+							if (dataItem.column) {
+								var bullet = dataItem.column.children.getIndex(1);
+
+								if (previousBullet && previousBullet != bullet) {
+									previousBullet.isHover = false;
+								}
+
+								if (previousBullet != bullet) {
+
+									var hs = bullet.states.getKey("hover");
+									hs.properties.dy = -bullet.parent.pixelHeight + 30;
+									bullet.isHover = true;
+
+									previousBullet = bullet;
+								}
+							}
+						})
+
+					}); // end am4core.ready()
+
+
+
+
+					//}
+
+				}
+
+			}
+		});
+	}
+
+	//Top 10 Articel Ends
+
+	//Top Salesman Starts
+
+	function TOPSALESMAN() {
+		var vFrmDate = $("#ttsalesdate").val();
+		var vToDate = $("#stsalesdate").val();
+		var vTop = $('#top').val();
+		var vArea = $('#Area').val();
+		$.ajax({
+			url: '/Chart/RPT_TOP_SALESMAN',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify(
+				{
+					_FrmDate: vFrmDate,
+					_ToDate: vToDate,
+					_Top: vTop,
+					_Area: vArea
+
+
+				}
+			),
+			success: function (response) {
+				console.log(response);
+				if (response.length > 0) {
+					am4core.ready(function () {
+						// Themes begin
+						// Themes begin
+
+
+						am4core.unuseTheme(am4themes_frozen);
+						am4core.unuseTheme(am4themes_kelly);
+						am4core.unuseTheme(am4themes_dataviz);
+						am4core.useTheme(am4themes_animated);
+						am4core.useTheme(am4themes_material);
+
+
+						// Themes end
+
+						var chart = am4core.create("chartdiv11", am4charts.XYChart);
+						chart.padding(40, 40, 40, 40);
+
+						var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+						categoryAxis.renderer.grid.template.location = 0;
+						categoryAxis.dataFields.category = "Names";
+						categoryAxis.renderer.minGridDistance = 1;
+						categoryAxis.renderer.inversed = true;
+						categoryAxis.renderer.grid.template.disabled = true;
+
+						var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+						valueAxis.min = 0;
+
+						var series = chart.series.push(new am4charts.ColumnSeries());
+						series.dataFields.categoryY = "Names";
+						series.dataFields.valueX = "SoldValue";
+						series.tooltipText = "{valueX.value}"
+						series.columns.template.strokeOpacity = 0;
+						series.columns.template.column.cornerRadiusBottomRight = 5;
+						series.columns.template.column.cornerRadiusTopRight = 5;
+
+						var labelBullet = series.bullets.push(new am4charts.LabelBullet())
+						labelBullet.label.horizontalCenter = "left";
+						labelBullet.label.dx = 10;
+						labelBullet.label.text = "{valueX.value}";
+						labelBullet.locationX = 1;
+
+						// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+						series.columns.template.adapter.add("fill", function (fill, target) {
+							return chart.colors.getIndex(target.dataItem.index);
+						});
+
+						categoryAxis.sortBySeries = series;
+						chart.data = response;
+
+						chart.cursor = new am4charts.XYCursor();
+
+					});
+
+
+					//am4core.ready(function () {
+
+					//	// Themes begin
+					//	am4core.useTheme(am4themes_animated);
+					//	// Themes end
+
+					//	var chart = am4core.create("chartdiv11", am4charts.XYChart);
+					//	chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+					//	chart.data = response;
+
+					//	var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+					//	categoryAxis.renderer.grid.template.location = 0;
+					//	categoryAxis.dataFields.category = "Name";
+					//	categoryAxis.renderer.minGridDistance = 40;
+					//	categoryAxis.fontSize = 11;
+					//	categoryAxis.renderer.labels.template.dy = 5;
+
+
+
+					//	//var image = new am4core.Image();
+					//	//image.horizontalCenter = "middle";
+					//	//image.width = 20;
+					//	//image.height = 20;
+					//	//image.verticalCenter = "middle";
+					//	//image.adapter.add("href", (href, target) => {
+					//	//	let category = target.dataItem.category;
+					//	//	if (category) {
+					//	//		return "https://www.amcharts.com/wp-content/uploads/flags/" + category.split(" ").join("-").toLowerCase() + ".svg";
+					//	//	}
+					//	//	return href;
+					//	//})
+					//	//categoryAxis.dataItems.template.bullet = image;
+
+
+
+					//	var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+					//	valueAxis.min = 0;
+					//	valueAxis.renderer.minGridDistance = 30;
+					//	valueAxis.renderer.baseGrid.disabled = true;
+
+
+					//	var series = chart.series.push(new am4charts.ColumnSeries());
+					//	series.dataFields.categoryX = "Name";
+					//	series.dataFields.valueY = "SoldValue";
+					//	series.columns.template.tooltipText = "{valueY.value} TK";
+					//	series.columns.template.tooltipY = 0;
+					//	series.columns.template.strokeOpacity = 0;
+
+					//	// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+					//	series.columns.template.adapter.add("fill", function (fill, target) {
+					//		return chart.colors.getIndex(target.dataItem.index);
+					//	});
+
+					//});
+
+				}
+			}
+		})
+	}
+	//Top Salesman Ends
+
+	//Target V/S AChievement sales Starts
+
+
+	//function TARGETACIEVE() {
+	//	var vFrmDate = $("#SAedate").val();
+	//	var vToDate = $("#SAsdate").val();
+
+	//	$.ajax({
+	//		url: '/Chart/RPT_TARGETACIEVE',
+	//		type: 'POST',
+	//		contentType: "application/json;charset=utf-8",
+	//		dataType: "json",
+	//		data: JSON.stringify(
+	//			{
+	//				_FrmDate: vFrmDate,
+	//				_ToDate: vToDate
+
+
+	//			}
+	//		),
+	//		success: function (response) {
+	//			console.log(response);
+	//			if (response.length > 0) {
+	//				am4core.ready(function () {
+	//					am4core.unuseTheme(am4themes_frozen);
+	//					am4core.unuseTheme(am4themes_kelly);
+	//					am4core.unuseTheme(am4themes_dataviz);
+	//					am4core.useTheme(am4themes_animated);
+	//					am4core.useTheme(am4themes_dark);
+	//					//am4core.useTheme(am4themes_dark);
+	//					// Themes end
+
+	//					// Create chart instance
+	//					var chart = am4core.create("chartdiv12", am4charts.XYChart);
+
+	//					chart.colors.list = [
+	//						am4core.color("red"),
+	//						am4core.color("green")
+	//					];
+
+	//					// Add percent sign to all numbers
+	//					chart.numberFormatter.numberFormat = "#.#'%'";
+
+	//					// Add data
+	//					chart.data = response;
+
+	//					// Create axes
+	//					var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+	//					categoryAxis.dataFields.category = "SaleDT";
+	//					categoryAxis.renderer.grid.template.location = 0;
+	//					categoryAxis.renderer.minGridDistance = 30;
+
+	//					var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+	//					valueAxis.title.text = "Target V/S Achievement";
+	//					valueAxis.title.fontWeight = 800;
+
+	//					// Create series
+	//					var series = chart.series.push(new am4charts.ColumnSeries());
+	//					series.dataFields.valueY = "targetValue";
+	//					series.dataFields.categoryX = "SaleDT";
+	//					series.clustered = false;
+	//					series.tooltipText = "Target Value:  {categoryX}: [bold]{valueY}[/]";
+
+	//					var series2 = chart.series.push(new am4charts.ColumnSeries());
+	//					series2.dataFields.valueY = "SoldValue";
+	//					series2.dataFields.categoryX = "SaleDT";
+	//					series2.clustered = false;
+	//					series2.columns.template.width = am4core.percent(50);
+	//					series2.tooltipText = "Sales Value:  {categoryX}: [bold]{valueY}[/]";
+
+
+	//					series.columns.template.width = am4core.percent(70);
+	//					series2.columns.template.width = am4core.percent(55);
+
+
+	//					series.columns.template.column.fillOpacity = 0.6;
+	//					series2.columns.template.column.fillOpacity = 0.6;
+
+	//					series.columns.template.column.cornerRadiusTopLeft = 10;
+	//					series.columns.template.column.cornerRadiusTopRight = 10;
+
+	//					series2.columns.template.column.cornerRadiusTopLeft = 10;
+	//					series2.columns.template.column.cornerRadiusTopRight = 10;
+
+
+	//					chart.cursor = new am4charts.XYCursor();
+	//					chart.cursor.lineX.disabled = true;
+	//					chart.cursor.lineY.disabled = true;
+
+	//				});
+
+	//			}
+	//		}
+	//	})
+	//}
+
+
+
+	//Target V?S Achievement Sales Ends
+
+
+
+</script>
+

@@ -1,0 +1,807 @@
+﻿
+@{
+	ViewBag.Title = "WHROADSHOW";
+}
+
+
+<meta http-equiv="refresh" content="600">
+
+<script src="~/assets/js/jquery-3.4.1.min.js"></script>
+
+<link href="~/assets/Dark.css" rel="stylesheet" id="darkCSS" />
+<script src="~/assets/Dark.js" id="darkJS"></script>
+
+
+
+
+<script src="~/assets/js/datepicker.min.js"></script>
+<link href="~/assets/css/datepicker.min.css" rel="stylesheet" />
+<script src="~/assets/js/Apex/apexCharts.js"></script>
+
+<script src="~/assets/js/Amchart/core.js"></script>
+<script src="~/assets/js/Amchart/charts.js"></script>
+<script src="~/assets/js/Amchart/dark.js"></script>
+<script src="~/assets/js/Amchart/animated.js"></script>
+<script src="~/assets/js/Amchart/material.js"></script>
+<script src="~/assets/js/Amchart/kelly.js"></script>
+<script src="~/assets/js/Amchart/dataviz.js"></script>
+<script src="~/assets/js/Amchart/frozen.js"></script>
+<script src="~/assets/js/Amchart/maps.js"></script>
+
+<script src="~/assets/Map/bangladeshHigh.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+<style>
+
+	.customFont {
+		font-size: 2.25rem !important;
+	}
+
+
+
+	.cards:hover {
+		box-shadow: 0px 0px 150px #000000;
+		z-index: 2;
+		-webkit-transition: all 200ms ease-in;
+		-webkit-transform: scale(1.1);
+		-ms-transition: all 200ms ease-in;
+		-ms-transform: scale(1.1);
+		-moz-transition: all 200ms ease-in;
+		-moz-transform: scale(1.1);
+		transition: all 200ms ease-in;
+		transform: scale(1.1);
+	}
+
+
+
+	#chartdiv, #chartdiv1, #chartdiv2, #chartdiv4, #chartdiv6, #chartdiv7, #chartdiv8, #chartdiv10, #chartdiv11, #chartdiv12, #chartdiv15 {
+		width: 100%;
+		height: 400px;
+	}
+	#chartdiv10 {
+		width: 100%;
+		height: 550px;
+	}
+	::-webkit-scrollbar {
+		display: none;
+	}
+
+	.btn.btn-success {
+		color: navy !important;
+		font-weight: bold;
+	}
+
+	.card-label {
+		font-weight: bolder !important;
+		color: navy !important;
+	}
+
+	.customHead {
+		color: navy !important;
+	}
+
+	.customFont {
+		font-size: 3.25rem !important;
+	}
+
+	.blackbg {
+		background-color: #1a1a1a !important;
+	}
+
+	/*.container {
+			max-width: 100% !important;
+			padding-right: 40px !important;
+			padding-left: 40px !important;
+		}*/
+
+	.mt-5, .my-5 {
+		margin-top: 0rem !important;
+	}
+
+	.mt-5, .my-5 {
+		margin-bottom: 0rem !important;
+	}
+
+	.amcharts-amexport-item {
+		border-radius: 6px !important;
+		background-color: white !important;
+		color: black !important;
+	}
+
+
+
+	.card.card-custom .card-body {
+		padding-top: 10px !important;
+		padding-bottom: 10px !important;
+	}
+
+	.card-label {
+		font-weight: bolder !important;
+		color: navy !important;
+	}
+
+	.container {
+		max-width: 100% !important;
+	}
+
+	.mt-5, .my-5 {
+		margin-top: 0rem !important;
+	}
+
+	.mt-5, .my-5 {
+		margin-bottom: 0rem !important;
+	}
+
+	.amcharts-amexport-item {
+		border-radius: 6px !important;
+		background-color: white !important;
+		color: black !important;
+	}
+
+
+	:root {
+		--switches-bg-color: #8950FC;
+		--switches-label-color: white;
+		--switch-bg-color: white;
+		--switch-text-color: white;
+		--animate-duration: 7s; /*wow js delay*/
+		--animate-delay: 2s; /*wow js delay*/
+	}
+
+	/* a container - decorative, not required */
+
+	/* p - decorative, not required */
+	p {
+		margin-top: 2rem;
+		font-size: 0.75rem;
+		text-align: center;
+	}
+
+
+
+	/* Toggle Switch CSS Starts */
+
+	/* container for all of the switch elements
+			- adjust "width" to fit the content accordingly
+		*/
+	.switches-container {
+		width: 10rem;
+		position: relative;
+		display: flex;
+		padding: 0;
+		position: relative;
+		background: var(--switches-bg-color);
+		line-height: 3rem;
+		border-radius: 3rem;
+		margin-left: auto;
+		margin-right: auto;
+		border: 2px solid silver !important;
+	}
+
+
+
+		/* input (radio) for toggling. hidden - use labels for clicking on */
+		.switches-container input {
+			visibility: hidden;
+			position: absolute;
+			top: 0;
+		}
+
+		/* labels for the input (radio) boxes - something to click on */
+		.switches-container label {
+			width: 50%;
+			padding: 0;
+			margin: 0;
+			text-align: center;
+			cursor: pointer;
+			color: var(--switches-label-color);
+		}
+
+	/* switch highlighters wrapper (sliding left / right)
+			- need wrapper to enable the even margins around the highlight box
+		*/
+	.switch-wrapper {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 50%;
+		padding: 0.15rem;
+		z-index: 3;
+		transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+		/* transition: transform 1s; */
+	}
+
+	/* switch box highlighter */
+	.switch {
+		border-radius: 3rem;
+		background: var(--switch-bg-color);
+		height: 100%;
+		border: 1px solid navy !important;
+	}
+
+		/* switch box labels
+			- default setup
+			- toggle afterwards based on radio:checked status
+		*/
+		.switch div {
+			width: 100%;
+			text-align: center;
+			opacity: 0;
+			display: block;
+			color: var(--switch-text-color);
+			transition: opacity .2s cubic-bezier(.77, 0, .175, 1) .125s;
+			will-change: opacity;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+	/* slide the switch box from right to left */
+	.switches-container input:nth-of-type(1):checked ~ .switch-wrapper {
+		transform: translateX(0%);
+	}
+
+	/* slide the switch box from left to right */
+	.switches-container input:nth-of-type(2):checked ~ .switch-wrapper {
+		transform: translateX(100%);
+	}
+
+	/* toggle the switch box labels - first checkbox:checked - show first switch div */
+	.switches-container input:nth-of-type(1):checked ~ .switch-wrapper .switch div:nth-of-type(1) {
+		opacity: 1;
+	}
+
+	/* toggle the switch box labels - second checkbox:checked - show second switch div */
+	.switches-container input:nth-of-type(2):checked ~ .switch-wrapper .switch div:nth-of-type(2) {
+		opacity: 1;
+	}
+
+
+
+	.header-fixed .wrapper {
+		padding-top: 50px !important;
+	}
+
+	/* Toggle Switch CSS Ends */
+</style>
+<div class="row">
+
+
+
+	<div class="col-md-12">
+
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<button class="btn btn-success" type="button">Day</button>
+				</div>
+				<select class="form-control" id="type" onchange="change()">
+					<option value="1">Franchise Roadshow</option>
+					<option value="2">WH Roadshow Day 1</option>
+					<option  value="3">WH RoadShow Day 2</option>
+					<option selected="selected" value="4">WH RoadShow Day 3</option>
+				</select>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+<br />
+<div class="row">
+
+
+	<div class="col-md-4 col-sm-3 col-xs-3 animate__animated animate__bounceInLeft">
+		<!--begin::Stats Widget 25-->
+		<div class="card cards card-custom bg-light-success card-stretch gutter-b">
+			<!--begin::Body-->
+			<div class="card-body">
+				<span class="svg-icon svg-icon-4x float-right svg-icon-success">
+					<!--begin::Svg Icon | path:/metronic/theme/html/demo5/dist/assets/media/svg/icons/Communication/Mail-opened.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24"></rect>
+							<rect fill="#000000" opacity="0.3" x="13" y="4" width="3" height="16" rx="1.5"></rect>
+							<rect fill="#000000" x="8" y="9" width="3" height="11" rx="1.5"></rect>
+							<rect fill="#000000" x="18" y="11" width="3" height="9" rx="1.5"></rect>
+							<rect fill="#000000" x="3" y="13" width="3" height="7" rx="1.5"></rect>
+						</g>
+					</svg>
+
+
+					<!--end::Svg Icon-->
+				</span>
+				<div class="text-inverse-danger font-weight-bolder font-size-h5 mb-2 mt-5 customHead">Customers</div>
+				<div class="text-inverse-danger font-weight-bolder font-size-h5 mb-2 mt-5 customHead customFont" id="CUST"></div>
+
+
+			</div>
+			<!--end::Body-->
+		</div>
+		<!--end::Stats Widget 25-->
+	</div>
+	<div class="col-md-4 col-sm-3 col-xs-3 animate__animated animate__bounceInUp">
+		<!--begin::Stats Widget 26-->
+		<div class="card cards card-custom bg-light-danger card-stretch gutter-b">
+			<!--begin::ody-->
+			<div class="card-body">
+				<span class="svg-icon svg-icon-4x float-right svg-icon-danger">
+					<!--begin::Svg Icon | path:/metronic/theme/html/demo5/dist/assets/media/svg/icons/Communication/Group.svg-->
+
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24"></rect>
+							<path d="M4.00246329,12.2004927 L13,14 L13,4.06189375 C16.9463116,4.55399184 20,7.92038235 20,12 C20,16.418278 16.418278,20 12,20 C7.64874861,20 4.10886412,16.5261253 4.00246329,12.2004927 Z" fill="#000000" opacity="0.3"></path>
+							<path d="M3.0603968,10.0120794 C3.54712466,6.05992157 6.91622084,3 11,3 L11,11.6 L3.0603968,10.0120794 Z" fill="#000000"></path>
+						</g>
+					</svg>
+
+
+
+					<!--end::Svg Icon-->
+				</span>
+				<div class="text-inverse-primary font-weight-bolder font-size-h5 mb-2 mt-5 customHead">Invoice</div>
+				<div class="text-inverse-primary font-weight-bolder font-size-h5 mb-2 mt-5 customHead customFont" id="INV"></div>
+
+			</div>
+			<!--end::Body-->
+		</div>
+		<!--end::Stats Widget 26-->
+	</div>
+	<div class="col-md-4 col-sm-3 col-xs-3 animate__animated animate__bounceInDown">
+		<!--begin::Stats Widget 27-->
+		<div class="card cards card-custom bg-light-info card-stretch gutter-b">
+			<!--begin::Body-->
+			<div class="card-body">
+				<span class="svg-icon svg-icon-4x float-right svg-icon-info">
+					<!--begin::Svg Icon | path:/metronic/theme/html/demo5/dist/assets/media/svg/icons/Media/Equalizer.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<polygon points="0 0 24 0 24 24 0 24"></polygon>
+							<path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
+							<path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero"></path>
+						</g>
+					</svg>
+					<!--end::Svg Icon-->
+				</span>
+				<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5 customHead">Sold Amount</div>
+				<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5 customHead customFont" id="SALE"></div>
+
+
+			</div>
+			<!--end::Body-->
+		</div>
+		<!--end::Stats Widget 27-->
+	</div>
+
+
+	<!--<div class="col-md-3 col-sm-1 col-xs-1 animate__animated animate__bounceInRight">-->
+	<!--begin::Stats Widget 28-->
+	<!--<div class="card cards card-custom bg-light-warning card-stretch gutter-b">-->
+	<!--begin::Body-->
+	<!--<div class="card-body">
+		<span class="svg-icon svg-icon-4x float-right svg-icon-warning">-->
+	<!--begin::Svg Icon | path:/metronic/theme/html/demo5/dist/assets/media/svg/icons/Communication/Group-chat.svg-->
+	<!--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+			<rect x="0" y="0" width="24" height="24"></rect>
+			<path d="M12,4.56204994 L7.76822128,9.6401844 C7.4146572,10.0644613 6.7840925,10.1217854 6.3598156,9.76822128 C5.9355387,9.4146572 5.87821464,8.7840925 6.23177872,8.3598156 L11.2317787,2.3598156 C11.6315738,1.88006147 12.3684262,1.88006147 12.7682213,2.3598156 L17.7682213,8.3598156 C18.1217854,8.7840925 18.0644613,9.4146572 17.6401844,9.76822128 C17.2159075,10.1217854 16.5853428,10.0644613 16.2317787,9.6401844 L12,4.56204994 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
+			<path d="M3.28077641,9 L20.7192236,9 C21.2715083,9 21.7192236,9.44771525 21.7192236,10 C21.7192236,10.0817618 21.7091962,10.163215 21.6893661,10.2425356 L19.5680983,18.7276069 C19.234223,20.0631079 18.0342737,21 16.6576708,21 L7.34232922,21 C5.96572629,21 4.76577697,20.0631079 4.43190172,18.7276069 L2.31063391,10.2425356 C2.17668518,9.70674072 2.50244587,9.16380623 3.03824078,9.0298575 C3.11756139,9.01002735 3.1990146,9 3.28077641,9 Z M12,12 C11.4477153,12 11,12.4477153 11,13 L11,17 C11,17.5522847 11.4477153,18 12,18 C12.5522847,18 13,17.5522847 13,17 L13,13 C13,12.4477153 12.5522847,12 12,12 Z M6.96472382,12.1362967 C6.43125772,12.2792385 6.11467523,12.8275755 6.25761704,13.3610416 L7.29289322,17.2247449 C7.43583503,17.758211 7.98417199,18.0747935 8.51763809,17.9318517 C9.05110419,17.7889098 9.36768668,17.2405729 9.22474487,16.7071068 L8.18946869,12.8434035 C8.04652688,12.3099374 7.49818992,11.9933549 6.96472382,12.1362967 Z M17.0352762,12.1362967 C16.5018101,11.9933549 15.9534731,12.3099374 15.8105313,12.8434035 L14.7752551,16.7071068 C14.6323133,17.2405729 14.9488958,17.7889098 15.4823619,17.9318517 C16.015828,18.0747935 16.564165,17.758211 16.7071068,17.2247449 L17.742383,13.3610416 C17.8853248,12.8275755 17.5687423,12.2792385 17.0352762,12.1362967 Z" fill="#000000"></path>
+		</g>
+	</svg>-->
+	<!--end::Svg Icon-->
+	<!--</span>
+		<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5 customHead">ASP</div>
+		<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5 customHead customFont" id="ASP"></div>
+	</div>-->
+	<!--end::Body-->
+	<!--</div>-->
+	<!--end::Stat: Widget 28-->
+	<!--</div>-->
+
+</div>
+
+
+
+<div class="row">
+	<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">Top Merchandiser</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body" style="">
+				<div class="row">
+
+
+
+					<div id="chartdiv11" style="width:100%"></div>
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br />
+<br />
+
+
+<div class="row">
+	<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">Top 30 Buyer</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body" style="">
+				<div class="row">
+
+
+
+					<div id="chartdiv10" style="width:100%"></div>
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br />
+<br />
+
+<div class="row">
+	<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+		<div class="card card-custom" data-card="true" id="kt_card_3">
+			<div class="card-header">
+				<div class="card-title">
+					<h3 class="card-label">Category Wise Sales Value</h3>
+				</div>
+				<div class="card-toolbar">
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+						<i class="ki ki-arrow-down icon-nm"></i>
+					</a>
+					<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+						<i class="ki ki-close icon-nm"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card-body" style="">
+				<div class="row">
+
+
+
+					<div id="chartdiv15" style="width:100%"></div>
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function () {
+		TOPSALESMAN();
+		CardData();
+		TOPBUYER();
+		percentage();
+	});
+
+
+	function change() {
+		//alert('ok');
+		TOPSALESMAN();
+		CardData();
+		TOPBUYER();
+		percentage();
+
+	}
+
+
+	function CardData() {
+
+		var Date = $('#type option:selected').val();
+		$.ajax({
+			url: '/Chart/WHSALES',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify({
+				_Type: Date
+
+			}),
+			success: function (response) {
+				$('#Total_Sale').text(0);
+
+
+				$('#CUST').text(0);
+				$('#INV').text(0);
+				$('#SALE').text(0);
+				for (let i = 0; i < response.length; i++) {
+					$('#Total_Sale').text(response[i].Margin);
+					//$('#Total_Inventory').text(response[i].CurrrentStock.toLocaleString());
+					//$('#Total_Invoice').text(response[i].MemoCount.toLocaleString());
+					//$('#Total_Sold_Quantity').text(response[i].SoldValue.toLocaleString());
+
+					$('#CUST').text(response[i].CustNo);
+					$('#INV').text(response[i].OrderNo);
+					$('#SALE').text(response[i].NetAmt.toLocaleString('en-IN'));
+
+				}
+
+			}
+		});
+	}
+
+	function TOPSALESMAN() {
+		var Date = $('#type option:selected').val();
+
+		$.ajax({
+			url: '/Chart/TOP_DO_MAKER',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify({
+				_Type: Date
+
+			}),
+			success: function (response) {
+				console.log(response);
+
+				am4core.ready(function () {
+					// Themes begin
+					// Themes begin
+
+
+					am4core.unuseTheme(am4themes_frozen);
+					am4core.unuseTheme(am4themes_kelly);
+					am4core.unuseTheme(am4themes_dataviz);
+					am4core.useTheme(am4themes_animated);
+					am4core.useTheme(am4themes_material);
+
+
+					// Themes end
+
+					var chart = am4core.create("chartdiv11", am4charts.XYChart);
+					chart.padding(0, 0, 0, 0);
+
+					var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+					categoryAxis.renderer.grid.template.location = 0;
+					categoryAxis.dataFields.category = "NAME";
+					categoryAxis.renderer.minGridDistance = 1;
+					categoryAxis.renderer.inversed = true;
+					categoryAxis.renderer.grid.template.disabled = true;
+
+
+					var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+					valueAxis.min = 0;
+
+
+
+					var series = chart.series.push(new am4charts.ColumnSeries());
+					series.dataFields.categoryY = "NAME";
+					series.dataFields.valueX = "SUM";
+					series.tooltipText = "{valueX.value}"
+					series.columns.template.strokeOpacity = 0;
+					series.columns.template.column.cornerRadiusBottomRight = 5;
+					series.columns.template.column.cornerRadiusTopRight = 5;
+
+					//chart.scrollbarY = new am4charts.XYChartScrollbar();//Added Scrollbar
+					//chart.scrollbarY.parent = chart.rightAxesContainer;
+					//chart.scrollbarY.toBack();
+
+					chart.scrollbarY = new am4core.Scrollbar();
+					chart.scrollbarY.parent = chart.rightAxesContainer;
+
+
+
+
+
+					var labelBullet = series.bullets.push(new am4charts.LabelBullet())
+					labelBullet.label.horizontalCenter = "left";
+					labelBullet.label.dx = 10;
+					labelBullet.label.text = "{valueX.value}";
+					//labelBullet.label.text = "{EmpName} : {valueX.value}";
+
+					labelBullet.locationX = 1;
+
+
+
+					//let bullet = series.bullets.push(new am4charts.LabelBullet);
+					//bullet.label.text = "{EmpName : valueX.value}";
+					//bullet.label.rotation = 0;
+					//bullet.label.truncate = false;
+					//bullet.label.hideOversized = false;
+
+
+					// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+					series.columns.template.adapter.add("fill", function (fill, target) {
+						return chart.colors.getIndex(target.dataItem.index);
+					});
+
+					categoryAxis.sortBySeries = series;
+					chart.data = response;
+
+					chart.cursor = new am4charts.XYCursor();
+
+				});
+
+
+
+			}
+		})
+	}
+
+
+
+	function TOPBUYER() {
+		var Date = $('#type option:selected').val();
+
+		$.ajax({
+			url: '/Chart/TOP_WH_BUYER',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify({
+				_Type: Date
+
+			}),
+			success: function (response) {
+				console.log(response);
+
+				am4core.ready(function () {
+					// Themes begin
+					// Themes begin
+
+
+					am4core.unuseTheme(am4themes_frozen);
+					am4core.unuseTheme(am4themes_kelly);
+					am4core.unuseTheme(am4themes_dataviz);
+					am4core.useTheme(am4themes_animated);
+					am4core.useTheme(am4themes_material);
+
+
+					// Themes end
+
+					var chart = am4core.create("chartdiv10", am4charts.XYChart);
+					chart.padding(0, 0, 0, 0);
+
+					var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+					categoryAxis.renderer.grid.template.location = 0;
+					categoryAxis.dataFields.category = "PartnerName";
+					categoryAxis.renderer.minGridDistance = 1;
+					categoryAxis.renderer.inversed = true;
+					categoryAxis.renderer.grid.template.disabled = true;
+
+
+					var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+					valueAxis.min = 0;
+
+
+
+					var series = chart.series.push(new am4charts.ColumnSeries());
+					series.dataFields.categoryY = "PartnerName";
+					series.dataFields.valueX = "SUM";
+					series.tooltipText = "{valueX.value}"
+					series.columns.template.strokeOpacity = 0;
+					series.columns.template.column.cornerRadiusBottomRight = 5;
+					series.columns.template.column.cornerRadiusTopRight = 5;
+
+					//chart.scrollbarY = new am4charts.XYChartScrollbar();//Added Scrollbar
+					//chart.scrollbarY.parent = chart.rightAxesContainer;
+					//chart.scrollbarY.toBack();
+
+					chart.scrollbarY = new am4core.Scrollbar();
+					chart.scrollbarY.parent = chart.rightAxesContainer;
+
+
+
+
+
+					var labelBullet = series.bullets.push(new am4charts.LabelBullet())
+					labelBullet.label.horizontalCenter = "left";
+					labelBullet.label.dx = 10;
+					labelBullet.label.text = "{valueX.value}";
+					//labelBullet.label.text = "{EmpName} : {valueX.value}";
+
+					labelBullet.locationX = 1;
+
+
+
+					//let bullet = series.bullets.push(new am4charts.LabelBullet);
+					//bullet.label.text = "{EmpName : valueX.value}";
+					//bullet.label.rotation = 0;
+					//bullet.label.truncate = false;
+					//bullet.label.hideOversized = false;
+
+
+					// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+					series.columns.template.adapter.add("fill", function (fill, target) {
+						return chart.colors.getIndex(target.dataItem.index);
+					});
+
+					categoryAxis.sortBySeries = series;
+					chart.data = response;
+
+					chart.cursor = new am4charts.XYCursor();
+
+				});
+
+
+
+			}
+		})
+	}
+
+
+
+	function percentage() {
+		var Date = $('#type option:selected').val();
+		$.ajax({
+			type: "POST",
+			contentType: "application/json; charset=utf-8",
+			url: "/Chart/CATPERCENTAGE",
+			dataType: "json",
+			data: JSON.stringify({
+				_Type: Date
+
+			}),
+			success: function (response) {
+
+
+
+				// Themes begin
+
+				am4core.unuseTheme(am4themes_kelly);
+
+				// Themes end
+				var chart = am4core.create("chartdiv15", am4charts.PieChart3D);
+				chart.fillOpacity = 1;
+				chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+				chart.exporting.menu = new am4core.ExportMenu();
+				chart.exporting.menu.align = "left";
+				chart.exporting.menu.verticalAlign = "top";
+
+				chart.legend = new am4charts.Legend();
+				chart.legend.fontSize = 10;
+				chart.data = response;
+
+				var series = chart.series.push(new am4charts.PieSeries3D());
+				series.dataFields.value = "NetAmt";
+				series.dataFields.category = "CAT";
+
+				series.fontSize = 11;
+			}
+
+		});
+	}
+</script>
+
+

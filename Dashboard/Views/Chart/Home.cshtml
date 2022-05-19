@@ -1,0 +1,2752 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+	<meta http-equiv="refresh" content="600">
+
+	<script src="~/assets/js/jquery-3.4.1.min.js"></script>
+
+	<link href="~/assets/Dark.css" rel="stylesheet" id="darkCSS" />
+	<script src="~/assets/Dark.js" id="darkJS"></script>
+
+
+
+
+	<script src="~/assets/js/datepicker.min.js"></script>
+	<link href="~/assets/css/datepicker.min.css" rel="stylesheet" />
+	<script src="~/assets/js/Apex/apexCharts.js"></script>
+
+	<script src="~/assets/js/Amchart/core.js"></script>
+	<script src="~/assets/js/Amchart/charts.js"></script>
+	<script src="~/assets/js/Amchart/dark.js"></script>
+	<script src="~/assets/js/Amchart/animated.js"></script>
+	<script src="~/assets/js/Amchart/material.js"></script>
+	<script src="~/assets/js/Amchart/kelly.js"></script>
+	<script src="~/assets/js/Amchart/dataviz.js"></script>
+	<script src="~/assets/js/Amchart/frozen.js"></script>
+	<script src="~/assets/js/Amchart/maps.js"></script>
+
+	<script src="~/assets/Map/bangladeshHigh.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+
+
+
+
+
+
+	<style>
+
+
+
+
+
+		.cards:hover {
+			box-shadow: 0px 0px 150px #000000;
+			z-index: 2;
+			-webkit-transition: all 200ms ease-in;
+			-webkit-transform: scale(1.1);
+			-ms-transition: all 200ms ease-in;
+			-ms-transform: scale(1.1);
+			-moz-transition: all 200ms ease-in;
+			-moz-transform: scale(1.1);
+			transition: all 200ms ease-in;
+			transform: scale(1.1);
+		}
+
+
+
+		#chartdiv, #chartdiv1, #chartdiv2, #chartdiv4, #chartdiv6, #chartdiv7, #chartdiv8, #chartdiv10, #chartdiv11, #chartdiv12 {
+			width: 100%;
+			height: 400px;
+		}
+
+		::-webkit-scrollbar {
+			display: none;
+		}
+
+		.btn.btn-success {
+			color: navy !important;
+			font-weight: bold;
+		}
+
+		.card-label {
+			font-weight: bolder !important;
+			color: navy !important;
+		}
+
+		.customHead {
+			color: navy !important;
+		}
+
+		.customFont {
+			font-size: 3.25rem !important;
+		}
+
+		.blackbg {
+			background-color: #1a1a1a !important;
+		}
+
+		/*.container {
+			max-width: 100% !important;
+			padding-right: 40px !important;
+			padding-left: 40px !important;
+		}*/
+
+		.mt-5, .my-5 {
+			margin-top: 0rem !important;
+		}
+
+		.mt-5, .my-5 {
+			margin-bottom: 0rem !important;
+		}
+
+		.amcharts-amexport-item {
+			border-radius: 6px !important;
+			background-color: white !important;
+			color: black !important;
+		}
+
+
+
+		.card.card-custom .card-body {
+			padding-top: 10px !important;
+			padding-bottom: 10px !important;
+		}
+
+		.card-label {
+			font-weight: bolder !important;
+			color: navy !important;
+		}
+
+		.container {
+			max-width: 100% !important;
+		}
+
+		.mt-5, .my-5 {
+			margin-top: 0rem !important;
+		}
+
+		.mt-5, .my-5 {
+			margin-bottom: 0rem !important;
+		}
+
+		.amcharts-amexport-item {
+			border-radius: 6px !important;
+			background-color: white !important;
+			color: black !important;
+		}
+
+
+		:root {
+			--switches-bg-color: #8950FC;
+			--switches-label-color: white;
+			--switch-bg-color: white;
+			--switch-text-color: white;
+			--animate-duration: 7s; /*wow js delay*/
+			--animate-delay: 2s; /*wow js delay*/
+		}
+
+		/* a container - decorative, not required */
+
+		/* p - decorative, not required */
+		p {
+			margin-top: 2rem;
+			font-size: 0.75rem;
+			text-align: center;
+		}
+
+
+
+		/* Toggle Switch CSS Starts */
+
+		/* container for all of the switch elements
+			- adjust "width" to fit the content accordingly
+		*/
+		.switches-container {
+			width: 10rem;
+			position: relative;
+			display: flex;
+			padding: 0;
+			position: relative;
+			background: var(--switches-bg-color);
+			line-height: 3rem;
+			border-radius: 3rem;
+			margin-left: auto;
+			margin-right: auto;
+			border: 2px solid silver !important;
+		}
+
+
+
+			/* input (radio) for toggling. hidden - use labels for clicking on */
+			.switches-container input {
+				visibility: hidden;
+				position: absolute;
+				top: 0;
+			}
+
+			/* labels for the input (radio) boxes - something to click on */
+			.switches-container label {
+				width: 50%;
+				padding: 0;
+				margin: 0;
+				text-align: center;
+				cursor: pointer;
+				color: var(--switches-label-color);
+			}
+
+		/* switch highlighters wrapper (sliding left / right)
+			- need wrapper to enable the even margins around the highlight box
+		*/
+		.switch-wrapper {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 50%;
+			padding: 0.15rem;
+			z-index: 3;
+			transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+			/* transition: transform 1s; */
+		}
+
+		/* switch box highlighter */
+		.switch {
+			border-radius: 3rem;
+			background: var(--switch-bg-color);
+			height: 100%;
+			border: 1px solid navy !important;
+		}
+
+			/* switch box labels
+			- default setup
+			- toggle afterwards based on radio:checked status
+		*/
+			.switch div {
+				width: 100%;
+				text-align: center;
+				opacity: 0;
+				display: block;
+				color: var(--switch-text-color);
+				transition: opacity .2s cubic-bezier(.77, 0, .175, 1) .125s;
+				will-change: opacity;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+		/* slide the switch box from right to left */
+		.switches-container input:nth-of-type(1):checked ~ .switch-wrapper {
+			transform: translateX(0%);
+		}
+
+		/* slide the switch box from left to right */
+		.switches-container input:nth-of-type(2):checked ~ .switch-wrapper {
+			transform: translateX(100%);
+		}
+
+		/* toggle the switch box labels - first checkbox:checked - show first switch div */
+		.switches-container input:nth-of-type(1):checked ~ .switch-wrapper .switch div:nth-of-type(1) {
+			opacity: 1;
+		}
+
+		/* toggle the switch box labels - second checkbox:checked - show second switch div */
+		.switches-container input:nth-of-type(2):checked ~ .switch-wrapper .switch div:nth-of-type(2) {
+			opacity: 1;
+		}
+
+
+		/* Toggle Switch CSS Ends */
+	</style>
+
+
+</head>
+
+<body id="kt_body" class="quick-panel-right demo-panel-right offcanvas-right header-fixed header-mobile-fixed aside-enabled aside-static page-loading">
+
+
+
+	<div class="row">
+		<div class="col-md-3 col-sm-3 col-xs-3 animate__animated animate__bounceInLeft">
+			<!--begin::Stats Widget 25-->
+			<div class="card cards card-custom bg-light-success card-stretch gutter-b">
+				<!--begin::Body-->
+				<div class="card-body">
+					<span class="svg-icon svg-icon-4x float-right svg-icon-success">
+						<!--begin::Svg Icon | path:/metronic/theme/html/demo5/dist/assets/media/svg/icons/Communication/Mail-opened.svg-->
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<rect x="0" y="0" width="24" height="24"></rect>
+								<rect fill="#000000" opacity="0.3" x="13" y="4" width="3" height="16" rx="1.5"></rect>
+								<rect fill="#000000" x="8" y="9" width="3" height="11" rx="1.5"></rect>
+								<rect fill="#000000" x="18" y="11" width="3" height="9" rx="1.5"></rect>
+								<rect fill="#000000" x="3" y="13" width="3" height="7" rx="1.5"></rect>
+							</g>
+						</svg>
+
+
+						<!--end::Svg Icon-->
+					</span>
+					<div class="text-inverse-danger font-weight-bolder font-size-h5 mb-2 mt-5 customHead">Margin</div>
+					<div class="text-inverse-danger font-weight-bolder font-size-h5 mb-2 mt-5 customHead customFont" id="Total_Sale1"></div>
+
+					<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5 text-center customHead" id="Daterange4"></div>
+				</div>
+				<!--end::Body-->
+			</div>
+			<!--end::Stats Widget 25-->
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-3 animate__animated animate__bounceInUp">
+			<!--begin::Stats Widget 26-->
+			<div class="card cards card-custom bg-light-danger card-stretch gutter-b">
+				<!--begin::ody-->
+				<div class="card-body">
+					<span class="svg-icon svg-icon-4x float-right svg-icon-danger">
+						<!--begin::Svg Icon | path:/metronic/theme/html/demo5/dist/assets/media/svg/icons/Communication/Group.svg-->
+
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<rect x="0" y="0" width="24" height="24"></rect>
+								<path d="M4.00246329,12.2004927 L13,14 L13,4.06189375 C16.9463116,4.55399184 20,7.92038235 20,12 C20,16.418278 16.418278,20 12,20 C7.64874861,20 4.10886412,16.5261253 4.00246329,12.2004927 Z" fill="#000000" opacity="0.3"></path>
+								<path d="M3.0603968,10.0120794 C3.54712466,6.05992157 6.91622084,3 11,3 L11,11.6 L3.0603968,10.0120794 Z" fill="#000000"></path>
+							</g>
+						</svg>
+
+
+
+						<!--end::Svg Icon-->
+					</span>
+					<div class="text-inverse-primary font-weight-bolder font-size-h5 mb-2 mt-5 customHead">Current Stock</div>
+					<div class="text-inverse-primary font-weight-bolder font-size-h5 mb-2 mt-5 customHead customFont" id="Total_Inventory1"></div>
+
+					<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5 text-center customHead">All Over Company</div>
+				</div>
+				<!--end::Body-->
+			</div>
+			<!--end::Stats Widget 26-->
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-3 animate__animated animate__bounceInDown">
+			<!--begin::Stats Widget 27-->
+			<div class="card cards card-custom bg-light-info card-stretch gutter-b">
+				<!--begin::Body-->
+				<div class="card-body">
+					<span class="svg-icon svg-icon-4x float-right svg-icon-info">
+						<!--begin::Svg Icon | path:/metronic/theme/html/demo5/dist/assets/media/svg/icons/Media/Equalizer.svg-->
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<polygon points="0 0 24 0 24 24 0 24"></polygon>
+								<path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
+								<path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero"></path>
+							</g>
+						</svg>
+						<!--end::Svg Icon-->
+					</span>
+					<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5 customHead">Total Invoice</div>
+					<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5 customHead customFont" id="Total_Invoice1"></div>
+
+					<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5 text-center customHead" id="Daterange5"></div>
+				</div>
+				<!--end::Body-->
+			</div>
+			<!--end::Stats Widget 27-->
+		</div>
+		<div class="col-md-3 col-sm-1 col-xs-1 animate__animated animate__bounceInRight">
+			<!--begin::Stats Widget 28-->
+			<div class="card cards card-custom bg-light-warning card-stretch gutter-b">
+				<!--begin::Body-->
+				<div class="card-body">
+					<span class="svg-icon svg-icon-4x float-right svg-icon-warning">
+						<!--begin::Svg Icon | path:/metronic/theme/html/demo5/dist/assets/media/svg/icons/Communication/Group-chat.svg-->
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<rect x="0" y="0" width="24" height="24"></rect>
+								<path d="M12,4.56204994 L7.76822128,9.6401844 C7.4146572,10.0644613 6.7840925,10.1217854 6.3598156,9.76822128 C5.9355387,9.4146572 5.87821464,8.7840925 6.23177872,8.3598156 L11.2317787,2.3598156 C11.6315738,1.88006147 12.3684262,1.88006147 12.7682213,2.3598156 L17.7682213,8.3598156 C18.1217854,8.7840925 18.0644613,9.4146572 17.6401844,9.76822128 C17.2159075,10.1217854 16.5853428,10.0644613 16.2317787,9.6401844 L12,4.56204994 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
+								<path d="M3.28077641,9 L20.7192236,9 C21.2715083,9 21.7192236,9.44771525 21.7192236,10 C21.7192236,10.0817618 21.7091962,10.163215 21.6893661,10.2425356 L19.5680983,18.7276069 C19.234223,20.0631079 18.0342737,21 16.6576708,21 L7.34232922,21 C5.96572629,21 4.76577697,20.0631079 4.43190172,18.7276069 L2.31063391,10.2425356 C2.17668518,9.70674072 2.50244587,9.16380623 3.03824078,9.0298575 C3.11756139,9.01002735 3.1990146,9 3.28077641,9 Z M12,12 C11.4477153,12 11,12.4477153 11,13 L11,17 C11,17.5522847 11.4477153,18 12,18 C12.5522847,18 13,17.5522847 13,17 L13,13 C13,12.4477153 12.5522847,12 12,12 Z M6.96472382,12.1362967 C6.43125772,12.2792385 6.11467523,12.8275755 6.25761704,13.3610416 L7.29289322,17.2247449 C7.43583503,17.758211 7.98417199,18.0747935 8.51763809,17.9318517 C9.05110419,17.7889098 9.36768668,17.2405729 9.22474487,16.7071068 L8.18946869,12.8434035 C8.04652688,12.3099374 7.49818992,11.9933549 6.96472382,12.1362967 Z M17.0352762,12.1362967 C16.5018101,11.9933549 15.9534731,12.3099374 15.8105313,12.8434035 L14.7752551,16.7071068 C14.6323133,17.2405729 14.9488958,17.7889098 15.4823619,17.9318517 C16.015828,18.0747935 16.564165,17.758211 16.7071068,17.2247449 L17.742383,13.3610416 C17.8853248,12.8275755 17.5687423,12.2792385 17.0352762,12.1362967 Z" fill="#000000"></path>
+							</g>
+						</svg>
+						<!--end::Svg Icon-->
+					</span>
+					<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5 customHead">Total Sold Value</div>
+					<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5 customHead customFont" id="Total_Sold_Quantity1"></div>
+
+					<div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5 text-center customHead" id="Daterange6"></div>
+				</div>
+				<!--end::Body-->
+			</div>
+			<!--end::Stat: Widget 28-->
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header">
+					<div class="card-title">
+						<h3 class="card-label">Sales Value Line Chart</h3>
+					</div>
+					<div class="card-toolbar">
+						
+						<button class="btn btn-success"><a style="color: #000080" href="http://192.168.5.13:1212/Eid/Index">Eid Sales</a></button>
+						&nbsp;&nbsp;
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="">
+					<div class="row">
+
+						<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Start Date</button>
+									</div>
+									<input type="text" class="form-control" id="sdate" onchange="SalesData()" autocomplete="off">
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">End Date</button>
+									</div>
+									<input type="text" class="form-control" id="tdate" onchange="SalesData()" autocomplete="off">
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Chart Trend</button>
+									</div>
+									<select class="form-control" id="trend" onchange="SalesData()">
+										<option value="1">Margin</option>
+										<option selected="selected" value="2">Sales Value</option>
+										<option value="3">Discount</option>
+										<option value="4">Customer Count</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div id="chartdiv6" style="width:100%"></div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br />
+
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header">
+					<div class="card-title">
+						<h3 class="card-label">Hourly Sales Comparison</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="">
+					<div id="chart2" style="width:100%"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<br />
+
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-6">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header bg-success">
+					<div class="card-title ">
+						<i class="ki ki-long-arrow-up icon-nm" style="color: #003b18 !important"></i>
+						<i class="ki ki-long-arrow-up icon-nm" style="color: #003b18 !important"></i> &nbsp;
+						<h3 class="card-label">Target v/s Sales || @DateTime.Now.ToString("MMMM") @DateTime.Now.Year</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="height: 400px !important; color:white !important; overflow: scroll !important;">
+
+
+					<div class="container">
+						<div class="switches-container">
+							<input type="radio" id="switchOutletTop" name="switchPlan" value="Outlet" onclick=RPT_TOPOUT(value) checked="checked" />
+							<input type="radio" id="switchAreaTop" name="switchPlan" value="Area" onclick=RPT_TOPOUT(value) />
+							<label for="switchOutletTop" style="color:black; font-weight:bold">Outlet</label>
+							<label for="switchAreaTop" style="color:black; font-weight:bold">Area</label>
+							<div class="switch-wrapper">
+								<div class="switch">
+									<div style="color:black; font-weight:bold">Outlet</div>
+									<div style="color:black; font-weight:bold">Area</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+					<div class="card-body py-0 col-md-12">
+						<!--begin::Table-->
+						<div class="table-responsive">
+							<table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_1">
+								<thead>
+									<tr class="text-left">
+									</tr>
+								</thead>
+								<tbody id="topTbl">
+								</tbody>
+							</table>
+						</div>
+						<!--end::Table-->
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<br />
+
+		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-6">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header bg-primary">
+					<div class="card-title">
+						<i class="ki ki-long-arrow-down icon-nm" style="color: #520000 !important"></i>
+						<i class="ki ki-long-arrow-down icon-nm" style="color: #520000 !important"></i> &nbsp;
+						<h3 class="card-label">Target v/s Sales || @DateTime.Now.ToString("MMMM") @DateTime.Now.Year</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="height: 400px !important; overflow: scroll !important;">
+
+					<div class="container">
+
+						<div class="switches-container">
+							<input type="radio" id="switchOutletBottom" name="switchPlan1" value="Outlet" onclick=RPT_BOTTOMOUT(value) checked="checked" />
+							<input type="radio" id="switchAreaBottom" name="switchPlan1" value="Area" onclick=RPT_BOTTOMOUT(value) />
+							<label for="switchOutletBottom" style="color:black; font-weight:bold">Outlet</label>
+							<label for="switchAreaBottom" style="color:black; font-weight:bold">Area</label>
+							<div class="switch-wrapper">
+								<div class="switch">
+									<div style="color:black; font-weight:bold">Outlet</div>
+									<div style="color:black; font-weight:bold">Area</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="card-body py-0">
+						<!--begin::Table-->
+						<div class="table-responsive">
+							<table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_2">
+								<thead>
+									<tr class="text-left">
+									</tr>
+								</thead>
+								<tbody id="bottomTbl">
+								</tbody>
+							</table>
+						</div>
+						<!--end::Table-->
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<br />
+
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-6">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header bg-success">
+					<div class="card-title ">
+						<i class="ki ki-long-arrow-up icon-nm" style="color: #003b18 !important"></i>
+						<i class="ki ki-long-arrow-up icon-nm" style="color: #003b18 !important"></i> &nbsp;
+						<h3 class="card-label">LY v/s TY Sales Value || @DateTime.Now.ToString("MMMM") @DateTime.Now.Year</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="height: 400px !important; color:white !important; overflow: scroll !important;">
+
+
+					<div class="container">
+						<div class="switches-container">
+							<input type="radio" id="switchOutletTop1" name="switchPlan2" value="Outlet" onclick=RPT_TOPCOMPOUT(value) checked="checked" />
+							<input type="radio" id="switchAreaTop1" name="switchPlan2" value="Area" onclick=RPT_TOPCOMPOUT(value) />
+							<label for="switchOutletTop1" style="color:black; font-weight:bold">Outlet</label>
+							<label for="switchAreaTop1" style="color:black; font-weight:bold">Area</label>
+							<div class="switch-wrapper">
+								<div class="switch">
+									<div style="color:black; font-weight:bold">Outlet</div>
+									<div style="color:black; font-weight:bold">Area</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+					<div class="card-body py-0 col-md-12">
+						<!--begin::Table-->
+						<div class="table-responsive">
+							<table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_1">
+								<thead>
+									<tr class="text-left">
+									</tr>
+								</thead>
+								<tbody id="topCompTbl">
+								</tbody>
+							</table>
+						</div>
+						<!--end::Table-->
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<br />
+
+		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-6">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header bg-primary">
+					<div class="card-title">
+						<i class="ki ki-long-arrow-down icon-nm" style="color: #520000 !important"></i>
+						<i class="ki ki-long-arrow-down icon-nm" style="color: #520000 !important"></i> &nbsp;
+						<h3 class="card-label">LY v/s TY Sales Value || @DateTime.Now.ToString("MMMM") @DateTime.Now.Year</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="height: 400px !important; overflow: scroll !important;">
+
+					<div class="container">
+
+						<div class="switches-container">
+							<input type="radio" id="switchOutletBottom1" name="switchPlan3" value="Outlet" onclick=RPT_BOTTOMCOMPOUT(value) checked="checked" />
+							<input type="radio" id="switchAreaBottom1" name="switchPlan3" value="Area" onclick=RPT_BOTTOMCOMPOUT(value) />
+							<label for="switchOutletBottom1" 1 style="color:black; font-weight:bold">Outlet</label>
+							<label for="switchAreaBottom1" style="color:black; font-weight:bold">Area</label>
+							<div class="switch-wrapper">
+								<div class="switch">
+									<div style="color:black; font-weight:bold">Outlet</div>
+									<div style="color:black; font-weight:bold">Area</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="card-body py-0">
+						<!--begin::Table-->
+						<div class="table-responsive">
+							<table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_2">
+								<thead>
+									<tr class="text-left">
+									</tr>
+								</thead>
+								<tbody id="bottomCompTbl">
+								</tbody>
+							</table>
+						</div>
+						<!--end::Table-->
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<br />
+
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header">
+					<div class="card-title">
+						<h3 class="card-label">Top Salesman</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="">
+					<div class="row">
+
+						<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4"></div>
+
+						<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Month</button>
+									</div>
+									<input autocomplete="off" type="text" placeholder="Select a Month" id="topSPersonDate" data-date-format="mm-yyyy" class="form-control" onchange="TOPSALESMAN()">
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Top</button>
+									</div>
+									<select class="form-control" id="topSales" onchange="TOPSALESMAN()">
+										<option selected="selected" value="10"> 10</option>
+										<option value="20">20</option>
+										<option value="30">30</option>
+										<option value="40">40</option>
+										<option value="50">50</option>
+
+									</select>
+								</div>
+							</div>
+						</div>
+
+
+
+						<div id="chartdiv11" style="width:100%"></div>
+
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br />
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header">
+					<div class="card-title">
+						<h3 class="card-label">Top Selling Article</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="">
+					<div class="row">
+
+						<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4"></div>
+
+						<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Month</button>
+									</div>
+									<input autocomplete="off" type="text" placeholder="Select a Month" id="topArtDate" data-date-format="mm-yyyy" class="form-control" onchange="TOPARTICLE()">
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Top</button>
+									</div>
+									<select class="form-control" id="topArt" onchange="TOPARTICLE()">
+										<option selected="selected" value="10"> 10</option>
+										<option value="20">20</option>
+										<option value="30">30</option>
+										<option value="40">40</option>
+										<option value="50">50</option>
+										<option value="60">60</option>
+										<option value="70">70</option>
+										<option value="80">80</option>
+										<option value="90">90</option>
+										<option value="100">100</option>
+
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div id="chartdiv10" style="width:100%"></div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	@*<div class="row">
+			<div class="col-md-12">
+				<div class="card card-custom" data-card="true" id="kt_card_3">
+					<div class="card-header">
+						<div class="card-title">
+							<h3 class="card-label">Country Wide LOTTO/LEE COOPER Outlet</h3>
+						</div>
+						<div class="card-toolbar">
+							<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+								<i class="ki ki-arrow-down icon-nm"></i>
+							</a>
+							<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+								<i class="ki ki-close icon-nm"></i>
+							</a>
+						</div>
+					</div>
+					<div class="card-body" style="">
+
+
+						<div id="chartdiv8">
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>*@
+
+	<br />
+
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header">
+					<div class="card-title">
+						<h3 class="card-label">WeekDay/Time Wise Chart</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="">
+					<div class="row">
+						<div class="col-md-4 col-lg-4 col-xs-4 col-sm-4">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Start Date</button>
+									</div>
+									<input type="text" class="form-control" id="DSH_WKDAY_Start_Date" autocomplete="off">
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 col-lg-4 col-xs-4 col-sm-4">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">End Date</button>
+									</div>
+									<input type="text" class="form-control" id="DSH_WKDAY_End_Date" autocomplete="off">
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 col-lg-4 col-xs-4 col-sm-4">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">WeekDay</button>
+									</div>
+									<select class="form-control" id="WeekDay">
+										<option id="Sunday" title="Sunday" value="Sunday">Sunday</option>
+										<option id="Monday" title="Monday" value="Monday">Monday</option>
+										<option id="Tuesday" title="Tuesday" value="Tuesday">Tuesday</option>
+										<option id="Wednesday" title="Wednesday" value="Wednesday">Wednesday</option>
+										<option id="Thursday" title="Thursday" value="Thursday">Thursday</option>
+										<option id="Friday" title="Friday" value="Friday">Friday</option>
+										<option id="Saturday" title="Saturday" value="Saturday">Saturday</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-lg-4 col-xs-4 col-sm-4">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Time Slot</button>
+									</div>
+									<select class="form-control" id="TimeSlot">
+										<option id="1 AM" title="1 AM" value="1 AM">1 AM</option>
+										<option id="2 AM" title="2 AM" value="2 AM">2 AM</option>
+										<option id="3 AM" title="3 AM" value="3 AM">3 AM</option>
+										<option id="4 AM" title="4 AM" value="4 AM">4 AM</option>
+										<option id="5 AM" title="5 AM" value="5 AM">5 AM</option>
+										<option id="6 AM" title="6 AM" value="6 AM">6 AM</option>
+										<option id="7 AM" title="7 AM" value="7 AM">7 AM</option>
+										<option id="8 AM" title="8 AM" value="8 AM">8 AM</option>
+										<option id="9 AM" title="9 AM" value="9 AM">9 AM</option>
+										<option id="10 AM" title="10 AM" value="10 AM">10 AM</option>
+										<option id="11 AM" title="11 AM" value="11 AM">11 AM</option>
+										<option id="12 PM" title="12 PM" value="12 PM">12 PM</option>
+										<option id="1 PM" title="1 PM" value="1 PM">1 PM</option>
+										<option id="2 PM" title="2 PM" value="2 PM">2 PM</option>
+										<option id="3 PM" title="3 PM" value="3 PM">3 PM</option>
+										<option id="4 PM" title="4 PM" value="4 PM">4 PM</option>
+										<option id="5 PM" title="5 PM" value="5 PM">5 PM</option>
+										<option id="6 PM" title="6 PM" value="6 PM">6 PM</option>
+										<option id="7 PM" title="7 PM" value="7 PM">7 PM</option>
+										<option id="8 PM" title="8 PM" value="8 PM">8 PM</option>
+										<option id="9 PM" title="9 PM" value="9 PM">9 PM</option>
+										<option id="10 PM" title="10 PM" value="10 PM">10 PM</option>
+										<option id="11 PM" title="11 PM" value="11 PM">11 PM</option>
+										<option selected="" id="12 AM" title="12 AM" value="12 AM">12 AM</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-lg-4 col-xs-4 col-sm-4">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Report Type</button>
+									</div>
+									<select class="form-control" id="ReportType">
+										<option value="GrossValue">GrossValue</option>
+										<option value="DiscValue">DiscValue</option>
+										<option selected="selected" value="SoldValue">SoldValue</option>
+										<option value="MarginValue">MarginValue</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2 col-lg-2 col-xs-2 col-sm-2">
+
+							<a class="btn btn-success ad-click-event btn-block" id="btnShow_DSH_HOUR" onclick="RPT_DSH_WKDAY()">
+								SHOW
+							</a>
+
+
+						</div>
+
+						<div id="chartdiv7" style="width:100%"></div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<br />
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header">
+					<div class="card-title">
+						<h3 class="card-label">Sold Value Retails Sale</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="">
+					<div class="row">
+
+						<div class="col-md-3 col-lg-3 col-xs-3 col-sm-3">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Start Date</button>
+									</div>
+									<input type="text" id="DSH_Hour_Start_Date" class="form-control" autocomplete="off">
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-lg-3 col-xs-3 col-sm-3">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">End Date</button>
+									</div>
+									<input type="text" class="form-control" id="DSH_Hour_End_Date" autocomplete="off">
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 col-lg-4 col-xs-4 col-sm-4">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<button class="btn btn-success" type="button">Chart Trend</button>
+									</div>
+									<select class="form-control" id="ReportTypeH">
+										<option id="GrossValue" title="GrossValue" value="GrossValue">Gross Value</option>
+										<option id="DiscValue" title="DiscValue" value="DiscValue">Disc Value</option>
+										<option selected="" id="SoldValue" title="SoldValue" value="SoldValue">Sold Value</option>
+										<option id="MarginValue" title="MarginValue" value="MarginValue">Margin Value</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2 col-lg-2 col-xs-2 col-sm-2">
+
+							<a class="btn btn-success ad-click-event btn-block" id="btnShow_DSH_HOUR" onclick="RPT_DSH_Hour()">
+								SHOW
+							</a>
+
+
+						</div>
+					</div>
+
+
+					<div id="chartdiv2"></div>
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<br />
+
+
+	<div class="row">
+
+		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-6">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header">
+					<div class="card-title">
+						<h3 class="card-label">Channel Wise Sales Chart</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="">
+					<div id="chartdiv"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-6">
+			<div class="card card-custom" data-card="true" id="kt_card_3">
+				<div class="card-header">
+					<div class="card-title">
+						<h3 class="card-label">Category Wise Sales Chart</h3>
+					</div>
+					<div class="card-toolbar">
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+							<i class="ki ki-arrow-down icon-nm"></i>
+						</a>
+						<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+							<i class="ki ki-close icon-nm"></i>
+						</a>
+					</div>
+				</div>
+				<div class="card-body blackbg" style="">
+
+
+					<div id="chartdiv1">
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+
+	</div>
+
+
+
+
+	@*<br />
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card card-custom" data-card="true" id="kt_card_3">
+					<div class="card-header">
+						<div class="card-title">
+							<h3 class="card-label">Target V/S Achievement(Sales Value)</h3>
+						</div>
+						<div class="card-toolbar">
+							<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-success mr-1" data-card-tool="toggle">
+								<i class="ki ki-arrow-down icon-nm"></i>
+							</a>
+							<a href="#" class="btn btn-icon btn-circle btn-sm btn-light-danger" data-card-tool="remove">
+								<i class="ki ki-close icon-nm"></i>
+							</a>
+						</div>
+					</div>
+					<div class="card-body blackbg" style="">
+						<div class="row">
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<button class="btn btn-success" type="button">Start Date</button>
+										</div>
+										<input type="text" class="form-control" id="SAsdate" onchange="TARGETACIEVE()" autocomplete="off">
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<button class="btn btn-success" type="button">End Date</button>
+										</div>
+										<input type="text" class="form-control" id="SAedate" onchange="TARGETACIEVE()" autocomplete="off">
+									</div>
+								</div>
+							</div>
+
+
+
+							<div id="chartdiv12" style="width:100%"></div>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>*@
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	var matchedData = [];
+	var matchDate = [];
+
+
+	var matchedDataHourlyToday = [];
+	var matchedDataHourlyYesterday = [];
+	var matchHour = [];
+
+
+	var longitude = [];
+	var lattitude = [];
+	var OutletName = [];
+
+	var RPT_DSH_WKDAY_VAL = [];
+	var RPT_DSH_WKDAY_GROWTH = [];
+	var RPT_DSH_WKDAY_LABEL = [];
+
+
+	$(document).ready(function () {
+
+		$('#sdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#tdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#stdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#ttdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+
+		$('#stsalesdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#ttsalesdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+
+
+
+		$('#SAsdate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#SAedate').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+
+		$('#DSH_Hour_Start_Date').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#DSH_Hour_End_Date').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#DSH_WKDAY_Start_Date').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		$('#DSH_WKDAY_End_Date').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+
+		//$('#top').DataTable();
+		//$('#bottomTable').DataTable();
+		$('#topArtDate').datepicker({
+			format: "mm/dd/yyyy",
+			viewMode: "months",
+			minViewMode: "months",
+			autoclose: true
+		});
+
+		$('#topSPersonDate').datepicker({
+			format: "mm/dd/yyyy",
+			viewMode: "months",
+			minViewMode: "months",
+			autoclose: true
+		});
+
+
+
+
+
+		var sDate = new Date();
+		var tdate = new Date();
+		var teDate = new Date();
+		var tewDate = new Date();
+		tdate.setDate(tdate.getDate() - 30);
+		teDate.setDate(teDate.getDate() - 30);
+		tewDate.setDate(sDate.getDate() - 7);
+		var tdates = tdate.toLocaleDateString();
+		var tedates = teDate.toLocaleDateString();
+		$('#sdate').val(tdates);
+		$('#tdate').val(sDate.toLocaleDateString());
+		$('#DSH_Hour_Start_Date').val(tedates);
+		$('#DSH_Hour_End_Date').val(sDate.toLocaleDateString());
+
+		$('#ttdate').val(sDate.toLocaleDateString());
+		$('#stdate').val(tewDate.toLocaleDateString());
+
+		$('#DSH_WKDAY_Start_Date').val(tedates);
+		$('#DSH_WKDAY_End_Date').val(sDate.toLocaleDateString());
+
+		$('#ttsalesdate').val(sDate.toLocaleDateString());
+		$('#stsalesdate').val(sDate.toLocaleDateString());
+
+		$('#SAsdate').val(tewDate.toLocaleDateString());
+		$('#SAedate').val(sDate.toLocaleDateString());
+
+		$('#topArtDate').val(sDate.toLocaleDateString());
+		$('#topSPersonDate').val(sDate.toLocaleDateString());
+
+
+		CardData();
+		SalesData();
+
+		RPT_BOTTOMOUT("Outlet");
+		RPT_TOPOUT("Outlet");
+
+		RPT_BOTTOMCOMPOUT("Outlet");
+		RPT_TOPCOMPOUT("Outlet");
+		TOPARTICLE();
+		TOPSALESMAN();
+		RPT_DSH_WKDAY();
+		HourlySalesData();
+		RPT_DSH_Hour();
+
+		donutGraph();
+		PieGraph();
+		/*MapData();*/
+
+		//TARGETACIEVE();
+		//RPT_BOTTOMOUT();
+
+	});
+	function CardData() {
+		$.ajax({
+			url: '/Chart/RPT_RMARGIN',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			success: function (response) {
+				for (let i = 0; i < response.length; i++) {
+					$('#Total_Sale').text(response[i].Margin);
+					$('#Total_Inventory').text(response[i].CurrrentStockShort);
+					$('#Total_Invoice').text(response[i].MemoCountShort);
+					$('#Total_Sold_Quantity').text(response[i].SoldValueShort);
+
+					$('#Daterange1').text(response[i].DateRange);
+					$('#Daterange2').text(response[i].DateRange);
+					$('#Daterange3').text(response[i].DateRange);
+
+					$('#Total_Sale1').text(response[i].Margin);
+
+					$('#Total_Inventory1').text(response[i].CurrrentStockShort);
+					$('#Total_Invoice1').text(response[i].MemoCountShort);
+					$('#Total_Sold_Quantity1').text(response[i].SoldValueShort);
+
+					$('#Daterange4').text(response[i].DateRange);
+					$('#Daterange5').text(response[i].DateRange);
+					$('#Daterange6').text(response[i].DateRange);
+				}
+
+			}
+		});
+	}
+
+
+	
+
+	function TOPSALESMAN() {
+		var vType = "STAFF";
+		var vDate = $("#topSPersonDate").val();
+		var vTop = $('#topSales').val();
+		$.ajax({
+			url: '/Chart/TOP_ART_EMP',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify(
+				{
+					_topType: vType,
+					_date: vDate,
+					_top: vTop
+
+
+				}
+			),
+			success: function (response) {
+				console.log(response);
+				if (response.length > 0) {
+					am4core.ready(function () {
+						// Themes begin
+						// Themes begin
+
+
+						am4core.unuseTheme(am4themes_frozen);
+						am4core.unuseTheme(am4themes_kelly);
+						am4core.unuseTheme(am4themes_dataviz);
+						am4core.useTheme(am4themes_animated);
+						am4core.useTheme(am4themes_material);
+
+
+						// Themes end
+
+						var chart = am4core.create("chartdiv11", am4charts.XYChart);
+						chart.padding(0, 0, 0, 0);
+
+						var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+						categoryAxis.renderer.grid.template.location = 0;
+						categoryAxis.dataFields.category = "EmpName";
+						categoryAxis.renderer.minGridDistance = 1;
+						categoryAxis.renderer.inversed = true;
+						categoryAxis.renderer.grid.template.disabled = true;
+
+
+						var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+						valueAxis.min = 0;
+
+
+
+						var series = chart.series.push(new am4charts.ColumnSeries());
+						series.dataFields.categoryY = "EmpName";
+						series.dataFields.valueX = "Value";
+						series.tooltipText = "{valueX.value}"
+						series.columns.template.strokeOpacity = 0;
+						series.columns.template.column.cornerRadiusBottomRight = 5;
+						series.columns.template.column.cornerRadiusTopRight = 5;
+
+						//chart.scrollbarY = new am4charts.XYChartScrollbar();//Added Scrollbar
+						//chart.scrollbarY.parent = chart.rightAxesContainer;
+						//chart.scrollbarY.toBack();
+
+						chart.scrollbarY = new am4core.Scrollbar();
+						chart.scrollbarY.parent = chart.rightAxesContainer;
+
+
+
+
+
+						var labelBullet = series.bullets.push(new am4charts.LabelBullet())
+						labelBullet.label.horizontalCenter = "left";
+						labelBullet.label.dx = 10;
+						labelBullet.label.text = "{valueX.value}";
+						//labelBullet.label.text = "{EmpName} : {valueX.value}";
+
+						labelBullet.locationX = 1;
+
+
+
+						//let bullet = series.bullets.push(new am4charts.LabelBullet);
+						//bullet.label.text = "{EmpName : valueX.value}";
+						//bullet.label.rotation = 0;
+						//bullet.label.truncate = false;
+						//bullet.label.hideOversized = false;
+
+
+						// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+						series.columns.template.adapter.add("fill", function (fill, target) {
+							return chart.colors.getIndex(target.dataItem.index);
+						});
+
+						categoryAxis.sortBySeries = series;
+						chart.data = response;
+
+						chart.cursor = new am4charts.XYCursor();
+
+					});
+
+
+				}
+			}
+		})
+	}
+	//Top Salesman Ends
+
+
+	//Top 10 Article Starts
+
+	function TOPARTICLE() {
+		var href = [];
+		var vDate = $("#topArtDate").val();
+		var vType = "ARTICLE";
+		var vTop = $('#topArt').val();
+		$.ajax({
+			url: '/Chart/TOP_ART_EMP',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify(
+				{
+					_date: vDate,
+					_topType: vType,
+					_top: vTop
+				}
+			),
+			success: function (response) {
+
+				if (response.length > 0) {
+
+
+					for (let i = 0; i < response.length; i++) {
+						if (UrlExists(response[i].href) == 404) {
+
+							href.push(
+								{
+									"ARTICLE": response[i].ARTICLE,
+									"Value": response[i].Value,
+									"href": "http://192.168.5.13:1212/assets/IMG/blank.png"
+
+								}
+							)
+
+						}
+
+						else {
+							href.push(
+								{
+									"ARTICLE": response[i].ARTICLE,
+									"Value": response[i].Value,
+									"href": response[i].href
+
+								}
+							)
+						}
+
+					}
+
+					console.log(href);
+
+					am4core.ready(function () {
+
+						// Themes begin
+						am4core.useTheme(am4themes_animated);
+						am4core.useTheme(am4themes_dark);
+
+						// Themes end
+
+						/**
+						* Chart design taken from Samsung health app
+						*/
+
+						var chart = am4core.create("chartdiv10", am4charts.XYChart);
+						chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+						chart.paddingBottom = 30;
+
+
+						//"name": "Monica",
+						//	"steps": 45688,
+						//		"href": "https://www.amcharts.com/wp-content/uploads/2019/04/monica.jpg"
+						chart.data = href;
+
+						var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+						categoryAxis.dataFields.category = "ARTICLE";
+						categoryAxis.renderer.grid.template.strokeOpacity = 0;
+						categoryAxis.renderer.minGridDistance = 10;
+						categoryAxis.renderer.labels.template.dy = 35;
+						categoryAxis.renderer.tooltip.dy = 35;
+
+						var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+						valueAxis.renderer.inside = true;
+						valueAxis.renderer.labels.template.fillOpacity = 1;
+						valueAxis.renderer.grid.template.strokeOpacity = 0;
+						valueAxis.min = 0;
+						valueAxis.cursorTooltipEnabled = false;
+						valueAxis.renderer.baseGrid.strokeOpacity = 0;
+
+						var series = chart.series.push(new am4charts.ColumnSeries);
+
+						series.dataFields.valueY = "Value";
+						series.tooltipText = "{valueY.value} Tk";
+
+
+						series.dataFields.categoryX = "ARTICLE";
+						series.tooltip.pointerOrientation = "vertical";
+						series.tooltip.dy = - 6;
+						series.columnsContainer.zIndex = 100;
+
+						
+
+						chart.scrollbarX = new am4core.Scrollbar();
+
+
+
+						//chart.scrollbarX.series.push(series);
+						var columnTemplate = series.columns.template;
+						columnTemplate.width = am4core.percent(50);
+						columnTemplate.maxWidth = 66;
+						columnTemplate.column.cornerRadius(20, 5, 10, 10);
+						columnTemplate.strokeOpacity = 0;
+
+						series.heatRules.push({ target: columnTemplate, property: "fill", dataField: "valueY", min: am4core.color("#e5dc36"), max: am4core.color("#5faa46") });
+						series.mainContainer.mask = undefined;
+
+						var cursor = new am4charts.XYCursor();
+						chart.cursor = cursor;
+						cursor.lineX.disabled = true;
+						cursor.lineY.disabled = true;
+						cursor.behavior = "none";
+
+						var bullet = columnTemplate.createChild(am4charts.CircleBullet);
+						bullet.circle.radius = 30;
+						bullet.valign = "bottom";
+						bullet.align = "center";
+						bullet.isMeasured = true;
+						bullet.mouseEnabled = false;
+						bullet.verticalCenter = "bottom";
+						bullet.interactionsEnabled = false;
+
+						var hoverState = bullet.states.create("hover");
+						var outlineCircle = bullet.createChild(am4core.Circle);
+						outlineCircle.adapter.add("radius", function (radius, target) {
+							var circleBullet = target.parent;
+							return circleBullet.circle.pixelRadius + 10;
+						})
+
+						var image = bullet.createChild(am4core.Image);
+						image.width = 60;
+						image.height = 60;
+						image.horizontalCenter = "middle";
+						image.verticalCenter = "middle";
+						image.propertyFields.href = "href";//"href"
+
+						image.adapter.add("mask", function (mask, target) {
+							var circleBullet = target.parent;
+							return circleBullet.circle;
+						})
+
+						var previousBullet;
+						chart.cursor.events.on("cursorpositionchanged", function (event) {
+							var dataItem = series.tooltipDataItem;
+
+							if (dataItem.column) {
+								var bullet = dataItem.column.children.getIndex(1);
+
+								if (previousBullet && previousBullet != bullet) {
+									previousBullet.isHover = false;
+								}
+
+								if (previousBullet != bullet) {
+
+									var hs = bullet.states.getKey("hover");
+									hs.properties.dy = -bullet.parent.pixelHeight + 30;
+									bullet.isHover = true;
+
+									previousBullet = bullet;
+								}
+							}
+						})
+
+					}); // end am4core.ready()
+
+
+
+
+					//}
+
+				}
+
+			}
+		});
+	}
+	function UrlExists(url) {
+		var http = new XMLHttpRequest();
+		http.open('HEAD', url, false);
+		http.send();
+		return http.status;
+	}
+	//Top 10 Articel Ends
+
+
+	//WeekDay/Time Wise Chart Starts
+
+	function RPT_DSH_WKDAY() {
+
+		var vFrmDate = $("#DSH_WKDAY_Start_Date").val();
+		var vToDate = $("#DSH_WKDAY_End_Date").val();
+		var vTimeSlot = $("#TimeSlot").val();
+		var vWeekDay = $("#WeekDay").val();
+		var vReportType = $("#ReportType").val();
+
+		if (vTimeSlot == null) {
+			vTimeSlot = "12 AM";
+		}
+		if (vWeekDay == null) {
+			vWeekDay = "Sunday";
+		}
+		if (vReportType == null) {
+			vReportType = "SoldValue";
+		}
+
+
+		$.ajax({
+			url: '/Chart/RPT_DSH_WKDAY',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify(
+				{
+					_FrmDate: vFrmDate,
+					_ToDate: vToDate,
+					_TimeSlot: vTimeSlot,
+					_WeekDay: vWeekDay,
+					_ReportType: vReportType
+
+				}
+			),
+			success: function (response) {
+
+				if (response.length > 0) {
+					// Themes begin
+					am4core.useTheme(am4themes_animated);
+					am4core.useTheme(am4themes_dark);
+
+
+
+					// Create chart instance
+					var chart = am4core.create("chartdiv7", am4charts.XYChart);
+
+					chart.exporting.menu = new am4core.ExportMenu();
+					chart.exporting.menu.align = "left";
+					chart.exporting.menu.verticalAlign = "top";
+
+					chart.colors.list = [
+						am4core.color("#6771DC"),
+						am4core.color("#FEB018"),
+
+					];
+
+
+					//chart.colors.step = ;
+					chart.maskBullets = false;
+
+					// Add data
+					chart.data = response;
+
+					// Create axes
+
+					var dateAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+					dateAxis.dataFields.category = "MonthlyWeekSL";
+					dateAxis.renderer.grid.template.location = 0;
+					dateAxis.renderer.minGridDistance = 20;
+
+					dateAxis.renderer.grid.template.disabled = true;
+
+
+
+					var distanceAxis = chart.yAxes.push(new am4charts.ValueAxis());
+					distanceAxis.title.text = "Values";
+					distanceAxis.renderer.grid.template.disabled = true;
+
+					var durationAxis = chart.yAxes.push(new am4charts.ValueAxis());
+					durationAxis.title.text = "Growth";
+					durationAxis.renderer.grid.template.disabled = true;
+					durationAxis.renderer.opposite = true;
+					durationAxis.syncWithAxis = distanceAxis;
+
+					//durationAxis.durationFormatter.durationFormat = "hh'h' mm'min'";
+
+
+
+					// Create series
+					var distanceSeries = chart.series.push(new am4charts.ColumnSeries());
+					distanceSeries.dataFields.valueY = "Values";
+					distanceSeries.dataFields.categoryX = "MonthlyWeekSL";
+					distanceSeries.yAxis = distanceAxis;
+					distanceSeries.tooltipText = "{valueY} TK";
+					distanceSeries.name = "Values";
+					distanceSeries.columns.template.fillOpacity = 1;
+					distanceSeries.columns.template.propertyFields.strokeDasharray = "dashLength";
+					distanceSeries.columns.template.propertyFields.fillOpacity = "alpha";
+					distanceSeries.showOnInit = true;
+
+
+					distanceSeries.columns.template.column.cornerRadiusTopLeft = 10;
+					distanceSeries.columns.template.column.cornerRadiusTopRight = 10;
+					distanceSeries.columns.template.column.fillOpacity = 0.8;
+
+
+
+
+
+					var distanceState = distanceSeries.columns.template.states.create("hover");
+					distanceState.properties.fillOpacity = 1;
+
+					var durationSeries = chart.series.push(new am4charts.LineSeries());
+					durationSeries.dataFields.valueY = "Growth";
+					durationSeries.dataFields.categoryX = "MonthlyWeekSL";
+					durationSeries.yAxis = durationAxis;
+					durationSeries.name = "Growth";
+					durationSeries.strokeWidth = 2;
+					durationSeries.propertyFields.strokeDasharray = "dashLength";
+					durationSeries.tooltipText = "{valueY}%";
+					durationSeries.showOnInit = true;
+					durationSeries.calculatePercent = true;
+
+					var durationBullet = durationSeries.bullets.push(new am4charts.Bullet());
+					var durationRectangle = durationBullet.createChild(am4core.Rectangle);
+					durationBullet.horizontalCenter = "middle";
+					durationBullet.verticalCenter = "middle";
+					durationBullet.width = 7;
+					durationBullet.height = 7;
+					durationRectangle.width = 7;
+					durationRectangle.height = 7;
+
+					var durationState = durationBullet.states.create("hover");
+					durationState.properties.scale = 1.2;
+
+					// Add legend
+					chart.legend = new am4charts.Legend();
+
+					// Add cursor
+					chart.cursor = new am4charts.XYCursor();
+					chart.cursor.fullWidthLineX = true;
+					chart.cursor.xAxis = dateAxis;
+					chart.cursor.lineX.strokeOpacity = 0;
+					chart.cursor.lineX.fill = am4core.color("#000");
+					chart.cursor.lineX.fillOpacity = 0.1;
+
+				}
+			}
+		});
+	}
+	//WeekDay/Time Wise Chart Ends
+
+
+
+
+	//Line Chart Starts
+
+
+
+	function SalesData() {
+
+		var sDate = $('#sdate').val();
+		var tDate = $('#tdate').val();
+		var trend = $('#trend').val();
+
+		$.ajax({
+			url: '/Chart/GetDayWiseSalesData',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify({
+				_startDate: sDate,
+				_endDate: tDate
+
+
+			}),
+			success: function (response) {
+				if (response.length > 0) {
+
+					am4core.ready(function () {
+						//Amchart Name: Date Based Data
+						// Themes begin
+						am4core.useTheme(am4themes_kelly);
+						am4core.useTheme(am4themes_dark);
+
+						// Themes end
+
+						// Create chart instance
+						var chart = am4core.create("chartdiv6", am4charts.XYChart);
+						chart.exporting.menu = new am4core.ExportMenu();//Used download dataset from the chart
+						chart.exporting.menu.align = "left";
+						chart.exporting.menu.verticalAlign = "top";
+
+						chart.colors.list = [
+
+							am4core.color("#2cb528"),
+							am4core.color("#f50707"),
+							am4core.color("#FF6F91"),
+							am4core.color("#FF9671"),
+							am4core.color("#FFC75F"),
+							am4core.color("#F9F871"),
+
+						];
+
+
+						// Add data
+						chart.data = response;
+
+						// Set input format for the dates
+						chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
+
+						// Create axes
+						var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+						var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+						// Create series
+						var series = chart.series.push(new am4charts.LineSeries());
+						series.dataFields.valueY = "";
+						series.dataFields.dateX = "";
+						series.tooltipText = "{}"
+						if (trend == 1) {
+							series.dataFields.valueY = "Margin";
+							valueAxis.title.text = "Margin";
+
+							series.dataFields.dateX = "Date";
+							series.tooltipText = "{dateX}: {Margin}%"
+						}
+						if (trend == 2) {
+							series.dataFields.valueY = "SoldValue";
+							valueAxis.title.text = "Target V/S Sold Value";
+
+							series.dataFields.dateX = "Date";
+							series.tooltipText = "Sold Value: {dateX}: {SoldValue} TK"
+
+
+							var series2 = chart.series.push(new am4charts.LineSeries());
+							series2.dataFields.valueY = "targetValue";
+							series2.dataFields.dateX = "Date";
+							series2.tooltipText = "Target Value: {dateX}: {targetValue} TK"
+							series2.strokeWidth = 2;
+							series2.minBulletDistance = 15;
+
+
+							series2.strokeWidth = 2;
+							series2.minBulletDistance = 15;
+
+							//series2.fillOpacity = 0.4;
+
+							//var fillModifier2 = new am4core.LinearGradientModifier();
+							//fillModifier2.opacities = [1, 0];
+							//fillModifier2.offsets = [0, 1];
+							//fillModifier2.gradient.rotation = 90;
+							//series2.segments.template.fillModifier = fillModifier;
+
+							series2.tooltip.background.cornerRadius = 20;
+							series2.tooltip.background.strokeOpacity = 0;
+							series2.tooltip.pointerOrientation = "vertical";
+							series2.tooltip.label.minWidth = 40;
+							series2.tooltip.label.minHeight = 40;
+							series2.tooltip.label.textAlign = "middle";
+							series2.tooltip.label.textValign = "middle";
+
+
+							var bullet1 = series2.bullets.push(new am4charts.CircleBullet());
+							bullet1.circle.strokeWidth = 2;
+							bullet1.circle.radius = 2;
+							bullet1.circle.fill = am4core.color("#fff");
+
+							var bullethover1 = bullet1.states.create("hover");
+							bullethover1.properties.scale = 1.3;
+
+							chart.legend = new am4charts.Legend();
+							series.name = "Sold Value";
+							series2.name = "Target Value";
+
+
+
+
+
+
+						}
+						if (trend == 3) {
+							series.dataFields.valueY = "DiscValue";
+							valueAxis.title.text = "Discount Value";
+
+							series.dataFields.dateX = "Date";
+							series.tooltipText = "{dateX}: {DiscValue} TK"
+						}
+						if (trend == 4) {
+							series.dataFields.valueY = "MemoCount";
+							valueAxis.title.text = "Memo Count";
+
+							series.dataFields.dateX = "Date";
+							series.tooltipText = "{dateX}: {MemoCount}"
+						}
+
+
+						series.strokeWidth = 2;
+						series.minBulletDistance = 15;
+
+						series.fillOpacity = 0.4;
+						var fillModifier = new am4core.LinearGradientModifier();
+						fillModifier.opacities = [1, 0];
+						fillModifier.offsets = [0, 1];
+						fillModifier.gradient.rotation = 90;
+						series.segments.template.fillModifier = fillModifier;
+
+
+						// Drop-shaped tooltips
+						series.tooltip.background.cornerRadius = 30;
+						series.tooltip.background.strokeOpacity = 0;
+						series.tooltip.pointerOrientation = "vertical";
+						series.tooltip.label.minWidth = 40;
+						series.tooltip.label.minHeight = 40;
+						series.tooltip.label.textAlign = "middle";
+						series.tooltip.label.textValign = "middle";
+
+						// Make bullets grow on hover
+						var bullet = series.bullets.push(new am4charts.CircleBullet());
+						bullet.circle.strokeWidth = 2;
+						bullet.circle.radius = 2;
+						bullet.circle.fill = am4core.color("#fff");
+
+						var bullethover = bullet.states.create("hover");
+						bullethover.properties.scale = 1.3;
+
+						// Make a panning cursor
+
+						//chart.cursor = new am4charts.XYCursor();
+						//chart.cursor.behavior = "panXY";
+						//chart.cursor.xAxis = dateAxis;
+						//chart.cursor.snapToSeries = series;
+						//chart.cursor.snapToSeries = series2;
+
+						chart.cursor = new am4charts.XYCursor();
+
+
+						// Create vertical scrollbar and place it before the value axis
+						chart.scrollbarY = new am4core.Scrollbar();
+						chart.scrollbarY.parent = chart.rightAxesContainer;
+						chart.scrollbarY.toBack();
+
+						// Create a horizontal scrollbar with previe and place it underneath the date axis
+						chart.scrollbarX = new am4charts.XYChartScrollbar();
+						chart.scrollbarX.series.push(series);
+						chart.scrollbarX.parent = chart.bottomAxesContainer;
+
+						dateAxis.start = 0.79;
+						dateAxis.keepSelection = true;
+
+
+					});
+				}
+			}
+		});
+	}
+
+	//Line Chart Ends
+
+
+
+
+
+
+	//Hourly Sales Comparison Starts
+
+	var options = {
+		series: [],
+		chart: {
+			type: 'bar',
+			height: 350
+		},
+
+
+
+		plotOptions: {
+			bar: {
+				horizontal: false,
+				columnWidth: '70%',
+				endingShape: 'rounded',
+				borderRadius: 15,
+			},
+		},
+		dataLabels: {
+			enabled: false
+		},
+		stroke: {
+			show: true,
+			width: 2,
+			colors: ['transparent']
+		},
+		xaxis: {
+			categories: [],
+		},
+
+		title: {
+			text: 'Hourly Sales Comparison',
+			align: 'middle',
+			style: {
+				fontSize: "16px",
+				color: '#666'
+			}
+		},
+
+		fill: {
+			opacity: 1//,
+			//colors: ['#e32314', '#990c3c', '##ac59ba']
+		},
+		tooltip: {
+			y: {
+				formatter: function (val) {
+					return "" + val.toLocaleString('en-IN') + " tk"
+				}
+			}
+		}
+	};
+
+	var chart2 = new ApexCharts(document.querySelector("#chart2"), options);
+	chart2.render();
+
+
+
+	function HourlySalesData() {
+
+		$.ajax({
+			url: '/Chart/GetHourlySalesData',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			success: function (response) {
+				for (let i = 0; i < response.length; i++) {
+					matchedDataHourlyToday.push(response[i].ThisDayCmSoldValue);
+					matchedDataHourlyYesterday.push(response[i].LastDayCmSoldValue);
+					matchHour.push(response[i].TimeSpan)
+					chart2.updateOptions({
+						series: [
+
+							{
+								name: 'Yesterday Sold Value',
+								data: matchedDataHourlyYesterday
+							},
+							{
+								name: 'Today Sold Value',
+								data: matchedDataHourlyToday,
+							},
+						],
+
+						xaxis: {
+							categories: matchHour
+
+						},
+						title: {
+							text: response[i].TimeSpan
+						}
+					})
+
+				}
+			}
+		});
+	}
+
+	//Hourly Sales Comparison Ends
+
+
+
+
+
+	//Channel Wise Chart Starts
+
+	function donutGraph() {
+		$.ajax({
+			type: "POST",
+			contentType: "application/json; charset=utf-8",
+			url: "/Chart/Get_Cat_Margin_DonutGraph",
+			dataType: "json",
+
+			success: function (response) {
+
+
+				// Themes begin
+				am4core.unuseTheme(am4themes_frozen);
+				am4core.unuseTheme(am4themes_kelly);
+				am4core.unuseTheme(am4themes_material);
+				am4core.useTheme(am4themes_dark);
+				am4core.useTheme(am4themes_animated);
+				am4core.useTheme(am4themes_dataviz);
+
+				// Themes end
+
+				var chart = am4core.create("chartdiv", am4charts.PieChart3D);
+
+
+
+
+				chart.fillOpacity = 0.9;
+				chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+				chart.exporting.menu = new am4core.ExportMenu();
+				chart.exporting.menu.align = "left";
+				chart.exporting.menu.verticalAlign = "top";
+
+				chart.legend = new am4charts.Legend();
+				chart.legend.fontSize = 10;
+				chart.data = response;
+
+				chart.innerRadius = 100;
+
+				var series = chart.series.push(new am4charts.PieSeries3D());
+				series.dataFields.value = "SoldValue";
+				series.dataFields.category = "Channel";
+				series.fontSize = 11;
+
+
+
+
+
+			}
+
+		});
+	}
+	//Channel Wise Chart Ends
+
+
+
+
+	//Category Wise Chart Starts
+	function PieGraph() {
+		$.ajax({
+			type: "POST",
+			contentType: "application/json; charset=utf-8",
+			url: "/Chart/Get_Cat_Margin_PieGraph",
+			dataType: "json",
+
+			success: function (response) {
+
+
+
+				// Themes begin
+				am4core.unuseTheme(am4themes_frozen);
+				am4core.unuseTheme(am4themes_kelly);
+
+				am4core.useTheme(am4themes_material);
+				am4core.useTheme(am4themes_animated);
+				am4core.useTheme(am4themes_dark);
+				// Themes end
+
+				var chart = am4core.create("chartdiv1", am4charts.PieChart3D);
+				chart.fillOpacity = 0.9;
+				chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+				chart.exporting.menu = new am4core.ExportMenu();
+				chart.exporting.menu.align = "left";
+				chart.exporting.menu.verticalAlign = "top";
+
+				chart.legend = new am4charts.Legend();
+				chart.legend.fontSize = 10;
+				chart.data = response;
+
+				var series = chart.series.push(new am4charts.PieSeries3D());
+				series.dataFields.value = "SoldValue";
+				series.dataFields.category = "OTBCat";
+
+				series.fontSize = 11;
+			}
+
+		});
+	}
+
+
+	//Category Wise Chart Ends
+
+
+
+	//Sold Value Retail Sale Starts
+
+	function RPT_DSH_Hour() {
+		var st_date = $('#DSH_Hour_Start_Date').val();
+		var et_date = $('#DSH_Hour_End_Date').val();
+
+		var ReportTypeH = $('#ReportTypeH').val();
+		$.ajax({
+			type: "POST",
+			url: "/Chart/RPT_DSH_Hour",
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify({
+				//  obj: asd
+				_st_date: st_date,
+				_et_date: et_date,
+				_rpt_type: ReportTypeH
+
+			}),
+			success: function (response) {
+				if (response.length > 0) {
+					// Themes begin
+					am4core.useTheme(am4themes_material);
+					am4core.useTheme(am4themes_animated);
+					am4core.useTheme(am4themes_dark);
+
+					// Themes end
+
+					// Create chart instance
+					var chart = am4core.create("chartdiv2", am4charts.XYChart);
+					chart.scrollbarX = new am4core.Scrollbar();
+					chart.exporting.menu = new am4core.ExportMenu();
+					chart.exporting.menu.align = "left";
+					chart.exporting.menu.verticalAlign = "top";
+					// Add data
+					chart.data = response;
+
+					// Create axes
+					var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+					categoryAxis.dataFields.category = "SaleHourTime";
+					categoryAxis.renderer.grid.template.location = 0;
+					categoryAxis.renderer.minGridDistance = 30;
+					categoryAxis.renderer.labels.template.horizontalCenter = "right";
+					categoryAxis.renderer.labels.template.verticalCenter = "middle";
+					categoryAxis.renderer.labels.template.rotation = 270;
+					categoryAxis.tooltip.disabled = true;
+					categoryAxis.renderer.minHeight = 110;
+
+					var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+					valueAxis.renderer.minWidth = 50;
+
+					// Create series
+					var series = chart.series.push(new am4charts.ColumnSeries());
+					series.sequencedInterpolation = true;
+					series.dataFields.valueY = "Values";
+					series.dataFields.categoryX = "SaleHourTime";
+					series.tooltipText = "{categoryX}: {valueY} TK";
+					series.columns.template.strokeWidth = 0;
+
+					series.tooltip.pointerOrientation = "vertical";
+
+					series.columns.template.column.cornerRadiusTopLeft = 10;
+					series.columns.template.column.cornerRadiusTopRight = 10;
+					series.columns.template.column.fillOpacity = 0.8;
+
+					// on hover, make corner radiuses bigger
+					var hoverState = series.columns.template.column.states.create("hover");
+					hoverState.properties.cornerRadiusTopLeft = 0;
+					hoverState.properties.cornerRadiusTopRight = 0;
+					hoverState.properties.fillOpacity = 1;
+
+					series.columns.template.adapter.add("fill", function (fill, target) {
+						return chart.colors.getIndex(target.dataItem.index);
+					});
+
+					// Cursor
+					chart.cursor = new am4charts.XYCursor();
+				}
+			}
+		})
+	}
+	//Sold Value retail Sale Ends
+
+
+
+
+
+
+
+	//Target V/S AChievement sales Starts
+
+
+	//function TARGETACIEVE() {
+	//	var vFrmDate = $("#SAedate").val();
+	//	var vToDate = $("#SAsdate").val();
+
+	//	$.ajax({
+	//		url: '/Chart/RPT_TARGETACIEVE',
+	//		type: 'POST',
+	//		contentType: "application/json;charset=utf-8",
+	//		dataType: "json",
+	//		data: JSON.stringify(
+	//			{
+	//				_FrmDate: vFrmDate,
+	//				_ToDate: vToDate
+
+
+	//			}
+	//		),
+	//		success: function (response) {
+	//			console.log(response);
+	//			if (response.length > 0) {
+	//				am4core.ready(function () {
+	//					am4core.unuseTheme(am4themes_frozen);
+	//					am4core.unuseTheme(am4themes_kelly);
+	//					am4core.unuseTheme(am4themes_dataviz);
+	//					am4core.useTheme(am4themes_animated);
+	//					am4core.useTheme(am4themes_dark);
+	//					//am4core.useTheme(am4themes_dark);
+	//					// Themes end
+
+	//					// Create chart instance
+	//					var chart = am4core.create("chartdiv12", am4charts.XYChart);
+
+	//					chart.colors.list = [
+	//						am4core.color("red"),
+	//						am4core.color("green")
+	//					];
+
+	//					// Add percent sign to all numbers
+	//					chart.numberFormatter.numberFormat = "#.#'%'";
+
+	//					// Add data
+	//					chart.data = response;
+
+	//					// Create axes
+	//					var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+	//					categoryAxis.dataFields.category = "SaleDT";
+	//					categoryAxis.renderer.grid.template.location = 0;
+	//					categoryAxis.renderer.minGridDistance = 30;
+
+	//					var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+	//					valueAxis.title.text = "Target V/S Achievement";
+	//					valueAxis.title.fontWeight = 800;
+
+	//					// Create series
+	//					var series = chart.series.push(new am4charts.ColumnSeries());
+	//					series.dataFields.valueY = "targetValue";
+	//					series.dataFields.categoryX = "SaleDT";
+	//					series.clustered = false;
+	//					series.tooltipText = "Target Value:  {categoryX}: [bold]{valueY}[/]";
+
+	//					var series2 = chart.series.push(new am4charts.ColumnSeries());
+	//					series2.dataFields.valueY = "SoldValue";
+	//					series2.dataFields.categoryX = "SaleDT";
+	//					series2.clustered = false;
+	//					series2.columns.template.width = am4core.percent(50);
+	//					series2.tooltipText = "Sales Value:  {categoryX}: [bold]{valueY}[/]";
+
+
+	//					series.columns.template.width = am4core.percent(70);
+	//					series2.columns.template.width = am4core.percent(55);
+
+
+	//					series.columns.template.column.fillOpacity = 0.6;
+	//					series2.columns.template.column.fillOpacity = 0.6;
+
+	//					series.columns.template.column.cornerRadiusTopLeft = 10;
+	//					series.columns.template.column.cornerRadiusTopRight = 10;
+
+	//					series2.columns.template.column.cornerRadiusTopLeft = 10;
+	//					series2.columns.template.column.cornerRadiusTopRight = 10;
+
+
+	//					chart.cursor = new am4charts.XYCursor();
+	//					chart.cursor.lineX.disabled = true;
+	//					chart.cursor.lineY.disabled = true;
+
+	//				});
+
+	//			}
+	//		}
+	//	})
+	//}
+
+
+
+	//Target V?S Achievement Sales Ends
+
+	//TOP OUTLET/AREA STARTS
+	function RPT_TOPOUT(Type) {
+		var vFrmDate = "10/25/2021";
+		var vToDate = "10/01/2021";
+		var vTop = Type;
+		var sort = "TOP";
+		$.ajax({
+			url: '/Chart/RPT_TOPOUT',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify(
+				{
+					_ToDate: vFrmDate,
+					_FrmDate: vToDate,
+					_type: vTop,
+					_sort: sort
+				}
+			),
+			success: function (response) {
+				console.log(response);
+				$('#topTbl').empty();
+
+				if (Type == "Outlet") {
+					var result = "";
+					for (var i = 0; i < response.length; i++) {
+						result += "<tr>"
+						result += '<td class="pr-0"> <div class="bg-primary symbol symbol-30 symbol-light mt-1" style="background-color:#b5b9bd !important"><span class="symbol-label" style="color:black !important; font-weight:bold !important">' + response[i].SL + '</span></div></td >'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="color:white !important"> ' + response[i].Outlet + ' </a><span class="text-muted font-weight-bold text-muted d-block">' + response[i].ParentLocation + '</span></td>'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="font-size:18px !important; color:white !important"> ' + response[i].SaleValue.toLocaleString('en-IN') + ' </a><span class="text-muted font-weight-bold text-muted d-block">ASP:  ' + response[i].ASP + '</span></td>'
+
+						if (response[i].Achieved > 100) {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-success" role="progressbar" style="width: ' + response[i].Achieved + '%; height:20px !important" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div><div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].Achieved + '%</span></div></td >'
+						}
+						else {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-danger" role="progressbar" style="width: ' + response[i].Achieved + '%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div> <div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].Achieved + '%</span></div></td >'
+
+						}
+						result += "</tr>"
+					}
+
+					$('#topTbl').append(result);
+				}
+				else {
+					var result = "";
+					for (var i = 0; i < response.length; i++) {
+						result += "<tr>"
+						result += '<td class="pr-0"> <div class="bg-primary symbol symbol-30 symbol-light mt-1"><span class="symbol-label" style="color:black !important; font-weight:bold !important">' + response[i].SL + '</span></div></td >'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="color:white !important; "> ' + response[i].Area + ' </a><span class="text-muted font-weight-bold text-muted d-block">' + response[i].ParentLocation + '</span></td>'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="font-size:18px !important; color:white !important"> ' + response[i].SaleValue.toLocaleString('en-IN') + ' </a><span class="text-muted font-weight-bold text-muted d-block">ASP:  ' + response[i].ASP + '</span></td>'
+						if (response[i].Achieved > 100) {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-success" role="progressbar" style="width: ' + response[i].Achieved + '%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div><div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].Achieved + '%</span></div></td >'
+						}
+						else {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-danger" role="progressbar" style="width: ' + response[i].Achieved + '%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div><div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].Achieved + '%</span></div></td >'
+
+						}
+						result += "</tr>"
+					}
+
+					$('#topTbl').append(result);
+
+				}
+
+			}
+		})
+	}
+
+
+
+	//TOP OUTLET/AREA ENDS
+
+
+
+	//BOTTOM OUTLET/AREA STARTS
+	function RPT_BOTTOMOUT(Type) {
+
+		var vFrmDate = "10/25/2021";
+		var vToDate = "10/01/2021";
+		var vTop = Type;
+		var sort = "BOTTOM";
+		$.ajax({
+			url: '/Chart/RPT_TOPOUT',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify(
+				{
+					_ToDate: vFrmDate,
+					_FrmDate: vToDate,
+					_type: vTop,
+					_sort: sort
+				}
+			),
+			success: function (response) {
+				console.log(response);
+				$('#bottomTbl').empty();
+				if (Type == "Outlet") {
+					var result = "";
+					for (var i = 0; i < response.length; i++) {
+						result += "<tr>"
+						result += '<td class="pr-0"> <div class="bg-primary symbol symbol-30 symbol-light mt-1" style="background-color:#b5b9bd !important"><span class="symbol-label" style="color:black !important; font-weight:bold !important">' + response[i].SL + '</span></div></td >'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="color:white !important"> ' + response[i].Outlet + ' </a><span class="text-muted font-weight-bold text-muted d-block">' + response[i].ParentLocation + '</span></td>'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="font-size:18px !important; color:white !important"> ' + response[i].SaleValue.toLocaleString('en-IN') + ' </a><span class="text-muted font-weight-bold text-muted d-block">ASP:  ' + response[i].ASP + '</span></td>'
+						if (response[i].Achieved > 100) {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-success" role="progressbar" style="width: ' + response[i].Achieved + '%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div><div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].Achieved + '%</span></div></td >'
+						}
+						else {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-danger" role="progressbar" style="width: ' + response[i].Achieved + '%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div> <div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].Achieved + '%</span></div></td >'
+
+						}
+						result += "</tr>"
+					}
+
+					$('#bottomTbl').append(result);
+				}
+				else {
+					var result = "";
+					for (var i = 0; i < response.length; i++) {
+						result += "<tr>"
+						result += '<td class="pr-0"> <div class="bg-primary symbol symbol-30 symbol-light mt-1"><span class="symbol-label" style="color:black !important; font-weight:bold !important">' + response[i].SL + '</span></div></td >'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="color:white !important; "> ' + response[i].Area + ' </a><span class="text-muted font-weight-bold text-muted d-block">' + response[i].ParentLocation + '</span></td>'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="font-size:18px !important; color:white !important"> ' + response[i].SaleValue.toLocaleString('en-IN') + ' </a><span class="text-muted font-weight-bold text-muted d-block">ASP:  ' + response[i].ASP + '</span></td>'
+						if (response[i].Achieved > 100) {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-success" role="progressbar" style="width: ' + response[i].Achieved + '%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div><div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].Achieved + '%</span></div></td >'
+						}
+						else {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-danger" role="progressbar" style="width: ' + response[i].Achieved + '%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div><div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].Achieved + '%</span></div></td >'
+
+						}
+						result += "</tr>"
+					}
+
+					$('#bottomTbl').append(result);
+
+				}
+
+
+			}
+		})
+	}
+
+	//BOTTOM OUTLET/AREA ENDS
+
+
+
+
+	//Last year this year top outlet/area starts
+	function RPT_TOPCOMPOUT(Type) {
+		var vTop = Type;
+		var sort = "TOP";
+		$.ajax({
+			url: '/Chart/RPT_COMPARE_TY_LY',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify(
+				{
+					_type: vTop,
+					_sort: sort
+				}
+			),
+			success: function (response) {
+				console.log(response);
+				$('#topCompTbl').empty();
+
+				if (Type == "Outlet") {
+					var result = "";
+					for (var i = 0; i < response.length; i++) {
+						result += "<tr>"
+						result += '<td class="pr-0"> <div class="bg-primary symbol symbol-30 symbol-light mt-1" style="background-color:#b5b9bd !important"><span class="symbol-label" style="color:black !important; font-weight:bold !important">' + response[i].SL + '</span></div></td >'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="color:white !important"> ' + response[i].Outlet + ' </a><span class="text-muted font-weight-bold text-muted d-block">' + response[i].ParentLocation + '</span></td>'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="font-size:18px !important; color:white !important"> ' + response[i].TYValue.toLocaleString('en-IN') + ' </a><span class="text-muted font-weight-bold text-muted d-block">LY:  ' + response[i].LYValue.toLocaleString('en-IN') + '</span></td>'
+
+						if (response[i].GrowthValue > 100) {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-success" role="progressbar" style="width: ' + response[i].GrowthValue + '%; height:20px !important" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div><div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].GrowthValue + '%</span></div></td >'
+						}
+						else {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-danger" role="progressbar" style="width: ' + response[i].GrowthValue + '%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div> <div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].GrowthValue + '%</span></div></td >'
+
+						}
+						result += "</tr>"
+					}
+
+					$('#topCompTbl').append(result);
+				}
+				else {
+					var result = "";
+					for (var i = 0; i < response.length; i++) {
+						result += "<tr>"
+						result += '<td class="pr-0"> <div class="bg-primary symbol symbol-30 symbol-light mt-1"><span class="symbol-label" style="color:black !important; font-weight:bold !important">' + response[i].SL + '</span></div></td >'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="color:white !important; "> ' + response[i].Outlet + ' </a><span class="text-muted font-weight-bold text-muted d-block">' + response[i].ParentLocation + '</span></td>'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="font-size:18px !important; color:white !important"> ' + response[i].TYValue.toLocaleString('en-IN') + ' </a><span class="text-muted font-weight-bold text-muted d-block">LY:  ' + response[i].LYValue.toLocaleString('en-IN') + '</span></td>'
+						if (response[i].GrowthValue > 100) {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-success" role="progressbar" style="width: ' + response[i].GrowthValue + '%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div><div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].GrowthValue + '%</span></div></td >'
+						}
+						else {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-danger" role="progressbar" style="width: ' + response[i].GrowthValue + '%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div><div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].GrowthValue + '%</span></div></td >'
+
+						}
+						result += "</tr>"
+					}
+
+					$('#topCompTbl').append(result);
+
+				}
+
+			}
+		})
+	}
+
+
+	//Last year this year top outlet/area ends
+
+
+
+
+	//Last year this year bottom outlet/area starts
+
+
+	function RPT_BOTTOMCOMPOUT(Type) {
+
+
+		var vTop = Type;
+		var sort = "BOTTOM";
+		$.ajax({
+			url: '/Chart/RPT_COMPARE_TY_LY',
+			type: 'POST',
+			contentType: "application/json;charset=utf-8",
+			dataType: "json",
+			data: JSON.stringify(
+				{
+
+					_type: vTop,
+					_sort: sort
+				}
+			),
+			success: function (response) {
+				console.log(response);
+				$('#bottomCompTbl').empty();
+				if (Type == "Outlet") {
+					var result = "";
+					for (var i = 0; i < response.length; i++) {
+						result += "<tr>"
+						result += '<td class="pr-0"> <div class="bg-primary symbol symbol-30 symbol-light mt-1" style="background-color:#b5b9bd !important"><span class="symbol-label" style="color:black !important; font-weight:bold !important">' + response[i].SL + '</span></div></td >'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="color:white !important"> ' + response[i].Outlet + ' </a><span class="text-muted font-weight-bold text-muted d-block">' + response[i].ParentLocation + '</span></td>'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="font-size:18px !important; color:white !important"> ' + response[i].TYValue.toLocaleString('en-IN') + ' </a><span class="text-muted font-weight-bold text-muted d-block">LY:  ' + response[i].LYValue.toLocaleString('en-IN') + '</span></td>'
+
+						if (response[i].GrowthValue > 100) {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-success" role="progressbar" style="width: ' + response[i].GrowthValue + '%; height:20px !important" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div><div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].GrowthValue + '%</span></div></td >'
+						}
+						else {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-danger" role="progressbar" style="width: ' + response[i].GrowthValue + '%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div> <div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].GrowthValue + '%</span></div></td >'
+
+						}
+						result += "</tr>"
+					}
+
+					$('#bottomCompTbl').append(result);
+				}
+				else {
+					var result = "";
+					for (var i = 0; i < response.length; i++) {
+						result += "<tr>"
+						result += '<td class="pr-0"> <div class="bg-primary symbol symbol-30 symbol-light mt-1"><span class="symbol-label" style="color:black !important; font-weight:bold !important">' + response[i].SL + '</span></div></td >'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="color:white !important; "> ' + response[i].Outlet + ' </a><span class="text-muted font-weight-bold text-muted d-block">' + response[i].ParentLocation + '</span></td>'
+						result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg" style="font-size:18px !important; color:white !important"> ' + response[i].TYValue.toLocaleString('en-IN') + ' </a><span class="text-muted font-weight-bold text-muted d-block">LY:  ' + response[i].LYValue.toLocaleString('en-IN') + '</span></td>'
+						if (response[i].GrowthValue > 100) {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-success" role="progressbar" style="width: ' + response[i].GrowthValue + '%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div><div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].GrowthValue + '%</span></div></td >'
+						}
+						else {
+							result += '<td> <div class="progress progress-xs w-100"><div class="progress-bar bg-danger" role="progressbar" style="width: ' + response[i].GrowthValue + '%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div></div><div class="d-flex flex-column w-100 mr-2"><div class="d-flex align-items-center justify-content-between mb-2"><span class="text-muted mr-2 font-size-sm font-weight-bold">' + response[i].GrowthValue + '%</span></div></td >'
+
+						}
+						result += "</tr>"
+					}
+
+					$('#bottomCompTbl').append(result);
+
+				}
+
+
+			}
+		})
+	}
+
+	//Last year this year bottom outlet/area ends
+
+</script>
+
