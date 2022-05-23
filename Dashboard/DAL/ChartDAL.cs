@@ -12,7 +12,6 @@ namespace Dashboard.DAL
 	public class ChartDAL
 	{
 		public static SqlConnection conn = new SqlConnection(DBConnection.GetConnectionString());
-		public static SqlConnection conn1 = new SqlConnection(DBConnection.GetConnectionString());
 		public static SqlConnection conn2 = new SqlConnection(DBConnection.GetConnectionString2());
 		public DataTable GetDayWiseSalesData(string _startDate, string _endDate, int _trend)
 		{
@@ -89,112 +88,6 @@ namespace Dashboard.DAL
 				throw ex;
 			}
 		}
-
-
-
-
-		public DataTable GetOutletData(int _type)
-		{
-			try
-			{
-				if (conn.State == 0)
-				{
-					conn.Open();
-				}
-				string _sql = "SELECT EXTERNALID + ':' + ORG_NAME [Outlet_Name], * FROM OUTLET_LOC WHERE Lattitude <> 0 AND ORG_TYPE = '"+_type+"'";
-				SqlCommand cmd = new SqlCommand(_sql, conn1);
-				cmd.CommandType = System.Data.CommandType.Text;
-				SqlDataAdapter da = new SqlDataAdapter(cmd);
-				DataTable dt = new DataTable();
-				da.Fill(dt);
-				return dt;
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-		}
-
-		public DataTable GetOutletDatas(string _SHORT_KEY, int _ORG_TYPE, int _FILT_TYPE)
-		{
-			DataTable dt = new DataTable();
-			if (conn.State == 0)
-			{
-				conn.Open();
-			}
-			try
-			{
-				SqlCommand cmd = new SqlCommand("USP_GET_MAPDATA", conn);
-				cmd.CommandType = CommandType.StoredProcedure;
-				cmd.Parameters.AddWithValue("@SHORT_KEY", _SHORT_KEY);
-				cmd.Parameters.AddWithValue("@ORG_TYPE", _ORG_TYPE);
-				cmd.Parameters.AddWithValue("@FilterType", _FILT_TYPE);
-				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-				adpt.Fill(dt);
-				return dt;
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-
-			//try
-			//{
-			//	if (conn.State == 0)
-			//	{
-			//		conn.Open();
-			//	}
-
-
-			//	string _sql = "SELECT EXTERNALID + ':' + ORG_NAME [Outlet_Name], * FROM OUTLET_LOC WHERE Lattitude <> 0 AND Division = '"+_div+"'";
-			//	SqlCommand cmd = new SqlCommand(_sql, conn1);
-			//	cmd.CommandType = System.Data.CommandType.Text;
-			//	SqlDataAdapter da = new SqlDataAdapter(cmd);
-			//	DataTable dt = new DataTable();
-			//	da.Fill(dt);
-			//	return dt;
-			//}
-			//catch (Exception ex)
-			//{
-			//	throw ex;
-			//}
-		}
-
-
-		public DataTable sideInfo(string _SHORT_KEY, int _type)
-		{
-
-
-			try
-			{
-				if (conn.State == 0)
-				{
-					conn.Open();
-				}
-				string _sql="";
-				if(_type == 1)
-				{
-					 _sql = "SELECT D.NAME,D.SHORT_KEY ,DI.[AREA],  DI.POPULATION,MALE_PER,FEMALE_PER FROM DIVISIONS_INFO DI LEFT JOIN DIVISIONS D ON D.DIVISIONSID = DI.DIVISION_ID WHERE D.SHORT_KEY = '" + _SHORT_KEY + "'";
-
-				}
-				if (_type == 2)
-				{
-					 _sql = "SELECT * FROM DISTRICTS_INFO DI LEFT JOIN DISTRICTS D ON D.DISTRICTSID = DI.DISTRICTS_ID WHERE NAME = '"+_SHORT_KEY+"'";
-
-				}
-				SqlCommand cmd = new SqlCommand(_sql, conn1);
-				cmd.CommandType = System.Data.CommandType.Text;
-				SqlDataAdapter da = new SqlDataAdapter(cmd);
-				DataTable dt = new DataTable();
-				da.Fill(dt);
-				return dt;
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-		}
-
 
 		public DataTable Get_Chnl_Margin_DonutGraph(string _FrmDate, string _ToDate)
 		{
@@ -347,7 +240,6 @@ namespace Dashboard.DAL
 			}
 		}
 
-
 		public DataTable RPT_TOP_SALESMAN(string _st_date, string _et_date, string _Top, string _Area)
 
 		{
@@ -376,9 +268,6 @@ namespace Dashboard.DAL
 			}
 		}
 
-
-
-		
 		public DataTable RPT_TARGETACIEVE(string _st_date, string _et_date)
 
 		{
@@ -404,7 +293,6 @@ namespace Dashboard.DAL
 				throw ex.InnerException;
 			}
 		}
-
 
 		public DataTable TOPBOTTOMOUTLET(string _ToDate, string _FrmDate, string _type, string _sort)
 
@@ -435,7 +323,6 @@ namespace Dashboard.DAL
 			}
 		}
 
-		////////////////////////////////////////////
 		public DataTable TOP_ART_EMP(string _topType, string _top, string _date)
 
 		{
@@ -468,34 +355,6 @@ namespace Dashboard.DAL
 			}
 		}
 
-		public DataTable MAP_SALES_DATA(string _BUID)
-
-		{
-			// SqlConnection conns = new SqlConnection("Report_ConnectionString");
-			try
-			{
-				DataTable dt = new DataTable();
-				if (conn.State == 0)
-				{
-					conn.Open();
-				}
-				SqlCommand cmd = new SqlCommand("DSH_USP_MAP_SALES_DATA", conn);
-				cmd.CommandType = CommandType.StoredProcedure;
-				cmd.CommandTimeout = 500;
-				cmd.Parameters.AddWithValue("@ExtID", _BUID);
-				
-				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-				adpt.Fill(dt);
-				return dt;
-			}
-			catch (Exception ex)
-			{
-				throw ex.InnerException;
-			}
-		}
-
-
-
 		public DataTable RPT_COMPARE_TY_LY(string _sort, string _type, string _date)
 
 		{
@@ -523,92 +382,6 @@ namespace Dashboard.DAL
 				throw ex.InnerException;
 			}
 		}
-
-
-
-		public DataTable BUNIT_DETAILS(string _BUID)
-
-		{
-			// SqlConnection conns = new SqlConnection("Report_ConnectionString");
-			try
-			{
-				DataTable dt = new DataTable();
-				if (conn.State == 0)
-				{
-					conn.Open();
-				}
-				SqlCommand cmd = new SqlCommand("USP_BUNIT_DETAILS", conn);
-				cmd.CommandType = CommandType.StoredProcedure;
-				cmd.CommandTimeout = 500;
-				cmd.Parameters.AddWithValue("@ORG", _BUID);
-
-				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-				adpt.Fill(dt);
-				return dt;
-			}
-			catch (Exception ex)
-			{
-				throw ex.InnerException;
-			}
-		}
-		///////////////////////////////
-		///
-		public DataTable DIST_LISTS(int _DivID, int OrgType)
-
-		{
-			// SqlConnection conns = new SqlConnection("Report_ConnectionString");
-			try
-			{
-				DataTable dt = new DataTable();
-				if (conn.State == 0)
-				{
-					conn.Open();
-				}
-				SqlCommand cmd = new SqlCommand("USP_DISTRICT_OUTLET_LIST", conn);
-				cmd.CommandType = CommandType.StoredProcedure;
-				cmd.CommandTimeout = 500;
-				cmd.Parameters.AddWithValue("@DIVISIONID", _DivID);
-				cmd.Parameters.AddWithValue("@ORG_TYPE", OrgType);
-
-				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-				adpt.Fill(dt);
-				return dt;
-			}
-			catch (Exception ex)
-			{
-				throw ex.InnerException;
-			}
-		}
-
-
-		public DataTable OUTLET_LISTS(int _DistID, int OrgType)
-
-		{
-			// SqlConnection conns = new SqlConnection("Report_ConnectionString");
-			try
-			{
-				DataTable dt = new DataTable();
-				if (conn.State == 0)
-				{
-					conn.Open();
-				}
-				string	_sql = " SELECT * FROM OUTLET_LOC WHERE DISTRICT = '"+_DistID+"' and ORG_TYPE = '"+OrgType+"' AND ACTIVE = 1";
-
-				SqlCommand cmd = new SqlCommand(_sql, conn);
-				cmd.CommandType = System.Data.CommandType.Text;
-				cmd.CommandTimeout = 500;
-				
-				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-				adpt.Fill(dt);
-				return dt;
-			}
-			catch (Exception ex)
-			{
-				throw ex.InnerException;
-			}
-		}
-		/// 
-		///
 
 		public DataTable TOP_DO_MAKER(int type)
 
@@ -661,7 +434,7 @@ namespace Dashboard.DAL
 				SqlCommand cmd = new SqlCommand(_sql, conn2);
 				cmd.CommandType = System.Data.CommandType.Text;
 				cmd.CommandTimeout = 500;
-				
+
 				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
 				adpt.Fill(dt);
 				return dt;
@@ -672,11 +445,7 @@ namespace Dashboard.DAL
 			}
 		}
 
-
-		
-
-
-		public DataTable WHSALES( int type)
+		public DataTable WHSALES(int type)
 
 		{
 			// SqlConnection conns = new SqlConnection("Report_ConnectionString");
@@ -743,7 +512,7 @@ namespace Dashboard.DAL
 					conn2.Open();
 				}
 				string _sql = "";
-				if(type == 1)
+				if (type == 1)
 				{
 					_sql = "SELECT TOP 30 * FROM ( SELECT DISTINCT(PM.PartnerName+': '+PM.Partner_ID)PartnerName, SUM(SO.Net_Amount)SUM, COUNT(External_ID)[NoofDO] FROM SALES_ORDER_HEADER SO INNER JOIN ( SELECT * FROM FN_SALDLVREF('2022-03-24','2022-03-24') WHERE TRNCUSID!=1816 AND PKSTATUS!=5 ) b ON SO.Order_No=b.TRNREQNO LEFT JOIN EMPLOYEE_MASTER EMP ON SO.Created_By = EMP.EMP_ID LEFT JOIN PARTNER_MASTER PM ON PM .PInt_ID = SO.Customer_ID WHERE SO.Created_By <> 7500019 AND PM.ChID = 102 GROUP BY PM.PartnerName, NAME, Partner_ID )A ORDER BY SUM DESC";
 
@@ -783,9 +552,6 @@ namespace Dashboard.DAL
 			}
 		}
 
-
-
-
 		public DataTable CATPERCENTAGE(int Type)
 
 		{
@@ -800,21 +566,21 @@ namespace Dashboard.DAL
 				string _sql = "";
 				if (Type == 1)
 				{
-					 _sql = "SELECT c.CAT,SUM(a.Net_Amount) NetAmt,SUM(SUM(a.Net_Amount)) OVER() TotalNetAmt,SUM(a.Net_Amount)/SUM(SUM(a.Net_Amount)) OVER()*100.0 [Prcnt] FROM SALES_ORDER_DETAILS a INNER JOIN ( SELECT * FROM FN_SALDLVREF('2022-03-24','2022-03-24') WHERE TRNCUSID!=1816 AND PKSTATUS!=5 ) b ON a.Order_No=b.TRNREQNO INNER JOIN ( SELECT ART_CODE,b.[Description] [CAT] FROM ARTICLEMASTER a INNER JOIN ARTOLDCAT b ON a.rptop1=b.Cid ) c ON c.ART_CODE=a.article_code INNER JOIN PARTNER_MASTER pm ON pm.PInt_ID=b.TRNCUSID AND pm.ChID=102 GROUP BY c.CAT";
+					_sql = "SELECT c.CAT,SUM(a.Net_Amount) NetAmt,SUM(SUM(a.Net_Amount)) OVER() TotalNetAmt,SUM(a.Net_Amount)/SUM(SUM(a.Net_Amount)) OVER()*100.0 [Prcnt] FROM SALES_ORDER_DETAILS a INNER JOIN ( SELECT * FROM FN_SALDLVREF('2022-03-24','2022-03-24') WHERE TRNCUSID!=1816 AND PKSTATUS!=5 ) b ON a.Order_No=b.TRNREQNO INNER JOIN ( SELECT ART_CODE,b.[Description] [CAT] FROM ARTICLEMASTER a INNER JOIN ARTOLDCAT b ON a.rptop1=b.Cid ) c ON c.ART_CODE=a.article_code INNER JOIN PARTNER_MASTER pm ON pm.PInt_ID=b.TRNCUSID AND pm.ChID=102 GROUP BY c.CAT";
 				}
 
 				if (Type == 2)
 				{
-					 _sql = "SELECT c.CAT,SUM(a.Net_Amount) NetAmt,SUM(SUM(a.Net_Amount)) OVER() TotalNetAmt,SUM(a.Net_Amount)/SUM(SUM(a.Net_Amount)) OVER()*100.0 [Prcnt] FROM SALES_ORDER_DETAILS a INNER JOIN ( SELECT * FROM FN_SALDLVREF('2022-03-27','2022-03-27') WHERE TRNCUSID!=1816 AND PKSTATUS!=5 ) b ON a.Order_No=b.TRNREQNO INNER JOIN ( SELECT ART_CODE,b.[Description] [CAT] FROM ARTICLEMASTER a INNER JOIN ARTOLDCAT b ON a.rptop1=b.Cid ) c ON c.ART_CODE=a.article_code INNER JOIN PARTNER_MASTER pm ON pm.PInt_ID=b.TRNCUSID AND pm.ChID=101 GROUP BY c.CAT";
+					_sql = "SELECT c.CAT,SUM(a.Net_Amount) NetAmt,SUM(SUM(a.Net_Amount)) OVER() TotalNetAmt,SUM(a.Net_Amount)/SUM(SUM(a.Net_Amount)) OVER()*100.0 [Prcnt] FROM SALES_ORDER_DETAILS a INNER JOIN ( SELECT * FROM FN_SALDLVREF('2022-03-27','2022-03-27') WHERE TRNCUSID!=1816 AND PKSTATUS!=5 ) b ON a.Order_No=b.TRNREQNO INNER JOIN ( SELECT ART_CODE,b.[Description] [CAT] FROM ARTICLEMASTER a INNER JOIN ARTOLDCAT b ON a.rptop1=b.Cid ) c ON c.ART_CODE=a.article_code INNER JOIN PARTNER_MASTER pm ON pm.PInt_ID=b.TRNCUSID AND pm.ChID=101 GROUP BY c.CAT";
 				}
 
 				if (Type == 3)
 				{
-					 _sql = "SELECT c.CAT,SUM(a.Net_Amount) NetAmt,SUM(SUM(a.Net_Amount)) OVER() TotalNetAmt,SUM(a.Net_Amount)/SUM(SUM(a.Net_Amount)) OVER()*100.0 [Prcnt] FROM SALES_ORDER_DETAILS a INNER JOIN ( SELECT * FROM FN_SALDLVREF('2022-03-28','2022-03-28') WHERE TRNCUSID!=1816 AND PKSTATUS!=5 ) b ON a.Order_No=b.TRNREQNO INNER JOIN ( SELECT ART_CODE,b.[Description] [CAT] FROM ARTICLEMASTER a INNER JOIN ARTOLDCAT b ON a.rptop1=b.Cid ) c ON c.ART_CODE=a.article_code INNER JOIN PARTNER_MASTER pm ON pm.PInt_ID=b.TRNCUSID AND pm.ChID=101 GROUP BY c.CAT";
+					_sql = "SELECT c.CAT,SUM(a.Net_Amount) NetAmt,SUM(SUM(a.Net_Amount)) OVER() TotalNetAmt,SUM(a.Net_Amount)/SUM(SUM(a.Net_Amount)) OVER()*100.0 [Prcnt] FROM SALES_ORDER_DETAILS a INNER JOIN ( SELECT * FROM FN_SALDLVREF('2022-03-28','2022-03-28') WHERE TRNCUSID!=1816 AND PKSTATUS!=5 ) b ON a.Order_No=b.TRNREQNO INNER JOIN ( SELECT ART_CODE,b.[Description] [CAT] FROM ARTICLEMASTER a INNER JOIN ARTOLDCAT b ON a.rptop1=b.Cid ) c ON c.ART_CODE=a.article_code INNER JOIN PARTNER_MASTER pm ON pm.PInt_ID=b.TRNCUSID AND pm.ChID=101 GROUP BY c.CAT";
 				}
 				if (Type == 4)
 				{
-					 _sql = "SELECT c.CAT,SUM(a.Net_Amount) NetAmt,SUM(SUM(a.Net_Amount)) OVER() TotalNetAmt,SUM(a.Net_Amount)/SUM(SUM(a.Net_Amount)) OVER()*100.0 [Prcnt] FROM SALES_ORDER_DETAILS a INNER JOIN ( SELECT * FROM FN_SALDLVREF('2022-03-29','2022-03-29') WHERE TRNCUSID!=1816 AND PKSTATUS!=5 ) b ON a.Order_No=b.TRNREQNO INNER JOIN ( SELECT ART_CODE,b.[Description] [CAT] FROM ARTICLEMASTER a INNER JOIN ARTOLDCAT b ON a.rptop1=b.Cid ) c ON c.ART_CODE=a.article_code INNER JOIN PARTNER_MASTER pm ON pm.PInt_ID=b.TRNCUSID AND pm.ChID=101 GROUP BY c.CAT";
+					_sql = "SELECT c.CAT,SUM(a.Net_Amount) NetAmt,SUM(SUM(a.Net_Amount)) OVER() TotalNetAmt,SUM(a.Net_Amount)/SUM(SUM(a.Net_Amount)) OVER()*100.0 [Prcnt] FROM SALES_ORDER_DETAILS a INNER JOIN ( SELECT * FROM FN_SALDLVREF('2022-03-29','2022-03-29') WHERE TRNCUSID!=1816 AND PKSTATUS!=5 ) b ON a.Order_No=b.TRNREQNO INNER JOIN ( SELECT ART_CODE,b.[Description] [CAT] FROM ARTICLEMASTER a INNER JOIN ARTOLDCAT b ON a.rptop1=b.Cid ) c ON c.ART_CODE=a.article_code INNER JOIN PARTNER_MASTER pm ON pm.PInt_ID=b.TRNCUSID AND pm.ChID=101 GROUP BY c.CAT";
 				}
 				SqlCommand cmd = new SqlCommand(_sql, conn2);
 				cmd.CommandType = System.Data.CommandType.Text;
@@ -841,7 +607,7 @@ namespace Dashboard.DAL
 				DataTable dt = new DataTable();
 				SqlCommand cmd = new SqlCommand("RPT_ANL_GRAPH_RAMADAN_COMPARE", conn);
 				cmd.CommandType = CommandType.StoredProcedure;
-				
+
 				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
 				adpt.Fill(dt);
 				return dt;
@@ -851,8 +617,6 @@ namespace Dashboard.DAL
 				throw ex;
 			}
 		}
-
-
 
 		public DataTable EID_TOP_ART(int _Cat, string _top, string _date)
 
@@ -881,64 +645,6 @@ namespace Dashboard.DAL
 			}
 		}
 
-
-		public DataTable OUTLET_RSALES_CAT(string _BUID)
-
-		{
-			// SqlConnection conns = new SqlConnection("Report_ConnectionString");
-			try
-			{
-				DataTable dt = new DataTable();
-				if (conn.State == 0)
-				{
-					conn.Open();
-				}
-				SqlCommand cmd = new SqlCommand("DSH_USP_MAP_MULTIPLE_OUTLET_RSALES_CAT", conn);
-				cmd.CommandType = CommandType.StoredProcedure;
-				cmd.CommandTimeout = 500;
-				cmd.Parameters.AddWithValue("@ShopIDs", _BUID);
-				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-				adpt.Fill(dt);
-				return dt;
-			}
-			catch (Exception ex)
-			{
-				throw ex.InnerException;
-			}
-		}
-
-		
-
-
-			public DataSet OUTLET_ASSET_RENT_INFO(string _BUID)
-
-		{
-			// SqlConnection conns = new SqlConnection("Report_ConnectionString");
-			try
-			{
-				DataSet dt = new DataSet();
-				if (conn.State == 0)
-				{
-					conn.Open();
-				}
-				SqlCommand cmd = new SqlCommand("SP_OUTLET_ASSET_RENT_INFO", conn);
-				cmd.CommandType = CommandType.StoredProcedure;
-				cmd.CommandTimeout = 500;
-				cmd.Parameters.AddWithValue("@OUTLET_EXT", _BUID);
-				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-				adpt.Fill(dt);
-				return dt;
-			}
-			catch (Exception ex)
-			{
-				throw ex.InnerException;
-			}
-		}
-
-
-
-
-
 		public DataTable EID_CAT_WISE_COMPARISON(string _Type)
 		{
 			DataTable dt = new DataTable();
@@ -964,6 +670,7 @@ namespace Dashboard.DAL
 
 
 		}
+
 		public DataTable OLDCAT()
 
 		{
@@ -976,7 +683,7 @@ namespace Dashboard.DAL
 					conn2.Open();
 				}
 				string _sql = "SELECT * FROM ARTOLDCAT";
-				
+
 				SqlCommand cmd = new SqlCommand(_sql, conn2);
 				cmd.CommandType = System.Data.CommandType.Text;
 				cmd.CommandTimeout = 500;
@@ -991,95 +698,5 @@ namespace Dashboard.DAL
 			}
 		}
 
-		public DataTable TotalSales()
-
-		{
-			// SqlConnection conns = new SqlConnection("Report_ConnectionString");
-			try
-			{
-				DataTable dt = new DataTable();
-				if (conn.State == 0)
-				{
-					conn.Open();
-				}
-				string _sql = "SELECT * INTO #tmpSorted FROM OPENROWSET('SQLNCLI','Server=192.168.3.7,1999;uid=sa;pwd=sa9;', 'EXEC POSXR.[dbo].RPT_ANL_GRAPH_RAMADAN_COMPARE') SELECT * FROM #tmpSorted t WHERE t.RamadanDay = (select DaySL from FN_CAL_RAMADAN(2022) WHERE theDate = convert(varchar, getdate(), 23)) DROP table #tmpSorted";
-
-				SqlCommand cmd = new SqlCommand(_sql, conn);
-				cmd.CommandType = System.Data.CommandType.Text;
-				cmd.CommandTimeout = 500;
-
-				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-				adpt.Fill(dt);
-				return dt;
-			}
-			catch (Exception ex)
-			{
-				throw ex.InnerException;
-			}
-		}
-
-		public DataTable BATA_APEX_INFO(int type, string _district)
-
-		{
-			// SqlConnection conns = new SqlConnection("Report_ConnectionString");
-			try
-			{
-				DataTable dt = new DataTable();
-				if (conn.State == 0)
-				{
-					conn.Open();
-				}
-
-				string _sql = "";
-
-				if (type == 1)
-				{
-					_sql = "SELECT ADDRESS, AREA FROM BATA_LOC BL LEFT JOIN DISTRICTS D ON D.DISTRICTSID = BL.DIST_ID WHERE D.NAME = '"+_district+"' ";
-
-
-				}
-
-				if (type == 2)
-				{
-					_sql = "SELECT ADDRESS, AREA FROM APEX_LOC BL LEFT JOIN DISTRICTS D ON D.DISTRICTSID = BL.DIST_ID WHERE D.NAME = '" + _district + "'";
-
-
-				}
-
-				SqlCommand cmd = new SqlCommand(_sql, conn);
-				cmd.CommandType = System.Data.CommandType.Text;
-				cmd.CommandTimeout = 500;
-
-				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-				adpt.Fill(dt);
-				return dt;
-			}
-			catch (Exception ex)
-			{
-				throw ex.InnerException;
-			}
-		}
-		public DataTable Rent_Details_Info(string _BUID)
-		{
-			DataTable dt = new DataTable();
-			if (conn.State == 0)
-			{
-				conn.Open();
-			}
-			try
-			{
-				SqlCommand cmd = new SqlCommand("SP_OUTLET_RENT_DETAILS_INFO", conn);
-				cmd.CommandType = CommandType.StoredProcedure;
-				cmd.Parameters.AddWithValue("@OUTLET", _BUID);
-				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-				adpt.Fill(dt);
-				return dt;
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-
-		}
 	}
 }

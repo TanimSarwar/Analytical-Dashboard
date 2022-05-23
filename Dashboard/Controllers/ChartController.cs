@@ -32,7 +32,6 @@ namespace Dashboard.Controllers
 			return View();
 		}
 
-
 		[HttpPost]
 		public JsonResult OLDCAT()
 		{
@@ -48,7 +47,6 @@ namespace Dashboard.Controllers
 				return Json(ex.Message);
 			}
 		}
-
 
 		[HttpPost]
 		public JsonResult GetDayWiseSalesData(string _startDate, string _endDate)
@@ -97,63 +95,6 @@ namespace Dashboard.Controllers
 				return Json(ex.Message);
 			}
 		}
-
-		//[HttpPost]
-		//public JsonResult OutletList(int _type)
-		//{
-		//	try
-		//	{
-		//		string _Msg;
-		//		DataTable dt_OutletList = chartDAL.GetOutletData(_type);
-
-		//		if (dt_OutletList.Rows.Count > 0)
-		//		{
-		//			_Msg = "DONE";
-		//			List<Dictionary<string, object>> _OutletList = basicUtilities.GetTableRows(dt_OutletList);
-		//			return Json(_OutletList);
-		//		}
-		//		else
-		//		{
-		//			_Msg = "ERROR";
-		//			return Json(_Msg);
-		//		}
-		//	}
-		//	catch (Exception ex)
-		//	{
-		//		return Json(ex.Message);
-
-		//	}
-		//}
-
-
-
-		[HttpPost]
-		public JsonResult OutletLists(string _DivisionID, int _MapType, int _FILT_TYPE)
-		{
-			try
-			{
-				string _Msg;
-				DataTable dt_OutletList = chartDAL.GetOutletDatas(_DivisionID, _MapType, _FILT_TYPE);
-
-				if (dt_OutletList.Rows.Count > 0)
-				{
-					_Msg = "DONE";
-					List<Dictionary<string, object>> _OutletList = basicUtilities.GetTableRows(dt_OutletList);
-					return Json(_OutletList);
-				}
-				else
-				{
-					_Msg = "ERROR";
-					return Json(_Msg);
-				}
-			}
-			catch (Exception ex)
-			{
-				return Json(ex.Message);
-
-			}
-		}
-
 
 		[HttpPost]
 		public JsonResult RPT_DSH_WKDAY(string _FrmDate, string _ToDate, string _TimeSlot, string _WeekDay, string _ReportType)
@@ -234,7 +175,6 @@ namespace Dashboard.Controllers
 			}
 		}
 
-
 		[HttpPost]
 		public JsonResult RPT_TOP_SALESMAN(string _ToDate, string _FrmDate, string _Top, string _Area)
 		{
@@ -250,10 +190,6 @@ namespace Dashboard.Controllers
 				return Json(ex.Message);
 			}
 		}
-
-
-
-
 
 		[HttpPost]
 		public JsonResult TOP_ART_EMP(string _topType, string _top, string _date)
@@ -271,12 +207,6 @@ namespace Dashboard.Controllers
 			}
 		}
 
-
-
-
-
-
-
 		[HttpPost]
 		public JsonResult RPT_TARGETACIEVE(string _ToDate, string _FrmDate)
 		{
@@ -292,8 +222,6 @@ namespace Dashboard.Controllers
 				return Json(ex.Message);
 			}
 		}
-
-
 
 		[HttpPost]
 		public JsonResult RPT_TOPOUT(string _ToDate, string _FrmDate, string _type, string _sort)
@@ -329,8 +257,6 @@ namespace Dashboard.Controllers
 			}
 		}
 
-
-
 		[HttpPost]
 		public async Task<JsonResult> RPT_COMPARE_TY_LY(string _sort, string _type)
 		{
@@ -351,47 +277,10 @@ namespace Dashboard.Controllers
 			}
 		}
 
-
-
-		[HttpPost]
-		public JsonResult sideInfo(string _divsion, int _type)
-		{
-			try
-			{
-				DataTable dt = chartDAL.sideInfo(_divsion, _type);
-				List<Dictionary<string, object>> _List = basicUtilities.GetTableRows(dt);
-
-				return Json(_List);
-			}
-			catch (Exception ex)
-			{
-				return Json(ex.Message);
-			}
-		}
-
-		[HttpPost]
-		public JsonResult Rent_Details_Info(string _BUID)
-		{
-			try
-			{
-				DataTable dt = chartDAL.Rent_Details_Info(_BUID);
-				List<Dictionary<string, object>> _List = basicUtilities.GetTableRows(dt);
-
-				return Json(_List);
-			}
-			catch (Exception ex)
-			{
-				return Json(ex.Message);
-			}
-		}
-
-		
 		public ActionResult WHROADSHOW()
 		{
 			return View();
 		}
-
-
 
 		[HttpPost]
 		public JsonResult TOP_DO_MAKER(string _Type)
@@ -447,7 +336,6 @@ namespace Dashboard.Controllers
 			}
 		}
 
-
 		[HttpPost]
 		public JsonResult CATPERCENTAGE(string _Type)
 		{
@@ -465,31 +353,7 @@ namespace Dashboard.Controllers
 			}
 		}
 
-		[HttpPost]
-		public async Task<JsonResult> BATA_APEX_INFO(string _type, string _district)
-		{
-			try
-			{
 
-				int type =0;
-				if (_type == "Bata")
-				{
-					type = 1;
-				}
-				if (_type == "Apex")
-				{
-					type = 2;
-				}
-				DataTable dt = await Task.Run(() => chartDAL.BATA_APEX_INFO(type, _district));
-				List<Dictionary<string, object>> _List = basicUtilities.GetTableRows(dt);
-
-				return Json(_List);
-			}
-			catch (Exception ex)
-			{
-				return Json(ex.Message);
-			}
-		}
 	}
 }
 

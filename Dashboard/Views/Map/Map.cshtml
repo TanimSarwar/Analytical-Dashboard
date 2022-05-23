@@ -1,2655 +1,1891 @@
-﻿<script src="~/assets/js/jquery-3.4.1.min.js"></script>
+﻿@*<script src="~/assets/js/jquery-3.4.1.min.js"></script>*@
+
 <link href="~/assets/Dark.css" rel="stylesheet" id="darkCSS" />
 <script src="~/assets/Dark.js" id="darkJS"></script>
-@*<script src="~/assets/js/datepicker.min.js"></script>
-	<link href="~/assets/css/datepicker.min.css" rel="stylesheet" /> *@
-<script src="~/assets/js/Apex/apexCharts.js"></script>
-
-<script src="~/assets/js/Amchart/core.js"></script>
-<script src="~/assets/js/Amchart/charts.js"></script>
-<script src="~/assets/js/Amchart/dark.js"></script>
-<script src="~/assets/js/Amchart/animated.js"></script>
-<script src="~/assets/js/Amchart/material.js"></script>
-<script src="~/assets/js/Amchart/kelly.js"></script>
-<script src="~/assets/js/Amchart/dataviz.js"></script>
-<script src="~/assets/js/Amchart/frozen.js"></script>
-<script src="~/assets/js/Amchart/maps.js"></script>
-
-<script src="~/assets/Map/bangladeshHigh.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 
-<style>
+@*
 
-	#chartdiv, #chartdiv2, #chartdiv4, #chartdiv6, #chartdiv7, #chartdiv8, #chartdiv10, #chartdiv11 {
-		width: 100%;
-		height: 420px;
-	}
+	<script src="~/assets/js/datepicker.min.js"></script>
+	<link href="~/assets/css/datepicker.min.css" rel="stylesheet" />
+	<script src="~/assets/js/Apex/apexCharts.js"></script>
 
-	#chartdiv18, #chartdiv1, #chartdiv19 {
-		width: 100%;
-		height: 210px;
-	}
+	<script src="~/assets/js/Amchart/core.js"></script>
+	<script src="~/assets/js/Amchart/charts.js"></script>
+	<script src="~/assets/js/Amchart/dark.js"></script>
+	<script src="~/assets/js/Amchart/animated.js"></script>
+	<script src="~/assets/js/Amchart/material.js"></script>
+	<script src="~/assets/js/Amchart/kelly.js"></script>
+	<script src="~/assets/js/Amchart/dataviz.js"></script>
+	<script src="~/assets/js/Amchart/frozen.js"></script>
+	<script src="~/assets/js/Amchart/maps.js"></script>
 
-	#chartdiv19 {
-		width: 100%;
-		height: 300px;
-	}
-
-	.btn {
-		color: black;
-		background-color: none !important;
-		border-radius: 50px;
-		border-width: 2px;
-		font-weight: bold;
-		font-size: 15px;
-		padding: 0px;
-	}
-
-	.aqualake {
-		border-color: #2f9599;
-		color: white;
-	}
-
-	.gilded {
-		border-color: #F7DB4F;
-		color: white;
-	}
-
-	.mandarinorange {
-		border-color: #F26B38;
-		color: white;
-	}
-
-	.cheguevarared {
-		border-color: #EC2049;
-		color: white;
-	}
-
-	.carroburgcrimson {
-		border-color: #A7226E;
-		color: white;
-	}
-
-	.woodcharocal {
-		border-color: #474747;
-		color: white;
-	}
-
-	.dead99 {
-		border-color: #9DE0AD;
-		color: white;
-	}
-
-	.trappeddarkness {
-		border-color: #1265e0;
-		color: white;
-	}
-
-	.violet {
-		color: #8950FC;
-		font-weight: bold;
-		font-size: 15px;
-	}
-
-	.gildedd {
-		color: #F7DB4F;
-	}
-
-	.mandarinorangee {
-		color: #F26B38;
-	}
-
-	.dead999 {
-		color: #9DE0AD;
-	}
-
-	.red {
-		color: #F64E60;
-		font-weight: bold;
-		font-size: 15px;
-	}
-
-	.greeen {
-		color: #1BC5BD;
-		font-weight: bold;
-		font-size: 15px;
-	}
-
-	.content {
-		padding: 0px !important;
-	}
-
-	.header-fixed .wrapper {
-		padding-top: 20px !important;
-	}
-
-	::-webkit-scrollbar {
-		display: none;
-	}
-
-	.header-fixed .header {
-		display: none;
-	}
-
-	.card-body {
-		padding-top: 0px !important;
-	}
-
-
-	.fa {
-		text-shadow: 1.5px 3px 2px rgba(255,255,255,1)
-	}
-
-
-	.container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-		max-width: 100% !important;
-	}
+	<script src="~/assets/Map/bangladeshHigh.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />*@
 
 
 
-	.bubbly-button:focus {
-		outline: 0;
-	}
 
-	.bubbly-button:before, .bubbly-button:after {
-		position: absolute;
-		content: '';
-		display: block;
-		width: 140%;
-		height: 100%;
-		left: -20%;
-		z-index: -1000;
-		transition: all ease-in-out 0.5s;
-		background-repeat: no-repeat;
-	}
 
-	.bubbly-button:before {
-		display: none;
-		top: -75%;
-		background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
-		background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
-	}
+<link rel="stylesheet" href="../../Content/bangladesh_map/bd_map.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../../Content/bangladesh_map/bd_svg.js"></script>
 
-	.bubbly-button:after {
-		display: none;
-		bottom: -75%;
-		background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
-		background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
-	}
 
-	.bubbly-button:active {
-		transform: scale(0.9);
-		background-color: #e60074;
-		box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
-	}
+@*<script src="../../Content/bangladesh_map/bd_map.js"></script>*@
+@*<style>
 
-	.bubbly-button.animate:before {
-		display: block;
-		animation: topBubbles ease-in-out 0.75s forwards;
-	}
-
-	.bubbly-button.animate:after {
-		display: block;
-		animation: bottomBubbles ease-in-out 0.75s forwards;
-	}
-
-	@@keyframes topBubbles {
-		0% {
-			background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+		.cards:hover {
+			box-shadow: 0px 0px 150px #000000;
+			z-index: 2;
+			-webkit-transition: all 200ms ease-in;
+			-webkit-transform: scale(1.1);
+			-ms-transition: all 200ms ease-in;
+			-ms-transform: scale(1.1);
+			-moz-transition: all 200ms ease-in;
+			-moz-transform: scale(1.1);
+			transition: all 200ms ease-in;
+			transform: scale(1.1);
 		}
 
-		50% {
-			background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+
+
+		#chartdiv, #chartdiv1, #chartdiv2, #chartdiv4, #chartdiv6, #chartdiv7, #chartdiv8, #chartdiv10, #chartdiv11, #chartdiv12 {
+			width: 100%;
+			height: 400px;
 		}
 
-		100% {
-			background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
-			background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-		}
-	}
-
-	@@keyframes bottomBubbles {
-		0% {
-			background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+		::-webkit-scrollbar {
+			display: none;
 		}
 
-		50% {
-			background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+		.btn.btn-success {
+			color: navy !important;
+			font-weight: bold;
 		}
 
-		100% {
-			background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
-			background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-		}
-	}
-
-	.counter {
-		animation-duration: 1s;
-		animation-delay: 0s;
-	}
-
-
-	.container .icon {
-		display: inline-block;
-		text-align: center;
-		line-height: 2.5vw;
-		width: 2.5vw;
-		height: 2.5vw;
-		margin: 0.5em 0.25em;
-		font-size: calc(15vw / 2);
-		border-radius: 50%;
-		overflow: hidden;
-		color: white;
-	}
-
-	.container .one {
-		background-color: rgba(46, 204, 113, 1.0);
-		text-shadow: 2px 2px 0 rgba(32, 142, 78, 1.0), 2px 2px 0 rgba(32, 143, 79, 1.0), 3px 3px 0 rgba(32, 144, 80, 1.0), 4px 4px 0 rgba(33, 145, 80, 1.0), 5px 5px 0 rgba(33, 146, 81, 1.0), 6px 6px 0 rgba(33, 147, 81, 1.0), 7px 7px 0 rgba(33, 147, 82, 1.0), 8px 8px 0 rgba(33, 148, 82, 1.0), 9px 9px 0 rgba(34, 149, 83, 1.0), 10px 10px 0 rgba(34, 150, 83, 1.0), 11px 11px 0 rgba(34, 151, 83, 1.0), 12px 12px 0 rgba(34, 152, 84, 1.0), 13px 13px 0 rgba(34, 152, 84, 1.0), 14px 14px 0 rgba(35, 153, 85, 1.0), 15px 15px 0 rgba(35, 154, 85, 1.0), 16px 16px 0 rgba(35, 155, 86, 1.0), 17px 17px 0 rgba(35, 156, 86, 1.0), 18px 18px 0 rgba(35, 157, 87, 1.0), 19px 19px 0 rgba(35, 157, 87, 1.0), 20px 20px 0 rgba(36, 158, 88, 1.0), 21px 21px 0 rgba(36, 159, 88, 1.0), 22px 22px 0 rgba(36, 160, 89, 1.0), 23px 23px 0 rgba(36, 161, 89, 1.0), 24px 24px 0 rgba(36, 162, 89, 1.0), 25px 25px 0 rgba(37, 162, 90, 1.0), 26px 26px 0 rgba(37, 163, 90, 1.0), 27px 27px 0 rgba(37, 164, 91, 1.0), 28px 28px 0 rgba(37, 165, 91, 1.0), 29px 29px 0 rgba(37, 166, 92, 1.0), 30px 30px 0 rgba(38, 167, 92, 1.0), 31px 31px 0 rgba(38, 167, 93, 1.0), 32px 32px 0 rgba(38, 168, 93, 1.0), 33px 33px 0 rgba(38, 169, 94, 1.0), 34px 34px 0 rgba(38, 170, 94, 1.0), 35px 35px 0 rgba(38, 171, 95, 1.0), 36px 36px 0 rgba(39, 172, 95, 1.0), 37px 37px 0 rgba(39, 172, 95, 1.0), 38px 38px 0 rgba(39, 173, 96, 1.0), 39px 39px 0 rgba(39, 174, 96, 1.0), 40px 40px 0 rgba(39, 175, 97, 1.0), 41px 41px 0 rgba(40, 176, 97, 1.0), 42px 42px 0 rgba(40, 177, 98, 1.0), 43px 43px 0 rgba(40, 177, 98, 1.0), 44px 44px 0 rgba(40, 178, 99, 1.0), 45px 45px 0 rgba(40, 179, 99, 1.0), 46px 46px 0 rgba(41, 180, 100, 1.0), 47px 47px 0 rgba(41, 181, 100, 1.0), 48px 48px 0 rgba(41, 182, 101, 1.0), 49px 49px 0 rgba(41, 182, 101, 1.0), 50px 50px 0 rgba(41, 183, 101, 1.0), 51px 51px 0 rgba(41, 184, 102, 1.0), 52px 52px 0 rgba(42, 185, 102, 1.0), 53px 53px 0 rgba(42, 186, 103, 1.0), 54px 54px 0 rgba(42, 187, 103, 1.0), 55px 55px 0 rgba(42, 187, 104, 1.0), 56px 56px 0 rgba(42, 188, 104, 1.0), 57px 57px 0 rgba(43, 189, 105, 1.0), 58px 58px 0 rgba(43, 190, 105, 1.0), 59px 59px 0 rgba(43, 191, 106, 1.0), 60px 60px 0 rgba(43, 192, 106, 1.0), 61px 61px 0 rgba(43, 192, 107, 1.0), 62px 62px 0 rgba(44, 193, 107, 1.0), 63px 63px 0 rgba(44, 194, 107, 1.0), 64px 64px 0 rgba(44, 195, 108, 1.0), 65px 65px 0 rgba(44, 196, 108, 1.0), 66px 66px 0 rgba(44, 197, 109, 1.0), 67px 67px 0 rgba(44, 197, 109, 1.0), 68px 68px 0 rgba(45, 198, 110, 1.0), 69px 69px 0 rgba(45, 199, 110, 1.0), 70px 70px 0 rgba(45, 200, 111, 1.0), 71px 71px 0 rgba(45, 201, 111, 1.0), 72px 72px 0 rgba(45, 202, 112, 1.0), 73px 73px 0 rgba(46, 202, 112, 1.0), 74px 74px 0 rgba(46, 203, 113, 1.0), 75px 75px 0 rgba(46, 204, 113, 1.0);
-	}
-
-	.container .two {
-		background-color: rgba(52, 152, 219, 1.0);
-		text-shadow: 2px 2px 0 rgba(29, 111, 165, 1.0), 2px 2px 0 rgba(30, 112, 167, 1.0), 3px 3px 0 rgba(30, 112, 168, 1.0), 4px 4px 0 rgba(30, 113, 169, 1.0), 5px 5px 0 rgba(30, 114, 170, 1.0), 6px 6px 0 rgba(30, 114, 170, 1.0), 7px 7px 0 rgba(30, 115, 171, 1.0), 8px 8px 0 rgba(31, 115, 172, 1.0), 9px 9px 0 rgba(31, 116, 173, 1.0), 10px 10px 0 rgba(31, 116, 174, 1.0), 11px 11px 0 rgba(31, 117, 175, 1.0), 12px 12px 0 rgba(31, 118, 176, 1.0), 13px 13px 0 rgba(31, 118, 176, 1.0), 14px 14px 0 rgba(31, 119, 177, 1.0), 15px 15px 0 rgba(32, 119, 178, 1.0), 16px 16px 0 rgba(32, 120, 179, 1.0), 17px 17px 0 rgba(32, 121, 180, 1.0), 18px 18px 0 rgba(32, 121, 181, 1.0), 19px 19px 0 rgba(32, 122, 182, 1.0), 20px 20px 0 rgba(32, 122, 183, 1.0), 21px 21px 0 rgba(33, 123, 183, 1.0), 22px 22px 0 rgba(33, 123, 184, 1.0), 23px 23px 0 rgba(33, 124, 185, 1.0), 24px 24px 0 rgba(33, 125, 186, 1.0), 25px 25px 0 rgba(33, 125, 187, 1.0), 26px 26px 0 rgba(33, 126, 188, 1.0), 27px 27px 0 rgba(33, 126, 189, 1.0), 28px 28px 0 rgba(34, 127, 189, 1.0), 29px 29px 0 rgba(34, 128, 190, 1.0), 30px 30px 0 rgba(34, 128, 191, 1.0), 31px 31px 0 rgba(34, 129, 192, 1.0), 32px 32px 0 rgba(34, 129, 193, 1.0), 33px 33px 0 rgba(34, 130, 194, 1.0), 34px 34px 0 rgba(35, 130, 195, 1.0), 35px 35px 0 rgba(35, 131, 196, 1.0), 36px 36px 0 rgba(35, 132, 196, 1.0), 37px 37px 0 rgba(35, 132, 197, 1.0), 38px 38px 0 rgba(35, 133, 198, 1.0), 39px 39px 0 rgba(35, 133, 199, 1.0), 40px 40px 0 rgba(35, 134, 200, 1.0), 41px 41px 0 rgba(36, 134, 201, 1.0), 42px 42px 0 rgba(36, 135, 202, 1.0), 43px 43px 0 rgba(36, 136, 202, 1.0), 44px 44px 0 rgba(36, 136, 203, 1.0), 45px 45px 0 rgba(36, 137, 204, 1.0), 46px 46px 0 rgba(36, 137, 205, 1.0), 47px 47px 0 rgba(37, 138, 206, 1.0), 48px 48px 0 rgba(37, 139, 207, 1.0), 49px 49px 0 rgba(37, 139, 208, 1.0), 50px 50px 0 rgba(37, 140, 209, 1.0), 51px 51px 0 rgba(37, 140, 209, 1.0), 52px 52px 0 rgba(37, 141, 210, 1.0), 53px 53px 0 rgba(37, 141, 211, 1.0), 54px 54px 0 rgba(38, 142, 212, 1.0), 55px 55px 0 rgba(38, 143, 213, 1.0), 56px 56px 0 rgba(38, 143, 214, 1.0), 57px 57px 0 rgba(38, 144, 215, 1.0), 58px 58px 0 rgba(38, 144, 215, 1.0), 59px 59px 0 rgba(38, 145, 216, 1.0), 60px 60px 0 rgba(39, 145, 217, 1.0), 61px 61px 0 rgba(40, 146, 217, 1.0), 62px 62px 0 rgba(41, 146, 217, 1.0), 63px 63px 0 rgba(42, 147, 217, 1.0), 64px 64px 0 rgba(42, 147, 217, 1.0), 65px 65px 0 rgba(43, 148, 217, 1.0), 66px 66px 0 rgba(44, 148, 218, 1.0), 67px 67px 0 rgba(45, 148, 218, 1.0), 68px 68px 0 rgba(46, 149, 218, 1.0), 69px 69px 0 rgba(47, 149, 218, 1.0), 70px 70px 0 rgba(48, 150, 218, 1.0), 71px 71px 0 rgba(49, 150, 218, 1.0), 72px 72px 0 rgba(49, 151, 219, 1.0), 73px 73px 0 rgba(50, 151, 219, 1.0), 74px 74px 0 rgba(51, 152, 219, 1.0), 75px 75px 0 rgba(52, 152, 219, 1.0);
-	}
-
-	.container .three {
-		background-color: rgba(230, 126, 34, 1.0);
-		text-shadow: 2px 2px 0 rgba(168, 89, 19, 1.0), 2px 2px 0 rgba(170, 90, 19, 1.0), 3px 3px 0 rgba(171, 91, 19, 1.0), 4px 4px 0 rgba(172, 91, 19, 1.0), 5px 5px 0 rgba(173, 92, 20, 1.0), 6px 6px 0 rgba(174, 92, 20, 1.0), 7px 7px 0 rgba(175, 93, 20, 1.0), 8px 8px 0 rgba(176, 93, 20, 1.0), 9px 9px 0 rgba(177, 94, 20, 1.0), 10px 10px 0 rgba(178, 94, 20, 1.0), 11px 11px 0 rgba(179, 95, 20, 1.0), 12px 12px 0 rgba(179, 95, 20, 1.0), 13px 13px 0 rgba(180, 95, 20, 1.0), 14px 14px 0 rgba(181, 96, 21, 1.0), 15px 15px 0 rgba(182, 96, 21, 1.0), 16px 16px 0 rgba(183, 97, 21, 1.0), 17px 17px 0 rgba(184, 97, 21, 1.0), 18px 18px 0 rgba(185, 98, 21, 1.0), 19px 19px 0 rgba(186, 98, 21, 1.0), 20px 20px 0 rgba(187, 99, 21, 1.0), 21px 21px 0 rgba(188, 99, 21, 1.0), 22px 22px 0 rgba(189, 100, 21, 1.0), 23px 23px 0 rgba(190, 100, 21, 1.0), 24px 24px 0 rgba(190, 101, 22, 1.0), 25px 25px 0 rgba(191, 101, 22, 1.0), 26px 26px 0 rgba(192, 102, 22, 1.0), 27px 27px 0 rgba(193, 102, 22, 1.0), 28px 28px 0 rgba(194, 103, 22, 1.0), 29px 29px 0 rgba(195, 103, 22, 1.0), 30px 30px 0 rgba(196, 104, 22, 1.0), 31px 31px 0 rgba(197, 104, 22, 1.0), 32px 32px 0 rgba(198, 105, 22, 1.0), 33px 33px 0 rgba(199, 105, 22, 1.0), 34px 34px 0 rgba(200, 106, 23, 1.0), 35px 35px 0 rgba(201, 106, 23, 1.0), 36px 36px 0 rgba(201, 107, 23, 1.0), 37px 37px 0 rgba(202, 107, 23, 1.0), 38px 38px 0 rgba(203, 108, 23, 1.0), 39px 39px 0 rgba(204, 108, 23, 1.0), 40px 40px 0 rgba(205, 109, 23, 1.0), 41px 41px 0 rgba(206, 109, 23, 1.0), 42px 42px 0 rgba(207, 110, 23, 1.0), 43px 43px 0 rgba(208, 110, 24, 1.0), 44px 44px 0 rgba(209, 111, 24, 1.0), 45px 45px 0 rgba(210, 111, 24, 1.0), 46px 46px 0 rgba(211, 111, 24, 1.0), 47px 47px 0 rgba(212, 112, 24, 1.0), 48px 48px 0 rgba(212, 112, 24, 1.0), 49px 49px 0 rgba(213, 113, 24, 1.0), 50px 50px 0 rgba(214, 113, 24, 1.0), 51px 51px 0 rgba(215, 114, 24, 1.0), 52px 52px 0 rgba(216, 114, 24, 1.0), 53px 53px 0 rgba(217, 115, 25, 1.0), 54px 54px 0 rgba(218, 115, 25, 1.0), 55px 55px 0 rgba(219, 116, 25, 1.0), 56px 56px 0 rgba(220, 116, 25, 1.0), 57px 57px 0 rgba(221, 117, 25, 1.0), 58px 58px 0 rgba(222, 117, 25, 1.0), 59px 59px 0 rgba(223, 118, 25, 1.0), 60px 60px 0 rgba(223, 118, 25, 1.0), 61px 61px 0 rgba(224, 119, 25, 1.0), 62px 62px 0 rgba(225, 119, 25, 1.0), 63px 63px 0 rgba(226, 120, 26, 1.0), 64px 64px 0 rgba(227, 120, 26, 1.0), 65px 65px 0 rgba(228, 121, 26, 1.0), 66px 66px 0 rgba(229, 121, 26, 1.0), 67px 67px 0 rgba(229, 122, 27, 1.0), 68px 68px 0 rgba(229, 122, 28, 1.0), 69px 69px 0 rgba(229, 123, 29, 1.0), 70px 70px 0 rgba(229, 123, 29, 1.0), 71px 71px 0 rgba(230, 124, 30, 1.0), 72px 72px 0 rgba(230, 124, 31, 1.0), 73px 73px 0 rgba(230, 125, 32, 1.0), 74px 74px 0 rgba(230, 125, 33, 1.0), 75px 75px 0 rgba(230, 126, 34, 1.0);
-	}
-
-	.container .four {
-		background-color: rgba(26, 188, 156, 1.0);
-		text-shadow: 2px 2px 0 rgba(17, 121, 100, 1.0), 2px 2px 0 rgba(17, 123, 102, 1.0), 3px 3px 0 rgba(17, 123, 102, 1.0), 4px 4px 0 rgba(17, 124, 103, 1.0), 5px 5px 0 rgba(17, 125, 104, 1.0), 6px 6px 0 rgba(17, 126, 105, 1.0), 7px 7px 0 rgba(18, 127, 105, 1.0), 8px 8px 0 rgba(18, 128, 106, 1.0), 9px 9px 0 rgba(18, 129, 107, 1.0), 10px 10px 0 rgba(18, 130, 108, 1.0), 11px 11px 0 rgba(18, 131, 108, 1.0), 12px 12px 0 rgba(18, 132, 109, 1.0), 13px 13px 0 rgba(18, 132, 110, 1.0), 14px 14px 0 rgba(18, 133, 111, 1.0), 15px 15px 0 rgba(19, 134, 111, 1.0), 16px 16px 0 rgba(19, 135, 112, 1.0), 17px 17px 0 rgba(19, 136, 113, 1.0), 18px 18px 0 rgba(19, 137, 114, 1.0), 19px 19px 0 rgba(19, 138, 114, 1.0), 20px 20px 0 rgba(19, 139, 115, 1.0), 21px 21px 0 rgba(19, 140, 116, 1.0), 22px 22px 0 rgba(19, 141, 117, 1.0), 23px 23px 0 rgba(20, 141, 117, 1.0), 24px 24px 0 rgba(20, 142, 118, 1.0), 25px 25px 0 rgba(20, 143, 119, 1.0), 26px 26px 0 rgba(20, 144, 120, 1.0), 27px 27px 0 rgba(20, 145, 120, 1.0), 28px 28px 0 rgba(20, 146, 121, 1.0), 29px 29px 0 rgba(20, 147, 122, 1.0), 30px 30px 0 rgba(20, 148, 123, 1.0), 31px 31px 0 rgba(21, 149, 123, 1.0), 32px 32px 0 rgba(21, 149, 124, 1.0), 33px 33px 0 rgba(21, 150, 125, 1.0), 34px 34px 0 rgba(21, 151, 126, 1.0), 35px 35px 0 rgba(21, 152, 126, 1.0), 36px 36px 0 rgba(21, 153, 127, 1.0), 37px 37px 0 rgba(21, 154, 128, 1.0), 38px 38px 0 rgba(21, 155, 128, 1.0), 39px 39px 0 rgba(22, 156, 129, 1.0), 40px 40px 0 rgba(22, 157, 130, 1.0), 41px 41px 0 rgba(22, 158, 131, 1.0), 42px 42px 0 rgba(22, 158, 131, 1.0), 43px 43px 0 rgba(22, 159, 132, 1.0), 44px 44px 0 rgba(22, 160, 133, 1.0), 45px 45px 0 rgba(22, 161, 134, 1.0), 46px 46px 0 rgba(22, 162, 134, 1.0), 47px 47px 0 rgba(23, 163, 135, 1.0), 48px 48px 0 rgba(23, 164, 136, 1.0), 49px 49px 0 rgba(23, 165, 137, 1.0), 50px 50px 0 rgba(23, 166, 137, 1.0), 51px 51px 0 rgba(23, 166, 138, 1.0), 52px 52px 0 rgba(23, 167, 139, 1.0), 53px 53px 0 rgba(23, 168, 140, 1.0), 54px 54px 0 rgba(23, 169, 140, 1.0), 55px 55px 0 rgba(24, 170, 141, 1.0), 56px 56px 0 rgba(24, 171, 142, 1.0), 57px 57px 0 rgba(24, 172, 143, 1.0), 58px 58px 0 rgba(24, 173, 143, 1.0), 59px 59px 0 rgba(24, 174, 144, 1.0), 60px 60px 0 rgba(24, 175, 145, 1.0), 61px 61px 0 rgba(24, 175, 146, 1.0), 62px 62px 0 rgba(24, 176, 146, 1.0), 63px 63px 0 rgba(25, 177, 147, 1.0), 64px 64px 0 rgba(25, 178, 148, 1.0), 65px 65px 0 rgba(25, 179, 149, 1.0), 66px 66px 0 rgba(25, 180, 149, 1.0), 67px 67px 0 rgba(25, 181, 150, 1.0), 68px 68px 0 rgba(25, 182, 151, 1.0), 69px 69px 0 rgba(25, 183, 152, 1.0), 70px 70px 0 rgba(25, 184, 152, 1.0), 71px 71px 0 rgba(26, 184, 153, 1.0), 72px 72px 0 rgba(26, 185, 154, 1.0), 73px 73px 0 rgba(26, 186, 155, 1.0), 74px 74px 0 rgba(26, 187, 155, 1.0), 75px 75px 0 rgba(26, 188, 156, 1.0);
-	}
-
-	.container .five {
-		background-color: rgba(241, 196, 15, 1.0);
-		text-shadow: 2px 2px 0 rgba(194, 157, 11, 1.0), 2px 2px 0 rgba(196, 159, 11, 1.0), 3px 3px 0 rgba(197, 160, 11, 1.0), 4px 4px 0 rgba(198, 161, 12, 1.0), 5px 5px 0 rgba(199, 161, 12, 1.0), 6px 6px 0 rgba(199, 162, 12, 1.0), 7px 7px 0 rgba(200, 163, 12, 1.0), 8px 8px 0 rgba(201, 164, 12, 1.0), 9px 9px 0 rgba(202, 164, 12, 1.0), 10px 10px 0 rgba(203, 165, 12, 1.0), 11px 11px 0 rgba(204, 166, 12, 1.0), 12px 12px 0 rgba(205, 167, 12, 1.0), 13px 13px 0 rgba(206, 168, 12, 1.0), 14px 14px 0 rgba(207, 168, 12, 1.0), 15px 15px 0 rgba(208, 169, 12, 1.0), 16px 16px 0 rgba(209, 170, 12, 1.0), 17px 17px 0 rgba(210, 171, 12, 1.0), 18px 18px 0 rgba(211, 171, 12, 1.0), 19px 19px 0 rgba(212, 172, 12, 1.0), 20px 20px 0 rgba(213, 173, 12, 1.0), 21px 21px 0 rgba(214, 174, 12, 1.0), 22px 22px 0 rgba(215, 175, 13, 1.0), 23px 23px 0 rgba(216, 175, 13, 1.0), 24px 24px 0 rgba(217, 176, 13, 1.0), 25px 25px 0 rgba(218, 177, 13, 1.0), 26px 26px 0 rgba(219, 178, 13, 1.0), 27px 27px 0 rgba(220, 179, 13, 1.0), 28px 28px 0 rgba(221, 179, 13, 1.0), 29px 29px 0 rgba(222, 180, 13, 1.0), 30px 30px 0 rgba(223, 181, 13, 1.0), 31px 31px 0 rgba(224, 182, 13, 1.0), 32px 32px 0 rgba(225, 182, 13, 1.0), 33px 33px 0 rgba(226, 183, 13, 1.0), 34px 34px 0 rgba(226, 184, 13, 1.0), 35px 35px 0 rgba(227, 185, 13, 1.0), 36px 36px 0 rgba(228, 186, 13, 1.0), 37px 37px 0 rgba(229, 186, 13, 1.0), 38px 38px 0 rgba(230, 187, 13, 1.0), 39px 39px 0 rgba(231, 188, 13, 1.0), 40px 40px 0 rgba(232, 189, 14, 1.0), 41px 41px 0 rgba(233, 189, 14, 1.0), 42px 42px 0 rgba(234, 190, 14, 1.0), 43px 43px 0 rgba(235, 191, 14, 1.0), 44px 44px 0 rgba(236, 192, 14, 1.0), 45px 45px 0 rgba(237, 193, 14, 1.0), 46px 46px 0 rgba(238, 193, 14, 1.0), 47px 47px 0 rgba(239, 194, 14, 1.0), 48px 48px 0 rgba(240, 195, 14, 1.0), 49px 49px 0 rgba(241, 196, 14, 1.0), 50px 50px 0 rgba(241, 196, 15, 1.0), 51px 51px 0 rgba(241, 196, 16, 1.0), 52px 52px 0 rgba(241, 196, 17, 1.0), 53px 53px 0 rgba(241, 197, 18, 1.0), 54px 54px 0 rgba(241, 197, 19, 1.0), 55px 55px 0 rgba(241, 197, 20, 1.0), 56px 56px 0 rgba(241, 197, 21, 1.0), 57px 57px 0 rgba(241, 198, 22, 1.0), 58px 58px 0 rgba(241, 198, 23, 1.0), 59px 59px 0 rgba(242, 198, 24, 1.0), 60px 60px 0 rgba(242, 198, 25, 1.0), 61px 61px 0 rgba(242, 199, 26, 1.0), 62px 62px 0 rgba(242, 199, 27, 1.0), 63px 63px 0 rgba(242, 199, 28, 1.0), 64px 64px 0 rgba(242, 199, 28, 1.0), 65px 65px 0 rgba(242, 200, 29, 1.0), 66px 66px 0 rgba(242, 200, 30, 1.0), 67px 67px 0 rgba(242, 200, 31, 1.0), 68px 68px 0 rgba(242, 200, 32, 1.0), 69px 69px 0 rgba(242, 201, 33, 1.0), 70px 70px 0 rgba(242, 201, 34, 1.0), 71px 71px 0 rgba(242, 201, 35, 1.0), 72px 72px 0 rgba(242, 201, 36, 1.0), 73px 73px 0 rgba(242, 201, 37, 1.0), 74px 74px 0 rgba(242, 202, 38, 1.0), 75px 75px 0 rgba(242, 202, 39, 1.0);
-	}
-
-	.container .six {
-		background-color: rgba(231, 76, 60, 1.0);
-		text-shadow: 2px 2px 0 rgba(191, 39, 24, 1.0), 2px 2px 0 rgba(193, 40, 24, 1.0), 3px 3px 0 rgba(194, 40, 24, 1.0), 4px 4px 0 rgba(195, 40, 24, 1.0), 5px 5px 0 rgba(196, 40, 24, 1.0), 6px 6px 0 rgba(196, 40, 24, 1.0), 7px 7px 0 rgba(197, 40, 24, 1.0), 8px 8px 0 rgba(198, 41, 24, 1.0), 9px 9px 0 rgba(199, 41, 25, 1.0), 10px 10px 0 rgba(200, 41, 25, 1.0), 11px 11px 0 rgba(201, 41, 25, 1.0), 12px 12px 0 rgba(202, 41, 25, 1.0), 13px 13px 0 rgba(203, 42, 25, 1.0), 14px 14px 0 rgba(204, 42, 25, 1.0), 15px 15px 0 rgba(205, 42, 25, 1.0), 16px 16px 0 rgba(206, 42, 25, 1.0), 17px 17px 0 rgba(206, 42, 25, 1.0), 18px 18px 0 rgba(207, 43, 26, 1.0), 19px 19px 0 rgba(208, 43, 26, 1.0), 20px 20px 0 rgba(209, 43, 26, 1.0), 21px 21px 0 rgba(210, 43, 26, 1.0), 22px 22px 0 rgba(211, 43, 26, 1.0), 23px 23px 0 rgba(212, 43, 26, 1.0), 24px 24px 0 rgba(213, 44, 26, 1.0), 25px 25px 0 rgba(214, 44, 26, 1.0), 26px 26px 0 rgba(215, 44, 26, 1.0), 27px 27px 0 rgba(216, 44, 27, 1.0), 28px 28px 0 rgba(216, 44, 27, 1.0), 29px 29px 0 rgba(217, 45, 27, 1.0), 30px 30px 0 rgba(218, 45, 27, 1.0), 31px 31px 0 rgba(219, 45, 27, 1.0), 32px 32px 0 rgba(220, 45, 27, 1.0), 33px 33px 0 rgba(221, 45, 27, 1.0), 34px 34px 0 rgba(222, 46, 27, 1.0), 35px 35px 0 rgba(223, 46, 27, 1.0), 36px 36px 0 rgba(224, 46, 28, 1.0), 37px 37px 0 rgba(225, 46, 28, 1.0), 38px 38px 0 rgba(226, 46, 28, 1.0), 39px 39px 0 rgba(226, 46, 28, 1.0), 40px 40px 0 rgba(227, 47, 28, 1.0), 41px 41px 0 rgba(227, 48, 29, 1.0), 42px 42px 0 rgba(227, 48, 30, 1.0), 43px 43px 0 rgba(227, 49, 31, 1.0), 44px 44px 0 rgba(228, 50, 32, 1.0), 45px 45px 0 rgba(228, 51, 33, 1.0), 46px 46px 0 rgba(228, 52, 34, 1.0), 47px 47px 0 rgba(228, 53, 35, 1.0), 48px 48px 0 rgba(228, 53, 35, 1.0), 49px 49px 0 rgba(228, 54, 36, 1.0), 50px 50px 0 rgba(228, 55, 37, 1.0), 51px 51px 0 rgba(228, 56, 38, 1.0), 52px 52px 0 rgba(228, 57, 39, 1.0), 53px 53px 0 rgba(229, 58, 40, 1.0), 54px 54px 0 rgba(229, 58, 41, 1.0), 55px 55px 0 rgba(229, 59, 42, 1.0), 56px 56px 0 rgba(229, 60, 43, 1.0), 57px 57px 0 rgba(229, 61, 44, 1.0), 58px 58px 0 rgba(229, 62, 45, 1.0), 59px 59px 0 rgba(229, 63, 45, 1.0), 60px 60px 0 rgba(229, 63, 46, 1.0), 61px 61px 0 rgba(229, 64, 47, 1.0), 62px 62px 0 rgba(230, 65, 48, 1.0), 63px 63px 0 rgba(230, 66, 49, 1.0), 64px 64px 0 rgba(230, 67, 50, 1.0), 65px 65px 0 rgba(230, 68, 51, 1.0), 66px 66px 0 rgba(230, 68, 52, 1.0), 67px 67px 0 rgba(230, 69, 53, 1.0), 68px 68px 0 rgba(230, 70, 54, 1.0), 69px 69px 0 rgba(230, 71, 55, 1.0), 70px 70px 0 rgba(230, 72, 55, 1.0), 71px 71px 0 rgba(231, 73, 56, 1.0), 72px 72px 0 rgba(231, 73, 57, 1.0), 73px 73px 0 rgba(231, 74, 58, 1.0), 74px 74px 0 rgba(231, 75, 59, 1.0), 75px 75px 0 rgba(231, 76, 60, 1.0);
-	}
-
-	.container .facebook {
-		background-color: rgba(59, 89, 152, 1.0);
-		text-shadow: 2px 2px 0 rgba(38, 57, 97, 1.0), 2px 2px 0 rgba(38, 58, 98, 1.0), 3px 3px 0 rgba(38, 58, 99, 1.0), 4px 4px 0 rgba(39, 58, 100, 1.0), 5px 5px 0 rgba(39, 59, 101, 1.0), 6px 6px 0 rgba(39, 59, 101, 1.0), 7px 7px 0 rgba(40, 60, 102, 1.0), 8px 8px 0 rgba(40, 60, 103, 1.0), 9px 9px 0 rgba(40, 61, 104, 1.0), 10px 10px 0 rgba(40, 61, 104, 1.0), 11px 11px 0 rgba(41, 61, 105, 1.0), 12px 12px 0 rgba(41, 62, 106, 1.0), 13px 13px 0 rgba(41, 62, 106, 1.0), 14px 14px 0 rgba(42, 63, 107, 1.0), 15px 15px 0 rgba(42, 63, 108, 1.0), 16px 16px 0 rgba(42, 64, 109, 1.0), 17px 17px 0 rgba(42, 64, 109, 1.0), 18px 18px 0 rgba(43, 64, 110, 1.0), 19px 19px 0 rgba(43, 65, 111, 1.0), 20px 20px 0 rgba(43, 65, 112, 1.0), 21px 21px 0 rgba(44, 66, 112, 1.0), 22px 22px 0 rgba(44, 66, 113, 1.0), 23px 23px 0 rgba(44, 67, 114, 1.0), 24px 24px 0 rgba(44, 67, 115, 1.0), 25px 25px 0 rgba(45, 67, 115, 1.0), 26px 26px 0 rgba(45, 68, 116, 1.0), 27px 27px 0 rgba(45, 68, 117, 1.0), 28px 28px 0 rgba(46, 69, 117, 1.0), 29px 29px 0 rgba(46, 69, 118, 1.0), 30px 30px 0 rgba(46, 70, 119, 1.0), 31px 31px 0 rgba(46, 70, 120, 1.0), 32px 32px 0 rgba(47, 70, 120, 1.0), 33px 33px 0 rgba(47, 71, 121, 1.0), 34px 34px 0 rgba(47, 71, 122, 1.0), 35px 35px 0 rgba(48, 72, 123, 1.0), 36px 36px 0 rgba(48, 72, 123, 1.0), 37px 37px 0 rgba(48, 73, 124, 1.0), 38px 38px 0 rgba(48, 73, 125, 1.0), 39px 39px 0 rgba(49, 74, 126, 1.0), 40px 40px 0 rgba(49, 74, 126, 1.0), 41px 41px 0 rgba(49, 74, 127, 1.0), 42px 42px 0 rgba(50, 75, 128, 1.0), 43px 43px 0 rgba(50, 75, 128, 1.0), 44px 44px 0 rgba(50, 76, 129, 1.0), 45px 45px 0 rgba(50, 76, 130, 1.0), 46px 46px 0 rgba(51, 77, 131, 1.0), 47px 47px 0 rgba(51, 77, 131, 1.0), 48px 48px 0 rgba(51, 77, 132, 1.0), 49px 49px 0 rgba(52, 78, 133, 1.0), 50px 50px 0 rgba(52, 78, 134, 1.0), 51px 51px 0 rgba(52, 79, 134, 1.0), 52px 52px 0 rgba(52, 79, 135, 1.0), 53px 53px 0 rgba(53, 80, 136, 1.0), 54px 54px 0 rgba(53, 80, 137, 1.0), 55px 55px 0 rgba(53, 80, 137, 1.0), 56px 56px 0 rgba(54, 81, 138, 1.0), 57px 57px 0 rgba(54, 81, 139, 1.0), 58px 58px 0 rgba(54, 82, 140, 1.0), 59px 59px 0 rgba(54, 82, 140, 1.0), 60px 60px 0 rgba(55, 83, 141, 1.0), 61px 61px 0 rgba(55, 83, 142, 1.0), 62px 62px 0 rgba(55, 83, 142, 1.0), 63px 63px 0 rgba(56, 84, 143, 1.0), 64px 64px 0 rgba(56, 84, 144, 1.0), 65px 65px 0 rgba(56, 85, 145, 1.0), 66px 66px 0 rgba(56, 85, 145, 1.0), 67px 67px 0 rgba(57, 86, 146, 1.0), 68px 68px 0 rgba(57, 86, 147, 1.0), 69px 69px 0 rgba(57, 86, 148, 1.0), 70px 70px 0 rgba(58, 87, 148, 1.0), 71px 71px 0 rgba(58, 87, 149, 1.0), 72px 72px 0 rgba(58, 88, 150, 1.0), 73px 73px 0 rgba(58, 88, 151, 1.0), 74px 74px 0 rgba(59, 89, 151, 1.0), 75px 75px 0 rgba(59, 89, 152, 1.0);
-	}
-
-	.container .twitter {
-		background-color: rgba(0, 172, 237, 1.0);
-		text-shadow: 2px 2px 0 rgba(0, 116, 161, 1.0), 2px 2px 0 rgba(0, 118, 163, 1.0), 3px 3px 0 rgba(0, 119, 164, 1.0), 4px 4px 0 rgba(0, 119, 165, 1.0), 5px 5px 0 rgba(0, 120, 166, 1.0), 6px 6px 0 rgba(0, 121, 167, 1.0), 7px 7px 0 rgba(0, 122, 168, 1.0), 8px 8px 0 rgba(0, 122, 169, 1.0), 9px 9px 0 rgba(0, 123, 170, 1.0), 10px 10px 0 rgba(0, 124, 171, 1.0), 11px 11px 0 rgba(0, 125, 172, 1.0), 12px 12px 0 rgba(0, 125, 173, 1.0), 13px 13px 0 rgba(0, 126, 174, 1.0), 14px 14px 0 rgba(0, 127, 175, 1.0), 15px 15px 0 rgba(0, 128, 176, 1.0), 16px 16px 0 rgba(0, 128, 177, 1.0), 17px 17px 0 rgba(0, 129, 178, 1.0), 18px 18px 0 rgba(0, 130, 179, 1.0), 19px 19px 0 rgba(0, 131, 180, 1.0), 20px 20px 0 rgba(0, 131, 181, 1.0), 21px 21px 0 rgba(0, 132, 182, 1.0), 22px 22px 0 rgba(0, 133, 183, 1.0), 23px 23px 0 rgba(0, 134, 184, 1.0), 24px 24px 0 rgba(0, 134, 185, 1.0), 25px 25px 0 rgba(0, 135, 186, 1.0), 26px 26px 0 rgba(0, 136, 187, 1.0), 27px 27px 0 rgba(0, 136, 188, 1.0), 28px 28px 0 rgba(0, 137, 189, 1.0), 29px 29px 0 rgba(0, 138, 190, 1.0), 30px 30px 0 rgba(0, 139, 191, 1.0), 31px 31px 0 rgba(0, 139, 192, 1.0), 32px 32px 0 rgba(0, 140, 193, 1.0), 33px 33px 0 rgba(0, 141, 194, 1.0), 34px 34px 0 rgba(0, 142, 195, 1.0), 35px 35px 0 rgba(0, 142, 196, 1.0), 36px 36px 0 rgba(0, 143, 197, 1.0), 37px 37px 0 rgba(0, 144, 198, 1.0), 38px 38px 0 rgba(0, 145, 199, 1.0), 39px 39px 0 rgba(0, 145, 200, 1.0), 40px 40px 0 rgba(0, 146, 201, 1.0), 41px 41px 0 rgba(0, 147, 202, 1.0), 42px 42px 0 rgba(0, 148, 203, 1.0), 43px 43px 0 rgba(0, 148, 204, 1.0), 44px 44px 0 rgba(0, 149, 205, 1.0), 45px 45px 0 rgba(0, 150, 206, 1.0), 46px 46px 0 rgba(0, 151, 207, 1.0), 47px 47px 0 rgba(0, 151, 208, 1.0), 48px 48px 0 rgba(0, 152, 209, 1.0), 49px 49px 0 rgba(0, 153, 210, 1.0), 50px 50px 0 rgba(0, 153, 212, 1.0), 51px 51px 0 rgba(0, 154, 213, 1.0), 52px 52px 0 rgba(0, 155, 214, 1.0), 53px 53px 0 rgba(0, 156, 215, 1.0), 54px 54px 0 rgba(0, 156, 216, 1.0), 55px 55px 0 rgba(0, 157, 217, 1.0), 56px 56px 0 rgba(0, 158, 218, 1.0), 57px 57px 0 rgba(0, 159, 219, 1.0), 58px 58px 0 rgba(0, 159, 220, 1.0), 59px 59px 0 rgba(0, 160, 221, 1.0), 60px 60px 0 rgba(0, 161, 222, 1.0), 61px 61px 0 rgba(0, 162, 223, 1.0), 62px 62px 0 rgba(0, 162, 224, 1.0), 63px 63px 0 rgba(0, 163, 225, 1.0), 64px 64px 0 rgba(0, 164, 226, 1.0), 65px 65px 0 rgba(0, 165, 227, 1.0), 66px 66px 0 rgba(0, 165, 228, 1.0), 67px 67px 0 rgba(0, 166, 229, 1.0), 68px 68px 0 rgba(0, 167, 230, 1.0), 69px 69px 0 rgba(0, 168, 231, 1.0), 70px 70px 0 rgba(0, 168, 232, 1.0), 71px 71px 0 rgba(0, 169, 233, 1.0), 72px 72px 0 rgba(0, 170, 234, 1.0), 73px 73px 0 rgba(0, 171, 235, 1.0), 74px 74px 0 rgba(0, 171, 236, 1.0), 75px 75px 0 rgba(0, 172, 237, 1.0);
-	}
-
-	.container .github {
-		background-color: rgba(155, 89, 182, 1.0);
-		text-shadow: 2px 2px 0 rgba(113, 59, 135, 1.0), 2px 2px 0 rgba(114, 60, 137, 1.0), 3px 3px 0 rgba(115, 60, 137, 1.0), 4px 4px 0 rgba(115, 61, 138, 1.0), 5px 5px 0 rgba(116, 61, 139, 1.0), 6px 6px 0 rgba(117, 61, 139, 1.0), 7px 7px 0 rgba(117, 62, 140, 1.0), 8px 8px 0 rgba(118, 62, 141, 1.0), 9px 9px 0 rgba(118, 62, 141, 1.0), 10px 10px 0 rgba(119, 63, 142, 1.0), 11px 11px 0 rgba(120, 63, 143, 1.0), 12px 12px 0 rgba(120, 63, 144, 1.0), 13px 13px 0 rgba(121, 63, 144, 1.0), 14px 14px 0 rgba(121, 64, 145, 1.0), 15px 15px 0 rgba(122, 64, 146, 1.0), 16px 16px 0 rgba(123, 64, 146, 1.0), 17px 17px 0 rgba(123, 65, 147, 1.0), 18px 18px 0 rgba(124, 65, 148, 1.0), 19px 19px 0 rgba(124, 65, 149, 1.0), 20px 20px 0 rgba(125, 66, 149, 1.0), 21px 21px 0 rgba(126, 66, 150, 1.0), 22px 22px 0 rgba(126, 66, 151, 1.0), 23px 23px 0 rgba(127, 67, 151, 1.0), 24px 24px 0 rgba(127, 67, 152, 1.0), 25px 25px 0 rgba(128, 67, 153, 1.0), 26px 26px 0 rgba(129, 68, 154, 1.0), 27px 27px 0 rgba(129, 68, 154, 1.0), 28px 28px 0 rgba(130, 68, 155, 1.0), 29px 29px 0 rgba(130, 68, 156, 1.0), 30px 30px 0 rgba(131, 69, 156, 1.0), 31px 31px 0 rgba(132, 69, 157, 1.0), 32px 32px 0 rgba(132, 69, 158, 1.0), 33px 33px 0 rgba(133, 70, 158, 1.0), 34px 34px 0 rgba(133, 70, 159, 1.0), 35px 35px 0 rgba(134, 70, 160, 1.0), 36px 36px 0 rgba(134, 71, 161, 1.0), 37px 37px 0 rgba(135, 71, 161, 1.0), 38px 38px 0 rgba(136, 71, 162, 1.0), 39px 39px 0 rgba(136, 72, 163, 1.0), 40px 40px 0 rgba(137, 72, 163, 1.0), 41px 41px 0 rgba(137, 72, 164, 1.0), 42px 42px 0 rgba(138, 72, 165, 1.0), 43px 43px 0 rgba(139, 73, 166, 1.0), 44px 44px 0 rgba(139, 73, 166, 1.0), 45px 45px 0 rgba(140, 73, 167, 1.0), 46px 46px 0 rgba(140, 74, 168, 1.0), 47px 47px 0 rgba(141, 74, 168, 1.0), 48px 48px 0 rgba(142, 74, 169, 1.0), 49px 49px 0 rgba(142, 75, 170, 1.0), 50px 50px 0 rgba(143, 75, 171, 1.0), 51px 51px 0 rgba(143, 75, 171, 1.0), 52px 52px 0 rgba(144, 76, 172, 1.0), 53px 53px 0 rgba(145, 76, 173, 1.0), 54px 54px 0 rgba(145, 76, 173, 1.0), 55px 55px 0 rgba(146, 77, 174, 1.0), 56px 56px 0 rgba(146, 77, 175, 1.0), 57px 57px 0 rgba(147, 77, 175, 1.0), 58px 58px 0 rgba(148, 77, 176, 1.0), 59px 59px 0 rgba(148, 78, 177, 1.0), 60px 60px 0 rgba(149, 78, 177, 1.0), 61px 61px 0 rgba(149, 79, 178, 1.0), 62px 62px 0 rgba(149, 80, 178, 1.0), 63px 63px 0 rgba(150, 80, 178, 1.0), 64px 64px 0 rgba(150, 81, 179, 1.0), 65px 65px 0 rgba(151, 82, 179, 1.0), 66px 66px 0 rgba(151, 83, 179, 1.0), 67px 67px 0 rgba(152, 83, 180, 1.0), 68px 68px 0 rgba(152, 84, 180, 1.0), 69px 69px 0 rgba(152, 85, 180, 1.0), 70px 70px 0 rgba(153, 85, 180, 1.0), 71px 71px 0 rgba(153, 86, 181, 1.0), 72px 72px 0 rgba(154, 87, 181, 1.0), 73px 73px 0 rgba(154, 88, 181, 1.0), 74px 74px 0 rgba(155, 88, 182, 1.0), 75px 75px 0 rgba(155, 89, 182, 1.0);
-	}
-
-	.container .codepen {
-		background-color: rgba(52, 73, 94, 1.0);
-		text-shadow: 2px 2px 0 rgba(25, 35, 45, 1.0), 2px 2px 0 rgba(25, 36, 46, 1.0), 3px 3px 0 rgba(26, 36, 47, 1.0), 4px 4px 0 rgba(26, 37, 47, 1.0), 5px 5px 0 rgba(27, 37, 48, 1.0), 6px 6px 0 rgba(27, 38, 49, 1.0), 7px 7px 0 rgba(27, 38, 49, 1.0), 8px 8px 0 rgba(28, 39, 50, 1.0), 9px 9px 0 rgba(28, 39, 51, 1.0), 10px 10px 0 rgba(28, 40, 51, 1.0), 11px 11px 0 rgba(29, 40, 52, 1.0), 12px 12px 0 rgba(29, 41, 53, 1.0), 13px 13px 0 rgba(29, 41, 53, 1.0), 14px 14px 0 rgba(30, 42, 54, 1.0), 15px 15px 0 rgba(30, 42, 55, 1.0), 16px 16px 0 rgba(31, 43, 55, 1.0), 17px 17px 0 rgba(31, 43, 56, 1.0), 18px 18px 0 rgba(31, 44, 57, 1.0), 19px 19px 0 rgba(32, 44, 57, 1.0), 20px 20px 0 rgba(32, 45, 58, 1.0), 21px 21px 0 rgba(32, 45, 59, 1.0), 22px 22px 0 rgba(33, 46, 59, 1.0), 23px 23px 0 rgba(33, 46, 60, 1.0), 24px 24px 0 rgba(33, 47, 61, 1.0), 25px 25px 0 rgba(34, 48, 61, 1.0), 26px 26px 0 rgba(34, 48, 62, 1.0), 27px 27px 0 rgba(35, 49, 62, 1.0), 28px 28px 0 rgba(35, 49, 63, 1.0), 29px 29px 0 rgba(35, 50, 64, 1.0), 30px 30px 0 rgba(36, 50, 64, 1.0), 31px 31px 0 rgba(36, 51, 65, 1.0), 32px 32px 0 rgba(36, 51, 66, 1.0), 33px 33px 0 rgba(37, 52, 66, 1.0), 34px 34px 0 rgba(37, 52, 67, 1.0), 35px 35px 0 rgba(37, 53, 68, 1.0), 36px 36px 0 rgba(38, 53, 68, 1.0), 37px 37px 0 rgba(38, 54, 69, 1.0), 38px 38px 0 rgba(39, 54, 70, 1.0), 39px 39px 0 rgba(39, 55, 70, 1.0), 40px 40px 0 rgba(39, 55, 71, 1.0), 41px 41px 0 rgba(40, 56, 72, 1.0), 42px 42px 0 rgba(40, 56, 72, 1.0), 43px 43px 0 rgba(40, 57, 73, 1.0), 44px 44px 0 rgba(41, 57, 74, 1.0), 45px 45px 0 rgba(41, 58, 74, 1.0), 46px 46px 0 rgba(41, 58, 75, 1.0), 47px 47px 0 rgba(42, 59, 76, 1.0), 48px 48px 0 rgba(42, 59, 76, 1.0), 49px 49px 0 rgba(43, 60, 77, 1.0), 50px 50px 0 rgba(43, 60, 78, 1.0), 51px 51px 0 rgba(43, 61, 78, 1.0), 52px 52px 0 rgba(44, 61, 79, 1.0), 53px 53px 0 rgba(44, 62, 80, 1.0), 54px 54px 0 rgba(44, 62, 80, 1.0), 55px 55px 0 rgba(45, 63, 81, 1.0), 56px 56px 0 rgba(45, 63, 82, 1.0), 57px 57px 0 rgba(45, 64, 82, 1.0), 58px 58px 0 rgba(46, 64, 83, 1.0), 59px 59px 0 rgba(46, 65, 83, 1.0), 60px 60px 0 rgba(47, 65, 84, 1.0), 61px 61px 0 rgba(47, 66, 85, 1.0), 62px 62px 0 rgba(47, 66, 85, 1.0), 63px 63px 0 rgba(48, 67, 86, 1.0), 64px 64px 0 rgba(48, 67, 87, 1.0), 65px 65px 0 rgba(48, 68, 87, 1.0), 66px 66px 0 rgba(49, 68, 88, 1.0), 67px 67px 0 rgba(49, 69, 89, 1.0), 68px 68px 0 rgba(49, 69, 89, 1.0), 69px 69px 0 rgba(50, 70, 90, 1.0), 70px 70px 0 rgba(50, 70, 91, 1.0), 71px 71px 0 rgba(51, 71, 91, 1.0), 72px 72px 0 rgba(51, 71, 92, 1.0), 73px 73px 0 rgba(51, 72, 93, 1.0), 74px 74px 0 rgba(52, 72, 93, 1.0), 75px 75px 0 rgba(52, 73, 94, 1.0);
-	}
-
-	.container .seven {
-		background-color: rgba(21, 131, 187, 1.0);
-		text-shadow: 2px 2px 0 rgba(13, 83, 118, 1.0), 2px 2px 0 rgba(13, 84, 120, 1.0), 3px 3px 0 rgba(14, 85, 121, 1.0), 4px 4px 0 rgba(14, 85, 122, 1.0), 5px 5px 0 rgba(14, 86, 123, 1.0), 6px 6px 0 rgba(14, 87, 124, 1.0), 7px 7px 0 rgba(14, 87, 125, 1.0), 8px 8px 0 rgba(14, 88, 126, 1.0), 9px 9px 0 rgba(14, 89, 126, 1.0), 10px 10px 0 rgba(14, 89, 127, 1.0), 11px 11px 0 rgba(14, 90, 128, 1.0), 12px 12px 0 rgba(15, 91, 129, 1.0), 13px 13px 0 rgba(15, 91, 130, 1.0), 14px 14px 0 rgba(15, 92, 131, 1.0), 15px 15px 0 rgba(15, 92, 132, 1.0), 16px 16px 0 rgba(15, 93, 133, 1.0), 17px 17px 0 rgba(15, 94, 134, 1.0), 18px 18px 0 rgba(15, 94, 135, 1.0), 19px 19px 0 rgba(15, 95, 136, 1.0), 20px 20px 0 rgba(15, 96, 137, 1.0), 21px 21px 0 rgba(15, 96, 137, 1.0), 22px 22px 0 rgba(16, 97, 138, 1.0), 23px 23px 0 rgba(16, 98, 139, 1.0), 24px 24px 0 rgba(16, 98, 140, 1.0), 25px 25px 0 rgba(16, 99, 141, 1.0), 26px 26px 0 rgba(16, 100, 142, 1.0), 27px 27px 0 rgba(16, 100, 143, 1.0), 28px 28px 0 rgba(16, 101, 144, 1.0), 29px 29px 0 rgba(16, 101, 145, 1.0), 30px 30px 0 rgba(16, 102, 146, 1.0), 31px 31px 0 rgba(16, 103, 147, 1.0), 32px 32px 0 rgba(17, 103, 148, 1.0), 33px 33px 0 rgba(17, 104, 148, 1.0), 34px 34px 0 rgba(17, 105, 149, 1.0), 35px 35px 0 rgba(17, 105, 150, 1.0), 36px 36px 0 rgba(17, 106, 151, 1.0), 37px 37px 0 rgba(17, 107, 152, 1.0), 38px 38px 0 rgba(17, 107, 153, 1.0), 39px 39px 0 rgba(17, 108, 154, 1.0), 40px 40px 0 rgba(17, 109, 155, 1.0), 41px 41px 0 rgba(17, 109, 156, 1.0), 42px 42px 0 rgba(18, 110, 157, 1.0), 43px 43px 0 rgba(18, 110, 158, 1.0), 44px 44px 0 rgba(18, 111, 159, 1.0), 45px 45px 0 rgba(18, 112, 159, 1.0), 46px 46px 0 rgba(18, 112, 160, 1.0), 47px 47px 0 rgba(18, 113, 161, 1.0), 48px 48px 0 rgba(18, 114, 162, 1.0), 49px 49px 0 rgba(18, 114, 163, 1.0), 50px 50px 0 rgba(18, 115, 164, 1.0), 51px 51px 0 rgba(19, 116, 165, 1.0), 52px 52px 0 rgba(19, 116, 166, 1.0), 53px 53px 0 rgba(19, 117, 167, 1.0), 54px 54px 0 rgba(19, 118, 168, 1.0), 55px 55px 0 rgba(19, 118, 169, 1.0), 56px 56px 0 rgba(19, 119, 170, 1.0), 57px 57px 0 rgba(19, 119, 170, 1.0), 58px 58px 0 rgba(19, 120, 171, 1.0), 59px 59px 0 rgba(19, 121, 172, 1.0), 60px 60px 0 rgba(19, 121, 173, 1.0), 61px 61px 0 rgba(20, 122, 174, 1.0), 62px 62px 0 rgba(20, 123, 175, 1.0), 63px 63px 0 rgba(20, 123, 176, 1.0), 64px 64px 0 rgba(20, 124, 177, 1.0), 65px 65px 0 rgba(20, 125, 178, 1.0), 66px 66px 0 rgba(20, 125, 179, 1.0), 67px 67px 0 rgba(20, 126, 180, 1.0), 68px 68px 0 rgba(20, 127, 181, 1.0), 69px 69px 0 rgba(20, 127, 181, 1.0), 70px 70px 0 rgba(20, 128, 182, 1.0), 71px 71px 0 rgba(21, 128, 183, 1.0), 72px 72px 0 rgba(21, 129, 184, 1.0), 73px 73px 0 rgba(21, 130, 185, 1.0), 74px 74px 0 rgba(21, 130, 186, 1.0), 75px 75px 0 rgba(21, 131, 187, 1.0);
-	}
-
-	.container .stack-exchange {
-		background-color: rgba(67, 125, 204, 1.0);
-		text-shadow: 2px 2px 0 rgba(42, 89, 153, 1.0), 2px 2px 0 rgba(42, 90, 155, 1.0), 3px 3px 0 rgba(42, 90, 155, 1.0), 4px 4px 0 rgba(42, 91, 156, 1.0), 5px 5px 0 rgba(43, 91, 157, 1.0), 6px 6px 0 rgba(43, 91, 158, 1.0), 7px 7px 0 rgba(43, 92, 159, 1.0), 8px 8px 0 rgba(43, 92, 159, 1.0), 9px 9px 0 rgba(43, 93, 160, 1.0), 10px 10px 0 rgba(44, 93, 161, 1.0), 11px 11px 0 rgba(44, 94, 162, 1.0), 12px 12px 0 rgba(44, 94, 163, 1.0), 13px 13px 0 rgba(44, 95, 163, 1.0), 14px 14px 0 rgba(45, 95, 164, 1.0), 15px 15px 0 rgba(45, 96, 165, 1.0), 16px 16px 0 rgba(45, 96, 166, 1.0), 17px 17px 0 rgba(45, 97, 167, 1.0), 18px 18px 0 rgba(45, 97, 167, 1.0), 19px 19px 0 rgba(46, 98, 168, 1.0), 20px 20px 0 rgba(46, 98, 169, 1.0), 21px 21px 0 rgba(46, 98, 170, 1.0), 22px 22px 0 rgba(46, 99, 171, 1.0), 23px 23px 0 rgba(47, 99, 171, 1.0), 24px 24px 0 rgba(47, 100, 172, 1.0), 25px 25px 0 rgba(47, 100, 173, 1.0), 26px 26px 0 rgba(47, 101, 174, 1.0), 27px 27px 0 rgba(47, 101, 175, 1.0), 28px 28px 0 rgba(48, 102, 175, 1.0), 29px 29px 0 rgba(48, 102, 176, 1.0), 30px 30px 0 rgba(48, 103, 177, 1.0), 31px 31px 0 rgba(48, 103, 178, 1.0), 32px 32px 0 rgba(48, 104, 179, 1.0), 33px 33px 0 rgba(49, 104, 179, 1.0), 34px 34px 0 rgba(49, 105, 180, 1.0), 35px 35px 0 rgba(49, 105, 181, 1.0), 36px 36px 0 rgba(49, 105, 182, 1.0), 37px 37px 0 rgba(50, 106, 183, 1.0), 38px 38px 0 rgba(50, 106, 183, 1.0), 39px 39px 0 rgba(50, 107, 184, 1.0), 40px 40px 0 rgba(50, 107, 185, 1.0), 41px 41px 0 rgba(50, 108, 186, 1.0), 42px 42px 0 rgba(51, 108, 187, 1.0), 43px 43px 0 rgba(51, 109, 187, 1.0), 44px 44px 0 rgba(51, 109, 188, 1.0), 45px 45px 0 rgba(51, 110, 189, 1.0), 46px 46px 0 rgba(52, 110, 190, 1.0), 47px 47px 0 rgba(52, 111, 191, 1.0), 48px 48px 0 rgba(52, 111, 192, 1.0), 49px 49px 0 rgba(52, 111, 192, 1.0), 50px 50px 0 rgba(52, 112, 193, 1.0), 51px 51px 0 rgba(53, 112, 194, 1.0), 52px 52px 0 rgba(53, 113, 195, 1.0), 53px 53px 0 rgba(53, 113, 196, 1.0), 54px 54px 0 rgba(53, 114, 196, 1.0), 55px 55px 0 rgba(53, 114, 197, 1.0), 56px 56px 0 rgba(54, 115, 198, 1.0), 57px 57px 0 rgba(54, 115, 199, 1.0), 58px 58px 0 rgba(54, 116, 200, 1.0), 59px 59px 0 rgba(54, 116, 200, 1.0), 60px 60px 0 rgba(55, 117, 201, 1.0), 61px 61px 0 rgba(56, 117, 201, 1.0), 62px 62px 0 rgba(57, 118, 201, 1.0), 63px 63px 0 rgba(57, 118, 201, 1.0), 64px 64px 0 rgba(58, 119, 202, 1.0), 65px 65px 0 rgba(59, 119, 202, 1.0), 66px 66px 0 rgba(60, 120, 202, 1.0), 67px 67px 0 rgba(61, 121, 202, 1.0), 68px 68px 0 rgba(61, 121, 202, 1.0), 69px 69px 0 rgba(62, 122, 203, 1.0), 70px 70px 0 rgba(63, 122, 203, 1.0), 71px 71px 0 rgba(64, 123, 203, 1.0), 72px 72px 0 rgba(65, 123, 203, 1.0), 73px 73px 0 rgba(65, 124, 204, 1.0), 74px 74px 0 rgba(66, 124, 204, 1.0), 75px 75px 0 rgba(67, 125, 204, 1.0);
-	}
-
-	.logo {
-		height: 70px;
-		border-radius: 10px;
-	}
-
-	.slide {
-		height: 600px;
-		width: auto
-	}
-
-
-
-
-
-	/*	CSS form text Animation*/
-
-
-
-	p {
-		display: inline-block;
-		vertical-align: top;
-		margin: 0;
-		font-size: 40px;
-		font-weight: bolder;
-	}
-
-	.word {
-		position: absolute;
-		opacity: 0;
-	}
-
-	.letter {
-		display: inline-block;
-		position: relative;
-		float: left;
-		transform: translateZ(25px);
-		transform-origin: 50% 50% 25px;
-	}
-
-		.letter.out {
-			transform: rotateX(90deg);
-			transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		.card-label {
+			font-weight: bolder !important;
+			color: navy !important;
 		}
 
-		.letter.behind {
-			transform: rotateX(-90deg);
+		.customHead {
+			color: navy !important;
 		}
 
-		.letter.in {
-			transform: rotateX(0deg);
-			transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		.customFont {
+			font-size: 3.25rem !important;
 		}
 
-	.wisteria {
-		color: #8e44ad;
-	}
-
-	.belize {
-		color: #2980b9;
-	}
-
-	.pomegranate {
-		color: #c0392b;
-	}
-
-	.green {
-		color: #16a085;
-	}
-
-	.midnight {
-		color: #2c3e50;
-	}
-
-
-	/*CSS for COUTRY aside*/
-	.main-timeline {
-		font-family: 'Poppins', sans-serif;
-	}
-
-		.main-timeline:after {
-			content: '';
-			display: block;
-			clear: both;
+		.blackbg {
+			background-color: #1a1a1a !important;
 		}
 
-		.main-timeline .timeline {
-			width: calc(66% + 215px);
-			margin: 0 0 10px 5px;
-			float: right;
+		/*.container {
+				max-width: 100% !important;
+				padding-right: 40px !important;
+				padding-left: 40px !important;
+			}*/
+
+		.mt-5, .my-5 {
+			margin-top: 0rem !important;
 		}
 
-		.main-timeline .timeline-content {
-			color: #555;
-			background: #fff;
-			padding: 10px 10px 10px 120px;
-			border-radius: 20px;
-			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-			display: block;
+		.mt-5, .my-5 {
+			margin-bottom: 0rem !important;
+		}
+
+		.amcharts-amexport-item {
+			border-radius: 6px !important;
+			background-color: white !important;
+			color: black !important;
+		}
+
+
+
+		.card.card-custom .card-body {
+			padding-top: 10px !important;
+			padding-bottom: 10px !important;
+		}
+
+		.card-label {
+			font-weight: bolder !important;
+			color: navy !important;
+		}
+
+		.container {
+			max-width: 100% !important;
+		}
+
+		.mt-5, .my-5 {
+			margin-top: 0rem !important;
+		}
+
+		.mt-5, .my-5 {
+			margin-bottom: 0rem !important;
+		}
+
+		.amcharts-amexport-item {
+			border-radius: 6px !important;
+			background-color: white !important;
+			color: black !important;
+		}
+
+
+		:root {
+			--switches-bg-color: #8950FC;
+			--switches-label-color: white;
+			--switch-bg-color: white;
+			--switch-text-color: white;
+			--animate-duration: 7s; /*wow js delay*/
+			--animate-delay: 2s; /*wow js delay*/
+		}
+
+		/* a container - decorative, not required */
+
+		/* p - decorative, not required */
+		p {
+			margin-top: 2rem;
+			font-size: 0.75rem;
+			text-align: center;
+		}
+
+
+
+		/* Toggle Switch CSS Starts */
+
+		/* container for all of the switch elements
+				- adjust "width" to fit the content accordingly
+			*/
+		.switches-container {
+			width: 10rem;
 			position: relative;
+			display: flex;
+			padding: 0;
+			position: relative;
+			background: var(--switches-bg-color);
+			line-height: 3rem;
+			border-radius: 3rem;
+			margin-left: auto;
+			margin-right: auto;
+			border: 2px solid silver !important;
 		}
 
-			.main-timeline .timeline-content:hover {
-				text-decoration: none;
-			}
 
-			.main-timeline .timeline-content:before {
-				content: '';
-				background-color: #f39c12;
-				height: 100%;
-				width: 15px;
+
+			/* input (radio) for toggling. hidden - use labels for clicking on */
+			.switches-container input {
+				visibility: hidden;
 				position: absolute;
-				left: 100px;
 				top: 0;
 			}
 
-		.main-timeline .timeline-year {
-			color: #f39c12;
-			font-size: 40px;
-			font-weight: 700;
-			line-height: 43px;
-			transform: translateY(-50%);
-			position: absolute;
-			left: 15px;
-			top: 50%;
-		}
-
-		.main-timeline .timeline-icon {
-			width: 10px;
-		}
-
-		.main-timeline .title {
-			font-size: 23px;
-			font-weight: 500;
-			text-transform: capitalize;
-			margin: 0 0 7px;
-		}
-
-		.main-timeline .description {
-			font-size: 14px;
-			line-height: 20px;
-			letter-spacing: 0.5px;
-			margin: 0;
-			color: black;
-			font-size: 11px;
-		}
-
-		.main-timeline .timeline:nth-child(even) {
-			margin: 0 5px 10px 0;
-			float: left;
-		}
-
-			.main-timeline .timeline:nth-child(even) .timeline-content {
-				padding: 10px 120px 10px 10px;
-			}
-
-				.main-timeline .timeline:nth-child(even) .timeline-content:before {
-					left: auto;
-					right: 100px;
-				}
-
-			.main-timeline .timeline:nth-child(even) .timeline-year {
-				left: auto;
-				right: 10px;
-			}
-
-			.main-timeline .timeline:nth-child(even) .timeline-icon {
-				left: auto;
-				right: 139px;
-			}
-
-		.main-timeline .timeline:nth-child(4n+2) .timeline-content:before {
-			background-color: #3F36F6;
-		}
-
-		.main-timeline .timeline:nth-child(4n+2) .timeline-year {
-			color: #3F36F6;
-		}
-
-		.main-timeline .timeline:nth-child(4n+3) .timeline-content:before {
-			background-color: #902DFA;
-		}
-
-		.main-timeline .timeline:nth-child(4n+3) .timeline-year {
-			color: #902DFA;
-		}
-
-		.main-timeline .timeline:nth-child(4n+4) .timeline-content:before {
-			background-color: #2ecc71;
-		}
-
-		.main-timeline .timeline:nth-child(4n+4) .timeline-year {
-			color: #2ecc71;
-		}
-
-	.timeline-title {
-		font-weight: bold;
-		color: black;
-		font-size: 15px;
-	}
-
-	@@media screen and (max-width:767px) {
-		.main-timeline .timeline,
-		.main-timeline .timeline:nth-child(even) {
-			width: 100%;
-			margin: 0 0 30px;
-		}
-
-			.main-timeline .timeline-content,
-			.main-timeline .timeline:nth-child(even) .timeline-content {
+			/* labels for the input (radio) boxes - something to click on */
+			.switches-container label {
+				width: 50%;
+				padding: 0;
+				margin: 0;
 				text-align: center;
-				padding: 200px 15px 15px 15px;
+				cursor: pointer;
+				color: var(--switches-label-color);
 			}
 
-				.main-timeline .timeline-content:before,
-				.main-timeline .timeline:nth-child(even) .timeline-content:before {
-					width: 100%;
-					height: 100px;
-					transform: translateX(-50%) translateY(0);
-					left: 50%;
-					right: auto;
-					top: 80px;
-				}
+		/* switch highlighters wrapper (sliding left / right)
+				- need wrapper to enable the even margins around the highlight box
+			*/
+		.switch-wrapper {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 50%;
+			padding: 0.15rem;
+			z-index: 3;
+			transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+			/* transition: transform 1s; */
+		}
 
-			.main-timeline .timeline-year,
-			.main-timeline .timeline:nth-child(even) .timeline-year {
-				transform: translateY(0) translateX(-50%);
-				left: 50%;
-				right: auto;
-				top: 20px;
+		/* switch box highlighter */
+		.switch {
+			border-radius: 3rem;
+			background: var(--switch-bg-color);
+			height: 100%;
+			border: 1px solid navy !important;
+		}
+
+			/* switch box labels
+				- default setup
+				- toggle afterwards based on radio:checked status
+			*/
+			.switch div {
+				width: 100%;
+				text-align: center;
+				opacity: 0;
+				display: block;
+				color: var(--switch-text-color);
+				transition: opacity .2s cubic-bezier(.77, 0, .175, 1) .125s;
+				will-change: opacity;
+				position: absolute;
+				top: 0;
+				left: 0;
 			}
 
-			.main-timeline .timeline-icon,
-			.main-timeline .timeline:nth-child(even) .timeline-icon {
-				width: auto;
-				transform: translateY(0) translateX(-50%);
-				left: 50%;
-				right: auto;
-				top: 105px;
-			}
-	}
+		/* slide the switch box from right to left */
+		.switches-container input:nth-of-type(1):checked ~ .switch-wrapper {
+			transform: translateX(0%);
+		}
 
-	.logo {
-		width: 80px;
-		height: 40%;
-	}
+		/* slide the switch box from left to right */
+		.switches-container input:nth-of-type(2):checked ~ .switch-wrapper {
+			transform: translateX(100%);
+		}
 
-	.logoEXPRESS {
-		width: 85px;
-		height: 25% !important;
-	}
+		/* toggle the switch box labels - first checkbox:checked - show first switch div */
+		.switches-container input:nth-of-type(1):checked ~ .switch-wrapper .switch div:nth-of-type(1) {
+			opacity: 1;
+		}
 
-	.logoLotto {
-		width: 80px;
-		height: 55% !important;
-	}
+		/* toggle the switch box labels - second checkbox:checked - show second switch div */
+		.switches-container input:nth-of-type(2):checked ~ .switch-wrapper .switch div:nth-of-type(2) {
+			opacity: 1;
+		}
 
 
-	.bataApex {
-		align-items: center;
-		background: linear-gradient(-45deg, rgba(0,0,0,0.22), rgba(48, 144, 199,0.15));
-		box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25), -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
-		border-radius: 50px;
-		display: flex;
-		height: auto;
-		justify-content: center;
-		margin-right: 4rem;
-	}
+		/* Toggle Switch CSS Ends */
 
-	.body {
-		font-family: Candara !important;
-	}
+		.logo {
+			width: 50px;
+			height: auto;
+			border-radius: 30%;
+			margin-left: 15px;
+			margin-right: 15px;
+			cursor: pointer;
+		}
 
-	td {
-		text-align: center;
-		vertical-align: middle;
-	}
-
-	th {
-		text-align: center;
-		vertical-align: middle;
+		.center {
+			position: relative;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>*@
+<style>
+	#map_title {
 		color: white !important;
-		font-weight: bold !important;
+	}
+
+	body {
+		font-family: Arial;
+		padding: 25px;
+		background-color: #f5f5f5;
+		color: #808080;
+		text-align: center;
+	}
+
+	/*-=-=-=-=-=-=-=-=-=-=-=- */
+	/* Column Grids */
+	/*-=-=-=-=-=-=-=-=-=-=-=- */
+
+	.col_half {
+		width: 49%;
+	}
+
+	.col_third {
+		width: 32%;
+	}
+
+	.col_fourth {
+		width: 23.5%;
+	}
+
+	.col_fifth {
+		width: 18.4%;
+	}
+
+	.col_sixth {
+		width: 15%;
+	}
+
+	.col_three_fourth {
+		width: 74.5%;
+	}
+
+	.col_twothird {
+		width: 66%;
+	}
+
+	.col_half,
+	.col_third,
+	.col_twothird,
+	.col_fourth,
+	.col_three_fourth,
+	.col_fifth {
+		position: relative;
+		display: inline;
+		display: inline-block;
+		float: left;
+		margin-right: 2%;
+		margin-bottom: 20px;
+	}
+
+	.end {
+		margin-right: 0 !important;
+	}
+	/* Column Grids End */
+
+	.wrapper {
+		width: 980px;
+		margin: 30px auto;
+		position: relative;
+	}
+
+	.counter {
+		/*background-color: #ffffff;*/
+		padding: 20px 0;
+		border-radius: 5px;
+	}
+
+	.count-title {
+		font-size: 40px;
+		font-weight: normal;
+		margin-top: 10px;
+		margin-bottom: 0;
+		text-align: center;
+	}
+
+	.count-text {
+		font-size: 13px;
+		font-weight: normal;
+		margin-top: 10px;
+		margin-bottom: 0;
+		text-align: center;
+	}
+
+	.fa-2x {
+		margin: 0 auto;
+		float: none;
+		display: table;
+		color: #4ad1e5;
 	}
 </style>
 
+<body id="kt_body">
 
 
-<video id="video" style="width: 100%;height: 100%;" autoplay muted>
-	<source src="~/assets/Video/loading.mp4" type="video/mp4" autoplay="true" />
 
 
-</video>
+	<div class="container">
 
 
-<body id="kt_body" class="quick-panel-right demo-panel-right offcanvas-right header-fixed header-mobile-fixed aside-enabled aside-static page-loading">
 
-	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		<div class="modal-dialog modal-lg modal-dialog-centered" role="document" style="width: 1400px !important">
-			<div class="modal-content">
-				@*<div class="modal-header">
-						<h5 class="timeline-title" style="text-align:center">Express Leather Products Ltd. Production Line</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>*@
-				<div class="modal-body">
-					@*<video id="video" style="width: 100%;height: 100%;" autoplay muted>
-							<source src="~/assets/Video/Factory.mp4" type="video/mp4" autoplay="true" />
+		<div class="row">
 
-						</video>*@
-					<iframe style="height:480px; width: 100%;" src="https://www.youtube.com/embed/NC8iv2oQiNs" frameborder="0" allowfullscreen></iframe>
-					<button type="button" class="btn-danger float-right" data-dismiss="modal" style="border-width:5px !important; color:white"><i class="ki ki-close"></i></button>
+			<div class="col-md-8">
+				<div class="map" id="changeSvgMap" style="height: 100% !important;">
 				</div>
+			</div>
+			<div class="col-md-4" style="justify-content:center">
+				<div class="row">
+
+
+					<div class="counter col_third">
+
+						<img src="~/assets/IMG/shop.png" style="height:35px; width:35px;" />
+						<h2 class="timer count-title count-number" data-to="300" data-speed="1500"></h2>
+						<p class="count-text ">Retail Outlets</p>
+					</div>
+				</div>
+				<div class="row">
+
+					<div class="counter col_third">
+						<img src="~/assets/IMG/shops.png" style="height:35px; width:35px;" />
+
+						<h2 class="timer count-title count-number" data-to="1700" data-speed="1500"></h2>
+						<p class="count-text ">Franchaise Outlets</p>
+					</div>
+				</div>
+
+				<div class="row">
+
+
+					<div class="counter col_third end">
+						<img src="~/assets/IMG/store.png" style="height:35px; width:35px;" />
+
+						<h2 class="timer count-title count-number" data-to="157" data-speed="1500"></h2>
+						<p class="count-text ">Wholsesale Outlets</p>
+					</div>
+
+				</div>
+
+
+
 
 			</div>
 		</div>
-	</div>
-
-	<div class="modal fade" id="salesstaffModalCenter" tabindex="-1" role="dialog" aria-labelledby="salesstaffModalCenterTitle" aria-hidden="true">
-		<div class="modal-dialog modal-lg modal-dialog-centered" role="document" style="width: 1400px !important">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="td" style="color: black !important">Outlet Staff Sales & Comissions (Running Month)</h5>
-					<button type="button" class="btn-danger float-right" style="border-width:5px !important; color:white" data-dismiss="modal"><i class="ki ki-close"></i></button>
-
-				</div>
-
-				<div class="modal-body">
-					
-					<div class="table-responsive">
-						<table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_1">
-							<thead>
-								<tr style="background-color: #121212; color:white !important">
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Sl</th>
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Name</th>
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Designation</th>
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Sales</th>
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Commission</th>
-								</tr>
-							</thead>
-							<tbody id="topCompTbl" style="background-color: #121212">
-							</tbody>
-						</table>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-
-	<div class="modal fade" id="LottoRetailOutList" tabindex="-1" role="dialog" aria-labelledby="LottoRetailOutList" aria-hidden="true">
-		<div class="modal-dialog modal-lg modal-dialog-centered" role="document" style="width: 1400px !important">
-			<div class="modal-content">
-				@*<div class="modal-header">
-						<h5 class="timeline-title" style="text-align:center">Express Leather Products Ltd. Production Line</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>*@
-				<div class="modal-body" style="background-color: #121212 !important">
-					@*<video id="video" style="width: 100%;height: 100%;" autoplay muted>
-							<source src="~/assets/Video/Factory.mp4" type="video/mp4" autoplay="true" />
-
-						</video>*@
-					<div class="row" style="padding-top: 0px;" id="out_button">
-
-
-
-					</div>
-					<button type="button" class="btn-danger float-right" style="border-width:5px !important; color:white" data-dismiss="modal"><i class="ki ki-close"></i></button>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-
-	
-
-
-
-	<div class="modal fade" id="bataApexInfoModal" tabindex="-1" role="dialog" aria-labelledby="salesstaffModalCenterTitle" aria-hidden="true">
-		<div class="modal-dialog modal-lg modal-dialog-centered" role="document" style="width: 1400px !important">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="td" style="color: black !important">List of Competitor's Outlet</h5>
-					<button type="button" class="btn-danger float-right" style="border-width:5px !important; color:white" data-dismiss="modal"><i class="ki ki-close"></i></button>
-
-				</div>
-				
-				<div class="modal-body">
-
-					<div class="table-responsive">
-						<table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_1">
-							<thead>
-								<tr style="background-color: #121212; color:white !important">
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Sl</th>
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Adress</th>
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Space</th>
-								</tr>
-							</thead>
-							<tbody id="bataApexTable" style="background-color: #121212">
-							</tbody>
-						</table>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-
-	<div class="modal fade" id="rentModalCenter" tabindex="-1" role="dialog" aria-labelledby="rentModalCenterTitle" aria-hidden="true">
-		<div class="modal-dialog modal-lg modal-dialog-centered" role="document" style="width: 1400px !important">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="td" style="color: black !important">Rent Information Details</h5>
-					<button type="button" class="btn-danger float-right" style="border-width:5px !important; color:white" data-dismiss="modal"><i class="ki ki-close"></i></button>
-
-				</div>
-				<div class="modal-body">
-					
-					<div class="table-responsive">
-						<table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_1">
-							<thead>
-								<tr style="background-color: #121212; color:white !important">
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Agr. #</th>
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Agr. Starts</th>
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Agr. Ends</th>
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Advance </th>
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Tenor Period</th>
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Rent</th>
-									<th class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm">Remaining Advance</th>
-								</tr>
-							</thead>
-							<tbody id="RentInfoTable" style="background-color: #121212">
-							</tbody>
-						</table>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-	<div id="mapload">
-		<div class="col-md-12">
-
-			<div class="row">
-				@*<div class="col-md-2">
-
-						<button class="btn btn-block aqualake animate__animated animate__bounceInUp " animation-duration:2s" id="" onclick="">
-
-
-
-						</button>
-					</div>*@
-				<div class="col-md-12">
-					<div class="card-toolbar">
-
-
-					</div>
-					<button class="btn btn-sm btn-block aqualake animate__animated animate__bounceInUp" animation-duration:2s">
-
-						<i class="btn btn-icon btn-circle btn-sm btn-light-danger mr-1 float-left ki ki-bold-arrow-back icon-nm" id="backBtn" data-outlet="" data-orgType="" data-country="" data-district="" data-division="" onclick="Back()" data-card-tool="toggle"></i>
-
-						<h3 id="heading" style="padding-top:.5%; font-size:15px !important;"></h3>
-
-
-
-					</button>
-				</div>
-			</div>
-
-			<br />
-
-			<div class="row" id="topinfoCountry">
-
-				<div class=" row animate__animated  animate__bounceInRight col-md-4" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center; cursor:pointer" onclick="MapData('100')">
-
-
-					<i class="fa fa-store icon one fa-1x" id="store" aria-hidden="true"></i>
-
-					<label style="font-size: 20px; color: #2ECC71; font-weight: bold;"><span class="counter">106</span>+ </label>
-					<label style="font-size: 15px; color: #2ECC71; font-weight:bold">Retail </label>
-
-
-
-				</div>
-
-
-				<div class="row animate__animated  animate__bounceInRight col-md-4" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center; cursor:pointer" onclick="MapData('102')">
-
-					<i class="fa fa-store-alt icon two fa-1x" id="store" aria-hidden="true"></i>
-
-					<label style="font-size: 20px; color: #3498DB; font-weight: bold;"><span class="counter">120</span>+ </label>
-					<label style="font-size: 15px; color: #3498DB; font-weight: bold">Franchise </label>
-
-
-
-
-				</div>
-
-
-				<div class="row animate__animated  animate__bounceInRight col-md-4" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center">
-
-					<i class="fa fa-store-slash icon three fa-1x" 2d="store" aria-hidden="true"></i>
-
-					<label style="font-size: 20px; color: #E67E22; font-weight: bold;"><span class="counter">500</span>+ </label>
-					<label style="font-size: 15px; color: #E67E22; font-weight: bold">Wholesale </label>
-
-				</div>
-
-
-
-
-
-
-			</div>
-
-			<div class="row" id="topinfoDiv">
-				<div class="row animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center">
-
-					<i class="fa fa-chart-area icon one fa-1x" id="store" aria-hidden="true"></i>
-					<label id="area" style="font-size: 20px; color: #2ECC71; font-weight:bold"></label>
-					<span style="font-size: 15px; font-size: 10px; color: #2ECC71"> sqKM </span>
-
-				</div>
-
-				<div class="row animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center">
-
-
-
-					<i class="fa fa-users icon two fa-1x" id="store" aria-hidden="true"></i>
-					<label id="population" style="font-size: 20px; color: #3498DB; font-weight:bold"></label>
-
-
-
-
-				</div>
-
-				<div class="row animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center">
-
-
-
-					<i class="fa fa-male icon three fa-1x" id="store" aria-hidden="true"></i>
-					<label id="malepercent" style="font-size: 20px; color: #E67E22; font-weight: bold"></label>
-
-
-
-				</div>
-
-				<div class="row animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center">
-
-
-
-					<i class="fa fa-female icon four fa-1x" id="store" aria-hidden="true"></i>
-					<label id="femalepercent" style="font-size: 20px; color: #1ABC9C; font-weight: bold"></label>
-
-
-
-				</div>
-
-
-
-
-			</div>
-
-			<div class="row" id="topinfoDist">
-				<div class="row animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center">
-
-					<i class="fa fa-chart-area icon one fa-1x" id="store" aria-hidden="true"></i>
-					<label id="areaDist" style="font-size: 20px; color: #2ECC71; font-weight:bold"></label>
-					<span style="font-size: 15px; font-size: 10px; color: #2ECC71"> sqKM </span>
-
-				</div>
-
-				<div class="row animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center">
-
-
-
-					<i class="fa fa-users icon two fa-1x" id="store" aria-hidden="true"></i>
-					<label id="populationDist" style="font-size: 20px; color: #3498DB; font-weight:bold"></label>
-
-
-
-
-				</div>
-
-				<div class="row animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center">
-
-
-
-					<i class="fa fa-male icon three fa-1x" id="store" aria-hidden="true"></i>
-					<label id="malepercentDist" style="font-size: 20px; color: #E67E22; font-weight: bold"></label>
-
-
-
-				</div>
-
-				<div class="row animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s;cursor:pointer; justify-content:center; display:flex; align-items:center">
-
-
-
-					<i class="fa fa-female icon four fa-1x" id="store" aria-hidden="true"></i>
-					<label id="femalepercentDist" style="font-size: 20px; color: #1ABC9C; font-weight: bold"></label>
-
-
-
-				</div>
-
-			</div>
-
-			<div class="row" id="topinfoOutlet">
-
-
-
-
-
-
-
-				<div class="row animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s; justify-content:center; display:flex; align-items:center">
-
-					<label style="font-size: 20px; color: #3498DB; font-weight: bold "><span class="counter" id="space"></span>sq. ft</label>
-
-				</div>
-
-				<div class="row animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s; justify-content:center; display:flex; align-items:center">
-
-					<label style="font-size: 20px; color: #E67E22; font-weight: bold; cursor:pointer" data-toggle="modal" data-target="#salesstaffModalCenter"><span id="person"></span></label>
-
-				</div>
-
-				<div class="row animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s; justify-content:center; display:flex; align-items:center">
-
-					<label style="font-size: 20px; color: #1ABC9C; font-weight: bold; cursor:pointer" data-toggle="modal" data-target="#rentModalCenter"><span class="counter" id="rent"></span>৳</label>
-
-				</div>
-
-				<div class="row animate__animated  animate__bounceInRight col-md-3" style="animation-duration:2s; justify-content:center; display:flex; align-items:center">
-
-					<label style="font-size: 20px; color: #E74C3C; font-weight: bold"><span class="counter" id="potCust"></span></label>
-
-				</div>
-
-
-
-
-
-
-
-
-			</div>
-
-
-
-			<br />
-
-			<div class="row">
-
-				<div class="col-md-7" id="map">
-					<div id="chartdiv8"></div>
-
-				</div>
-
-
-				<div class="col-md-5" id="countrySide">
-					<div class="container">
-
-
-						<div class="row">
-							<div class="col-md-12">
-								<div class="main-timeline">
-									<div class="timeline animate__animated  animate__bounceInLeft" style="animation-duration:2s;">
-										<a class="timeline-content" style="cursor:pointer" data-toggle="modal" data-target="#exampleModalCenter" onclick="districtAppend('Gazipur', 2, 41,'R110,R080,G001')">
-											<div class="timeline-year" style="font-size:18px;">Factory</div>
-
-											<h3 class="timeline-title">2007</h3>
-											<p class="description" style="text-align: justify !important; text-justify: inter-word !important;">
-												Located in Mazukhan, Gazipur is part of the soul Footwear, Accessories & Apparels manufacturing for Lotto & Lee Cooper. ELPL factory has 1,500+ total employees across 3 units.
-											</p>
-										</a>
-									</div>
-									<div class="timeline animate__animated  animate__bounceInRight" style="animation-duration:2s;">
-										<a class="timeline-content">
-											@*<div class="timeline-year">2010</div>*@
-											<img class="logoEXPRESS timeline-year" src="~/assets/IMG/Express.png" />
-											<h3 class="timeline-title">2007</h3>
-											<p class="description" style="text-align: justify !important; text-justify: inter-word !important;">
-												ELPL started its journey on 2007 & operated as a footwear manufacturer of Bata, Disney Inc. Apex etc. Got the Licensee of Lotto Italia on 2011. Launched its own brand Express on 2015.
-											</p>
-										</a>
-									</div>
-									<div class="timeline animate__animated  animate__bounceInLeft" style="animation-duration:2s;">
-										<a class="timeline-content">
-											@*<div class="timeline-year">2015</div>*@
-
-											<img class="logoLotto timeline-year" src="~/assets/IMG/Lotto.png" />
-											<h3 class="timeline-title">2012</h3>
-											<p class="description" style="text-align: justify !important; text-justify: inter-word !important;">
-												Since 2012, ELPL has had the Bangladesh license to the Lotto, becoming the fastest growing Lotto Licensee, with the greatest turnover per capita globally.
-											</p>
-										</a>
-									</div>
-									<div class="timeline animate__animated  animate__bounceInRight" style="animation-duration:2s;">
-										<a class="timeline-content">
-											@*<div class="timeline-year">2018</div>*@
-
-											<img class="logo timeline-year" src="~/assets/IMG/LeeCooper.png" />
-											<h3 class="timeline-title">2018</h3>
-											<p class="description" style="text-align: justify !important; text-justify: inter-word !important;">
-												Since 2018, ELPL has had the Bangladesh license to the Lee Cooper brand, becoming the fastest growing Lotto Licensee, with the greatest turnover per capita globally.
-
-											</p>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-				<div class="col-md-5" id="divSide">
-
-					<div class="col-md-12">
-						<h3 style="font-size: 20px;color: white;margin-bottom: 20px;">ELPL's Outlet Information</h3>
-						<div class="row">
-
-							<div class="col-md-6">
-
-								<div class="animate__animated  animate__bounceInRight" style="animation-duration:2s;cursor:pointer; cursor:pointer">
-									<div class="bataApex">
-										<img src="~/assets/IMG/Lotto.png" style="width: 20%" />
-										<label style="font-size: 20px; color: #2ECC71; font-weight: bolder; margin-top: 2%;">Ret. - <span id="lotto_count"></span> </label>
-									</div>
-								</div>
-
-							</div>
-							<div class="col-md-6">
-
-								<div class="animate__animated  animate__bounceInRight" style="animation-duration:2s;cursor:pointer; cursor:pointer">
-									<div class="bataApex">
-										<img src="~/assets/IMG/Lotto.png" style="width: 20%" />
-										<label style="font-size: 20px; color: #2ECC71; font-weight: bolder; margin-top: 2%;">Fr. - <span id="Frn_count"></span> </label>
-									</div>
-								</div>
-
-							</div>
-						</div>
-						<br />
-						<br />
-						<h3 style="font-size: 20px;color: white;margin-bottom: 20px;">Competitor's Outlet Information</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="animate__animated  animate__bounceInRight" style="animation-duration:2s;">
-									<div class="bataApex">
-										@*<img src="~/assets/IMG/a.png" style="width: 51%" data-toggle="modal" data-target="#bataApexInfoModal" />*@
-										<label style=" font-size: 20px; color: #cc2e2e; font-weight: bolder; margin-top: 2%;">A - <span id="bata_count"></span> </label>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-
-
-								<div class="animate__animated  animate__bounceInRight" style="animation-duration:2s;">
-									<div class="bataApex">
-										@*<img src="~/assets/IMG/b.png" style="width: 51%" data-toggle="modal" data-target="#bataApexInfoModal" />*@
-										<label style=" font-size: 20px; color: #2ec9cc; font-weight: bolder; margin-top: 2%;">B - <span id="apex_count"></span> </label>
-									</div>
-								</div>
-
-							</div>
-
-
-						</div>
-					</div>
-
-
-
-				</div>
-
-				<div class="col-md-5" id="distSide">
-
-
-
-					<div class="col-md-12">
-						<h3 style="font-size: 20px;color: white;margin-bottom: 20px;">ELPL's Outlet Information</h3>
-						<div class="row">
-
-							<div class="col-md-6" data-toggle="modal" data-target="#LottoRetailOutList" style="cursor:pointer">
-
-								<div class="animate__animated  animate__bounceInRight" style="animation-duration:2s;cursor:pointer; cursor:pointer">
-									<div class="bataApex">
-										<img src="~/assets/IMG/Lotto.png" style="width: 20%" />
-										<label style="font-size: 20px; color: #2ECC71; font-weight: bolder; margin-top: 2%;">Ret. - <span id="lotto_Ret"></span> </label>
-									</div>
-								</div>
-
-							</div>
-							<div class="col-md-6">
-
-								<div class="animate__animated  animate__bounceInRight" style="animation-duration:2s;cursor:pointer; cursor:pointer">
-									<div class="bataApex">
-										<img src="~/assets/IMG/Lotto.png" style="width: 20%" />
-										<label style="font-size: 20px; color: #2ECC71; font-weight: bolder; margin-top: 2%;">Fr. - <span id="lotto_Frn"></span> </label>
-									</div>
-								</div>
-
-							</div>
-						</div>
-						<br />
-						<br />
-						<h3 style="font-size: 20px;color: white;margin-bottom: 20px;">Competitor's Outlet Information</h3>
-						<div class="row">
-							<div class="col-md-6" data-toggle="modal" data-target="#bataApexInfoModal" onclick="bataApexInfo('Bata')" style="cursor:pointer">
-								<div class="animate__animated  animate__bounceInRight" style="animation-duration:2s;">
-									<div class="bataApex">
-										@*<img src="~/assets/IMG/a.png" style="width: 51%" data-toggle="modal" data-target="#bataApexInfoModal" />*@
-										<label style=" font-size: 20px; color: #cc2e2e; font-weight: bolder; margin-top: 2%;">A - <span id="bataOutlet"></span> </label>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6" data-toggle="modal" data-target="#bataApexInfoModal" onclick="bataApexInfo('Apex')" style="cursor:pointer">
-
-
-								<div class="animate__animated  animate__bounceInRight" style="animation-duration:2s;">
-									<div class="bataApex">
-										@*<img src="~/assets/IMG/b.png" style="width: 51%" data-toggle="modal" data-target="#bataApexInfoModal" />*@
-										<label style=" font-size: 20px; color: #2ec9cc; font-weight: bolder; margin-top: 2%;">B - <span id="apexOutlet"></span> </label>
-									</div>
-								</div>
-
-							</div>
-
-
-						</div>
-					</div>
-					<br />
-					<div id="chartdiv19"></div>
-
-
-
-
-
-				</div>
-
-
-				<div class="col-md-5" id="outinfoSide">
-					<div id="chartdiv18"></div>
-					<div id="chartdiv1"></div>
-
-				</div>
-
-			</div>
-
-
-		</div>
-	</div>
-
-	<div class="row" style="padding-top: 0px;" id="div_button">
-
-
-		<div class="col-md-12">
-
-			<div class="row">
-				<div class="col-md-3">
-					<button class="btn btn-block aqualake division bubbly-button" data-maptype="" onclick="changeMap('BD-C', 1)">DHAKA</button>
-				</div>
-				<div class="col-md-3">
-					<button class="btn btn-block gilded division bubbly-button" data-maptype="" onclick="changeMap('BD-A', 1)">BARISAL</button>
-				</div>
-				<div class="col-md-3">
-					<button class="btn btn-block mandarinorange division bubbly-button" data-maptype="" onclick="changeMap('BD-B', 1)">CHATTOGRAM</button>
-				</div>
-				<div class="col-md-3">
-					<button class="btn btn-block cheguevarared division bubbly-button" data-maptype="" onclick="changeMap('BD-D', 1)">KHULNA</button>
-				</div>
-			</div>
-			<br />
-			<div class="row">
-				<div class="col-md-3">
-					<button class="btn btn-block carroburgcrimson division bubbly-button" data-maptype="" onclick="changeMap('BD-F',1)">RANGPUR</button>
-				</div>
-				<div class="col-md-3">
-					<button class="btn btn-block woodcharocal division bubbly-button" data-maptype="" onclick="changeMap('BD-E',1)">RAJSHAHI</button>
-				</div>
-				<div class="col-md-3">
-					<button class="btn btn-block dead99 division bubbly-button" data-maptype="" onclick="changeMap('BD-G',1)">SYLHET</button>
-				</div>
-				<div class="col-md-3">
-					<button class="btn btn-block trappeddarkness division bubbly-button" data-maptype="" onclick="changeMap('BD-H',1)">MYMENSINGH</button>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-	<div class="row" style="padding-top: 0px;" id="dist_button">
-
-
 
 	</div>
-
-
-
-	<br />
-
 </body>
-@*</div >*@
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="https://bfintal.github.io/Counter-Up/jquery.counterup.min.js"></script>
 
-@*<script src="~/assets/Map/mapp.js"></script>*@
 <script>
-	$('.counter').counterUp({
-		delay: 10,
-		time: 1500
+
+	(function ($) {
+		$.fn.countTo = function (options) {
+			options = options || {};
+
+			return $(this).each(function () {
+				// set options for current element
+				var settings = $.extend({}, $.fn.countTo.defaults, {
+					from: $(this).data('from'),
+					to: $(this).data('to'),
+					speed: $(this).data('speed'),
+					refreshInterval: $(this).data('refresh-interval'),
+					decimals: $(this).data('decimals')
+				}, options);
+
+				// how many times to update the value, and how much to increment the value on each update
+				var loops = Math.ceil(settings.speed / settings.refreshInterval),
+					increment = (settings.to - settings.from) / loops;
+
+				// references & variables that will change with each update
+				var self = this,
+					$self = $(this),
+					loopCount = 0,
+					value = settings.from,
+					data = $self.data('countTo') || {};
+
+				$self.data('countTo', data);
+
+				// if an existing interval can be found, clear it first
+				if (data.interval) {
+					clearInterval(data.interval);
+				}
+				data.interval = setInterval(updateTimer, settings.refreshInterval);
+
+				// initialize the element with the starting value
+				render(value);
+
+				function updateTimer() {
+					value += increment;
+					loopCount++;
+
+					render(value);
+
+					if (typeof (settings.onUpdate) == 'function') {
+						settings.onUpdate.call(self, value);
+					}
+
+					if (loopCount >= loops) {
+						// remove the interval
+						$self.removeData('countTo');
+						clearInterval(data.interval);
+						value = settings.to;
+
+						if (typeof (settings.onComplete) == 'function') {
+							settings.onComplete.call(self, value);
+						}
+					}
+				}
+
+				function render(value) {
+					var formattedValue = settings.formatter.call(self, value, settings);
+					$self.html(formattedValue);
+				}
+			});
+		};
+
+		$.fn.countTo.defaults = {
+			from: 0,               // the number the element should start at
+			to: 0,                 // the number the element should end at
+			speed: 1000,           // how long it should take to count between the target numbers
+			refreshInterval: 100,  // how often the element should be updated
+			decimals: 0,           // the number of decimal places to show
+			formatter: formatter,  // handler for formatting the value before rendering
+			onUpdate: null,        // callback method for every time the element is updated
+			onComplete: null       // callback method for when the element finishes updating
+		};
+
+		function formatter(value, settings) {
+			return value.toFixed(settings.decimals);
+		}
+	}(jQuery));
+
+	jQuery(function ($) {
+		// custom formatting example
+		$('.count-number').data('countToOptions', {
+			formatter: function (value, options) {
+				return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+			}
+		});
+
+		// start all the timers
+		$('.timer').each(count);
+
+		function count(options) {
+			var $this = $(this);
+			options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+			$this.countTo(options);
+		}
 	});
-	var animateButton = function (e) {
-
-		e.preventDefault;
-		//reset animation
-		e.target.classList.remove('animate');
-
-		e.target.classList.add('animate');
-		setTimeout(function () {
-			e.target.classList.remove('animate');
-		}, 700);
-	};
-
-	var bubblyButtons = document.getElementsByClassName("bubbly-button");
-
-	for (var i = 0; i < bubblyButtons.length; i++) {
-		bubblyButtons[i].addEventListener('click', animateButton, false);
-	}
-</script>
-
-<script>
-	//Bangladesh Map Starts
 
 	$(document).ready(function () {
+		(function ($) {
+			var globalDefault = {
+				'gZoomStatus': 0,
+				'gScaleVal': 0.7
+			};
+
+			$.fn.generateMap = function (options) {
+				var settings = $.extend({
+					// These are the defaults.
+					loadRegion: "bangladesh",
+					regionData: {
+						"bangladesh": [
+							{
+								"region_name": "Rangpur",
+								"region_id": "rangpurDivision",
+								"area": 800,
+								"population": 9794525,
+								"Lotto Outlet": 45,
+								"Bata Outlet": 30,
+								"Apex Outlet": 45
+							},
+							{
+								"region_name": "Dhaka",
+								"region_id": "dhakaDivision",
+								"area": 700,
+								"population": 5769750
+							},
+							{
+								"region_name": "Rajshahi",
+								"region_id": "rajshahiDivision",
+								"area": 600,
+								"population": 5557276
+							},
+							{
+								"region_name": "Sylhet",
+								"region_id": "sylhetDivision",
+								"area": 500,
+								"population": 4999932
+							}
+						],
+						"rangpurDivision": [
+							{
+								"parent_region_id": "bangladesh",
+								"region_name": "Panchagarh",
+								"region_id": "panchagarhDistrict",
+								"area": 8001,
+								"population": 9794525
+							},
+							{
+								"region_name": "Thakurgaon",
+								"region_id": "thakurgaonDistrict",
+								"area": 7001,
+								"population": 5769750
+							},
+							{
+								"region_name": "Dinajpur",
+								"region_id": "dinajpurDistrict",
+								"area": 6001,
+								"population": 5557276
+							},
+							{
+								"region_name": "Gaibandha",
+								"region_id": "gaibandhaDistrict",
+								"area": 5001,
+								"population": 4999932
+							},
+							{
+								"region_name": "Kurigram",
+								"region_id": "kurigramDistrict",
+								"area": 4001,
+								"population": 4881756
+							},
+							{
+								"region_name": "Rangpur",
+								"region_id": "rangpurDistrict",
+								"area": 3001,
+								"population": 4377487
+							},
+							{
+								"region_name": "Nilfamari",
+								"region_id": "nilphamariDistrict",
+								"area": 2001,
+								"population": 4374052
+							},
+							{
+								"region_name": "Lalmonirhat",
+								"region_id": "lalmonirhatDistrict",
+								"area": 1001,
+								"population": 4050803
+							}
+						],
+						"rajshahiDivision": [
+							{
+								"parent_region_id": "bangladesh",
+								"region_name": "Nawabganj",
+								"region_id": "nawabganjDistrict",
+								"area": 801,
+								"population": 9794525
+							},
+							{
+								"region_name": "Naogaon",
+								"region_id": "naogaonDistrict",
+								"area": 701,
+								"population": 5769750
+							},
+							{
+								"region_name": "Joypurhat",
+								"region_id": "joypurhatDistrict",
+								"area": 601,
+								"population": 5557276
+							},
+							{
+								"region_name": "Bogra",
+								"region_id": "bograDistrict",
+								"area": 501,
+								"population": 4999932
+							},
+							{
+								"region_name": "Sirajganj",
+								"region_id": "sirajganjDistrict",
+								"area": 401,
+								"population": 4881756
+							},
+							{
+								"region_name": "Pabna",
+								"region_id": "pabnaDistrict",
+								"area": 301,
+								"population": 4377487
+							},
+							{
+								"region_name": "Natore",
+								"region_id": "natoreDistrict",
+								"area": 201,
+								"population": 4374052
+							},
+							{
+								"region_name": "Rajshahi",
+								"region_id": "rajshahiDistrict",
+								"area": 101,
+								"population": 4050803
+							}
+						],
+						"rangpurDistrict": [
+							{
+								"parent_region_id": "rangpurDivision",
+								"region_name": "Gangachhara",
+								"region_id": "gangachharaUpazila",
+								"area": 5001,
+								"population": 9794525
+							},
+							{
+								"region_name": "Badarganj",
+								"region_id": "badarganjUpazila",
+								"area": 5001,
+								"population": 5769750
+							},
+							{
+								"region_name": "Taraganj",
+								"region_id": "taraganjUpazila",
+								"area": 5001,
+								"population": 5557276
+							},
+							{
+								"region_name": "Pirganj",
+								"region_id": "pirganjUpazila",
+								"area": 5001,
+								"population": 4999932
+							},
+							{
+								"region_name": "Mithapukur",
+								"region_id": "mithapukurUpazila",
+								"area": 5001,
+								"population": 4881756
+							},
+							{
+								"region_name": "Rangpur Sadar",
+								"region_id": "rangpursadarUpazila",
+								"area": 5001,
+								"population": 4377487
+							},
+							{
+								"region_name": "Kaunia",
+								"region_id": "kauniaUpazila",
+								"area": 5001,
+								"population": 4374052
+							},
+							{
+								"region_name": "Pirgachha",
+								"region_id": "pirgachhaUpazila",
+								"area": 5001,
+								"population": 4050803
+							}
+						]
+					},
+					'parentForDistrictMap': {
+						"bargunaDistrict": "barisalDivision", "barisalDistrict": "barisalDivision", "bholaDistrict": "barisalDivision", "jhalakathiDistrict": "barisalDivision", "patuakhaliDistrict": "barisalDivision", "pirojpurDistrict": "barisalDivision", "bandarbanDistrict": "chittagongDivision", "brahmanbariaDistrict": "chittagongDivision", "chandpurDistrict": "chittagongDivision", "chittagongDistrict": "chittagongDivision", "comillaDistrict": "chittagongDivision", "coxsbazarDistrict": "chittagongDivision", "feniDistrict": "chittagongDivision", "khagrachhariDistrict": "chittagongDivision", "lakshmipurDistrict": "chittagongDivision", "noakhaliDistrict": "chittagongDivision", "rangamatiDistrict": "chittagongDivision", "dhakaDistrict": "dhakaDivision", "faridpurDistrict": "dhakaDivision", "gazipurDistrict": "dhakaDivision", "gopalganjDistrict": "dhakaDivision", "jamalpurDistrict": "mymensinghDivision", "kishoreganjDistrict": "dhakaDivision", "madaripurDistrict": "dhakaDivision", "manikganjDistrict": "dhakaDivision", "munshiganjDistrict": "dhakaDivision", "mymensinghDistrict": "mymensinghDivision", "narayanganjDistrict": "dhakaDivision", "narsingdiDistrict": "dhakaDivision", "netrokonaDistrict": "mymensinghDivision", "rajbariDistrict": "dhakaDivision", "shariatpurDistrict": "dhakaDivision", "sherpurDistrict": "mymensinghDivision", "tangailDistrict": "dhakaDivision", "bagerhatDistrict": "khulnaDivision", "chuadangaDistrict": "khulnaDivision", "jessoreDistrict": "khulnaDivision", "jhenaidahDistrict": "khulnaDivision", "khulnaDistrict": "khulnaDivision", "kushtiaDistrict": "khulnaDivision", "maguraDistrict": "khulnaDivision", "meherpurDistrict": "khulnaDivision", "narailDistrict": "khulnaDivision", "satkhiraDistrict": "khulnaDivision", "bograDistrict": "rajshahiDivision", "joypurhatDistrict": "rajshahiDivision", "naogaonDistrict": "rajshahiDivision", "natoreDistrict": "rajshahiDivision", "chapainawabganjDistrict": "rajshahiDivision", "pabnaDistrict": "rajshahiDivision", "rajshahiDistrict": "rajshahiDivision", "sirajganjDistrict": "rajshahiDivision", "dinajpurDistrict": "rangpurDivision", "gaibandhaDistrict": "rangpurDivision", "kurigramDistrict": "rangpurDivision", "lalmonirhatDistrict": "rangpurDivision", "nilphamariDistrict": "rangpurDivision", "panchagarhDistrict": "rangpurDivision", "rangpurDistrict": "rangpurDivision", "thakurgaonDistrict": "rangpurDivision", "habiganjDistrict": "sylhetDivision", "maulvibazarDistrict": "sylhetDivision", "sunamganjDistrict": "sylhetDivision", "sylhetDistrict": "sylhetDivision"
+					},
+					'infosForconstituency': {},
+					_this: this,
+					backgroundColor: "white"
+				}, options);
+
+				setTimeout(function () { changeSVG(settings.loadRegion, settings.regionData, settings.infosForconstituency, settings.parentForDistrictMap, settings._this); }, 1000);
+
+				// EVENT : START ------------------------------
+
+				$(document).on('click', '.map g path:not(.notbtn), .map g g:not(.notbtn)', function (e) {
+					e.preventDefault();
+					var mapAttr = $(this).attr('id');
+					//console.log('mapAttr : ' + mapAttr);
+					//console.log('settings.regionData : ' + settings.regionData);
+					changeSVG(mapAttr, settings.regionData, settings.infosForconstituency, settings.parentForDistrictMap, settings._this);
+				});
+
+				//backbutton
+				$(document).on('click', '.backbtn', function (e) {
+					e.preventDefault();
+
+					var mapParentAttr = $(this).attr('parent-id') ? $(this).attr('parent-id') : 'bangladesh';
+
+					if (mapParentAttr != undefined && bangladeshSVG[mapParentAttr] != undefined) {
+						changeSVG(mapParentAttr, settings.regionData, settings.infosForconstituency, settings.parentForDistrictMap, settings._this);
+					}
+
+				});
+				//Zoom
+				$(document).on('click', '.zoom_map', function (e) {
+					e.preventDefault();
+					var zoomId = $(this).attr('id');
+
+					//console.log('zoomId : ' + zoomId);
+
+					zoomToggle(zoomId);
+				});
+
+				// EVENT : END ------------------------------
+
+			}
+
+			function changeSVG(x, regionData, infosForconstituency, parentForDistrictMap, _this) {
+				$('.info_panel').remove();
+				//console.log('_this : ' + _this);
+
+				if (bangladeshSVG[x] != undefined) {
+
+					var svgMapHtml = '';
+					var backbtn = '';
+					var styleTagContent = '';
+					var remainPreTag = '</style>';
+
+					var svgTagDef = '<svg version="1.1" id="Bangladesh" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="575.6px" height="600px" viewBox="0 0 445.6 510.6" enable-background="new 0 0 445.6 510.6" xml:space="preserve">';
 
 
-		$('#topinfoDiv').hide();
-		$('#topinfoDist').hide();
-		$('#topinfoOutlet').hide();
-		$('#dist_button').hide();
-		$('#out_button').hide();
+					//var firstTitle = 'Test Test  Test Test Test Test Test Test Test Test Test Test Test';
+					//var sourceName = $('#source_id option:selected').text() ? $('#source_id option:selected').text() : '';
+					//var cMapTitle = sourceName + capitalizeFirstLetter(x);
+					//var mapTitle = '<text id="map_title" y="15"> '+ firstTitle +'</text> <text id="c_map_title" x="80" y="30"> '+ cMapTitle +'</text>';
+
+					var cMapTitle = capitalizeFirstLetter(x);
+					var mapTitle = '<text id="map_title" x="80" y="30"> ' + cMapTitle + '</text>';
+
+					var zoombtn = '<g id="zoom_in" class="zoom_map notbtn"><path class="notbtn" fill="#F7F7F7" stroke="#CCCCCC" d="M8.368,67.282h23v0.25h0.049l0.05-19.449c0.101-2.5-2.699-2.4-2.699-2.4l-17-0.1c-4.101-0.4-3.7,2.898-3.7,2.898v19.051h0.3V67.282z" fill-opacity="0.5" stroke-opacity="0.8" /><rect x="8.368" y="67.282" fill="#F7F7F7" width="23" height="0.25" /><text id="zoom_in" transform="matrix(1 0 0 1 15.4065 60.5659)" fill="#4C4C4D" font-family="Tahoma" font-size="14">+</text></g> <g id="zoom_out" class="zoom_map notbtn"><path class="notbtn" fill="#F7F7F7" stroke="#CCCCCC" d="M31.342,67.919h-23l0,0l-0.271-0.032L8.042,86.121c0.2,3,2.5,3.1,2.5,3.1h17.1c3.7-0.199,3.7-2.801,3.7-2.801l0.042-18.49l0,0L31.342,67.919z" fill-opacity="0.5" stroke-opacity="0.8" /><text id="zoom_out" transform="matrix(1 0 0 1 17.7898 83.0659)" fill="#4C4C4D" font-family="Tahoma" font-size="14">-</text></g>';
+
+
+					var svgMapHtmlArr = bangladeshSVG[x].split("</style>");
+
+					if (svgMapHtmlArr[1] == undefined) {
+						remainPreTag = 'xml:space="preserve">';
+						svgMapHtmlArr = bangladeshSVG[x].split('xml:space="preserve">');
+					} else {
+						styleTagContent = (svgMapHtmlArr[0].split('<style type="text/css">')[1] != undefined) ? svgMapHtmlArr[0].split('<style type="text/css">')[1] : '';
+
+						if (styleTagContent == '') {
+							styleTagContent = (svgMapHtmlArr[0].split('<style>')[1] != undefined) ? svgMapHtmlArr[0].split('<style>')[1] : '';
+						}
+					}
+
+
+					if (x != 'bangladesh') {
+
+						var parent_region_id = 'bangladesh';
+
+						if (regionData[x] != undefined) {
+							var parent_region_id = regionData[x][0].parent_region_id ? regionData[x][0].parent_region_id : 'bangladesh';
+						}
+
+						if (parent_region_id == undefined) {
+							alert('No Data');
+							return;
+						}
+
+						var backbtn = '<g id="backbtn" class="backbtn notbtn" parent-id="' + parent_region_id + '"> <rect x="414.1" y="46.403" fill="#F7F7F7" stroke="#CCCCCC" stroke-width="0.5" stroke-miterlimit="10" width="48.666" height="17" fill-opacity="0.5" stroke-opacity="0.8" /><text transform="matrix(1 0 0 1 425.8352 58.7896)" fill="#444444" font-family="Tahoma" font-size="12">Back</text> </g>';
+
+					}
+
+
+					if (x != undefined && x != '' && x != 'bangladesh' && x != 'allDistrict') {
+						gScaleVal = (globalDefault.gZoomStatus == 1) ? gScaleVal : 0.7;
+						var groupG = '<g id="zoomInOut" class="zoomInOut drag" transform="translate(40,50) scale(' + gScaleVal + ')" animator="1">';
+					} else if (x != undefined && x != '' && x == 'allDistrict') {
+						gScaleVal = (globalDefault.gZoomStatus == 1) ? gScaleVal : 0.7;
+						var groupG = '<g id="zoomInOut" class="zoomInOut drag" transform="translate(0,40) scale(' + gScaleVal + ')" animator="1">';
+					} else {
+						gScaleVal = (globalDefault.gZoomStatus == 1) ? gScaleVal : 0.9;
+						var groupG = '<g id="zoomInOut" class="zoomInOut drag" transform="translate(40,0) scale(' + gScaleVal + ')" animator="1">';
+					}
+
+					var lastSvgArr = svgMapHtmlArr[1];
+					lastSvgArr = lastSvgArr.split("</svg>");
+					var lastSVG = lastSvgArr[0] + '</g>';
+					var lastSvgTag = '</svg>';
+
+					if (styleTagContent != '') {
+						styleTagContent = '<style>' + styleTagContent + '</style>';
+					}
+
+					var useSVGTag = '';
+					var titleAndZoomBtn = '<g id="show_up_in_map" class="notbtn">' + mapTitle + zoombtn + backbtn + '</g>';
+
+					svgMapHtml = svgTagDef + styleTagContent + remainPreTag + groupG + lastSVG + titleAndZoomBtn + useSVGTag + lastSvgTag;
+					//$("#changeSvgMap").html(svgMapHtml);
+					$(_this).html(svgMapHtml);
+
+					if (x != undefined && x != '' && x != 'bangladesh' && x != 'allDistrict') {
+						//document.getElementById('changeSvgMap').style.height = '610px';
+						$(_this).height('610px');
+					} else if (x != undefined && x != '' && x == 'allDistrict') {
+						$(_this).height('730px');
+					} else {
+						$(_this).height('610px');
+					}
+
+					var jsonConstituencyUpazilas = infosForconstituency.constituencyUpazilasData;
+
+					if (x.includes("District") && typeof jsonConstituencyUpazilas != 'undefined') {
+						var districtWiseUpazilas = infosForconstituency.districtWiseUpazilas;
+
+						//console.log('jsonConstituencyUpazilas : ' + JSON.stringify(jsonConstituencyUpazilas));
+						//console.log('districtWiseUpazilas : ' + JSON.stringify(districtWiseUpazilas));
+
+						for (e in districtWiseUpazilas) {
+							$('#' + districtWiseUpazilas[e])
+								.css({ 'fill-opacity': '0.1' });
+							//console.log('districtWiseUpazilas[e] : ' + districtWiseUpazilas[e]);
+						}
+
+						for (c in jsonConstituencyUpazilas) {
+							$('#' + jsonConstituencyUpazilas[c])
+								.css({ 'fill': 'rgba(64, 0, 128, 0.7)', 'fill-opacity': '0.7' });
+						}
+					}
+
+					if (x != undefined && regionData[x] != undefined) {
+						changeSVGMapVal(regionData[x]);
+					} else {
+
+						if (x.search("District") > -1) {
+							$("g#backbtn").attr('parent-id', parentForDistrictMap[x]);
+						}
+					}
+
+
+					gDragDropStatus = 0;
+					dragDrop();
+				}
+			}
+
+			function changeSVGMapVal(regionData) {
+
+				//console.log('regionData : ' + JSON.stringify(regionData));
+				for (i = 0; i < regionData.length; i++) {
+
+					var cssOptions = { 'fill-opacity': '1' };
+
+					if (typeof regionData[i].hasConstituency != 'undefined' && regionData[i].hasConstituency == 1) {
+						//cssOptions.fill = 'rgba(128, 94, 74, 1)';
+						cssOptions.fill = 'rgba(64, 0, 128, 1)';
+					}
+
+					$('#' + regionData[i].region_id)
+						//.css({'fill': 'rgba(11, 104, 170,' + regionData[i].population/highest_value +')'})
+						//.css({'fill-opacity': '1'})
+						.css(cssOptions)
+						.data('bangladesh_region', regionData[i]);
+				}
+				//holahola
+				$('.map g#zoomInOut path:not(.notbtn), .map g#zoomInOut g:not(.notbtn)').mouseover(function (e) {
+					var regionData = $(this).data('bangladesh_region') ? $(this).data('bangladesh_region') : '';
+					var region_name = regionData.region_name ? regionData.region_name : '';
+					var nationalArea = regionData.area ? 'Area: ' + regionData.area.toLocaleString("en-UK") + '<br>' : '';
+					var nationalPopulation = regionData.population ? 'Population: ' + regionData.population.toLocaleString("en-UK") + '<br>' : '';
+					var LottoOutlet = regionData.population ? 'Population: ' + regionData.population.toLocaleString("en-UK") + '<br>' : '';
+					var nationalPopulation = regionData.population ? 'Population: ' + regionData.population.toLocaleString("en-UK") + '<br>' : '';
+					// var disaggreegation = regionData.disaggreegation ? regionData.disaggreegation: '';
+
+					// var disaggreegationData = '';
+
+					// if(disaggreegation != undefined) {
+					// for (var d in disaggreegation){
+					// if (disaggreegation.hasOwnProperty(d)) {
+					// disaggreegationData += ' '+ d + ' : '+ disaggreegation[d] + '<br>';
+					// }
+					// }
+					// }
+
+					var hoverData = '';
+					if (regionData.region_name != undefined) {
+						//hoverData = regionData.region_name + '<br>' + nationalArea + '<br>' + disaggreegation;
+						hoverData = regionData.region_name + '<br>' + nationalArea + nationalPopulation;;
+					} else {
+						hoverData = 'No Data';
+					}
+
+					$('<div class="info_panel">' + hoverData + '</div>').appendTo('body');
+				})
+					.mouseleave(function () {
+						$('.info_panel').remove();
+					})
+					.mousemove(function (e) {
+						var mouseX = e.pageX, //X coordinates of mouse
+							mouseY = e.pageY; //Y coordinates of mouse
+
+						$('.info_panel').css({
+							top: mouseY - 100,
+							left: mouseX - ($('.info_panel').width() / 2)
+						});
+					});
+			}
+
+			function zoomToggle(zoomId) {
+
+				var zoomInOut = document.getElementById('zoomInOut');
+
+				if (zoomId == 'zoom_in') {
+					//gZoomStatus = 1;
+					gScaleVal = 1.3;
+					zoomInOut.setAttribute('transform', 'translate(-80, -10) scale(' + gScaleVal + ')');
+				} else if (zoomId == 'zoom_out') {
+
+					//gZoomStatus = 0;
+					gScaleVal = 0.7;
+					zoomInOut.setAttribute('transform', 'translate(40, 50) scale(' + gScaleVal + ')');
+				}
+			}
+
+			function capitalizeFirstLetter(string) {
+				string = string.replace(/([A-Z])/g, ' $1').trim();
+				//return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+				return toTitleCase(string);
+			}
+
+			function toTitleCase(str) {
+				return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+			}
+
+			function dragDrop() {
+				var svg = document.getElementsByTagName('svg')[0];
+				var svgNS = svg.getAttribute('xmlns');
+				var pt = svg.createSVGPoint();
+
+				function cursorPoint(evt) {
+					pt.x = evt.clientX; pt.y = evt.clientY;
+					return pt.matrixTransform(svg.getScreenCTM().inverse());
+				}
+
+				for (var a = svg.querySelectorAll('.drag'), i = 0, len = a.length; i < len; ++i) {
+					(function (el) {
+
+						var onmove; // make inner closure available for unregistration
+						el.addEventListener('mousedown', function (e) {
+							//el.parentNode.appendChild(el); // move to top
+							var x = el.tagName == 'circle' ? 'cx' : 'x';
+							var y = el.tagName == 'circle' ? 'cy' : 'y';
+							var mouseStart = cursorPoint(e);
+
+							onmove = function (e) {
+
+								var current = cursorPoint(e);
+
+								pt.x = current.x - mouseStart.x;
+								pt.y = current.y - mouseStart.y;
+
+
+								var rX = pt.x;
+								var rY = pt.y;
+
+								el.setAttribute('transform', 'translate(' + (rX) + ', ' + (rY) + ') scale(' + gScaleVal + ')');
+
+								gDragDropStatus = 1;
+
+							};
+							document.body.addEventListener('mousemove', onmove, false);
+
+						}, false);
+						document.body.addEventListener('mouseup', function () {
+							document.body.removeEventListener('mousemove', onmove, false);
+						}, false);
+					})(a[i]);
+				}
+
+			}
+
+
+		})(jQuery);
 
 
 
-		$('#divSide').hide();
-		$('#distSide').hide();
-		$('#outinfoSide').hide();
+		var regionsOfBangladeshDemo = {
+			"bangladesh": [
+				{
+					"region_name": "Rangpur",
+					"region_id": "rangpurDivision",
+					"area": 800,
+					"population": 9794525,
+					"Lotto Outlet": 45,
+					"Bata Outlet": 30,
+					"Apex Outlet": 45
 
+
+				},
+				{
+					"region_name": "Dhaka",
+					"region_id": "dhakaDivision",
+					"area": 700,
+					"population": 5769750
+				},
+				{
+					"region_name": "Rajshahi",
+					"region_id": "rajshahiDivision",
+					"area": 600,
+					"population": 5557276
+				},
+				{
+					"region_name": "Sylhet",
+					"region_id": "sylhetDivision",
+					"area": 500,
+					"population": 4999932
+				},
+				{
+					"region_name": "Mymensingh",
+					"region_id": "mymensinghDivision",
+					"area": 400,
+					"population": 4881756
+				},
+				{
+					"region_name": "Barishal",
+					"region_id": "barisalDivision",
+					"area": 300,
+					"population": 4377487
+				}
+				,
+				{
+					"region_name": "Khulna",
+					"region_id": "khulnaDivision",
+					"area": 200,
+					"population": 4374052
+				},
+				{
+					"region_name": "Chittagong",
+					"region_id": "chittagongDivision",
+					"area": 100,
+					"population": 4050803
+				}
+			],
+			"rangpurDivision": [
+				{
+					"parent_region_id": "bangladesh",
+					"region_name": "Panchagarh",
+					"region_id": "panchagarhDistrict",
+					"area": 8001,
+					"population": 9794525
+				},
+				{
+					"region_name": "Thakurgaon",
+					"region_id": "thakurgaonDistrict",
+					"area": 7001,
+					"population": 5769750
+				},
+				{
+					"region_name": "Dinajpur",
+					"region_id": "dinajpurDistrict",
+					"area": 6001,
+					"population": 5557276
+				},
+				{
+					"region_name": "Gaibandha",
+					"region_id": "gaibandhaDistrict",
+					"area": 5001,
+					"population": 4999932
+				},
+				{
+					"region_name": "Kurigram",
+					"region_id": "kurigramDistrict",
+					"area": 4001,
+					"population": 4881756
+				},
+				{
+					"region_name": "Rangpur",
+					"region_id": "rangpurDistrict",
+					"area": 3001,
+					"population": 4377487
+				},
+				{
+					"region_name": "Nilfamari",
+					"region_id": "nilphamariDistrict",
+					"area": 2001,
+					"population": 4374052
+				},
+				{
+					"region_name": "Lalmonirhat",
+					"region_id": "lalmonirhatDistrict",
+					"area": 1001,
+					"population": 4050803
+				}
+			],
+			"rajshahiDivision": [
+				{
+					"parent_region_id": "bangladesh",
+					"region_name": "Nawabganj",
+					"region_id": "nawabganjDistrict",
+					"area": 801,
+					"population": 9794525
+				},
+				{
+					"region_name": "Naogaon",
+					"region_id": "naogaonDistrict",
+					"area": 701,
+					"population": 5769750
+				},
+				{
+					"region_name": "Joypurhat",
+					"region_id": "joypurhatDistrict",
+					"area": 601,
+					"population": 5557276
+				},
+				{
+					"region_name": "Bogra",
+					"region_id": "bograDistrict",
+					"area": 501,
+					"population": 4999932
+				},
+				{
+					"region_name": "Sirajganj",
+					"region_id": "sirajganjDistrict",
+					"area": 401,
+					"population": 4881756
+				},
+				{
+					"region_name": "Pabna",
+					"region_id": "pabnaDistrict",
+					"area": 301,
+					"population": 4377487
+				},
+				{
+					"region_name": "Natore",
+					"region_id": "natoreDistrict",
+					"area": 201,
+					"population": 4374052
+				},
+				{
+					"region_name": "Rajshahi",
+					"region_id": "rajshahiDistrict",
+					"area": 101,
+					"population": 4050803
+				}
+			],
+			"barisalDivision": [
+				{
+					"region_name": "Barguna",
+					"color_code": "#a1998;",
+					"region_id": "bargunaDistrict",
+					"area": 7001,
+					"population": 13434534,
+					"parent_region_name": "Bangladesh",
+					"parent_region_id": "bangladesh"
+				},
+				{
+					"region_name": "Barisal",
+					"color_code": "#a1998;",
+					"region_id": "barisalDistrict",
+					"area": 7002,
+					"population": 3434534,
+				}
+			],
+			"rangpurDistrict": [
+				{
+					"parent_region_id": "rangpurDivision",
+					"region_name": "Gangachhara",
+					"region_id": "gangachharaUpazila",
+					"area": 5001,
+					"population": 9794525
+				},
+				{
+					"region_name": "Badarganj",
+					"region_id": "badarganjUpazila",
+					"area": 5001,
+					"population": 5769750
+				},
+				{
+					"region_name": "Taraganj",
+					"region_id": "taraganjUpazila",
+					"area": 5001,
+					"population": 5557276
+				},
+				{
+					"region_name": "Pirganj",
+					"region_id": "pirganjUpazila",
+					"area": 5001,
+					"population": 4999932
+				},
+				{
+					"region_name": "Mithapukur",
+					"region_id": "mithapukurUpazila",
+					"area": 5001,
+					"population": 4881756
+				},
+				{
+					"region_name": "Rangpur Sadar",
+					"region_id": "rangpursadarUpazila",
+					"area": 5001,
+					"population": 4377487
+				},
+				{
+					"region_name": "Kaunia",
+					"region_id": "kauniaUpazila",
+					"area": 5001,
+					"population": 4374052
+				},
+				{
+					"region_name": "Pirgachha",
+					"region_id": "pirgachhaUpazila",
+					"area": 5001,
+					"population": 4050803
+				}
+			],
+			"bargunaDistrict": [
+				{
+					"parent_region_id": "barisalDivision",
+					"region_name": "Amtali",
+					"region_id": "amtaliUpazila",
+					"area": 43,
+					"population": 102
+				},
+				{
+					"region_name": "Barguna sadar",
+					"region_id": "bargunasadarUpazila",
+					"area": 43,
+					"population": 102
+				},
+				{
+					"region_name": "Taltali",
+					"region_id": "taltaliUpazila",
+					"area": 37,
+					"population": 101
+				}
+			]
+		};
+
+		var selectedAllDistrict = selectedDivision = selectedDistrict = '';
+		var regionsOfBangladesh = regionsOfBangladeshDemo;
+		var regionKey = 'bangladesh';
+		var title = 'Bangladesh MAP';
+
+		selectedDistrict = 'rangpurDistrict';
+
+		if (selectedAllDistrict == 'allDistrict') {
+			regionKey = selectedAllDistrict;
+		}
+
+		if (selectedDivision != '') {
+			regionKey = selectedDivision;
+		}
+
+		if (selectedDistrict != '') {
+			regionKey = selectedDistrict;
+		}
+
+
+		$("#changeSvgMap").generateMap({
+			'title': title,
+			'regionKey': regionKey,
+			'regionData': regionsOfBangladesh
+		});
+	});
+</script>
+<!--<div class="card-body" style="">
+
+	<video id="video" style="width: 100%;height: 100%;" autoplay muted>
+		<source src="~/assets/Video/loading.mp4" type="video/mp4" autoplay="true" />
+
+
+	</video>
+
+	<div class="col-md-12" id="mapload">
+		<div class="row">
+			<div class="col-md-9" style="border-right:solid 10px;">-->
+@*<div id="chartdiv"></div>*@
+
+
+
+<!--<div class="map" id="changeSvgMap">
+				</div>
+				<div class="col-md-3" style="text-align:center;justify-content:center;">
+					<div class="row center">
+						<img onclick="mapChange()" class="logo" src="~/assets/IMG/store.png" />
+						<h2>106 Retails Outlets</h2>
+
+
+					</div>
+
+					<hr />
+					<div class="row center">
+						<img class="logo" src="~/assets/IMG/shop.png" />
+
+						<h2>201 Franchise </h2>
+
+
+					</div>
+
+					<hr />
+					<div class="row center">
+						<img class="logo" src="~/assets/IMG/shops.png" />
+
+						<h2>500 Dealers</h2>
+
+
+					</div>
+
+					<hr />
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>-->
+@*<script>
+
+		$(document).ready(function () {
+			var regionsOfBangladeshDemo = {
+				"bangladesh": [
+					{
+						"region_name": "Rangpur",
+						"region_id": "rangpurDivision",
+						"area": 800,
+						"population": 9794525
+					},
+					{
+						"region_name": "Dhaka",
+						"region_id": "dhakaDivision",
+						"area": 700,
+						"population": 5769750
+					},
+					{
+						"region_name": "Rajshahi",
+						"region_id": "rajshahiDivision",
+						"area": 600,
+						"population": 5557276
+					},
+					{
+						"region_name": "Sylhet",
+						"region_id": "sylhetDivision",
+						"area": 500,
+						"population": 4999932
+					},
+					{
+						"region_name": "Mymensingh",
+						"region_id": "mymensinghDivision",
+						"area": 400,
+						"population": 4881756
+					},
+					{
+						"region_name": "Barishal",
+						"region_id": "barisalDivision",
+						"area": 300,
+						"population": 4377487
+					}
+					,
+					{
+						"region_name": "Khulna",
+						"region_id": "khulnaDivision",
+						"area": 200,
+						"population": 4374052
+					},
+					{
+						"region_name": "Chittagong",
+						"region_id": "chittagongDivision",
+						"area": 100,
+						"population": 4050803
+					}
+				],
+				"rangpurDivision": [
+					{
+						"parent_region_id": "bangladesh",
+						"region_name": "Panchagarh",
+						"region_id": "panchagarhDistrict",
+						"area": 8001,
+						"population": 9794525
+					},
+					{
+						"region_name": "Thakurgaon",
+						"region_id": "thakurgaonDistrict",
+						"area": 7001,
+						"population": 5769750
+					},
+					{
+						"region_name": "Dinajpur",
+						"region_id": "dinajpurDistrict",
+						"area": 6001,
+						"population": 5557276
+					},
+					{
+						"region_name": "Gaibandha",
+						"region_id": "gaibandhaDistrict",
+						"area": 5001,
+						"population": 4999932
+					},
+					{
+						"region_name": "Kurigram",
+						"region_id": "kurigramDistrict",
+						"area": 4001,
+						"population": 4881756
+					},
+					{
+						"region_name": "Rangpur",
+						"region_id": "rangpurDistrict",
+						"area": 3001,
+						"population": 4377487
+					},
+					{
+						"region_name": "Nilfamari",
+						"region_id": "nilphamariDistrict",
+						"area": 2001,
+						"population": 4374052
+					},
+					{
+						"region_name": "Lalmonirhat",
+						"region_id": "lalmonirhatDistrict",
+						"area": 1001,
+						"population": 4050803
+					}
+				],
+				"rajshahiDivision": [
+					{
+						"parent_region_id": "bangladesh",
+						"region_name": "Nawabganj",
+						"region_id": "nawabganjDistrict",
+						"area": 801,
+						"population": 9794525
+					},
+					{
+						"region_name": "Naogaon",
+						"region_id": "naogaonDistrict",
+						"area": 701,
+						"population": 5769750
+					},
+					{
+						"region_name": "Joypurhat",
+						"region_id": "joypurhatDistrict",
+						"area": 601,
+						"population": 5557276
+					},
+					{
+						"region_name": "Bogra",
+						"region_id": "bograDistrict",
+						"area": 501,
+						"population": 4999932
+					},
+					{
+						"region_name": "Sirajganj",
+						"region_id": "sirajganjDistrict",
+						"area": 401,
+						"population": 4881756
+					},
+					{
+						"region_name": "Pabna",
+						"region_id": "pabnaDistrict",
+						"area": 301,
+						"population": 4377487
+					},
+					{
+						"region_name": "Natore",
+						"region_id": "natoreDistrict",
+						"area": 201,
+						"population": 4374052
+					},
+					{
+						"region_name": "Rajshahi",
+						"region_id": "rajshahiDistrict",
+						"area": 101,
+						"population": 4050803
+					}
+				],
+				"barisalDivision": [
+					{
+						"region_name": "Barguna",
+						"color_code": "#a1998;",
+						"region_id": "bargunaDistrict",
+						"area": 7001,
+						"population": 13434534,
+						"parent_region_name": "Bangladesh",
+						"parent_region_id": "bangladesh"
+					},
+					{
+						"region_name": "Barisal",
+						"color_code": "#a1998;",
+						"region_id": "barisalDistrict",
+						"area": 7002,
+						"population": 3434534,
+					}
+				],
+				"rangpurDistrict": [
+					{
+						"parent_region_id": "rangpurDivision",
+						"region_name": "Gangachhara",
+						"region_id": "gangachharaUpazila",
+						"area": 5001,
+						"population": 9794525
+					},
+					{
+						"region_name": "Badarganj",
+						"region_id": "badarganjUpazila",
+						"area": 5001,
+						"population": 5769750
+					},
+					{
+						"region_name": "Taraganj",
+						"region_id": "taraganjUpazila",
+						"area": 5001,
+						"population": 5557276
+					},
+					{
+						"region_name": "Pirganj",
+						"region_id": "pirganjUpazila",
+						"area": 5001,
+						"population": 4999932
+					},
+					{
+						"region_name": "Mithapukur",
+						"region_id": "mithapukurUpazila",
+						"area": 5001,
+						"population": 4881756
+					},
+					{
+						"region_name": "Rangpur Sadar",
+						"region_id": "rangpursadarUpazila",
+						"area": 5001,
+						"population": 4377487
+					},
+					{
+						"region_name": "Kaunia",
+						"region_id": "kauniaUpazila",
+						"area": 5001,
+						"population": 4374052
+					},
+					{
+						"region_name": "Pirgachha",
+						"region_id": "pirgachhaUpazila",
+						"area": 5001,
+						"population": 4050803
+					}
+				],
+				"bargunaDistrict": [
+					{
+						"parent_region_id": "barisalDivision",
+						"region_name": "Amtali",
+						"region_id": "amtaliUpazila",
+						"area": 43,
+						"population": 102
+					},
+					{
+						"region_name": "Barguna sadar",
+						"region_id": "bargunasadarUpazila",
+						"area": 43,
+						"population": 102
+					},
+					{
+						"region_name": "Taltali",
+						"region_id": "taltaliUpazila",
+						"area": 37,
+						"population": 101
+					}
+				]
+			};
+
+			var selectedAllDistrict = selectedDivision = selectedDistrict = '';
+			var regionsOfBangladesh = regionsOfBangladeshDemo;
+			var regionKey = 'bangladesh';
+			var title = 'Bangladesh MAP';
+
+			selectedDistrict = 'rangpurDistrict';
+
+			if (selectedAllDistrict == 'allDistrict') {
+				regionKey = selectedAllDistrict;
+			}
+
+			if (selectedDivision != '') {
+				regionKey = selectedDivision;
+			}
+
+			if (selectedDistrict != '') {
+				regionKey = selectedDistrict;
+			}
+
+
+			$("#changeSvgMap").generateMap({
+				'title': title,
+				'regionKey': regionKey,
+				'regionData': regionsOfBangladesh
+			});
+		});
+	</script>*@
+
+@*<style>
+		#chartdiv {
+			width: 100%;
+			height: 500px;
+			overflow: hidden;
+		}
+	</style>*@
+
+<!-- Resources -->
+@*<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+	<script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+	<script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+	<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>*@
+
+<!-- Chart code -->
+@*<script>
+	$(document).ready(function () {
 		$('#mapload').hide();
-
-
 		document.getElementById('video').play();
-		setTimeout(mapload, 10);
+		setTimeout(mapload, 1000)
+		/*	initmap();*/
 
-
-		/*PieGraph();*/
-
-		$('#image').hide();
-		$('#backBtn').hide();
-
-
-		//$(".number").counterUp({time: 3000 });
-		//RPT_TOPCOMPOUT();
 	});
 
-
-
-
-
 	function mapload() {
-
-		$('.division').attr("data-maptype", "100"); //setter
-
-
-		ALL_MAP('BD-ALL', '100');
 		$('#video').hide();
 		$('#mapload').show();
-
-
-	}
-	//	heading
-
-	function vedio_play() {
-		$('#mapload').hide();
-		$('#divSide').hide();
-		$('#outinfoSide').hide();
-		document.getElementById('video').play();
 	}
 
-	function load_data(type) {
-		switch (type) {
-			case '100':
-				$('.division').attr("data-maptype", "100"); //setter
-				//$('.division').data('data-maptype', 100); //setter
-				//changeMap('BD-ALL');
-				ALL_MAP('BD-ALL', type);
-
-				break;
-			case '102':
-				$('.division').attr("data-maptype", "102"); //setter
-				//	$('.division').data('maptype', 102);
-				//changeMap('BD-ALL');
-				ALL_MAP('BD-ALL', type);
-
-				break;
-			default:
-				$('.division').attr("data-maptype", "100"); //setter
-
-		}
-
+	function mapChange() {
+		custommap();
 	}
+	//function initmap() {
 
+	//	am4core.ready(function () {
 
-	function MapData(type) {
-		//vedio_play();
+	//		am4core.useTheme(am4themes_animated);
 
-		//setTimeout(load_data(type),5000);
+	//		var chart = am4core.create("chartdiv", am4maps.MapChart);
+	//		chart.geodata = am4geodata_bangladeshHigh;
+	//		chart.projection = new am4maps.projections.Miller();
 
 
-		$.ajax({
-			url: '/Map/Selected_Org_Type',
-			type: 'POST',
-			contentType: "application/json;charset=utf-8",
-			dataType: "json",
-			data: JSON.stringify(
-				{
-					_MapType: type,
 
-				}
-			),
-			success: function (response) {
-				//	alert(response);
-				$('.division').attr("data-maptype", response); //setter
-				//$('.division').data('data-maptype', 100); //setter
-				//changeMap('BD-ALL');
-				ALL_MAP('BD-ALL', response);
+	//		chart.homeGeoPoint = {
+	//			latitude: 23,
+	//			longitude: 90
+	//		}
+	//		chart.homeZoomLevel = 0.75;
+	//		chart.minZoomLevel = 0.75;
 
 
+	//		var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+	//		polygonSeries.exclude = ["AQ"];
+	//		polygonSeries.useGeodata = true;
 
 
-				//switch (type) {
-				//	case '100':
-				//		$('.division').attr("data-maptype", "100"); //setter
 
-				//		ALL_MAP('BD-ALL', type);
+	//		var polygonTemplate = polygonSeries.mapPolygons.template;
+	//		polygonTemplate.tooltipText = "{name}";
+	//		polygonTemplate.polygon.fillOpacity = 0.6;
+	//		polygonTemplate.adapter.add("fill", function (fill, target) {
 
-				//		break;
-				//	case '102':
-				//		$('.division').attr("data-maptype", "102"); //setter
+	//			if (target.dataItem.index > 0) {
 
+	//				return chart.colors.getIndex(target.dataItem.index);
+	//			}
+	//			return fill;
+	//		})
 
-				//		ALL_MAP('BD-ALL', type);
 
-				//		break;
-				//	default:
-				//		$('.division').attr("data-maptype", "100"); //setter
+	//		chart.colors.list = [
+	//			am4core.color("#9DE0AD"),
+	//			am4core.color("#A7226E"),
+	//			am4core.color("#EC2049"),
+	//			am4core.color("#F26B38"),
+	//			am4core.color("#F7DB4F"),
+	//			am4core.color("#2F9599"),
 
-				//}
-			}
-		});
+	//			am4core.color("#FC9D9A"),
+	//			am4core.color("#C8C8A9"),
+	//			am4core.color("#83AF9B")
 
+	//		];
 
+	//		//var hs = polygonTemplate.states.create("hover");
+	//		//hs.properties.fill = chart.colors.getIndex(0);
+	//		//var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+	//		//imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+	//		//imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+	//		//imageSeries.mapImages.template.tooltipText = "{title}";
+	//		//imageSeries.mapImages.template.propertyFields.url = "url";
 
+	//		//var circle = imageSeries.mapImages.template.createChild(am4core.Circle);
+	//		//circle.radius = 3;
+	//		//circle.propertyFields.fill = "color";
+	//		//circle.nonScaling = true;
 
+	//		//var circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
+	//		//circle2.radius = 3;
+	//		//circle2.propertyFields.fill = "color";
 
 
+	//		//circle2.events.on("inited", function (event) {
+	//		//	animateBullet(event.target);
+	//		//})
+	//		//function animateBullet(circle) {
+	//		//	var animation = circle.animate([{ property: "scale", from: .1 / chart.zoomLevel, to: .5 / chart.zoomLevel }, { property: "opacity", from: 1, to: 0 }], 1000, am4core.ease.circleOut);
+	//		//	animation.events.on("animationended", function (event) {
+	//		//		animateBullet(event.target.object);
+	//		//	})
+	//		//}
 
-	}
+	//		//var colorSet = new am4core.ColorSet();
 
-	function ALL_MAP(vDivision, type) {
-		mapchange(vDivision, 1, type);
 
-	}
-	function changeMap(vDivision, filtType) {
+	//	});
+	//}
 
-		if (vDivision == "BD-ALL" || vDivision == "BD-A" || vDivision == "BD-B" || vDivision == "BD-C" || vDivision == "BD-D" || vDivision == "BD-E" || vDivision == "BD-F" || vDivision == "BD-G" || vDivision == "BD-H")
-			$('#backBtn').attr("data-division", vDivision);
-		else
-			$('#backBtn').attr("data-district", vDivision);
 
 
-		distGenerate(vDivision);
 
-		barinfo(vDivision, filtType); //1 for division info and 2 for districts
-		var vMapType = $('.division').attr("data-maptype"); //setter     //$('.division').data('maptype'); //getter
 
-		//mapchange(vDivision, vMapType);
+*@
 
-
-		$.ajax({
-			url: '/Map/GetSelected_Org_Type',
-			type: 'POST',
-			contentType: "application/json;charset=utf-8",
-			dataType: "json",
-
-			success: function (response) {
-				mapchange(vDivision, filtType, response);
-			}
-		});
-
-
-
-
-
-
-
-
-	}
-
-
-
-
-	function mapchange(vDivision, filtType, vMapType) {
-
-
-
-
-		if (vMapType == 100) {
-			$('#heading').html("Retail Outlets Throughout The Country");
-		}
-		if (vMapType == 102) {
-			$('#heading').html("Franchise Outlets Throughout The Country");
-		}
-		$('#outinfoSide').hide();
-		$('#topinfoOutlet').hide();
-
-
-		if (vDivision == 'BD-ALL') {
-
-			$('#distSide').hide();
-			$('#divSide').hide();
-
-			$('#outinfoSide').hide();
-			$('#backBtn').hide();
-			$('#countrySide').show();
-		}
-
-		if (vDivision == 'BD-A' || vDivision == 'BD-B' || vDivision == 'BD-C' || vDivision == 'BD-D' || vDivision == 'BD-E' || vDivision == 'BD-F' || vDivision == 'BD-G' || vDivision == 'BD-H') {
-
-			$('#distSide').hide();
-			$('#countrySide').hide();
-			$('#outinfoSide').hide();
-			$('#backBtn').show();
-			$('#divSide').show();
-		}
-
-		if (vDivision != 'BD-ALL' && vDivision != 'BD-A' && vDivision != 'BD-B' && vDivision != 'BD-C' && vDivision != 'BD-D' && vDivision != 'BD-E' && vDivision != 'BD-F' && vDivision != 'BD-G' && vDivision != 'BD-H') {
-
-
-			$('#divSide').hide();
-			$('#countrySide').hide();
-			$('#outinfoSide').hide();
-			$('#distSide').show();
-			$('#backBtn').show();
-
-		}
-
-		var vType = '';
-		var vDiv = '';
-
-		switch (vMapType) {
-			case 100:
-				vType = 'Retail';
-				//	$('.division').attr("data-maptype", "100"); //setter
-				//$('.division').data('data-maptype', 100); //setter
-				//changeMap('BD-ALL');
-
-				break;
-			case 102:
-				vType = 'Franchise';
-				//$('.division').attr("data-maptype", "102"); //setter
-				//	//	$('.division').data('maptype', 102);
-				//	changeMap('BD-ALL');
-
-				break;
-			default:
-				vType = 'Retail';
-				break;
-
-		}
-
-		//if (vMapType = 100) {
-		//	vType = 'Retail';
-		//}
-
-		//if (vMapType = 102) {
-		//	vType = 'Franchise';
-		//}
-		//alert(vDivision)
-		switch (vDivision) {
-
-			case 'BD-A':
-				vDiv = 'Barisal';
-
-				break;
-
-			case 'BD-C':
-				vDiv = 'Dhaka';
-				break;
-			case 'BD-B':
-				vDiv = 'Chittagong';
-				break;
-			case 'BD-G':
-				vDiv = 'Sylhet';
-				break;
-			case 'BD-E':
-				vDiv = 'Rajshahi';
-				break;
-			case 'BD-F':
-				vDiv = 'Rangpur';
-				break;
-
-			case 'BD-H':
-				vDiv = 'Mymensing';
-				break;
-			case 'BD-D':
-				vDiv = 'Khulna';
-				break;
-			case 'BD-ALL':
-				vDiv = 'Country';
-				break;
-
-		}
-		$("#heading").html(vType + " Outlets Throughout " + vDiv);
-
-		if (vDivision != 'BD-ALL' && vDivision != 'BD-A' && vDivision != 'BD-B' && vDivision != 'BD-C' && vDivision != 'BD-D' && vDivision != 'BD-E' && vDivision != 'BD-F' && vDivision != 'BD-G' && vDivision != 'BD-H') {
-
-
-			$("#heading").html(vType + " Outlets Throughout " + vDivision);
-
-
-		}
-
-
-		let district = ["Comilla", "Feni", "Brahmanbaria", "Rangamati", "Noakhali", "Chandpur", "Lakshmipur", "Chattogram", "Coxsbazar", "Khagrachhari", "Bandarban", "Sirajganj", "Pabna", "Bogura", "Rajshahi", "Natore", "Joypurhat", "Chapainawabganj", "Naogaon", "Jessore", "Satkhira", "Meherpur", "Narail", "Chuadanga", "Kushtia", "Magura", "Khulna", "Bagerhat", "Jhenaidah", "Jhalakathi", "Patuakhali", "Pirojpur", "Barisal", "Bhola", "Barguna", "Sylhet", "Moulvibazar", "Habiganj", "Sunamganj", "Narsingdi", "Gazipur", "Shariatpur", "Narayanganj", "Tangail", "Kishoreganj", "Manikganj", "Dhaka", "Munshiganj", "Rajbari", "Madaripur", "Gopalganj", "Faridpur", "Panchagarh", "Dinajpur", "Lalmonirhat", "Nilphamari", "Gaibandha", "Thakurgaon", "Rangpur", "Kurigram", "Sherpur", "Mymensingh", "Jamalpur", "Netrokona"];
-
-		let Dhaka = ["Dhaka", "Faridpur", "Gazipur", "Gopalganj", "Kishoreganj", "Madaripur", "Manikganj", "Munshiganj", "Narayanganj", "Narsingdi", "Rajbari", "Shariatpur", "Tangail"];
-
-		let Chittagong = ["Bandarban", "Brahmanbaria", "Chandpur", "Chattogram", "Comilla", "Coxsbazar", "Feni", "Khagrachhari", "Lakshmipur", "Noakhali", "Rangamati"];
-
-		let Sylhet = ["Habiganj", "Moulvibazar", "Sunamganj", "Sylhet"];
-		let Mymensingh = ["Jamalpur", "Mymensingh", "Netrokona", "Sherpur"];
-		let Rajshahi = ["Bogura", "Chapainawabganj", "Joypurhat", "Naogaon", "Natore", "Pabna", "Rajshahi", "Sirajganj"];
-
-		let Khulna = ["Bagerhat", "Chuadanga", "Jessore", "Jhenaidah", "Khulna", "Kushtia", "Magura", "Meherpur", "Narail", "Satkhira"];
-		let Rongpur = ["Dinajpur", "Gaibandha", "Kurigram", "Lalmonirhat", "Nilphamari", "Panchagarh", "Rangpur", "Thakurgaon"];
-		let Barishal = ["Barguna", "Barisal", "Bhola", "Jhalakathi", "Patuakhali", "Pirojpur"];
-
-
-
-
-		$.ajax({
-			url: '/Chart/OutletLists',
-			type: 'POST',
-			contentType: "application/json;charset=utf-8",
-			dataType: "json",
-			data: JSON.stringify(
-				{
-					_DivisionID: vDivision,
-					_MapType: vMapType,
-					_FILT_TYPE: filtType
-
-				}
-			),
-			success: function (response) {
-
-				for (var i = 0; i < response.length; i++) {
-
-					if (response[i].EXTERNALID == 'G001') {
-						var Factory = response[i].EXTERNALID;
-					}
-				}
-
-				if (response.length > 0) {
-
-					/*am4core.useTheme(am4themes_animated);*/
-					am4core.useTheme(am4themes_kelly);
-					//am4core.unuseTheme(am4themes_dark);
-
-					// Create map instance
-					var chart = am4core.create("chartdiv8", am4maps.MapChart);
-
-					// Set map definition
-					//chart.geodata = am4geodata_bangladeshHigh;
-
-					// Set projection
-					chart.projection = new am4maps.projections.Miller();
-
-					// Create map polygon series for world map
-					var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
-					polygonSeries.useGeodata = true;
-					polygonSeries.geodata = am4geodata_bangladeshHigh;
-
-
-
-
-
-
-
-					if (String(vDivision).includes("BD-")) {
-						switch (vDivision) {
-							case 'BD-A':
-								polygonSeries.include = Barishal;
-								break;
-
-							case 'BD-C':
-								polygonSeries.include = Dhaka;
-								break;
-							case 'BD-B':
-								polygonSeries.include = Chittagong;
-								break;
-							case 'BD-G':
-								polygonSeries.include = Sylhet;
-								break;
-							case 'BD-E':
-								polygonSeries.include = Rajshahi;
-								break;
-							case 'BD-F':
-								polygonSeries.include = Rongpur;
-								break;
-							case 'BD-H':
-								polygonSeries.include = Mymensingh;
-								break;
-							case 'BD-D':
-								polygonSeries.include = Khulna;
-								break;
-							case 'BD-ALL':
-								polygonSeries.include = district;
-								break;
-
-						}
-					}
-					else {
-						polygonSeries.include = vDivision;
-					}
-
-
-
-					//else {
-					//	polygonSeries.include = [vDivision]
-
-					//}
-
-					// //Configure label series
-					//if (vDivision !== 'BD-ALL') {
-
-					//	var labelSeries = chart.series.push(new am4maps.MapImageSeries());
-					//	var labelTemplate = labelSeries.mapImages.template.createChild(am4core.Label);
-					//	labelTemplate.horizontalCenter = "middle";
-					//	labelTemplate.verticalCenter = "middle";
-					//	labelTemplate.textAlign = "middle";
-					//	labelTemplate.fontSize = 20;
-					//	labelTemplate.interactionsEnabled = false;
-					//	labelTemplate.nonScaling = false;
-
-
-
-					//	// Set up label series to populate
-
-
-					//	polygonSeries.events.on("inited", function () {
-					//		for (var i = 0; i < district.length; i++) {
-					//			var polygon = polygonSeries.getPolygonById(district[i]);
-					//			if (polygon) {
-					//				var label = labelSeries.mapImages.create();
-					//				var districtName = districtShortName[i];
-					//				label.latitude = polygon.visualLatitude;
-					//				label.longitude = polygon.visualLongitude;
-					//				label.children.getIndex(0).text = districtName;
-
-
-					//				label.rotation = -30;
-					//			}
-					//		}
-					//	});
-					//}
-
-					var polygonTemplate = polygonSeries.mapPolygons.template;
-					polygonTemplate.tooltipText = "{name}";
-					polygonTemplate.nonScalingStroke = true;
-					polygonTemplate.strokeOpacity = 0.3;
-
-					if (vDivision !== 'BD-ALL') {
-						polygonTemplate.tooltipPosition = "fixed";
-						polygonTemplate.showTooltipOn = "always";
-					}
-					var dropShadowFilter = new am4core.DropShadowFilter();
-					dropShadowFilter.blur = 5;
-					polygonTemplate.filters.push(dropShadowFilter);
-
-
-
-
-
-					polygonTemplate.fill = am4core.color("#eee");
-
-					polygonSeries.mapPolygons.template.adapter.add("fill", function (fill, target) {
-						return chart.colors.getIndex(i++).saturate(1);
-
-					})
-
-					polygonTemplate.fillOpacity = .5;
-
-
-
-					//Create pattern inside the polygon
-
-
-					//polygonSeries.mapPolygons.template.adapter.add("fill", function (fill, target) {
-					//	var pattern = new am4core.LinePattern();
-					//	pattern.width = 3;
-					//	pattern.height = 3;
-					//	pattern.strokeWidth = 1;
-					//	pattern.stroke = chart.colors.getIndex(i++).saturate(0.4);
-					//	pattern.rotation = 45;
-					//	return pattern;
-					//});
-
-
-
-
-					// Create hover state and set alternative fill color
-					var hs = polygonTemplate.states.create("hover");
-					/*	hs.properties.fill = chart.colors.getIndex(0);*/
-					hs.properties.fill = am4core.color("#9DE0AD");
-
-
-					// Add image series
-					var imageSeries = chart.series.push(new am4maps.MapImageSeries());
-					imageSeries.mapImages.template.propertyFields.longitude = "longitude";
-					imageSeries.mapImages.template.propertyFields.latitude = "latitude";
-					imageSeries.mapImages.template.tooltipText = "{title}";
-					imageSeries.mapImages.template.propertyFields.url = "url";
-
-
-
-
-					//To keep the tooltip text shown
-
-					//if (vDivision !== 'BD-ALL') {
-					//	imageSeries.mapImages.template.showTooltipOn = "always";
-					//}
-
-
-					var circle = imageSeries.mapImages.template.createChild(am4core.Circle);
-
-					circle.radius = 2;
-					circle.propertyFields.fill = "color";
-					circle.nonScaling = true;
-
-					var circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
-					circle2.radius = 5;
-					circle2.propertyFields.fill = "color";
-
-
-
-
-
-					circle2.events.on("inited", function (event) {
-						animateBullet(event.target);
-					})
-
-
-
-					circle2.events.on("hit", (e) => {
-						var g_id = e?.event?.path?.[3]?.id;
-						//console.log(g_id);
-						var outlet = $("[aria-describedby=" + g_id)?.[0]?.innerHTML.split("tspan")[1].split(" ")[0].replace(">", "");
-						//alert(outlet);
-						Outlet_Charts(outlet);
-
-
-					});
-
-
-
-					function animateBullet(circle) {
-						var animation = circle.animate([{ property: "scale", from: 1 / chart.zoomLevel, to: 2 / chart.zoomLevel }, { property: "opacity", from: 1, to: 0 }], 1000, am4core.ease.circleOut);
-						animation.events.on("animationended", function (event) {
-							animateBullet(event.target.object);
-						})
-					}
-
-
-
-					var colorSet = new am4core.ColorSet(); //
-
-					var data = [];
-					var vColor = "#00FFE3";
-					if (vMapType == 100) { vColor = "#DAF7A6"; }
-
-					for (let i = 0; i < response.length && response != "ERROR"; i++) {
-						data.push(
-							{
-								"title": response[i].OUTLET_NAME,
-								"latitude": response[i].LATTITUDE,
-								"longitude": response[i].LONGITUDE,
-								//	if(vMapType==100) {
-								"color": am4core.color(vColor)
-								//	}
-								//			else{
-								//"color": am4core.color("yellow")
-								//			}
-							}
-						)
-					}
-					imageSeries.data = data;
-				}
-
-			}
-
-		});
-	}
-
-
-
-
-
-	function distGenerate(vDivision) {
-		var divID;
-		var color;
-		if (vDivision == 'BD-A') {
-			divID = 3;
-			color = 'gilded';
-		}
-		if (vDivision == 'BD-B') {
-			divID = 2;
-			color = 'mandarinorange';
-		}
-		if (vDivision == 'BD-C') {
-			divID = 1;
-			color = 'aqualake';
-		}
-		if (vDivision == 'BD-D') {
-			divID = 4;
-			color = 'cheguevarared';
-		}
-		if (vDivision == 'BD-E') {
-			divID = 6;
-			color = 'woodcharocal';
-		}
-		if (vDivision == 'BD-F') {
-			divID = 7;
-			color = 'carroburgcrimson';
-
-		}
-		if (vDivision == 'BD-G') {
-			divID = 5;
-			color = 'dead99';
-
-		}
-		if (vDivision == 'BD-H') {
-			divID = 8;
-			color = 'trappeddarkness';
-		}
-
-		var result = '';
-		$.ajax({
-			url: '/map/DIST_LISTS',
-			type: 'POST',
-			contentType: "application/json;charset=utf-8",
-			dataType: "json",
-			data: JSON.stringify({
-				_DIVID: divID,
-				_ORGTYPE: 100
-			}),
-			success: function (response) {
-
-
-
-
-				if (response.length > 0) {
-
-
-					for (var i = 0; i < response.length; i++) {
-						result += '<div class="col-md-2"><button type="button" id=' + response[i].MAP_POL_ID + ' data-distid=' + response[i].DISTRICTSID + '  class="btn ' + color + ' bubbly-button btn-block" style="padding:0px; margin:5px; height: 80% !important" onclick="districtAppend(' + response[i].POL_NAME + ', ' + 2 + ', ' + response[i].DISTRICTSID + ',' + response[i].OUTLET_CODES + ')">' + response[i].NAME + ' - ' + response[i].OUTLET_COUNT + '</button></div>';
-
-					}
-					$('#lotto_count').html(response[0].LOTTO_OUT_COUNT);
-					$('#Frn_count').html(response[0].FRANC_COUNT);
-					$('#bata_count').html(response[0].BATA_COUNT);
-					$('#apex_count').html(response[0].APEX_COUNT);
-
-					$('#dist_button').html(result);
-					$('#dist_button').show();
-					$('#div_button').hide();
-
-				}
-			}
-		});
-	}
-
-	function districtAppend(vDivision, filtType, districtId, OutletCodes) {
-
-
-
-
-
-
-		changeMap(vDivision, filtType);
-		//getdistwiseout(districtId);
-		SalesData(OutletCodes);
-		getOutlets(districtId, filtType);
-
-	}
-
-
-
-
-	//Bangladesh MAp Ends
-	function outinfoSide(vBUID) {
-		$('#outinfoSide').show();
-		$('#topinfoOutlet').show();
-		$('#divSide').hide();
-		$('#topinfoCountry').hide();
-		$('#topinfoDiv').hide();
-		$('#countrySide').hide();
-
-		$.ajax({
-			url: '/map/BUNIT_DETAILS',
-			type: 'POST',
-			contentType: "application/json;charset=utf-8",
-			dataType: "json",
-			data: JSON.stringify({
-				_BUID: vBUID,
-
-			}),
-			success: function (response) {
-				if (response.length > 0) {
-
-
-
-					//$("#address").html(response[0].Address);
-					//$("#populationO").html(response[0].POPULATION.toLocaleString('en-IN'));
-					//$("#malepercentO").html(response[0].MALE_PER);
-					//$("#femalepercentO").html(response[0].FEMALE_PER);
-					$("#potCust").html('Potential Customer: ' + response[0].CUST_COV.toLocaleString('en-IN'));
-
-
-					$('#backBtn').attr("data-division", response[0].SHORT_KEY);
-					$('#backBtn').attr("data-district", response[0].DISTRICT_NAME);
-
-				}
-			}
-		});
-	}
-
-	function barinfo(vDivision, type) {
-		$('#topinfoCountry').hide();
-		$('#divSide').show();
-
-
-
-		if (type == 1) {
-			$('#topinfoDiv').show();
-			$('#topinfoDist').hide();
-
-		}
-
-		if (type == 2) {
-			$('#topinfoDiv').hide();
-			$('#topinfoDist').show();
-		}
-
-		$.ajax({
-			url: '/Chart/sideInfo',
-			type: 'POST',
-			contentType: "application/json;charset=utf-8",
-			dataType: "json",
-			data: JSON.stringify({
-				_divsion: vDivision,
-				_type: type
-
-			}),
-			success: function (response) {
-
-
-
-				$("#lotto_Frn").html(0);
-				if (response.length > 0) {
-					//	alert(response[0].LOTTO_FRN);
-
-
-					if (type == 1) {
-						$("#population").html(response[0].POPULATION.toLocaleString('en-IN'));
-						$("#area").html(response[0].AREA.toLocaleString('en-IN'));
-						$("#malepercent").html(response[0].MALE_PER + '%');
-						$("#femalepercent").html(response[0].FEMALE_PER + '%');
-					}
-					if (type == 2) {
-						$("#populationDist").html(response[0].POPULATION.toLocaleString('en-IN'));
-						$("#areaDist").html(response[0].AREA.toLocaleString('en-IN'));
-						$("#malepercentDist").html(response[0].MALE_PER + '%');
-						$("#femalepercentDist").html(response[0].FEMALE_PER + '%');
-						$("#bataOutlet").html(response[0].BATA_OUTLET);
-						$("#apexOutlet").html(response[0].APEX_OUTLET);
-						$("#lotto_Frn").html(response[0].LOTTO_FRN);
-						$("#lotto_Ret").html(response[0].LOTTO_RETAIL);
-					}
-
-				}
-
-			}
-		});
-
-	}
-
-
-	function getchart_info(Code) {
-
-		$('#backBtn').show();
-		$('#topinfoDist').hide();
-		$('#distSide').hide();
-
-		outinfoSide(Code);
-
-		$.ajax({
-			url: '/Map/MAP_SALES_DATA',
-			type: 'POST',
-			contentType: "application/json;charset=utf-8",
-			dataType: "json",
-			data: JSON.stringify({
-				_BUID: Code
-			}),
-			success: function (response) {
-				if (response.length > 0) {
-
-					/*$("#heading").html(response[0].CHART_HEADING);*/
-
-
-					am4core.ready(function () {
-
-						// Themes begin
-						am4core.useTheme(am4themes_animated);
-						am4core.useTheme(am4themes_dark);
-						// Themes end
-
-						// Create chart instance
-						var chart = am4core.create("chartdiv8", am4charts.XYChart);
-						chart.scrollbarX = new am4core.Scrollbar();
-
-						// Add data
-						chart.data = response;
-
-						// Create axes
-						var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-						categoryAxis.dataFields.category = "Date";
-						categoryAxis.renderer.grid.template.location = 0;
-						categoryAxis.renderer.minGridDistance = 30;
-						categoryAxis.renderer.labels.template.horizontalCenter = "right";
-						categoryAxis.renderer.labels.template.verticalCenter = "middle";
-						categoryAxis.renderer.labels.template.rotation = 270;
-						categoryAxis.tooltip.disabled = true;
-						categoryAxis.renderer.minHeight = 110;
-
-						var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-						valueAxis.renderer.minWidth = 50;
-
-						// Create series
-						var series = chart.series.push(new am4charts.ColumnSeries());
-						series.sequencedInterpolation = true;
-						series.dataFields.valueY = "Sales";
-						series.dataFields.categoryX = "Date";
-
-
-						series.tooltipText = "Sold Value: {Tooltip}: {Sales} TK"
-
-						series.columns.template.strokeWidth = 0;
-
-						series.tooltip.pointerOrientation = "vertical";
-
-						series.columns.template.column.cornerRadiusTopLeft = 10;
-						series.columns.template.column.cornerRadiusTopRight = 10;
-						series.columns.template.column.fillOpacity = 0.8;
-
-						// on hover, make corner radiuses bigger
-						var hoverState = series.columns.template.column.states.create("hover");
-						hoverState.properties.cornerRadiusTopLeft = 0;
-						hoverState.properties.cornerRadiusTopRight = 0;
-						hoverState.properties.fillOpacity = 1;
-
-						series.columns.template.adapter.add("fill", function (fill, target) {
-							return chart.colors.getIndex(target.dataItem.index);
-						});
-
-						// Cursor
-						chart.cursor = new am4charts.XYCursor();
-						var title = chart.titles.create();
-						title.text = "Sales Trend";
-						title.fontSize = 15;
-						title.align = 'left';
-					});
-
-				}
-			}
-		});
-	}
-
-	//Category Wise Chart Starts
-	function PieGraph(Code) {
-		$.ajax({
-			type: "POST",
-			contentType: "application/json; charset=utf-8",
-			url: "/Map/OUTLET_RSALES_CAT",
-			dataType: "json",
-			data: JSON.stringify({
-				_BUID: Code
-			}),
-			success: function (response) {
-
-
-
-				// Themes begin
-				am4core.unuseTheme(am4themes_frozen);
-				am4core.unuseTheme(am4themes_kelly);
-
-				am4core.useTheme(am4themes_material);
-				am4core.useTheme(am4themes_animated);
-				am4core.useTheme(am4themes_dark);
-				// Themes end
-
-				var chart = am4core.create("chartdiv18", am4charts.PieChart3D);
-				chart.fillOpacity = 0.9;
-				chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
-
-				//chart.exporting.menu = new am4core.ExportMenu();
-				//chart.exporting.menu.align = "left";
-				//chart.exporting.menu.verticalAlign = "top";
-
-				//chart.legend = new am4charts.Legend();
-				//chart.legend.fontSize = 10;
-
-
-				chart.data = response;
-
-				var series = chart.series.push(new am4charts.PieSeries3D());
-				series.dataFields.value = "Amount";
-				series.dataFields.category = "Cat";
-				series.alignLabels = true;
-				series.fontSize = 11;
-
-				var title = chart.titles.create();
-				title.text = "Category Wise Contribution (Last One Year)";
-				title.fontSize = 15;
-				title.align = 'right';
-			}
-
-		});
-	}
-
-
-	//Category Wise Chart Ends
-
-
-
-	//Line Chart Starts
-
-
-
-	function SalesData(BUID) {
-		$('#backBtn').attr("data-outlet", BUID);
-		$('#distSide').show();
-		$.ajax({
-			url: '/Map/MAP_SALES_DATA',
-			type: 'POST',
-			contentType: "application/json;charset=utf-8",
-			dataType: "json",
-			data: JSON.stringify({
-				_BUID: BUID
-
-
-			}),
-			success: function (response) {
-				//	console.log(response.length);
-				//	alert(response.length);
-				//if (response.length == 0) {
-				//	$('#chartdiv19').innerHTML("");
-
-				//}
-				if (response != false) {
-					$("#chartdiv19").show();
-					am4core.ready(function () {
-						//Amchart Name: Date Based Data
-						// Themes begin
-						am4core.useTheme(am4themes_kelly);
-						am4core.useTheme(am4themes_dark);
-
-						// Themes end
-
-						// Create chart instance
-						var chart = am4core.create("chartdiv19", am4charts.XYChart);
-
-						chart.colors.list = [
-							am4core.color("#00FF1B"),//green
-						];
-
+		function custommap() {
+			am4core.ready(function () {
+				$.ajax({
+					url: '/Chart/OutletList',
+					type: 'POST',
+					contentType: "application/json;charset=utf-8",
+					dataType: "json",
+					success: function (response) {
 						if (response.length > 0) {
-							// Add data
-							chart.data = response;
-						} else {
-							chart.data = null;
+
+							// Themes begin
+							am4core.useTheme(am4themes_animated);
+							// Themes end
+
+							// Create map instance
+							var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+							// Set map definition
+							chart.geodata = am4geodata_bangladeshHigh;
+
+							// Set projection
+							chart.projection = new am4maps.projections.Miller();
+
+							// Create map polygon series
+							var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+
+
+							// Exclude Antartica
+							polygonSeries.exclude = ["AQ"];
+
+							// Make map load polygon (like country names) data from GeoJSON
+							polygonSeries.useGeodata = true;
+
+							// Configure series
+							var polygonTemplate = polygonSeries.mapPolygons.template;
+							polygonTemplate.tooltipText = "{name}";
+							polygonTemplate.polygon.fillOpacity = 0.6;
+							polygonTemplate.adapter.add("fill", function (fill, target) {
+
+								if (target.dataItem.index > 0) {
+
+									return chart.colors.getIndex(target.dataItem.index);
+								}
+								return fill;
+							})
+
+
+							chart.colors.list = [
+								am4core.color("#FCC7C7"),
+								am4core.color("#FCEDC7"),
+								am4core.color("#E6FCC7"),
+								am4core.color("#D2FCC7"),
+								am4core.color("#C7FCDB"),
+								am4core.color("#C7FCFC"),
+								am4core.color("#D1C7FC"),
+								am4core.color("#FCC7EC"),
+
+
+							];
+
+							// Create hover state and set alternative fill color
+							var hs = polygonTemplate.states.create("hover");
+							hs.properties.fill = chart.colors.getIndex(0);
+
+							// Add image series
+							var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+							imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+							imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+							imageSeries.mapImages.template.tooltipText = "{title}";
+							imageSeries.mapImages.template.propertyFields.url = "url";
+
+							var circle = imageSeries.mapImages.template.createChild(am4core.Circle);
+							circle.radius = 3;
+							circle.propertyFields.fill = "color";
+							circle.nonScaling = true;
+
+							var circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
+							circle2.radius = 3;
+							circle2.propertyFields.fill = "color";
+
+
+							circle2.events.on("inited", function (event) {
+								animateBullet(event.target);
+							})
+
+
+							function animateBullet(circle) {
+								var animation = circle.animate([{ property: "scale", from: .1 / chart.zoomLevel, to: .5 / chart.zoomLevel }, { property: "opacity", from: 1, to: 0 }], 1000, am4core.ease.circleOut);
+								animation.events.on("animationended", function (event) {
+									animateBullet(event.target.object);
+								})
+							}
+
+							var colorSet = new am4core.ColorSet();
+
+							var data = [];
+
+							for (let i = 0; i < response.length; i++)
+								data.push(
+									{
+										"title": response[i].ID,
+										"latitude": response[i].Lattitude,
+										"longitude": response[i].Longitude,
+										"color": colorSet.next()
+									}
+								)
+							imageSeries.data = data;
 						}
-						// Set input format for the dates
-						//chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
-
-						// Create axes
-						var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-						categoryAxis.renderer.grid.template.location = 0;
-						categoryAxis.dataFields.category = "Tooltip";
-						categoryAxis.renderer.minGridDistance = 40;
-
-
-						categoryAxis.renderer.grid.template.location = 0;
-
-						categoryAxis.renderer.labels.template.horizontalCenter = "right";
-						categoryAxis.renderer.labels.template.verticalCenter = "middle";
-						categoryAxis.renderer.labels.template.rotation = 270;
-						categoryAxis.tooltip.disabled = true;
-						categoryAxis.renderer.minHeight = 110;
-
-
-
-
-
-
-						var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-
-
-						// Create series
-						var series = chart.series.push(new am4charts.LineSeries());
-						series.dataFields.valueY = "";
-						series.dataFields.categoryX = "";
-						series.tooltipText = "{}"
-
-						series.dataFields.valueY = "Sales";
-						valueAxis.title.text = "Sold Value";
-						series.dataFields.categoryX = "Tooltip";
-						series.tooltipText = "{categoryX}: {Sales} TK"
-						series.strokeWidth = 2;
-						series.minBulletDistance = 15;
-
-
-
-
-
-
-						chart.legend = new am4charts.Legend();
-						series.name = "Sold Value";
-
-						series.fillOpacity = 0.2;
-						var fillModifier = new am4core.LinearGradientModifier();
-						fillModifier.opacities = [1, 0];
-						fillModifier.offsets = [0, 1];
-						fillModifier.gradient.rotation = 90;
-						series.segments.template.fillModifier = fillModifier;
-
-
-
-						// Drop-shaped tooltips
-						series.tooltip.background.cornerRadius = 30;
-						series.tooltip.background.strokeOpacity = 0;
-						series.tooltip.pointerOrientation = "vertical";
-						series.tooltip.label.minWidth = 30;
-						series.tooltip.label.minHeight = 30;
-						series.tooltip.label.textAlign = "middle";
-						series.tooltip.label.textValign = "middle";
-
-
-
-
-
-
-
-						// Make bullets grow on hover
-						var bullet = series.bullets.push(new am4charts.CircleBullet());
-						bullet.circle.strokeWidth = .8;
-						bullet.circle.radius = 3;
-						bullet.circle.fill = am4core.color("#fff");
-
-						var bullethover = bullet.states.create("hover");
-						bullethover.properties.scale = 1.3;
-
-
-
-
-
-
-
-						chart.cursor = new am4charts.XYCursor();
-						var title = chart.titles.create();
-						title.text = "Sales Trend of the District";
-						title.fontSize = 15;
-						title.align = 'right';
-
-						// Create vertical scrollbar and place it before the value axis
-						//chart.scrollbarY = new am4core.Scrollbar();
-						//chart.scrollbarY.parent = chart.rightAxesContainer;
-						/*chart.scrollbarY.toFront();*/
-
-						// Create a horizontal scrollbar with preview and place it underneath the date axis
-						//chart.scrollbarX = new am4charts.XYChartScrollbar();
-						//chart.scrollbarX.series.push(series);
-						//chart.scrollbarX.parent = chart.bottomAxesContainer;
-
-
-						//chart.scrollbarX = new am4core.Scrollbar();
-						//chart.scrollbarX.parent = chart.bottomAxesContainer;
-
-					});
-				} else {
-					$("#chartdiv19").hide();
-				}
-
-				//}
-			}
-		});
-	}
-
-	//Line Chart Ends
-
-
-
-
-	function ASSETRENT(Code) {
-
-		$.ajax({
-			type: "POST",
-			contentType: "application/json; charset=utf-8",
-			url: "/Map/OUTLET_ASSET_RENT_INFO",
-			dataType: "json",
-			data: JSON.stringify({
-				_BUID: Code
-			}),
-			success: function (response) {
-				console.log(response);
-
-				var result = "";
-				$('#topCompTbl').empty();
-				for (var i = 0; i < response.data4.length; i++) {
-
-					result += "<tr>"
-					result += '<td class="pr-0"> <div class="bg-primary symbol symbol-30 symbol-light mt-1" style="background-color:#b5b9bd !important"><span class="symbol-label" style="color:black !important; font-weight:bold !important">' + (i + 1) + '</span></div></td >'
-					result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm" style="color:white !important"> ' + response.data4[i].StaffName + ' </a></td>'
-
-					result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm" style="color:white !important"> ' + response.data4[i].Designation + ' </a></td>'
-					result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm" style="color:white !important"> ' + response.data4[i].SOLDVALUE.toLocaleString('en-IN') + ' ৳ </a></td>'
-					result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm" style="color:white !important"> ' + response.data4[i].COMMISION.toLocaleString('en-IN') + ' ৳ </a></td>'
-
-					result += "</tr>"
-				}
-
-				$('#topCompTbl').append(result);
-
-				//Organization_Name: 'MYMENSING-3', External_ID: 'R063', Phone_1: '01704163748', Address: 'Charpara More, Mymenshing Sadar', space: '4000', …
-				$("#heading").html("Analytical Data of: " + response.data2[0].External_ID + ' (' + response.data2[0].Organization_Name + '), ' + response.data2[0].Address);
-
-				//$("#address").html(response.data2[0].Address);
-				$("#space").html('Area: ' + response.data2[0].space.toLocaleString('en-IN'));
-				$("#rent").html('Rent: ' + response.data2[0].EXPENSE.toLocaleString('en-IN'));
-
-				$("#person").html('Sales Staff: ' + response.data3[0].TotalStaffCount);
-				am4core.ready(function () {
-
-					// Themes begin
-					am4core.useTheme(am4themes_kelly);
-					// Themes end
-
-					var chart = am4core.create("chartdiv1", am4charts.PieChart);
-					chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
-
-					chart.data = response.data1;
-					chart.radius = am4core.percent(70);
-					chart.innerRadius = am4core.percent(40);
-					chart.startAngle = 180;
-					chart.endAngle = 360;
-
-					var series = chart.series.push(new am4charts.PieSeries());
-					series.dataFields.value = "TOTAL_ASSET_COST";
-					series.dataFields.category = "CLASS";
-
-					series.slices.template.cornerRadius = 10;
-					series.slices.template.innerCornerRadius = 7;
-					series.slices.template.draggable = true;
-					series.slices.template.inert = true;
-					series.alignLabels = false;
-
-					series.hiddenState.properties.startAngle = 90;
-					series.hiddenState.properties.endAngle = 90;
-
-					series.labels.template.text = "";
-
-
-
-					series.slices.template.tooltipPosition = "fixed";
-					series.slices.template.showTooltipOn = "always";
-
-					/*chart.legend = new am4charts.Legend();*/
-
-					var title = chart.titles.create();
-					title.text = "Total Fixed Asset Valuation: " + response?.data1?.[0]?.TOTAL_VALUE.toLocaleString('en-IN') + " ৳";
-					
-					title.fontSize = 15;
-					title.align = 'right';
-					chart.title.template.fill = am4core.color("white");
-				});
-			}
-		});
-	}
-
-
-
-	function RENTINFO(Code) {
-
-		$.ajax({
-			type: "POST",
-			contentType: "application/json; charset=utf-8",
-			url: "/Chart/Rent_Details_Info",
-			dataType: "json",
-			data: JSON.stringify({
-				_BUID: Code
-			}),
-			success: function (response) {
-				console.log(response);
-
-				var result = "";
-				$('#RentInfoTable').empty();
-				for (var i = 0; i < response.length; i++) {
-
-					result += "<tr>"
-					result += '<td class="pr-0"> <div class="bg-primary symbol symbol-30 symbol-light mt-1" style="background-color:#b5b9bd !important"><span class="symbol-label" style="color:black !important; font-weight:bold !important">' + (i + 1) + '</span></div></td >'
-					result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm" style="color:white !important"> ' + response[i].Act_RStrt_Date + ' </a></td>'
-
-					result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm" style="color:white !important"> ' + response[i].Act_REnd_Date + ' </a></td>'
-					result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm" style="color:white !important"> ' + response[i].ADVANCE_AMT.toLocaleString('en-IN') + ' ৳ </a></td>'
-					result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm" style="color:white !important"> ' + response[i].Tenor + '</a></td>'
-					result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm" style="color:white !important"> ' + response[i].EXPENSE.toLocaleString('en-IN') + ' ৳ </a></td>'
-					result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm" style="color:white !important"> ' + response[i].REMAINING_ADVANCE_AMT.toLocaleString('en-IN') + ' ৳ </a></td>'
-
-					result += "</tr>"
-				}
-
-				$('#RentInfoTable').append(result);
-
-			}
-		});
-	}
-
-
-
-
-
-
-
-
-	function Back() {
-		var vType = GetType();
-		$.ajax({
-			url: '/Map/GetSelected_Org_Type',
-			type: 'POST',
-			contentType: "application/json;charset=utf-8",
-			dataType: "json",
-
-			success: function (response) {
-				type = response;
-
-				//	alert(type)
-
-				var vDiv = $('#backBtn').attr("data-division");
-				var vDist = $('#backBtn').attr("data-district");
-				var vOut = $('#backBtn').attr("data-outlet");
-
-
-
-				if (vDiv != '' && vDist == '') {
-					$('#backBtn').attr("data-district", '');
-					$('#backBtn').attr("data-outlet", '');
-					mapchange("BD-ALL", 1, type);
-					$('#topinfoCountry').show();
-					$('#topinfoDiv').hide();
-					$('#topinfoDist').hide();
-
-					$('#div_button').show();
-					$('#dist_button').hide();
-
-
-				}
-
-				if (vDiv != '' && vDist != '' && vOut == '') {
-
-					$('#backBtn').attr("data-district", '');
-					$('#backBtn').attr("data-outlet", '');
-					mapchange(vDiv, 1, type);
-					$('#topinfoDiv').show();
-					$('#topinfoDist').hide();
-
-					/*$('#distSide').show();*/
-					$('#dist_button').show();
-					$('#out_button').hide();
-				}
-
-				if (vDiv != '' && vDist != '' && vOut != '') {
-					$('#topinfoDist').show();
-
-
-
-					mapchange(vDist, 2, type);
-					/*$('#distSide').show();*/
-					/*$('#backBtn').attr("data-district", '');*/
-					$('#backBtn').attr("data-outlet", '');
-
-					$('#out_button').show();
-
-				}
-
-
-
-
-
-
-
-
-
-
-
-
-			}
-		});
-
-
-	}
-
-
-	function getOutlets(districtId) {
-		var color = 'dead99';
-		var result = '';
-		$.ajax({
-			url: '/map/OUTLET_LISTS',
-			type: 'POST',
-			contentType: "application/json;charset=utf-8",
-			dataType: "json",
-			data: JSON.stringify({
-				_DISTID: districtId
-
-			}),
-			success: function (response) {
-
-				if (response.length > 0) {
-
-
-					for (var i = 0; i < response.length; i++) {
-						if (response[i].EXTERNALID != 'G001') {
-							result += '<div class="col-md-3"><button type="button" id=' + response[i].EXTERNALID + ' data-dismiss="modal"  class="btn ' + color + ' bubbly-button btn-block" style="padding:0px; margin:5px; height: 45px !important;" onclick=Outlet_Charts("' + response[i].EXTERNALID + '")>' + response[i].ORG_NAME + ' - ' + response[i].EXTERNALID + '</button></div>';
-						}
-
 					}
-
-					$('#out_button').html(result);
-					$('#dist_button').hide();
-					$('#div_button').hide();
-					$('#out_button').show();
-
-				}
-			}
-		});
-	}
+				})
+			});
+		}
 
 
 
-	function bataApexInfo(a) {
-
-		var district = $('#backBtn').attr("data-district");
-
-		$.ajax({
-			url: '/Chart/BATA_APEX_INFO',
-			type: 'POST',
-			contentType: "application/json;charset=utf-8",
-			dataType: "json",
-			data: JSON.stringify(
-				{
-					_type: a,
-					_district: district
-				}
-			),
-			success: function (response) {
-
-				$('#bataApexTable').empty();
-
-				var result = "";
-				for (var i = 0; i < response.length; i++) {
-					result += "<tr>"
-					result += '<td class="pr-0"> <div class="bg-primary symbol symbol-30 symbol-light mt-1" style="background-color:#b5b9bd !important"><span class="symbol-label" style="color:black !important; font-weight:bold !important">' + (i + 1) + '</span></div></td >'
-					result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm" style="color:white !important"> ' + response[i].ADDRESS + ' </a></td>'
-					result += '<td class="pl-0"><a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-sm" style="font-size:18px !important; color:white !important"> ' + response[i].AREA.toLocaleString('en-IN') + ' sq. ft </a></td>'
-
-					result += "</tr>"
-				}
-
-				$('#bataApexTable').append(result);
 
 
 
-			}
-		})
-	}
-	function GetType() {
-		var type = 0;
-		$.ajax({
-			url: '/Map/GetSelected_Org_Type',
-			type: 'POST',
-			contentType: "application/json;charset=utf-8",
-			dataType: "json",
+	</script>
 
-			success: function (response) {
-				type = response;
-			}
-		});
-		return type;
-	}
-
-	function Outlet_Charts(outlet) {
-		$('#out_button').hide();
-		getchart_info(outlet);
-		PieGraph(outlet);
-		ASSETRENT(outlet);
-		RENTINFO(outlet);
-	}
-
-
-</script>
+<!-- HTML -->

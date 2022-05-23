@@ -302,7 +302,7 @@ var optionsLine = {
   }
 }
 
-var chartLine = new ApexCharts(document.querySelector('#line-adwords'), optionsLine);
+
 //chartLine.render();
 
 var optionsCircle4 = {
@@ -343,7 +343,7 @@ var optionsCircle4 = {
   },
 }
 
-var chartCircle4 = new ApexCharts(document.querySelector('#radialBarBottom'), optionsCircle4);
+
 //chartCircle4.render();
 
 
@@ -378,10 +378,6 @@ var optionsBar = {
 
 }
 
-var chartBar = new ApexCharts(
-  document.querySelector("#barchart"),
-  optionsBar
-);
 
 //chartBar.render();
 
@@ -419,9 +415,5 @@ var optionsArea = {
 
 }
 
-var chartArea = new ApexCharts(
-  document.querySelector("#areachart"),
-  optionsArea
-);
 
 //chartArea.render();

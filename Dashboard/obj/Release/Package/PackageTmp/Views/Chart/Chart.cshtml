@@ -117,43 +117,43 @@
 			<div class="card-body blackbg" style="">
 				<div class="row">
 
-						<div class="col-md-4"></div>
+					<div class="col-md-4"></div>
 
-						<div class="col-md-3">
-							<div class="form-group">
-								<div class="input-group">
-									<div class="input-group-prepend">
-										<button class="btn btn-success" type="button">Month</button>
-									</div>
-									<input autocomplete="off" type="text" placeholder="Select a Month" id="topSPersonDate" data-date-format="mm-yyyy" class="form-control" onchange="TOPSALESMAN()">
+					<div class="col-md-3">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Month</button>
 								</div>
+								<input autocomplete="off" type="text" placeholder="Select a Month" id="topSPersonDate" data-date-format="mm-yyyy" class="form-control" onchange="TOPSALESMAN()">
 							</div>
 						</div>
+					</div>
 
 
-						<div class="col-md-2">
-							<div class="form-group">
-								<div class="input-group">
-									<div class="input-group-prepend">
-										<button class="btn btn-success" type="button">Top</button>
-									</div>
-									<select class="form-control" id="topSales" onchange="TOPSALESMAN()">
-										<option selected="selected" value="10"> 10</option>
-										<option value="20">20</option>
-										<option value="30">30</option>
-										<option value="40">40</option>
-										<option value="50">50</option>
-
-									</select>
+					<div class="col-md-2">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Top</button>
 								</div>
+								<select class="form-control" id="topSales" onchange="TOPSALESMAN()">
+									<option selected="selected" value="10"> 10</option>
+									<option value="20">20</option>
+									<option value="30">30</option>
+									<option value="40">40</option>
+									<option value="50">50</option>
+
+								</select>
 							</div>
 						</div>
+					</div>
 
-						
+
 
 					<div id="chartdiv11" style="width:100%"></div>
 
-					
+
 
 
 				</div>
@@ -185,46 +185,46 @@
 
 					<div class="col-md-4"></div>
 
-						<div class="col-md-3">
-							<div class="form-group">
-								<div class="input-group">
-									<div class="input-group-prepend">
-										<button class="btn btn-success" type="button">Month</button>
-									</div>
-									<input autocomplete="off" type="text" placeholder="Select a Month" id="topArtDate" data-date-format="mm-yyyy" class="form-control" onchange="TOPARTICLE()">
+					<div class="col-md-3">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Month</button>
 								</div>
+								<input autocomplete="off" type="text" placeholder="Select a Month" id="topArtDate" data-date-format="mm-yyyy" class="form-control" onchange="TOPARTICLE()">
 							</div>
 						</div>
-
-
-						<div class="col-md-2">
-							<div class="form-group">
-								<div class="input-group">
-									<div class="input-group-prepend">
-										<button class="btn btn-success" type="button">Top</button>
-									</div>
-									<select class="form-control" id="topArt" onchange="TOPARTICLE()">
-										<option selected="selected" value="10"> 10</option>
-										<option value="20">20</option>
-										<option value="30">30</option>
-										<option value="40">40</option>
-										<option value="50">50</option>
-										<option value="60">60</option>
-										<option value="70">70</option>
-										<option value="80">80</option>
-										<option value="90">90</option>
-										<option value="100">100</option>
-
-									</select>
-								</div>
-							</div>
-						</div>
-
-						<div id="chartdiv10" style="width:100%"></div>
-
-
 					</div>
+
+
+					<div class="col-md-2">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-success" type="button">Top</button>
+								</div>
+								<select class="form-control" id="topArt" onchange="TOPARTICLE()">
+									<option selected="selected" value="10"> 10</option>
+									<option value="20">20</option>
+									<option value="30">30</option>
+									<option value="40">40</option>
+									<option value="50">50</option>
+									<option value="60">60</option>
+									<option value="70">70</option>
+									<option value="80">80</option>
+									<option value="90">90</option>
+									<option value="100">100</option>
+
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div id="chartdiv10" style="width:100%"></div>
+
+
 				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -233,7 +233,7 @@
 
 
 	$(document).ready(function () {
-	
+
 
 		var sDate = new Date();
 		$('#topArtDate').datepicker({
@@ -259,7 +259,7 @@
 
 	});
 
-	
+
 
 
 	//Top Salesman Starts
@@ -369,10 +369,9 @@
 			success: function (response) {
 
 				if (response.length > 0) {
-					
 
-					for (let i = 0; i < response.length; i++)
-					{
+
+					for (let i = 0; i < response.length; i++) {
 						if (UrlExists(response[i].href) == 404) {
 
 							href.push(
@@ -380,7 +379,7 @@
 									"ARTICLE": response[i].ARTICLE,
 									"Value": response[i].Value,
 									"href": "http://192.168.5.13:1212/assets/IMG/blank.png"
-									
+
 								}
 							)
 
@@ -396,9 +395,9 @@
 								}
 							)
 						}
-						
+
 					}
-						
+
 					console.log(href);
 
 					am4core.ready(function () {
@@ -440,11 +439,11 @@
 						valueAxis.renderer.baseGrid.strokeOpacity = 0;
 
 						var series = chart.series.push(new am4charts.ColumnSeries);
-						
+
 						series.dataFields.valueY = "Value";
 						series.tooltipText = "{valueY.value} Tk";
 
-						
+
 						series.dataFields.categoryX = "ARTICLE";
 						series.tooltip.pointerOrientation = "vertical";
 						series.tooltip.dy = - 6;

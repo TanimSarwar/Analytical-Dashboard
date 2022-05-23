@@ -6,23 +6,25 @@ using System.Web.Mvc;
 using System.Data;
 using Dashboard.DAL;
 using Dashboard.Utilities;
+using System.Threading.Tasks;
+
 namespace Dashboard.Controllers
 {
 	public class MapController : Controller
 	{
-		ChartDAL chartDAL = new ChartDAL();
+		MapDAL mapDAL = new MapDAL();
+
 		BasicUtilities basicUtilities = new BasicUtilities();
-		// GET: Map
+
 		public ActionResult Index()
 		{
+			Session["Selected_OutletType"] = 100;
+			ViewBag.Selected_OutletType = 100;
 			return View();
 		}
 
 		public ActionResult Map()
 		{
-
-			Session["Selected_OutletType"] = 100;
-			ViewBag.Selected_OutletType = 100;
 			return View();
 		}
 		[HttpPost]
@@ -32,7 +34,7 @@ namespace Dashboard.Controllers
 			{
 				if (_BUID != "")
 				{
-					DataTable dt = chartDAL.MAP_SALES_DATA(_BUID);
+					DataTable dt = mapDAL.MAP_SALES_DATA(_BUID);
 					List<Dictionary<string, object>> _List = basicUtilities.GetTableRows(dt);
 
 					return Json(_List);
@@ -46,13 +48,12 @@ namespace Dashboard.Controllers
 			}
 		}
 
-
 		[HttpPost]
 		public JsonResult OUTLET_RSALES_CAT(string _BUID)
 		{
 			try
 			{
-				DataTable dt = chartDAL.OUTLET_RSALES_CAT(_BUID);
+				DataTable dt = mapDAL.OUTLET_RSALES_CAT(_BUID);
 				List<Dictionary<string, object>> _List = basicUtilities.GetTableRows(dt);
 
 				return Json(_List);
@@ -62,21 +63,18 @@ namespace Dashboard.Controllers
 				return Json(ex.Message);
 			}
 		}
-
-
-
 
 		[HttpPost]
 		public JsonResult OUTLET_ASSET_RENT_INFO(string _BUID)
 		{
 			try
 			{
-				DataSet dt = chartDAL.OUTLET_ASSET_RENT_INFO(_BUID);
+				DataSet dt = mapDAL.OUTLET_ASSET_RENT_INFO(_BUID);
 				List<Dictionary<string, object>> _List1 = basicUtilities.GetTableRows(dt.Tables[0]);
 				List<Dictionary<string, object>> _List2 = basicUtilities.GetTableRows(dt.Tables[1]);
 				List<Dictionary<string, object>> _List3 = basicUtilities.GetTableRows(dt.Tables[2]);
 				List<Dictionary<string, object>> _List4 = basicUtilities.GetTableRows(dt.Tables[3]);
-				return Json(new { data1 = _List1, data2 = _List2, data3 = _List3, data4= _List4 }, JsonRequestBehavior.AllowGet);
+				return Json(new { data1 = _List1, data2 = _List2, data3 = _List3, data4 = _List4 }, JsonRequestBehavior.AllowGet);
 			}
 			catch (Exception ex)
 			{
@@ -84,15 +82,12 @@ namespace Dashboard.Controllers
 			}
 		}
 
-
-
-
 		[HttpPost]
 		public JsonResult BUNIT_DETAILS(string _BUID)
 		{
 			try
 			{
-				DataTable dt = chartDAL.BUNIT_DETAILS(_BUID);
+				DataTable dt = mapDAL.BUNIT_DETAILS(_BUID);
 				List<Dictionary<string, object>> _List = basicUtilities.GetTableRows(dt);
 
 				return Json(_List);
@@ -102,9 +97,6 @@ namespace Dashboard.Controllers
 				return Json(ex.Message);
 			}
 		}
-
-
-
 
 		[HttpPost]
 		public JsonResult DIST_LISTS(string _DIVID, int _ORGTYPE)
@@ -113,7 +105,7 @@ namespace Dashboard.Controllers
 			{
 				int DivId = Convert.ToInt32(_DIVID);
 				_ORGTYPE = Convert.ToInt32(Session["Selected_OutletType"].ToString());
-				DataTable dt = chartDAL.DIST_LISTS(DivId, _ORGTYPE);
+				DataTable dt = mapDAL.DIST_LISTS(DivId, _ORGTYPE);
 				List<Dictionary<string, object>> _List = basicUtilities.GetTableRows(dt);
 
 				return Json(_List);
@@ -131,7 +123,7 @@ namespace Dashboard.Controllers
 			{
 				int DistId = Convert.ToInt32(_DISTID);
 				int _ORGTYPE = Convert.ToInt32(Session["Selected_OutletType"].ToString());
-				DataTable dt = chartDAL.OUTLET_LISTS(DistId, _ORGTYPE);
+				DataTable dt = mapDAL.OUTLET_LISTS(DistId, _ORGTYPE);
 				List<Dictionary<string, object>> _List = basicUtilities.GetTableRows(dt);
 
 				return Json(_List);
@@ -173,7 +165,7 @@ namespace Dashboard.Controllers
 					_MapType = 100;
 				}
 				_MapType = Convert.ToInt32(Session["Selected_OutletType"].ToString());
-			
+
 				return Json(_MapType);
 			}
 			catch (Exception ex)
@@ -187,7 +179,108 @@ namespace Dashboard.Controllers
 		{
 			try
 			{
-				DataTable dt = chartDAL.TotalSales();
+				DataTable dt = mapDAL.TotalSales();
+				List<Dictionary<string, object>> _List = basicUtilities.GetTableRows(dt);
+
+				return Json(_List);
+			}
+			catch (Exception ex)
+			{
+				return Json(ex.Message);
+			}
+		}
+
+		[HttpPost]
+		public async Task<JsonResult> BATA_APEX_INFO(string _type, string _district)
+		{
+			try
+			{
+
+				int type = 0;
+				if (_type == "Bata")
+				{
+					type = 1;
+				}
+				if (_type == "Apex")
+				{
+					type = 2;
+				}
+				DataTable dt = await Task.Run(() => mapDAL.BATA_APEX_INFO(type, _district));
+				List<Dictionary<string, object>> _List = basicUtilities.GetTableRows(dt);
+
+				return Json(_List);
+			}
+			catch (Exception ex)
+			{
+				return Json(ex.Message);
+			}
+		}
+
+		[HttpPost]
+		public JsonResult OutletLists(string _DivisionID, int _MapType, int _FILT_TYPE)
+		{
+			try
+			{
+				string _Msg;
+				DataTable dt_OutletList = mapDAL.GetOutletDatas(_DivisionID, _MapType, _FILT_TYPE);
+
+				if (dt_OutletList.Rows.Count > 0)
+				{
+					_Msg = "DONE";
+					List<Dictionary<string, object>> _OutletList = basicUtilities.GetTableRows(dt_OutletList);
+					return Json(_OutletList);
+				}
+				else
+				{
+					_Msg = "ERROR";
+					return Json(_Msg);
+				}
+			}
+			catch (Exception ex)
+			{
+				return Json(ex.Message);
+
+			}
+		}
+
+		[HttpPost]
+		public JsonResult sideInfo(string _divsion, int _type)
+		{
+			try
+			{
+				DataTable dt = mapDAL.sideInfo(_divsion, _type);
+				List<Dictionary<string, object>> _List = basicUtilities.GetTableRows(dt);
+
+				return Json(_List);
+			}
+			catch (Exception ex)
+			{
+				return Json(ex.Message);
+			}
+		}
+
+		[HttpPost]
+		public JsonResult Rent_Details_Info(string _BUID)
+		{
+			try
+			{
+				DataTable dt = mapDAL.Rent_Details_Info(_BUID);
+				List<Dictionary<string, object>> _List = basicUtilities.GetTableRows(dt);
+
+				return Json(_List);
+			}
+			catch (Exception ex)
+			{
+				return Json(ex.Message);
+			}
+		}
+
+		[HttpPost]
+		public JsonResult Factory_Productuon_Info(string _Type)
+		{
+			try
+			{
+				DataTable dt = mapDAL.Factory_Productuon_Info(_Type);
 				List<Dictionary<string, object>> _List = basicUtilities.GetTableRows(dt);
 
 				return Json(_List);
